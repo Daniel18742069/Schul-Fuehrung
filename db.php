@@ -1,7 +1,6 @@
 <?php
 
 class DB {
-    //put your code here
     private static $db = null;
     
     // Konstruktor privat machen, damit er nicht aufgerufen werden kann
@@ -13,7 +12,7 @@ class DB {
        
        if (self::$db == NULL){
         try{
-         self::$db = new PDO('mysql:host=localhost;dbname=fussball_db;charset=utf8', 'football','football');
+         self::$db = new PDO('mysql:host=localhost;dbname=schulfuehrung;charset=utf8', 'schulfuehrung_admin','schulfuehrung_admin');
          self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e){
