@@ -13,6 +13,8 @@ class Anmeldung{
     private $fuehrung_id = 0;
     private $anzahl = 0;
 
+    
+
 
 
 
