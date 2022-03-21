@@ -1,6 +1,6 @@
 <?php
 
-class Offener_Tag{
+class Offener_tag{
 
     use Entity;
 
@@ -18,8 +18,34 @@ class Offener_Tag{
 
 
 
+    public function loeschen(){
 
+        $sql = 'DELETE FROM offener_tag WHERE id=?';
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute( array($this->getId()) );
 
+        $this->id =0;
+        
+    }
+
+    private function _insert(){
+
+        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)' 
+                . 'VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+
+    }
+
+    private function _update(){
+
+        $sql ='UPDATE offener_tag SET bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE datum =:datum';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
+
+    }
 
     public function getDatum(){
         return $this->datum;
@@ -74,6 +100,19 @@ class Offener_Tag{
 
         return $this;
     }
+
+    public static function findeAlleOffener_tag() {
+        $sql = 'SELECT * FROM offener_tag';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        return $abfrage->fetchAll();
+    }
+
+    
+
+
+
+
 }
 
 

@@ -27,7 +27,7 @@
 
         public function speichere(){
         
-            if($this->getId() >0){
+            if($this->getId() >0 | $this->datum != ""){
                 $this->_update();
             }else{
                 $this->_insert();
