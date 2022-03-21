@@ -15,11 +15,6 @@ body{
     text-align: center;
 }
 
-#map {
-    height: 400px;
-    width: 100%;
-}
-
 .gmap_canvas {
     overflow:hidden;
     background:none!important;
@@ -28,8 +23,27 @@ body{
 }
 
 .mapouter{
+    margin-top: 100rem;
     position:relative;
     text-align:right;
     height:500px;
     width:600px;
+}
+
+.box{
+    width: 750px;
+}
+
+.kalenderbox {
+    padding: 1rem 0.5rem;
+    border: 1px solid;
+    margin: 0.5rem 0;
+}
+
+.lehrer{
+    text-align: center;
+}
+
+.kapazitaet{
+    text-align: right;
 }

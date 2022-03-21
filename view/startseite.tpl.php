@@ -27,6 +27,8 @@
         </div>
 
 
+
+        <div class="box">
         <!-- Tabs Fachrichtung -->
         <div class="navbar-wrapper">
             <button class="info_elektro-button" onclick="openCalender('info_elektro')">Informatik / Elektrotechnik</button>
@@ -41,24 +43,53 @@
         <div>
             <div id="info_elektro" class="fachrichtung">
                 <h2>Informatik / Elektrotechnik</h2>
-                <p>TEST TEST Info Elektro</p>
+                <?php $counter = 8;
+                for ($i = 0; $i <= 10; $i++){ ?>
+                <div class="kalenderbox">
+                    <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
+                    <span class="lehrer">Lehrer</span>
+                    <span class="kapazitaet">0/10</span>
+                </div>
+                <?php $counter++; } ?>
             </div>
 
             <div id="elektro_mechatronik" class="fachrichtung" style="display:none">
                 <h2>Elektrotechnik / Mechatronik</h2>
-                <p>TEST TEST Elektro Mechatronik</p>
+                <?php $counter = 8;
+                for ($i = 0; $i <= 10; $i++){ ?>
+                <div class="kalenderbox">
+                    <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
+                    <span class="lehrer">Lehrer</span>
+                    <span class="kapazitaet">0/10</span>
+                </div>
+                <?php $counter++; } ?>
             </div>
 
             <div id="friseur" class="fachrichtung" style="display:none">
                 <h2>Friseur</h2>
-                <p>TEST TEST Friseur</p>
+                <?php $counter = 8;
+                for ($i = 0; $i <= 10; $i++){ ?>
+                <div class="kalenderbox">
+                    <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
+                    <span class="lehrer">Lehrer</span>
+                    <span class="kapazitaet">0/10</span>
+                </div>
+                <?php $counter++; } ?>
             </div>
 
             <div id="holzbau" class="fachrichtung" style="display:none">
                 <h2>Holzbau</h2>
-                <p>TEST TEST Holzbau</p>
+                <?php $counter = 8;
+                for ($i = 0; $i <= 10; $i++){ ?>
+                <div class="kalenderbox">
+                    <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
+                    <span class="lehrer">Lehrer</span>
+                    <span class="kapazitaet">0/10</span>
+                </div>
+                <?php $counter++; } ?>
             </div>
         </div>
+    </div>
 
 
         </section>
@@ -68,11 +99,8 @@
             <!-- map -->
             <div class="mapouter">
                 <div class="gmap_canvas">
-                    <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=39100,%20Romstra%C3%9Fe%2020&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    <iframe width="425" height="160" id="gmap_canvas" src="https://maps.google.com/maps?q=39100,%20Romstra%C3%9Fe%2020&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                     </iframe>
-                    <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/"></a>
-                    <br>
-                    <a href="https://www.embedgooglemap.net">how to add google map</a>
                     </div>
                 </div>
         </footer>
