@@ -62,7 +62,7 @@ body{
 }
 
 .box{
-    width: 750px;
+    width: 100%;
 }
 
 .kalenderbox {
@@ -84,14 +84,21 @@ body{
 }
 .tabs label {
 	order: 1;
-	display: block;
-	padding: 1rem 2rem;
 	margin-right: 0.2rem;
-	cursor: pointer;
-  background: #90CAF9;
-  font-weight: bold;
-  transition: background ease 0.2s;
+  color: #212529;
+  background-color: #f5c400;
+  border-color: #e6b800;
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
 }
+
+.tabs label:hover {
+  cursor: pointer;
+  background-color: rgba(245, 196, 0, 0.8);
+}
+
 .tabs .tab {
   order: 99;
   flex-grow: 1;
