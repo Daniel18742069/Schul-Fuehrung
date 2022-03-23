@@ -117,6 +117,20 @@ body{
 	display: block;
 }
 
+.tabs label:hover {
+  color: #212529;
+  background-color: #cfa500;
+  border-color: #b38f00;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+}
+
+.tabs label:active {
+  color: #e9ecef;
+  background-color: #a18308;
+  border: solid #a18308;
+  background-color: #cfa500;
+}
+
 @media (max-width: 45em) {
   .tabs .tab,
   .tabs label {

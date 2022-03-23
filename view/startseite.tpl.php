@@ -33,17 +33,9 @@
             <title>Schulführung</title>
         </head>
 
-
-        <div class="box">
-            <!-- Tabs Fachrichtung -->
-            <div class="navbar-wrapper">
-                <button class="info_elektro-button" onclick="openCalender('info_elektro')">Informatik / Elektrotechnik</button>
-                <button class="elektro_mechatronik-button" onclick="openCalender('elektro_mechatronik')">Elektrotechnik / Mechatronik</button>
-                <button class="friseur-button" onclick="openCalender('friseur')">Friseur</button>
-                <button class="holzbau-button" onclick="openCalender('holzbau')">Holzbau</button>
-            </div>
-
             <body>
+
+            <div class="box">
 
                 <!-- Tabs Fachrichtung -->
                 <div class="tabs">
