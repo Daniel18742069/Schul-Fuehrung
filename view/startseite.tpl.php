@@ -52,18 +52,18 @@
                     <div class="tab">
                     </div>
 
-                    <input type="button" name="tabs" id="tab_two" class="elektro_mechatronik-button" onclick="openCalender('elektro_mechatronik')">
-                    <label for="tab_two">Elektrotechnik / Mechatronik</label>
+                    <input type="button" name="tabs" id="tab_mechatronik" class="elektro_mechatronik-button" onclick="openCalender('elektro_mechatronik')">
+                    <label for="tab_mechatronik">Elektrotechnik / Mechatronik</label>
                     <div class="tab">
                     </div>
 
-                    <input type="button" name="tabs" id="tab_three" class="friseur-button" onclick="openCalender('friseur')">
-                    <label for="tab_three">Friseur</label>
+                    <input type="button" name="tabs" id="tab_friseur" class="friseur-button" onclick="openCalender('friseur')">
+                    <label for="tab_friseur">Friseur</label>
                     <div class="tab">
                     </div>
 
-                <input type="button" name="tabs" id="tab_four" class="holzbau-button" onclick="openCalender('holzbau')">
-                    <label for="tab_four">Holzbau</label>
+                <input type="button" name="tabs" id="tab_holz" class="holzbau-button" onclick="openCalender('holzbau')">
+                    <label for="tab_holz">Holzbau</label>
                     <div class="tab">
                     </div>
                 </div>
