@@ -62,18 +62,13 @@
 
                 <!-- Kalender -->
                 <div>
-                    <div id="info_elektro" class="fachrichtung">
-                        <h2>Informatik / Elektrotechnik</h2>
-                        <p>TEST TEST Info Elektro</p>
-                    </div>
-
                     <!-- Kalender -->
                     <div>
                         <div id="info_elektro" class="fachrichtung">
                             <h2>Informatik / Elektrotechnik</h2>
                             <?php $counter = 8;
                             for ($i = 0; $i <= 10; $i++) { ?>
-                                <div class="kalenderbox">
+                                <div class="kalenderbox"> 
                                     <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
                                     <span class="lehrer">Lehrer</span>
                                     <span class="kapazitaet">0/10</span>
@@ -122,13 +117,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Untertitel & kurzer Text -->
-                <div>
-                    <h2>Zeit für einen Rundgang?</h2>
-                    <span>Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler an.<br />
-                        <p>Reservieren Sie eine Führung noch Heute!</p>
-                    </span>
-                </div>
 
 
                 <footer>
@@ -144,20 +132,6 @@
 
 
     </section>
-
-
-    <footer>
-        <!-- map -->
-        <div class="mapouter">
-            <div class="gmap_canvas">
-                <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=39100,%20Romstra%C3%9Fe%2020&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                </iframe>
-                <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/"></a>
-                <br>
-                <a href="https://www.embedgooglemap.net">how to add google map</a>
-            </div>
-        </div>
-    </footer>
 
 </body>
 
