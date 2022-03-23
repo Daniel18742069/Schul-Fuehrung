@@ -4,6 +4,7 @@ class Offener_tag{
 
     use Entity;
 
+    private $id = 0;
     private $datum = "";
     private $bezeichnung = "";
     private $status = 0;
@@ -40,7 +41,7 @@ class Offener_tag{
 
     private function _update(){
 
-        $sql ='UPDATE offener_tag SET bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE datum =:datum';
+        $sql ='UPDATE offener_tag SET datum =:datum, bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE datum =:datum';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray());
@@ -113,6 +114,26 @@ class Offener_tag{
 
 
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 }
 
 

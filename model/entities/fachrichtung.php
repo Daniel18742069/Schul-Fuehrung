@@ -8,11 +8,6 @@ class Fachrichtung{
     private $beschreibung = "";
     
 
-
-
-
-
-
     public function getId(){
         return $this->id;
     }

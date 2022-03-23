@@ -13,6 +13,14 @@ require_once 'controller/controller.php';
     $offener_tag = new Offener_tag($_POST);
     var_dump($offener_tag);
 
-    //$offener_tag->speichern();
+    $offener_tag->speichere();
+
+
+
+
+    
+
+    
+    
 
 ?>
