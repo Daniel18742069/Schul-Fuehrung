@@ -69,18 +69,13 @@
 
                 <!-- Kalender -->
                 <div>
-                    <div id="info_elektro" class="fachrichtung">
-                        <h2>Informatik / Elektrotechnik</h2>
-                        <p>TEST TEST Info Elektro</p>
-                    </div>
-
                     <!-- Kalender -->
                     <div>
                         <div id="info_elektro" class="fachrichtung">
                             <h2>Informatik / Elektrotechnik</h2>
                             <?php $counter = 8;
                             for ($i = 0; $i <= 10; $i++) { ?>
-                                <div class="kalenderbox">
+                                <div class="kalenderbox"> 
                                     <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
                                     <span class="lehrer">Lehrer</span>
                                     <span class="kapazitaet">0/10</span>
