@@ -39,43 +39,49 @@
 
                 <!-- Tabs Fachrichtung -->
                 <div class="tabs" class="active">
-                    <input type="button" name="tabs" id="tab_elektro" checked="checked" class="info_elektro-button" onclick="openCalender('info_elektro')">
+                    <input type="button" name="tabs" data-tab-target="#info_elektro" id="tab_elektro" checked="checked" class="info_elektro-button active tab" onclick="openCalender('info_elektro')">
                     <label for="tab_elektro">Informatik / Elektrotechnik</label>
-                    <div class="tab">
-                    </div>
-
-                    <input type="button" name="tabs" id="tab_mechatronik" class="elektro_mechatronik-button" onclick="openCalender('elektro_mechatronik')">
+                   
+                    <input type="button" name="tabs" data-tab-target="#elektro_mechatronik" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">
                     <label for="tab_mechatronik">Elektrotechnik / Mechatronik</label>
-                    <div class="tab">
-                    </div>
-
-                    <input type="button" name="tabs" id="tab_friseur" class="friseur-button" onclick="openCalender('friseur')">
+            
+                    <input type="button" name="tabs" data-tab-target="#friseur" id="tab_friseur" class="friseur-button tab" onclick="openCalender('friseur')">
                     <label for="tab_friseur">Friseur</label>
-                    <div class="tab">
-                    </div>
-
-                    <input type="button" name="tabs" id="tab_holz" class="holzbau-button" onclick="openCalender('holzbau')">
+                 
+                    <input type="button" name="tabs" data-tab-target="#holzbau" id="tab_holz" class="holzbau-button tab" onclick="openCalender('holzbau')">
                     <label for="tab_holz">Holzbau</label>
-                    <div class="tab">
-                    </div>
                 </div>
 
-                <script>
-                    $('.tabs label').on('click', function() {
-                        $('.tabs .active label').removeClass('active');
-                        $(this).addClass('active');
-                    });
+                    <script>
+                    const tabs = document.querySelectorAll('[data-tab-target]')
+                    const tabContents = document.querySelectorAll('[data-tab-content]')
+
+                    tabs.forEach(tab => {
+                        tab.addEventListener('click', () => {
+                            const target = document.querySelector(tab.dataset.tabTarget)
+                            tabContents.forEach(tabContent => {
+                                tabContent.classList.remove('active')
+                            })
+                            tabs.forEach(tab => {
+                                tab.classList.remove('active')
+                            })
+                            tab.classList.add('active')
+                            target.classList.add('active')
+                        })
+                    })
                 </script>
 
+                </div>
+
                 <!-- Kalender -->
-                <div>
+                <div class="tab-content">
                     <!-- Kalender -->
                     <div>
-                        <div id="info_elektro" class="fachrichtung">
+                        <div id="info_elektro" data-tab-content class="fachrichtung active">
                             <h2>Informatik / Elektrotechnik</h2>
                             <?php $counter = 8;
                             for ($i = 0; $i <= 10; $i++) { ?>
-                                <div class="kalenderbox"> 
+                                <div class="kalenderbox">
                                     <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
                                     <span class="lehrer">Lehrer</span>
                                     <span class="kapazitaet">0/10</span>
@@ -84,7 +90,7 @@
                             } ?>
                         </div>
 
-                        <div id="elektro_mechatronik" class="fachrichtung" style="display:none">
+                        <div id="elektro_mechatronik" data-tab-content class="fachrichtung" style="display:none">
                             <h2>Elektrotechnik / Mechatronik</h2>
                             <?php $counter = 8;
                             for ($i = 0; $i <= 10; $i++) { ?>
@@ -97,7 +103,7 @@
                             } ?>
                         </div>
 
-                        <div id="friseur" class="fachrichtung" style="display:none">
+                        <div id="friseur" data-tab-content class="fachrichtung" style="display:none">
                             <h2>Friseur</h2>
                             <?php $counter = 8;
                             for ($i = 0; $i <= 10; $i++) { ?>
@@ -110,7 +116,7 @@
                             } ?>
                         </div>
 
-                        <div id="holzbau" class="fachrichtung" style="display:none">
+                        <div id="holzbau" data-tab-content class="fachrichtung" style="display:none">
                             <h2>Holzbau</h2>
                             <?php $counter = 8;
                             for ($i = 0; $i <= 10; $i++) { ?>
