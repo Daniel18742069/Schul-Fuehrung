@@ -37,3 +37,9 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
     }
     document.getElementById(rudr_tab_id).className = 'tab active';
 }
+
+
+function clickedColor(fachrichtung) {
+    var x = document.getElementsByClassName(fachrichtung);
+    x.style.color = "red";
+}

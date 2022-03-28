@@ -39,7 +39,7 @@
 
                 <!-- Tabs Fachrichtung -->
                 <div class="tabs" class="active">
-                    <input type="button" href="javascript:rudrSwitchTab('tab_elektro', 'content_1');" name="tabs" id="tab_elektro" checked="checked" class="info_elektro-button active tab" onclick="openCalender('info_elektro')">
+                    <input type="button" href="javascript:rudrSwitchTab('tab_elektro', 'content_1');" name="tabs" id="tab_elektro" checked="checked" class="info_elektro-button active tab" onclick="openCalender('info_elektro'); onclick=clickedColor('info_elektro-button')">
                     <label for="tab_elektro">Informatik / Elektrotechnik</label>
 
                     <input type="button" href="javascript:rudrSwitchTab('tab_mechatronik', 'content_2');" name="tabs" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">
