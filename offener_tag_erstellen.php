@@ -15,6 +15,9 @@ require_once 'controller/controller.php';
 
     $offener_tag->speichere();
 
+    header('Location: genauereEinstellungen.php');
+
+
 
 
 

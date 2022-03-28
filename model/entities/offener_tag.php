@@ -36,6 +36,8 @@ class Offener_tag{
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));
+        
+        //$this->setId() = DB::getDB()->lastInsertId();
 
     }
 
@@ -109,7 +111,12 @@ class Offener_tag{
         return $abfrage->fetchAll();
     }
 
-    
+    public static function findeNeuestenOffenenTag() {
+        $sql = 'SELECT * FROM offener_tag ORDER BY id DESC LIMIT 1';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        return $abfrage->fetch();
+    }
 
 
 

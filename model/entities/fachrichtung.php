@@ -8,6 +8,15 @@ class Fachrichtung{
     private $beschreibung = "";
     
 
+
+
+    public static function findeAlleFachrichtungen() {
+        $sql = 'SELECT * FROM fachrichtung';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fachrichtung');
+        return $abfrage->fetchAll();
+    }
+
     public function getId(){
         return $this->id;
     }

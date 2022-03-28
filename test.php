@@ -34,6 +34,35 @@ var_dump(Offener_tag::findeAlleOffener_tag());
             
             <p><input type="submit" value="Erstellen" /></p>
         </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         <script>
 
         var feld = 0;

@@ -13,6 +13,14 @@ class Fuehrung{
     private $offener_tag_id  = "";
 
 
+
+    public static function findeAlleFuehrungen() {
+        $sql = 'SELECT * FROM fuehrung';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
+
     public function getId()
     {
         return $this->id;
