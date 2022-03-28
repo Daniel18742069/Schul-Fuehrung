@@ -14,17 +14,17 @@
     <!-- Titel, Breadcrumbs -->
     <header class="header">
         <h1>Führung Buchen</h1>
-        <p>Breadcrumbs...</p>
     </header>
 
 
-    <section class="wrapper">
+    <section class="accordion-wrapper">
 
         <!-- Untertitel & kurzer Text -->
         <div>
             <h2>Zeit für einen Rundgang?</h2>
-            <span>Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler an.<br />
-                <p>Reservieren Sie eine Führung noch Heute!</p>
+            <span>
+                <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler an.</p>
+                <p class="textZwei">Reservieren Sie eine Führung noch Heute!</p>
             </span>
         </div>
 
@@ -39,16 +39,16 @@
 
                 <!-- Tabs Fachrichtung -->
                 <div class="tabs" class="active">
-                    <input type="button" href="javascript:rudrSwitchTab('tab_elektro', 'content_1');" name="tabs" id="tab_elektro" checked="checked" class="info_elektro-button active tab" onclick="openCalender('info_elektro'); onclick=clickedColor('info_elektro-button')">
+                    <input type="button" name="tabs" id="tab_elektro" class="info_elektro-button active tab" onclick="openCalender('info_elektro')">
                     <label for="tab_elektro">Informatik / Elektrotechnik</label>
 
-                    <input type="button" href="javascript:rudrSwitchTab('tab_mechatronik', 'content_2');" name="tabs" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">
+                    <input type="button" name="tabs" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">
                     <label for="tab_mechatronik">Elektrotechnik / Mechatronik</label>
 
-                    <input type="button" href="javascript:rudrSwitchTab('tab_friseur', 'content_3');" name="tabs" id="tab_friseur" class="friseur-button tab" onclick="openCalender('friseur')">
+                    <input type="button" name="tabs" id="tab_friseur" class="friseur-button tab" onclick="openCalender('friseur')">
                     <label for="tab_friseur">Friseur</label>
 
-                    <input type="button" href="javascript:rudrSwitchTab('tab_holz', 'content_4');" name="tabs" id="tab_holz" class="holzbau-button tab" onclick="openCalender('holzbau')">
+                    <input type="button" name="tabs" id="tab_holz" class="holzbau-button tab" onclick="openCalender('holzbau')">
                     <label for="tab_holz">Holzbau</label>
                 </div>
 
@@ -58,7 +58,7 @@
             <div class="tab-content">
                 <!-- Kalender -->
                 <div>
-                    <div id="info_elektro" data-tab-content class="fachrichtung active">
+                    <div id="info_elektro" data-tab-content class="fachrichtung active" style="display:none">
                         <h2>Informatik / Elektrotechnik</h2>
                         <?php $counter = 8;
                         for ($i = 0; $i <= 10; $i++) { ?>
