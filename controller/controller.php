@@ -37,6 +37,10 @@ class Controller
                 $_REQUEST['fuehrung_id'],
                 $_REQUEST['anzahl']
             );
+
+            if ($Anmelden->validate_data()) {
+                #proceed
+            }
         }
         $this->addContext('anmeldung', 'hallo');
     }

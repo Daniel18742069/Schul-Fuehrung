@@ -5,14 +5,15 @@ class Anmeldung
 
     use Entity;
 
-    private $token = "";
-    private $datum = "";
-    private $telefon = 0;
-    private $vorname = "";
-    private $nachname = "";
-    private $email = "";
-    private $fuehrung_id = 0;
-    private $anzahl = 0;
+    private int $id = 0;
+    private string $token = '';
+    private string $datum = '';
+    private string $telefon = '';
+    private string $vorname = '';
+    private string $nachname = '';
+    private string $email = '';
+    private int $fuehrung_id = 0;
+    private int $anzahl = 0;
 
 
 
@@ -125,18 +126,59 @@ class Anmeldung
 
     private static function generate_token(): string
     {
-        $characters = 'abcdefghijklmnopqrstuvwxyz';
-        $random = mt_rand(0, strlen($characters) - 1);
-        $letter = $characters[$random];
-
         $unixtime = microtime(true);
 
-        return $letter . $unixtime;
+        $letter = chr(mt_rand(97, 122));
+
+        return $unixtime . $letter;
     }
 
     public function validate_data(): bool
     {
+        return $this->validate_datum($this->datum)
+            && $this->validate_telefon($this->telefon)
+            && $this->validate_name($this->vorname)
+            && $this->validate_name($this->nachname)
+            && $this->validate_email($this->email);
+    }
 
-        return true;
+    private function validate_datum(string $date, $format = 'Y-m-d'): bool
+    {
+        $date_format = DateTime::createFromFormat($format, $date);
+
+        return $date_format
+            && $date_format->format($format) === $date;
+    }
+
+    private function validate_telefon(string $telefon): bool
+    {
+        $telefon_length = strlen($telefon);
+
+        return $telefon
+            && preg_match_all('/^[0-9 ]{3,}$/', $telefon) == $telefon_length;
+    }
+
+    private function validate_name(string $name): bool
+    {
+        $name_length = strlen($name);
+
+        return $name
+            && preg_match_all('/^[a-z]{3,}$/i', $name) == $name_length;
+    }
+
+    private function validate_email(string $email): bool
+    {
+        return $email
+            && preg_match('/^[-._a-z1-9]+[@][a-z1-9]+[.][a-z]{2,3}$/i', $email);
+    }
+
+    private function validate_fuehrung_id(int $fuehrung_id): bool
+    {
+        # logic needs to be written
+    }
+
+    private function validate_anzahl(int $anzahl): bool
+    {
+        # logic needs to be written
     }
 }
