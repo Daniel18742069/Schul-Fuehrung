@@ -14,7 +14,7 @@ require_once 'controller/controller.php';
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./view/style/styles.css">
-        <title>asda$platzhalter für </title>
+        <title>genauere detauls</title>
     </head>
 
     <?php   var_dump(Offener_tag::findeNeuestenOffenenTag());
@@ -23,25 +23,55 @@ require_once 'controller/controller.php';
 
     <body>
         <p>Welche Fachrichtungen sollen angeboten werden?</p>
-        <?php foreach ($fachrichtungen as $key => $value) {
-            ?>
-            <div>
-            <input type="checkbox" id="<?=$value->getId()?>" name="<?=$key?>">
-            <label for="<?=$key?>"><?=$value->getBeschreibung()?></label>
-          </div>
-          <?php
-        }
-        ?>
-
-
-        <form action="offener_tag_erstellen.php" method="post" >
-            <p>bezeichnung: <input type="text" name="bezeichnung" id="bezeichnung" required/></p>
-            <p>Intervall: <input type="number" name="intervall" id="intervall" min="0" required/></p>
-            <p>Datum: <input type="date" name="datum" id="datum" required/></p>
-            <p>Startuhrzeit: <input type="time" name="start" id="start" required/></p>
-            <p>Enduhrzeit: <input type="time" name="ende" id="ende" required/></p>
+        <div id="unsichtbar">
+            <?php foreach ($fachrichtungen as $key => $value) {
+                ?>
+                <div id="form<?=$key?>">
+            </div>
+                <div >
+                <label for="<?=$key?>"> <input type="checkbox" name="color" value="<?=$key?>" id="<?=$key?>"><?=$value->getBeschreibung()?></label>
+            </div>
             
-            <p><input type="submit" value="Erstellen" /></p>
-        </form>
+            <?php
+            }
+            ?>
+        
+        <p>
+            <button id="btn">akzeptieren</button>
+        </p>
+    </div>
+
+    <script>
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', (event) => {
+            let checkboxes = document.querySelectorAll('input[name="color"]:checked');
+            let values = [];
+            checkboxes.forEach((checkbox) => {
+                values.push(checkbox.value);
+            });
+            if(values == ""){
+                alert("nix");
+            }
+            else{
+                alert(values);
+                erstelleFormular(values);
+            }
+            
+        });
+
+
+        function erstelleFormular(values){
+            document.getElementById("unsichtbar").style.display="none";
+            for (let index = 0; index < values.length; index++) {
+                document.getElementById("form"+values[index]).innerHTML = values[index];
+                
+            };
+            console.log('Hallo');
+            
+
+
+        }
+    </script>
+    
 </body>
 </html>
