@@ -124,6 +124,15 @@ class Anmeldung
         $this->anzahl = $anzahl;
     }
 
+    public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
+    {
+        $sql = 'SELECT * FROM anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
+
     private static function generate_token(): string
     {
         $unixtime = microtime(true);
@@ -139,7 +148,9 @@ class Anmeldung
             && $this->validate_telefon($this->telefon)
             && $this->validate_name($this->vorname)
             && $this->validate_name($this->nachname)
-            && $this->validate_email($this->email);
+            && $this->validate_email($this->email)
+            && $this->validate_fuehrung_id($this->fuehrung_id)
+            && $this->validate_anzahl($this->anzahl, $this->fuehrung_id);
     }
 
     private function validate_datum(string $date, $format = 'Y-m-d'): bool
@@ -174,11 +185,35 @@ class Anmeldung
 
     private function validate_fuehrung_id(int $fuehrung_id): bool
     {
-        # logic needs to be written
+        $Fuehrungen = Fuehrung::findeAlleFuehrungen();
+        foreach ($Fuehrungen as $Fuehrung) {
+
+            if ($Fuehrung->getId() == $fuehrung_id) return  true;
+        }
+
+        return false;
     }
 
-    private function validate_anzahl(int $anzahl): bool
+    private function validate_anzahl(int $anzahl, int $fuehrung_id): bool
     {
-        # logic needs to be written
+        if ($anzahl) {
+            $Fuehrungen = Fuehrung::findeAlleFuehrungen();
+            $Anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung_id);
+
+            if ($Anmeldungen) {
+                $summe = 0;
+                foreach ($Anmeldungen as $Anmeldung) {
+                    $summe += $Anmeldung->getAnzahl();
+                }
+                $summe += $anzahl;
+
+                foreach ($Fuehrungen as $Fuehrung) {
+                    if ($Fuehrung->getId() == $fuehrung_id)
+                        return $summe <= $Fuehrung->getKapazitaet();
+                }
+            }
+        }
+
+        return false;
     }
 }
