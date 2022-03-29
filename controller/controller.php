@@ -39,10 +39,13 @@ class Controller
             );
 
             if ($Anmelden->validate_data()) {
-                #proceed
+                $Anmelden->save();
+
+                # Send Confirmation Email
+
+                $this->addContext('anmeldung', 'Erfolgreich!');
             }
         }
-        $this->addContext('anmeldung', 'hallo');
     }
 
     private function generatePage($template)

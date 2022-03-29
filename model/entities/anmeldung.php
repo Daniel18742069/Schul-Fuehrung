@@ -15,6 +15,8 @@ class Anmeldung
     private int $fuehrung_id = 0;
     private int $anzahl = 0;
 
+    private bool $valid = false;
+
 
 
     public function getToken()
@@ -124,13 +126,28 @@ class Anmeldung
         $this->anzahl = $anzahl;
     }
 
-    public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
+    public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id): false|array
     {
         $sql = 'SELECT * FROM anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
 
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
+    }
+
+    public function save(): void
+    {
+        if ($this->valid)
+            $this->_insert();
+    }
+
+    private function _insert(): void
+    {
+        $sql = 'INSERT INTO anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)'
+            . 'VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
     }
 
     private static function generate_token(): string
