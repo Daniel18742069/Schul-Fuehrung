@@ -13,27 +13,8 @@
 
     <!-- Titel, Breadcrumbs -->
     <header class="header">
-        <div class="container">
           <div class="d-md-flex flex-row align-items-center">
-            <div id="logo"><a href="de/home"><img src="view\CSS\img\Logos Berufsschule.bz" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="369" height="80" loading="lazy"></a></div>
-            <div class="search_box ml-auto d-none d-md-block">
-            
-              <form action="#!/de/suche" class="js-search-form" method="get">
-                <input type="hidden" name="site" value="coll_lbfs_bozen_de">
-                <input type="hidden" name="proxystylesheet" value="json">
-                <input type="hidden" name="client" value="provinz_bz_it">
-                <input type="hidden" name="lang" value="d">
-                <label class="sr-only" for="q">Website durchsuchen</label>
-                <div class="input-group">
-                  <input class="form-control" id="q" name="q" type="text" placeholder="Website durchsuchen">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-search"> </i><span class="sr-only">Suchen</span></button>
-                  </div>
-                </div>
-              </form>
-                     
-            </div>
-          </div>
+            <div id="logo"><a href="de/home"><img src="CSS\img\Logos Berufsschule.bz\LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="369" height="80" loading="lazy"></a></div>
         </div>
         <h1>Führung Buchen</h1>
         <p>Breadcrumbs...</p>
