@@ -22,26 +22,32 @@ require_once 'controller/controller.php';
      ?>
 
     <body>
-        <p>Welche Fachrichtungen sollen angeboten werden?</p>
-        <div id="unsichtbar">
-            <?php foreach ($fachrichtungen as $key => $value) {
-                ?>
-                <div id="form<?=$key?>">
-            </div>
-                <div >
-                <label for="<?=$key?>"> <input type="checkbox" name="color" value="<?=$key?>" id="<?=$key?>"><?=$value->getBeschreibung()?></label>
-            </div>
-            
-            <?php
-            }
-            ?>
         
-        <p>
-            <button id="btn">akzeptieren</button>
-        </p>
-    </div>
+            <p>Welche Fachrichtungen sollen angeboten werden?</p>
+            <form action="asdas.php" method="post" >
+            <?php foreach ($fachrichtungen as $key => $value) { ?>
+                <p id="beschreibung<?=$key?>" style="display: none;"><?=$value->getBeschreibung()?></p>
+                <div id="form<?=$key?>" style="display: none;">
+                </div>
+                
+            
+                <?php } ?>
+                <input type="submit" value="Erstellen" />
+            </form>
+        <div>
+                <?php foreach ($fachrichtungen as $key => $value) { ?>
+                <div >
+                    <label for="<?=$key?>"> <input type="checkbox" name="color" value="<?=$key?>" id="<?=$key?>"><?=$value->getBeschreibung()?></label>
+                </div>
+                <?php } ?>
+            
+            <p>
+                <button id="btn">akzeptieren</button>
+            </p>
+        </div>
 
     <script>
+        
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', (event) => {
             let checkboxes = document.querySelectorAll('input[name="color"]:checked');
@@ -63,7 +69,12 @@ require_once 'controller/controller.php';
         function erstelleFormular(values){
             document.getElementById("unsichtbar").style.display="none";
             for (let index = 0; index < values.length; index++) {
-                document.getElementById("form"+values[index]).innerHTML = values[index];
+            document.getElementById("beschreibung"+values[index]).style.display="block";
+            document.getElementById("form"+values[index]).style.display="block";
+            document.getElementById("form"+values[index]).innerHTML ="<p>1 oder 2: <input type=\"number\" name=\"intervall" + values[index]
+                + "\" id=\"intervall" + values[index]
+                + "\" required/></p><p>Name des Lehrers: <input type=\"text\" name=\"text" + values[index]
+                + "\" id=\"text" + values[index] + "\" required/></p>";
                 
             };
             console.log('Hallo');
