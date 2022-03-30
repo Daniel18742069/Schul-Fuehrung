@@ -11,15 +11,6 @@
 
 <body>
 
-    <!-- Titel, Breadcrumbs -->
-    <header class="header">
-          <div class="d-md-flex flex-row align-items-center">
-            <div id="logo"><a href="de/home"><img src="CSS\img\Logos Berufsschule.bz\LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="369" height="80" loading="lazy"></a></div>
-        </div>
-        <h1>Führungen buchen</h1>
-    </header>
-
-
     <section class="accordion-wrapper">
 
         <!-- Untertitel & kurzer Text -->
@@ -121,11 +112,6 @@
 
 
     </section>
-
-
-    <footer>
-
-    </footer>
 
 </body>
 
