@@ -9,7 +9,6 @@ function openCalender(idName) {
   }
 
 
-
 //map
 var mapCanvas = document.getElementById("map");
 var mapOptions = {
@@ -36,4 +35,25 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
         x[i].className = 'tab';
     }
     document.getElementById(rudr_tab_id).className = 'tab active';
+}
+
+
+
+
+
+//accordions
+function accordions(){
+    var acc = document.getElementsByClassName("kalenderbox");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+        panel.style.display = "none";
+        } else {
+        panel.style.display = "block";
+        }
+    });
+    }
 }
