@@ -8,6 +8,33 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+  
+    &hover{
+      color: #e9ecef;
+      background-color: $blueColor
+    }
+
+    .active{
+      background-color: $blueColor;
+    }
+  
+    .tab {
+      order: 1;
+      margin-right: 0.2rem;
+      color: $blueColor;
+      background-color: rgba(245, 196, 0, 0.8);
+      padding: 0.45rem 1rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  
+    }
+
 }
 
 h1,
@@ -20,8 +47,6 @@ h2 {
   margin: 0 auto;
 }
 
-.header {
-  text-align: center;
 }
 
 .gmap_canvas {
@@ -57,36 +82,9 @@ h2 {
   text-align: right;
 }
 
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-
-  input[type="button"] {
-    display: none;
-  }
-
-  input[type="button"]:checked+label {
-    background: #fff;
-  }
-
-  input[type="button"]:checked+label+.tab {
-    display: block;
-  }
-
-  .tab {
-    padding: 10px;
-    background-color: black!important;
-
-    .active{
-      background-color: $blueColor;
-    }
-
-  }
-
 
   .fachrichtung {
     padding: 10px;
-    background-color: $blueColor!important;
 
     .active{
       background-color: $blueColor;
@@ -152,6 +150,36 @@ p {
 
 
 .kalenderbox {
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.accordion-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  width: 600px;
+  margin:0 auto;
+  transition-timing-function: ease-in-out;
+  transition-duration: 2s;
+}
+.accordion {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.accordion:last-child{
+  margin-bottom: 0;
+}
+.accordion-label {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 16px;
+  background: rgba(4,57,94,.8);
+  font-weight: bold;
   cursor: pointer;
   outline: none;
   transition: 0.4s;
@@ -178,4 +206,11 @@ p {
     margin-right: 0;
     margin-top: 0.2rem;
   }
+}
+
+@media (min-width: 992px) {
+
+.top_bar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }

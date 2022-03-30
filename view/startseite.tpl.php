@@ -18,6 +18,7 @@
 
 
     <section id="wrapper">
+    <section class="accordion-wrapper">
 
         <!-- Untertitel & kurzer Text -->
         <div>
@@ -31,18 +32,11 @@
             <div class="box">
 
                 <!-- Tabs Fachrichtung -->
-                <div class="tabs" class="active">
-                    <input type="button" name="tabs" id="tab_elektro" class="info_elektro-button active tab" onclick="openCalender('info_elektro')">
-                    <label for="tab_elektro">Informatik / Elektrotechnik</label>
-
-                    <input type="button" name="tabs" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">
-                    <label for="tab_mechatronik">Elektrotechnik / Mechatronik</label>
-
-                    <input type="button" name="tabs" id="tab_friseur" class="friseur-button tab" onclick="openCalender('friseur')">
-                    <label for="tab_friseur">Friseur</label>
-
-                    <input type="button" name="tabs" id="tab_holz" class="holzbau-button tab" onclick="openCalender('holzbau')">
-                    <label for="tab_holz">Holzbau</label>
+                <div class="tabs active">
+                    <button type="button" value="Button" name="tab_elektro" id="tab_elektro" class="info_elektro-button active tab" onclick="openCalender('info_elektro')">Informatik / Elektrotechnik</button>
+                    <button name="tab_mechatronik" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">Elektrotechnik / Mechatronik</button>
+                    <button name="tab_friseur" id="tab_friseur" class="friseur-button tab" onclick="openCalender('friseur')">Friseur</button>
+                    <button name="tab_holz" id="tab_holz" class="holzbau-button tab" onclick="openCalender('holzbau')">Holzbau</button>
                 </div>
 
             </div>
@@ -127,11 +121,6 @@
 
 
     </section>
-
-
-    <footer>
-
-    </footer>
 
 </body>
 
