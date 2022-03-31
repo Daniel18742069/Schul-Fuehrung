@@ -16,7 +16,7 @@ require_once 'controller/controller.php';
 session_start();
 var_dump($_SESSION);
 
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'bg_neuer_od';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'startseite';
 
 $controller = new Controller();
 

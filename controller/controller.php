@@ -17,7 +17,7 @@ class Controller{
 
     private function generatePage($template){
         extract($this->context);
-        require_once 'view/Backend/'.$template.".tpl.html";
+        require_once 'view/Frontend/template/'.$template.".tpl.html";
         
     }
      
