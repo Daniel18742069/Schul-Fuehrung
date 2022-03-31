@@ -1,16 +1,15 @@
 <script src="https://kit.fontawesome.com/6016e9420e.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css">
 
 <header class="header">
 
-    <img src="/Schul-Fuehrung/view/Frontend/CSS/img/lbshi_cropped.png" id="img_schule" width="100%">
+    <img src="../img/lbshi_cropped.png" id="img_schule" width="100%">
 
     <div id="white_label">
     </div>
 
-    <a href="/Schul-Fuehrung/view/startseite.tpl.php">
+    <a href="../startseite.tpl.php"> <!-- Später zu index ändern -->
         <div id="logo_bs">
-            <img src="/Schul-Fuehrung/view/Frontend/CSS/img/Logos Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
+            <img src="../img/Logos Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
         </div>
     </a>
 
