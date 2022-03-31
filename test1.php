@@ -1,22 +1,53 @@
+<?php 
+require_once 'model/entities/db.php';
+require_once 'model/entities/entity.php';
+require_once 'model/entities/anmeldung.php';
+require_once 'model/entities/fachrichtung.php';
+require_once 'model/entities/fuehrung.php';
+require_once 'model/entities/offener_tag.php';
+
+require_once 'controller/controller.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+    <html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Checkboxes</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./view/style/styles.css">
+        <title>genauere detauls</title>
+    </head>
 
-<body>
-    <p>Select your favorite colors:</p>
-    <label for="c1"> <input type="checkbox" name="color" value="red" id="c1">Red</label>
-    <label for="c2"><input type="checkbox" name="color" value="green" id="c2"> Green</label>
-    <label for="c3"><input type="checkbox" name="color" value="blue" id="c3">Blue</label>
-    <p>
-        <button id="btn">Get Selected Colors</button>
-    </p>
+    <?php   var_dump(Offener_tag::findeNeuestenOffenenTag());
+            $fachrichtungen = Fachrichtung::findeAlleFachrichtungen();
+     ?>
+
+    <body>
+        
+            <p>Welche Fachrichtungen sollen angeboten werden?</p>
+            <form action="asdas.php" method="post" >
+            <?php foreach ($fachrichtungen as $key => $value) { ?>
+                <p id="beschreibung<?=$key?>" style="display: none;"><?=$value->getBeschreibung()?></p>
+                <div id="form<?=$key?>" style="display: none;">
+                </div>
+                
+            
+                <?php } ?>
+                <input type="submit" value="Erstellen" />
+            </form>
+        <div>
+                <?php foreach ($fachrichtungen as $key => $value) { ?>
+                <div >
+                    <label for="<?=$key?>"> <input type="checkbox" name="color" value="<?=$key?>" id="<?=$key?>"><?=$value->getBeschreibung()?></label>
+                </div>
+                <?php } ?>
+            
+            <p>
+                <button id="btn">akzeptieren</button>
+            </p>
+        </div>
 
     <script>
+        
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', (event) => {
             let checkboxes = document.querySelectorAll('input[name="color"]:checked');
@@ -24,10 +55,34 @@
             checkboxes.forEach((checkbox) => {
                 values.push(checkbox.value);
             });
-            alert(values);
-        });    
+            if(values == ""){
+                alert("nix");
+            }
+            else{
+                alert(values);
+                erstelleFormular(values);
+            }
+            
+        });
+
+
+        function erstelleFormular(values){
+            document.getElementById("unsichtbar").style.display="none";
+            for (let index = 0; index < values.length; index++) {
+            document.getElementById("beschreibung"+values[index]).style.display="block";
+            document.getElementById("form"+values[index]).style.display="block";
+            document.getElementById("form"+values[index]).innerHTML ="<p>1 oder 2: <input type=\"number\" name=\"intervall" + values[index]
+                + "\" id=\"intervall" + values[index]
+                + "\" required/></p><p>Name des Lehrers: <input type=\"text\" name=\"text" + values[index]
+                + "\" id=\"text" + values[index] + "\" required/></p>";
+                
+            };
+            console.log('Hallo');
+            
+
+
+        }
     </script>
-
+    
 </body>
-
 </html>
