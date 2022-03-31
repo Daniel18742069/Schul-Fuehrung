@@ -10,8 +10,8 @@ class Controller{
         $this->generatePage($aktion); //VIEW
     }
     
-    public function alleMannschaften(){
-      $this->addContext("namen",Funktion);
+    public function startseite(){
+      $this->addContext("startseite","nix");
     }
     
 
