@@ -10,13 +10,16 @@ class Fuehrung{
     private $kapazitaet = 0;
     private $uhrzeit = "";
     private $fachrichtung_id = 0;
-    private $offener_tag_datum = "";
+    private $offener_tag_id  = "";
 
 
 
-
-
-
+    public static function findeAlleFuehrungen() {
+        $sql = 'SELECT * FROM fuehrung';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
 
     public function getId()
     {
@@ -35,6 +38,16 @@ class Fuehrung{
         $this->fuehrungspersonen = $fuehrungspersonen;
 
         return $this;
+    }
+
+    private function _insert(){
+
+        $sql = 'INSERT INTO fuehrung (fuehrungspersonen, sichtbar, kapazitaet, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id)' 
+                . 'VALUES (:fuehrungspersonen, :sichtbar, :kapazitaet, :kapazitaet, :uhrzeit, :fachrichtung_id, :offener_tag_id)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+
     }
 
     public function getSichtbar(){
@@ -74,13 +87,15 @@ class Fuehrung{
     }
 
     public function getOffener_tag_datum(){
-        return $this->offener_tag_datum;
+        return $this->offener_tag_id;
     }
-    public function setOffener_tag_datum($offener_tag_datum){
-        $this->offener_tag_datum = $offener_tag_datum;
+    public function setOffener_tag_datum($offener_tag_id ){
+        $this->offener_tag_id  = $offener_tag_id ;
 
         return $this;
     }
+
+    
 }
 
 
