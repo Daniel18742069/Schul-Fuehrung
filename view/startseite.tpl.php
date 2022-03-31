@@ -12,8 +12,8 @@
 <body>
 
     <!-- Titel, Breadcrumbs -->
-    <header class="header">
-        <h1>Führung Buchen</h1>
+    <header>
+        <?php require 'CSS/snippets/xheader.sp.php'; ?>
     </header>
 
 
