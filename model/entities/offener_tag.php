@@ -1,9 +1,10 @@
 <?php
 
-class Offener_Tag{
+class Offener_tag{
 
     use Entity;
 
+    private $id = 0;
     private $datum = "";
     private $bezeichnung = "";
     private $status = 0;
@@ -18,8 +19,36 @@ class Offener_Tag{
 
 
 
+    public function loeschen(){
 
+        $sql = 'DELETE FROM offener_tag WHERE id=?';
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute( array($this->getId()) );
 
+        $this->id =0;
+        
+    }
+
+    private function _insert(){
+
+        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)' 
+                . 'VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+        
+        //$this->setId() = DB::getDB()->lastInsertId();
+
+    }
+
+    private function _update(){
+
+        $sql ='UPDATE offener_tag SET datum =:datum, bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE datum =:datum';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
+
+    }
 
     public function getDatum(){
         return $this->datum;
@@ -71,6 +100,44 @@ class Offener_Tag{
     }
     public function setIntervall($intervall){
         $this->intervall = $intervall;
+
+        return $this;
+    }
+
+    public static function findeAlleOffener_tag() {
+        $sql = 'SELECT * FROM offener_tag';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        return $abfrage->fetchAll();
+    }
+
+    public static function findeNeuestenOffenenTag() {
+        $sql = 'SELECT * FROM offener_tag ORDER BY id DESC LIMIT 1';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        return $abfrage->fetch();
+    }
+
+
+
+
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }
