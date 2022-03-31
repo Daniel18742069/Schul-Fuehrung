@@ -3,12 +3,20 @@
     <head>
         <meta charset="utf-8" />
         <title>Schulführung</title>
+        <link rel="stylesheet" href="CSS/style.css" />
+        <script type="text/javascript" src="../model/JS/script.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
     </head>
     <body>
 
         <!-- Titel, Breadcrumbs -->
-        <h1>Führung Buchen</h1>
-        <p>Breadcrumbs...</p>
+        <header class="header">
+            <h1>Führung Buchen</h1>
+            <p>Breadcrumbs...</p>
+        </header>
+        
+        
+        <section class="wrapper">
 
         <!-- Untertitel & kurzer Text -->
         <div>
@@ -28,6 +36,8 @@
         </div>
 
 
+
+        <!-- Kalender -->
         <div>
             <div id="info_elektro" class="fachrichtung">
                 <h2>Informatik / Elektrotechnik</h2>
@@ -49,6 +59,15 @@
                 <p>TEST TEST Holzbau</p>
             </div>
         </div>
+
+
+        </section>
+
+
+        <footer>
+            <!-- map -->
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=39100,%20Romstra%C3%9Fe%2020&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">how to add google map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
+        </footer>
 
     </body>
 </html>
