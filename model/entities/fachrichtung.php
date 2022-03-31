@@ -8,6 +8,28 @@ class Fachrichtung{
     private $beschreibung = "";
     
 
+    public function loeschen(){
+
+        echo "WIP";
+    }
+
+    private function _insert(){
+
+        $sql = 'INSERT INTO events (beschreibung)' 
+                . 'VALUES (:beschreibung)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+        
+        $this->id = DB::getDB()->lastInsertId();
+
+    }
+
+    private function _update(){
+
+        echo "WIP";
+
+    }
 
 
     public static function findeAlleFachrichtungen() {

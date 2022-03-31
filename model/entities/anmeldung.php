@@ -6,7 +6,7 @@ class Anmeldung{
 
     private $token = "";
     private $datum = "";
-    private $telefon = 0;
+    private $telefon = "";
     private $vorname = "";
     private $nachname = "";
     private $email = "";
@@ -14,9 +14,26 @@ class Anmeldung{
     private $anzahl = 0;
 
     
+    public function loeschen(){
 
+        echo "WIP";
+    }
 
+    private function _insert(){
 
+        $sql = 'INSERT INTO events (token, telefon, vorname, nachname, email, fuehrung_id, anzahl)' 
+                . 'VALUES (:token, :telefon, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+
+    }
+    
+    private function _update(){
+
+        echo "WIP";
+
+    }
 
 
 

@@ -1,7 +1,7 @@
 <?php
 
     function stringsVergleichen($string1, $string2){
-        if($eingabePW === $benutztesPW){
+        if($string1 === $string2){
             return true;
         }else{
             return false;
