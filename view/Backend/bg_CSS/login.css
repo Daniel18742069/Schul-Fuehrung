@@ -35,7 +35,7 @@ main > h1 {
   margin-bottom: 2rem;
 }
 
-.anmelden {
+input[type=submit] {
   padding: 1rem 1.5rem;
   color: #002a50;
   border: none;
@@ -43,15 +43,19 @@ main > h1 {
 }
 
 input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.9);
+  color: #002a50;
 }
 
 input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.9);
+  color: #002a50;
 }
 
 input::placeholder {
-  color: rgba(255, 255, 255, 0.9);
+  color: #002a50;
+}
+
+input {
+  color: #002a50;
 }
 
 .benutzername:focus,
@@ -61,13 +65,8 @@ input::placeholder {
   color: #002a50;
 }
 
-/*logout*/
-.meldunglogout {
-  margin: 5rem 0;
-}
-
-.retry-login {
-  float: right;
+.felder {
+  margin: 1.5rem 0;
 }
 
 @media screen and (max-width: 500px) {

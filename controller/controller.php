@@ -10,8 +10,8 @@ class Controller{
         $this->generatePage($aktion); //VIEW
     }
     
-    public function bg_startseite(){
-      $this->addContext("bg_startseite",'asdf');
+    public function bg_neuer_od(){
+      $this->addContext("bg_neuer_od",'asdf');
     }
     
 
