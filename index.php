@@ -10,7 +10,7 @@ require_once 'model/entities/offener_tag.php';
 require_once 'controller/controller.php';
 
 
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'startseite';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'bg_startseite';
 
 $controller = new Controller();
 

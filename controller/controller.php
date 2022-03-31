@@ -10,14 +10,14 @@ class Controller{
         $this->generatePage($aktion); //VIEW
     }
     
-    public function alleMannschaften(){
-      $this->addContext("namen",Funktion);
+    public function bg_startseite(){
+      $this->addContext("bg_startseite",'asdf');
     }
     
 
     private function generatePage($template){
         extract($this->context);
-        require_once 'view/'.$template.".tpl.php";
+        require_once 'view/Backend/'.$template.".tpl.html";
         
     }
      
