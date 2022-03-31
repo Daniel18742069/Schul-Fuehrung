@@ -114,7 +114,6 @@ h2 {
     }
 
   }
-}
 
 
 input[type="button"]:hover {
@@ -143,11 +142,6 @@ p {
   padding: 0;
   margin: 0.5rem 0 2rem 0;
 }
-
-
-
-
-
 
 .kalenderbox {
 input {
@@ -190,10 +184,6 @@ input {
   overflow: hidden;
 }
 
-
-
-
-
 @media (max-width: 45em) {
 
   .tabs .tab,
@@ -213,4 +203,6 @@ input {
 .top_bar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+}
 }

@@ -1,14 +1,9 @@
 <script src="https://kit.fontawesome.com/6016e9420e.js" crossorigin="anonymous"></script>
 <style>
     .header {
-        width: 82em;
+        width: 100%;
         margin: 0 auto;
         text-align: center;
-        padding-top: 2em;
-        background-color: rgba(239, 239, 239, 1);
-        -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 1);
-        -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 1);
-        box-shadow: 0 0 8px rgba(57, 63, 72, 1);
         position: relative;
         padding-bottom: 0.02;
     }
@@ -17,8 +12,25 @@
         color: #002a50;
     }
 
+    #white_label {
+        height: 5em;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        bottom: 26em;
+        z-index: 2;
+    }
+
+    #img_schule {
+
+    }
+
     #logo_bs {
         margin: 2em;
+        position: relative;
+        bottom: 31.5em;
+        text-align: left;
+        z-index: 3;
     }
 
     #logo_od {
@@ -28,7 +40,8 @@
     .social_icons {
         position: absolute;
         right: 10px;
-        top: 330px;
+        top: 100px;
+        z-index: 4;
     }
 
     .social_label {
@@ -51,19 +64,20 @@
 
 <header class="header">
 
+    <img src="/Schul-Fuehrung/view/Frontend/CSS/img/lbshi_cropped.png" id="img_schule" width="100%">
+
+    <div id="white_label">
+    </div>
+
     <a href="/Schul-Fuehrung/view/startseite.tpl.php">
         <div id="logo_bs">
-            <img src="/Schul-Fuehrung/view/CSS/img/Logos Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="369" height="80" loading="lazy">
+            <img src="/Schul-Fuehrung/view/Frontend/CSS/img/Logos Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
         </div>
     </a>
 
-    <div id="logo_od">
-        <img src="/Schul-Fuehrung/view/CSS/img/logo_openday.png" height="100px" width="100px" alt="Open Day" loading="lazy">
-    </div>
     <h1>Führungen buchen</h1>
 
     <div class="social_icons">
-        <span class="social_label">Finde uns hier:</span>
 
         <a class="btn btn-social-icon" href="https://www.facebook.com/lbs.bozen" title="Facebook">
             <i class="fa fa-facebook-square fa-2x icon-cog" aria-hidden="true"></i>

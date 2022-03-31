@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Schulführung</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="Frontend/CSS/style.css" />
     <script type="text/javascript" src="../model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
@@ -13,7 +13,7 @@
 
     <!-- Titel, Breadcrumbs -->
     <header>
-        <?php require 'CSS/snippets/xheader.sp.php'; ?>
+        <?php require 'Frontend/CSS/snippets/xheader.sp.php'; ?>
     </header>
 
 
