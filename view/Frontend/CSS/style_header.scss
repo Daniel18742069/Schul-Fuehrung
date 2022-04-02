@@ -1,4 +1,6 @@
-    .header {
+$size-divisor: 3;
+
+.header {
         width: 100%;
         margin: 0 auto;
         text-align: center;
@@ -75,3 +77,4 @@
     .icon-cog:hover {
         color: rgba(245, 196, 0, 1);
     }
+

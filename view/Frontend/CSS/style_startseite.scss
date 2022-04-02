@@ -143,7 +143,8 @@ p {
   margin: 0.5rem 0 2rem 0;
 }
 
-.kalenderbox {
+.kalenderbox { 
+}//nils i hon di klommer va gonz unten noch do her vurschobn, de nochricht isch lei folls i vurgessn hon es zu ändern
 input {
   position: absolute;
   opacity: 0;
@@ -184,6 +185,8 @@ input {
   overflow: hidden;
 }
 
+
+
 @media (max-width: 45em) {
 
   .tabs .tab,
@@ -204,5 +207,22 @@ input {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size:1rem;
+}
+}
+
+@media (min-width:960px) { 
+  body {
+    font-size:1.2rem; 
+}
+}
+
+@media (min-width:1100px) {
+  body {
+    font-size:1.5rem;
 }
 }
