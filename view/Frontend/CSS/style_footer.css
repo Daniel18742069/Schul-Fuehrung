@@ -1,56 +1,66 @@
 .footer {
   margin-top: 10rem;
   width: 100%;
+  height: 100%;
 }
-
-.footer-box {
+.footer .footer-box {
   background-color: #002a50;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
 }
-
-.shadow-box {
+.footer .shadow-box {
   background-color: #002a50;
   opacity: 0.9;
   height: 4rem;
   z-index: 2;
 }
-
-.gmap_canvas {
+.footer .gmap_canvas {
   overflow: hidden;
   background: none !important;
-  height: 500px;
-  width: 600px;
+  width: 100%;
 }
-
-.mapouter {
+.footer .mapouter {
   position: relative;
   text-align: right;
-  height: 500px;
-  width: 600px;
+  width: 100%;
+  margin: 1rem 0;
 }
-
-h3, p, h5, a {
+.footer h3,
+.footer p,
+.footer h5,
+.footer a {
   margin: 0;
   padding: 0;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.2rem;
 }
-
-h3, h5 {
+.footer h3,
+.footer h5 {
   color: #fc0;
 }
-
-h3 {
+.footer h3 {
   font-size: 1.5rem;
 }
-
-h5 {
+.footer h5 {
   margin-top: 0.6rem;
 }
-
-a {
+.footer a {
   text-decoration: underline;
 }
-
-a:hover {
+.footer a:hover {
   opacity: 0.7;
+}
+.footer .icon-cog {
+  color: #fc0;
+}
+.footer .icon-cog:hover {
+  opacity: 0.7;
+}
+.footer .socials {
+  display: flex;
+  flex-direction: column;
+}
+.footer .socials a {
+  text-decoration: none;
 }
