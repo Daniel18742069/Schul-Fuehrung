@@ -7,6 +7,7 @@
     <title>Schulführung</title>
     <link rel="stylesheet" href="../CSS/style_startseite.css" />
     <link rel="stylesheet" href="../CSS/style_header.css" />
+    <link rel="stylesheet" href="../CSS/style_footer.css" />
     <script type="text/javascript" src="/Schul-Fuehrung/model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>

@@ -1,5 +1,4 @@
 <section id="wrapper">
-    <section class="accordion-wrapper">
 
         <!-- Untertitel & kurzer Text -->
         <div>

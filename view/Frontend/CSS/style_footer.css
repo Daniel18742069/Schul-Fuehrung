@@ -1,0 +1,56 @@
+.footer {
+  margin-top: 10rem;
+  width: 100%;
+}
+
+.footer-box {
+  background-color: #002a50;
+}
+
+.shadow-box {
+  background-color: #002a50;
+  opacity: 0.9;
+  height: 4rem;
+  z-index: 2;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 500px;
+  width: 600px;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 500px;
+  width: 600px;
+}
+
+h3, p, h5, a {
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+}
+
+h3, h5 {
+  color: #fc0;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  margin-top: 0.6rem;
+}
+
+a {
+  text-decoration: underline;
+}
+
+a:hover {
+  opacity: 0.7;
+}
