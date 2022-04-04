@@ -11,9 +11,10 @@ class Controller
         $this->$aktion(); // LOGIK
         $this->generatePage($aktion); //VIEW
     }
-    
-    public function fe_startseite(){
-      $this->addContext("fe_startseite","nix");
+
+    public function fe_startseite()
+    {
+        $this->addContext("fe_startseite", "nix");
     }
 
     private function anmelden()
@@ -27,7 +28,7 @@ class Controller
             isset($_REQUEST['fuehrung_id']) &&
             isset($_REQUEST['anzahl'])
         ) {
-            $Anmelden = new anmeldung(
+            $Anmelden = new Anmeldung(
                 $_REQUEST['datum'],
                 $_REQUEST['telefon'],
                 $_REQUEST['vorname'],
@@ -64,10 +65,20 @@ class Controller
         }
     }
 
+    private function abmelden()
+    {
+        if (isset($_REQUEST['token'])) {
+            # check token
+            # if (token correct) {
+                # delete
+            # }
+        }
+    }
+
     private function generatePage($template)
     {
         extract($this->context);
-        require_once 'view/template/'.$template.".tpl.php";
+        require_once 'view/template/' . $template . ".tpl.php";
     }
 
     private function addContext($key, $value)
