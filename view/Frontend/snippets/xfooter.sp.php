@@ -26,15 +26,15 @@
             <div class="social_icons-footer">
 
                 <a class="btn btn-social-icon" href="https://www.facebook.com/lbs.bozen" title="Facebook">
-                    <i class="fa fa-facebook-square fa-2x icon-cog" aria-hidden="true"></i>
+                    <i class="fa fa-facebook-square fa-2x icon-cog fb" aria-hidden="true"></i>
                     <span class="sr-only">Facebook</span></a>
 
                 <a class="btn btn-social-icon" href="https://www.instagram.com/lbshandwerkindustrie/" title="Instagram">
-                    <i class="fa fa-instagram fa-2x icon-cog" aria-hidden="true"> </i>
+                    <i class="fa fa-instagram fa-2x icon-cog ig" aria-hidden="true"> </i>
                     <span class="sr-only">Instagram</span></a>
 
                 <a class="btn btn-social-icon" href="https://www.youtube.com/channel/UCsAU2KSrwCFmkUFeCMhQD4Q/feed" title="YouTube">
-                    <i class="fa fa-youtube fa-2x icon-cog" aria-hidden="true"> </i>
+                    <i class="fa fa-youtube fa-2x icon-cog yt" aria-hidden="true"> </i>
                     <span class="sr-only">YouTube</span></a>
 
             </div>
