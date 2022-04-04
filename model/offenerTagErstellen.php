@@ -15,7 +15,7 @@ require_once '../controller/controller.php';
 
     $offener_tag->speichere();
 
-    header('Location: gen...'); //pfad wieder zurück zur adminseite
+    //header('Location: gen...'); //pfad wieder zurück zur adminseite
 
 
 
