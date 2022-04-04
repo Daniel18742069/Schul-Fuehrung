@@ -10,14 +10,14 @@ class Controller{
         $this->generatePage($aktion); //VIEW
     }
     
-    public function bg_neuer_od(){
-      $this->addContext("bg_neuer_od",'asdf');
+    public function startseite(){
+      $this->addContext("startseite","nix");
     }
     
 
     private function generatePage($template){
         extract($this->context);
-        require_once 'view/Backend/'.$template.".tpl.html";
+        require_once 'view/Frontend/template/'.$template.".tpl.php";
         
     }
      
