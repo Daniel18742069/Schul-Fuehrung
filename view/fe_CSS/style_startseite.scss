@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
+$blueColor: #002a50;
+$color-orange: #fc0;
+$font-color: rgba(255, 255, 255, 0.9);
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  margin: 0;
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+  
+    &hover{
+      color: #e9ecef;
+      background-color: $blueColor
+    }
+
+    .active{
+      background-color: $blueColor;
+    }
+  
+    .tab {
+      order: 1;
+      margin-right: 0.2rem;
+      color: $blueColor;
+      background-color: rgba(245, 196, 0, 0.8);
+      padding: 0.45rem 1rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  
+    }
+
+}
+
+h1,
+h2 {
+  color: $blueColor;
+}
+
+#wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+}
+
+.box {
+  width: 100%;
+}
+
+.kalenderbox {
+  padding: 1rem 0.5rem;
+  border: 1px solid;
+  margin: 0.5rem 0;
+}
+
+.lehrer {
+  text-align: center;
+}
+
+.kapazitaet {
+  text-align: right;
+}
+
+
+  .fachrichtung {
+    padding: 10px;
+
+    .active{
+      background-color: $blueColor;
+    }
+  }
+  
+  .tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  label {
+    order: 1;
+    margin-right: 0.2rem;
+    color: $blueColor;
+    background-color: rgba(245, 196, 0, 0.8);
+    border-color: #e6b800;
+    padding: 0.45rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+
+    &:hover {
+      color: #e9ecef;
+      background-color: $blueColor;
+    }
+
+  }
+
+
+input[type="button"]:hover {
+  background-color: #d5e3ff;
+}
+
+input[type="button"].active {
+  background-color: white;
+}
+
+.active {
+  background-color: white;
+}
+
+p {
+  text-align: left;
+  padding: 10px;
+}
+
+.textEins {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.textZwei {
+  padding: 0;
+  margin: 0.5rem 0 2rem 0;
+}
+
+.kalenderbox { 
+}//nils i hon di klommer va gonz unten noch do her vurschobn, de nochricht isch lei folls i vurgessn hon es zu ändern
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.accordion-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  margin:0 auto;
+  transition-timing-function: ease-in-out;
+  transition-duration: 2s;
+}
+.accordion {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.accordion:last-child{
+  margin-bottom: 0;
+}
+.accordion-label {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 16px;
+  background: rgba(4,57,94,.8);
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s;
+}
+
+.content {
+  display: none;
+  overflow: hidden;
+}
+
+
+
+@media (max-width: 45em) {
+
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (min-width: 992px) {
+
+.top_bar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size:1rem;
+}
+}
+
+@media (min-width:960px) { 
+  body {
+    font-size:1.2rem; 
+}
+}
+
+@media (min-width:1100px) {
+  body {
+    font-size:1.5rem;
+}
+}

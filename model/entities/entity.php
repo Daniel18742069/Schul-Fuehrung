@@ -26,19 +26,14 @@
         
 
         public function speichere(){
-        
-            if($this->getId() >0){
-                $this->_update();
-            }else{
-                $this->_insert();
+
+                if($this->getId() > 0 ){
+                    $this->_update();
+                }
+                else{
+                    $this->_insert();
+                }
             }
         }
-
-
-        
-    }
-
-
-
 
 ?>

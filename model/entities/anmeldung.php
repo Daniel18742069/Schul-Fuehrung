@@ -5,17 +5,38 @@ class Anmeldung
 
     use Entity;
 
-    private int $id = 0;
-    private string $token = '';
-    private string $datum = '';
-    private string $telefon = '';
-    private string $vorname = '';
-    private string $nachname = '';
-    private string $email = '';
+    private string $token = "";
+    private string $datum = "";
+    private string $telefon = "";
+    private string $vorname = "";
+    private string $nachname = "";
+    private string $email = "";
     private int $fuehrung_id = 0;
     private int $anzahl = 0;
 
     private bool $valid = false;
+
+    public function loeschen()
+    {
+
+        echo "WIP";
+    }
+
+    private function _insert()
+    {
+
+        $sql = 'INSERT INTO events (token, telefon, vorname, nachname, email, fuehrung_id, anzahl)'
+            . 'VALUES (:token, :telefon, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+    }
+
+    private function _update()
+    {
+        echo "WIP";
+    }
+
 
 
 

@@ -11,9 +11,9 @@ class Controller
         $this->$aktion(); // LOGIK
         $this->generatePage($aktion); //VIEW
     }
-
-    public function startseite()
-    {
+    
+    public function fe_startseite(){
+      $this->addContext("fe_startseite","nix");
     }
 
     private function anmelden()
@@ -67,7 +67,7 @@ class Controller
     private function generatePage($template)
     {
         extract($this->context);
-        require_once 'view/' . $template . ".tpl.php";
+        require_once 'view/template/'.$template.".tpl.php";
     }
 
     private function addContext($key, $value)
