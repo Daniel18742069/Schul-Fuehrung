@@ -12,9 +12,8 @@ class Controller
         $this->generatePage($aktion); //VIEW
     }
 
-    public function alleMannschaften()
+    public function startseite()
     {
-        $this->addContext("namen", 'Funktion');
     }
 
     private function anmelden()
@@ -41,7 +40,24 @@ class Controller
             if ($Anmelden->validate_data()) {
                 $Anmelden->save();
 
-                # Send Confirmation Email
+                require_once 'model/email.php';
+
+                $to_address = $Anmelden->getEmail();
+                $to_name = ucwords($Anmelden->getVorname()) . ' ' . ucwords($Anmelden->getNachname());
+                $subject = 'Anmeldung Erfolgreich';
+                $message = file_get_contents('mail/anmeldung.mail.html');
+                $message = ersetze_platzhalter($message, [
+                    ['url', URL],
+                    ['namen', $to_name],
+                    ['token', $Anmelden->getToken()]
+                ]);
+
+                email::send(
+                    $subject,
+                    $message,
+                    $to_address,
+                    $to_name
+                );
 
                 $this->addContext('anmeldung', 'Erfolgreich!');
             }

@@ -126,7 +126,7 @@ class Anmeldung
         $this->anzahl = $anzahl;
     }
 
-    public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id): false|array
+    public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
     {
         $sql = 'SELECT * FROM anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
 
