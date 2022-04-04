@@ -2,7 +2,7 @@
 
 <header class="header">
 
-    <img src="../img/lbshi_cropped.png" id="img_schule" width="100%">
+    <img src="view/img/lbshi_cropped.png" id="img_schule" width="100%">
 
     <div id="white_label">
     </div>
@@ -11,7 +11,7 @@
         <h1>OPEN DAY</h1>
     </div>
 
-    <a href="../startseite.tpl.php"> <!-- Später zu index ändern -->
+    <a href="../template/fe_startseite.tpl.php"> <!-- Später zu index ändern -->
         <div id="logo_bs">
             <img src="../img/Logos Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
         </div>

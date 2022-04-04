@@ -6,7 +6,7 @@ require_once 'entities/fachrichtung.php';
 require_once 'entities/fuehrung.php';
 require_once 'entities/offener_tag.php';
 
-require_once '../controller/controller.php';
+require_once 'controller/controller.php';
 
 //var_dump($_POST);
 
@@ -15,7 +15,7 @@ require_once '../controller/controller.php';
 
     $offener_tag->speichere();
 
-    header('Location: gen...'); //pfad wieder zurück zur adminseite
+    //eader('Location: gen...'); //pfad wieder zurück zur adminseite
 
 
 

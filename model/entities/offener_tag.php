@@ -27,8 +27,8 @@ class Offener_tag{
 
     private function _insert(){
 
-        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)' 
-                . 'VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
+        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)
+                VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));

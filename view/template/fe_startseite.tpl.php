@@ -14,11 +14,11 @@
 
 <body>
 
-    <?php require '../fe_snippets/xheader.sp.php'; ?>
+    <?php require '../snippets/xheader.sp.php'; ?>
 
-    <?php require '../fe_snippets/xbody.sp.php'; ?>
+    <?php require '../snippets/xbody.sp.php'; ?>
 
-    <?php require '../fe_snippets/xfooter.sp.php'; ?>
+    <?php require '../snippets/xfooter.sp.php'; ?>
 
 </body>
 
