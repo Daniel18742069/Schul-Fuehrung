@@ -10,15 +10,14 @@ class Controller{
         $this->generatePage($aktion); //VIEW
     }
     
-    public function alleMannschaften(){
-      $this->addContext("namen",Funktion);
+    public function fe_startseite(){
+      $this->addContext("fe_startseite","nix");
     }
     
 
     private function generatePage($template){
         extract($this->context);
-        require_once 'view/'.$template.".tpl.php";
-        
+        require_once 'view/template/'.$template.".tpl.php";
     }
      
     private function addContext($key, $value){

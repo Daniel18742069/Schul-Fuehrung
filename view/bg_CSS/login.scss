@@ -40,7 +40,7 @@ main>h1 {
     margin-bottom: 2rem;
 }
 
-.anmelden {
+input[type="submit"] {
     padding: 1rem 1.5rem;
     color: $color-blue;
     border: none;
@@ -48,7 +48,11 @@ main>h1 {
 }
 
 input::placeholder {
-    color: $font-color;
+    color: $color-blue;
+}
+
+input {
+    color: $color-blue;
 }
 
 .benutzername:focus,
@@ -58,23 +62,14 @@ input::placeholder {
     color: $color-blue;
 }
 
-
-/*logout*/
-
-.meldunglogout {
-    margin: 5rem 0;
+.felder {
+    margin: 1.5rem 0;
 }
 
-.retry-login {
-    float: right;
-}
-
-
+//Neuer Open Day
 @media screen and (max-width:500px) {
-
-    main{
+    main {
         margin: 1rem;
         padding: 1rem;
     }
-
 }

@@ -15,10 +15,6 @@ class Offener_tag{
     
 
 
-
-
-
-
     public function loeschen(){
 
         $sql = 'DELETE FROM offener_tag WHERE id=?';
@@ -31,8 +27,8 @@ class Offener_tag{
 
     private function _insert(){
 
-        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)' 
-                . 'VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
+        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)
+                VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));
@@ -40,15 +36,19 @@ class Offener_tag{
         //$this->setId() = DB::getDB()->lastInsertId();
 
     }
-
+    
     private function _update(){
 
-        $sql ='UPDATE offener_tag SET datum =:datum, bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE datum =:datum';
+        $sql ='UPDATE offener_tag SET datum =:datum, bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE id =:id';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray());
 
     }
+
+
+
+    
 
     public function getDatum(){
         return $this->datum;

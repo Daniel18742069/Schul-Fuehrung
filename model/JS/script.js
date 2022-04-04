@@ -3,16 +3,17 @@ function openCalender(idName) {
     var i;
     var x = document.getElementsByClassName("fachrichtung");
     for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+        x[i].style.display = "none";
     }
     document.getElementById(idName).style.display = "block";
-  }
+}
 
 
 //map
 var mapCanvas = document.getElementById("map");
 var mapOptions = {
-    center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+    center: new google.maps.LatLng(51.5, -0.2),
+    zoom: 10
 }
 var map = new google.maps.Map(mapCanvas, mapOptions);
 
@@ -42,18 +43,18 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 
 
 //accordions
-function accordions(){
+function accordions() {
     var acc = document.getElementsByClassName("kalenderbox");
     var i;
 
     for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-        panel.style.display = "none";
-        } else {
-        panel.style.display = "block";
-        }
-    });
+        acc[i].addEventListener("click", function() {
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
     }
 }
