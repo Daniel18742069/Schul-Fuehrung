@@ -22,8 +22,8 @@
 
     <a href="../template/fe_startseite.tpl.php"> <!-- Später zu index ändern -->
         <div id="logo_bs">
-            <img src="../img/Logos Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
-        </div>
+            <img src="view/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
+        </div> 
     </a>
 
     <h1>Führungen buchen</h1>
