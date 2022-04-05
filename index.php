@@ -1,7 +1,5 @@
 <?php
 
-echo "geat";
-
 require_once 'model/entities/db.php';
 require_once 'model/entities/entity.php';
 require_once 'model/entities/anmeldung.php';
