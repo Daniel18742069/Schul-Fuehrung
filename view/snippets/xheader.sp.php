@@ -17,8 +17,6 @@
         </div> 
     </a>
 
-    <h1>Führungen buchen</h1>
-
     <div class="social_icons">
 
         <a class="btn btn-social-icon" href="https://www.facebook.com/lbs.bozen" title="Facebook">

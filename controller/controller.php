@@ -16,6 +16,10 @@ class Controller
       $this->addContext("fe_startseite","nix");
     }
 
+    public function be_alle_od(){
+        $this->addContext("be_alle_od","nix");
+    }
+
     private function anmelden()
     {
         if (
