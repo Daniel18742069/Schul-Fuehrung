@@ -17,7 +17,7 @@
 
         <h1>Neuer Open Day</h1>
 
-        <form action="offener_tag_erstellen.php" method="post">
+        <form action="index.php?aktion=bg_od_erfolgreich" method="post"> 
 
             <div class="felder" class="felder"><span>Bezeichnung:</span><input type="text" name="bezeichnung" id="bezeichnung" required /></div>
 
