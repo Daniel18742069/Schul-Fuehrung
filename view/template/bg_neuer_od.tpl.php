@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="view/bg_CSS/login.css">
+    <link rel="stylesheet" type="text/css" href="view/be_CSS/login.css">
 
     <title>Neuer OpenDay</title>
 

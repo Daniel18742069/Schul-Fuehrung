@@ -4,7 +4,7 @@
 
         <meta charset="utf-8" />
         <title>Verwaltung</title>
-        <link rel="stylesheet" type="text/css" href="view/bg_CSS/login.css" />
+        <link rel="stylesheet" type="text/css" href="view/be_CSS/login.css" />
 
     </head>
 
@@ -17,7 +17,7 @@
             <h1>Anmeldung</h1>
 
 
-            <form action="../../model/adminAnmelden.php" method="post">
+            <form action="model/adminAnmelden.php" method="post">
 
 
                 <input type="text" name="benutzername" placeholder="Benutzername" class="benutzername" required/><br />
