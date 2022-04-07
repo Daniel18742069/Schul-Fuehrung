@@ -1,38 +1,21 @@
 $blueColor: #002a50;
 
-
-.wrapper-be_startseite{
-    margin-top: 5rem;
-    margin-bottom: 7rem;
-  }
-
-.kalenderbox{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.formular-termin{
+    margin: 7rem 0;
 }
 
-.inhalt_od, .buttons{
+.termine, .buttons{
     display: grid;
     justify-content: space-around;
     grid-template-columns: 1fr 1fr;
     p{
         margin: 0;
-        //text-align: center;
     }
 }
 
-.bereichnung{
-    text-align: center;
-}
-
-.content{
-    margin: 1rem 3rem;
-}
-
-.editieren { 
+.aendern, .abmelden { 
     order: 1;
-    margin-right: 0.2rem;
+    margin: 1.5rem 0.2rem;
     color: $blueColor;
     background-color: rgba(245, 196, 0, 0.8);
     padding: 0.45rem 1rem;
@@ -46,6 +29,13 @@ $blueColor: #002a50;
     }
 }
 
-.buttons{
-    margin-bottom: 0.5rem;
+.anzahlTeilnehmer {
+    color: $blueColor;
+    padding: 0.2rem 1rem;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    //background-color: ;
+    border: 1px solid $blueColor;
+    width: 20%;
+    transition: all 0.3s;
 }

@@ -1,34 +1,19 @@
-.wrapper-be_startseite {
-  margin-top: 5rem;
-  margin-bottom: 7rem;
+.formular-termin {
+  margin: 7rem 0;
 }
 
-.kalenderbox {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.inhalt_od, .buttons {
+.termine, .buttons {
   display: grid;
   justify-content: space-around;
   grid-template-columns: 1fr 1fr;
 }
-.inhalt_od p, .buttons p {
+.termine p, .buttons p {
   margin: 0;
 }
 
-.bereichnung {
-  text-align: center;
-}
-
-.content {
-  margin: 1rem 3rem;
-}
-
-.editieren {
+.aendern, .abmelden {
   order: 1;
-  margin-right: 0.2rem;
+  margin: 1.5rem 0.2rem;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
   padding: 0.45rem 1rem;
@@ -37,11 +22,17 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
 }
-.editieren:hover {
+.aendern:hover, .abmelden:hover {
   filter: brightness(0.85);
   cursor: pointer;
 }
 
-.buttons {
-  margin-bottom: 0.5rem;
+.anzahlTeilnehmer {
+  color: #002a50;
+  padding: 0.2rem 1rem;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  border: 1px solid #002a50;
+  width: 20%;
+  transition: all 0.3s;
 }

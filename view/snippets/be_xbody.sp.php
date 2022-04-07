@@ -1,5 +1,7 @@
 <section id="wrapper">
 
+    <div class="wrapper-be_startseite">
+
         <!-- Untertitel & kurzer Text -->
         <div>
             <h2>Alle Open Days</h2>
@@ -31,5 +33,6 @@
                             </div>
                         <?php } ?>
                     </div>
+        </div>
         </div>
     </section>

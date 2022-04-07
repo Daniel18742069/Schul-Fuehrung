@@ -20,6 +20,10 @@ class Controller
         $this->addContext("be_alle_od","nix");
     }
 
+    public function fe_termin(){
+        $this->addContext("fe_termin","nix");
+    }
+
     private function anmelden()
     {
         if (

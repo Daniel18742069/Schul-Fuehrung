@@ -29,6 +29,10 @@ body .tabs .tab {
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
+body .wrapper-fe_startseite {
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+}
 body h1,
 body h2 {
   color: #002a50;
@@ -68,35 +72,6 @@ body #wrapper {
   margin-right: 20px;
 }
 
-label {
-  order: 1;
-  margin-right: 0.2rem;
-  color: #002a50;
-  background-color: rgba(245, 196, 0, 0.8);
-  border-color: #e6b800;
-  padding: 0.45rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-label:hover {
-  color: #e9ecef;
-  background-color: #002a50;
-}
-
-input[type=button]:hover {
-  background-color: #d5e3ff;
-}
-
-input[type=button].active {
-  background-color: white;
-}
-
-.active {
-  background-color: white;
-}
-
 p {
   text-align: left;
   padding: 10px;
@@ -112,7 +87,7 @@ p {
   margin: 0.5rem 0 2rem 0;
 }
 
-input {
+.kalenderbox input {
   position: absolute;
   opacity: 0;
   z-index: -1;

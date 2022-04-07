@@ -1,5 +1,6 @@
 <section id="wrapper">
 
+    <div class="wrapper-fe_startseite">
         
 
     <h1>Führungen buchen</h1>
@@ -92,5 +93,6 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
