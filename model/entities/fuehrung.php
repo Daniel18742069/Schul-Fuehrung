@@ -21,7 +21,7 @@ class Fuehrung{
 
     private function _insert(){
 
-        $sql = 'INSERT INTO fuehrung (fuehrungspersonen, sichtbar, kapazitaet, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id)' 
+        $sql = 'INSERT INTO od_fuehrung (fuehrungspersonen, sichtbar, kapazitaet, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id)' 
                 . 'VALUES (:fuehrungspersonen, :sichtbar, :kapazitaet, :kapazitaet, :uhrzeit, :fachrichtung_id, :offener_tag_id)';
 
         $abfrage = DB::getDB()->prepare($sql);
@@ -36,9 +36,9 @@ class Fuehrung{
     }
 
     public static function findeAlleFuehrungen() {
-        $sql = 'SELECT * FROM fuehrung';
+        $sql = 'SELECT * FROM od_fuehrung';
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_fuehrung');
         return $abfrage->fetchAll();
     }
 

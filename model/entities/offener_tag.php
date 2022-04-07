@@ -7,7 +7,7 @@ class Offener_tag{
     private $id = 0;
     private $datum = "";
     private $bezeichnung = "";
-    private $status = 0;
+    private $status = 0;    //0 deaktiviert 1 aktiviert
     private $start = "";
     private $ende = "";
     private $intervall = 0;
@@ -17,7 +17,7 @@ class Offener_tag{
 
     public function loeschen(){
 
-        $sql = 'DELETE FROM offener_tag WHERE id=?';
+        $sql = 'DELETE FROM od_offener_tag WHERE id=?';
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute( array($this->getId()) );
 
@@ -27,7 +27,7 @@ class Offener_tag{
 
     private function _insert(){
 
-        $sql = 'INSERT INTO offener_tag (datum, bezeichnung, status, start, ende, intervall)
+        $sql = 'INSERT INTO od_offener_tag (datum, bezeichnung, status, start, ende, intervall)
                 VALUES (:datum, :bezeichnung, :status, :start, :ende, :intervall)';
 
         $abfrage = DB::getDB()->prepare($sql);
@@ -39,7 +39,7 @@ class Offener_tag{
     
     private function _update(){
 
-        $sql ='UPDATE offener_tag SET datum =:datum, bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE id =:id';
+        $sql ='UPDATE od_offener_tag SET datum =:datum, bezeichnung=:bezeichnung, status=:status, start=:start, ende=:ende, intervall=:intervall WHERE id =:id';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray());
@@ -52,6 +52,11 @@ class Offener_tag{
 
     public function getDatum(){
         return $this->datum;
+    }
+    public function getDatumWelformed(){
+        $datum = strtotime($this->datum);
+
+        return date('d.m.yy',$datum);
     }
     public function setDatum($datum){
         $this->datum = $datum;
@@ -71,6 +76,13 @@ class Offener_tag{
     public function getStatus(){
         return $this->status;
     }
+    public function getStatusString(){
+        if($this->status == 0){
+            return "deaktiviert";
+        }else{
+            return "aktiviert";
+        }
+    }
     public function setStatus($status){
         $this->status = $status;
 
@@ -80,6 +92,9 @@ class Offener_tag{
     public function getStart(){
         return $this->start;
     }
+    public function getStartWelformed(){
+        return substr($this->start, 0, -3);
+    }
     public function setStart($start){
         $this->start = $start;
 
@@ -88,6 +103,9 @@ class Offener_tag{
 
     public function getEnde(){
         return $this->ende;
+    }
+    public function getEndeWelformed(){
+        return substr($this->ende, 0, -3);
     }
     public function setEnde($ende){
         $this->ende = $ende;
@@ -105,16 +123,16 @@ class Offener_tag{
     }
 
     public static function findeAlleOffener_tag() {
-        $sql = 'SELECT * FROM offener_tag';
+        $sql = 'SELECT * FROM od_offener_tag';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
         return $abfrage->fetchAll();
     }
 
     public static function findeNeuestenOffenenTag() {
-        $sql = 'SELECT * FROM offener_tag ORDER BY id DESC LIMIT 1';
+        $sql = 'SELECT * FROM od_offener_tag ORDER BY id DESC LIMIT 1';
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_offener_tag');
         return $abfrage->fetch();
     }
 

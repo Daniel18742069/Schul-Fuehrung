@@ -17,7 +17,7 @@ class Controller
     }
 
     public function be_alle_od(){
-        $this->addContext("be_alle_od","nix");
+        $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
     }
 
     private function anmelden()

@@ -9,20 +9,24 @@
         <div class="tab-content">
 
                     <div class="accordion-wrapper">
-                        <?php for ($i = 0; $i <= 10; $i++) { ?>
+                    <?php
+                    foreach ($be_alle_od as $key => $offenerTag) {
+                        ?>
+                        
+                       
                             <div class="kalenderbox alle_od">
-                                <span class="datum">15.05.2022</span>
-                                <span class="bezeichnung">Tag der offenen Tür 2022</span>
-                                <span class="status">aktiv</span>
+                                <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
+                                <span class="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
+                                <span class="status"><?=$offenerTag->getStatusString()?></span>
                             </div>
                             <div class="content">
-                                <h3 class="bereichnung">Tag der offenen Tür 2022</h3>
+                                <h3 class="bereichnung"><?=$offenerTag->getBezeichnung()?></h3>
                                 <span class="inhalt_od">
-                                    <p>Datum: 10.05.2022</p>
-                                    <p>Status: aktiv</p>
-                                    <p>Start: 08.00 Uhr</p>
-                                    <p>Ende: 17.00 Uhr</p>
-                                    <p>Intervall: 30 min</p>
+                                    <p>Datum: <?=$offenerTag->getDatumWelformed()?></p>
+                                    <p>Status: <?=$offenerTag->getStatusString()?></p>
+                                    <p>Start: <?=$offenerTag->getStartWelformed()?> Uhr</p>
+                                    <p>Ende: <?=$offenerTag->getEndeWelformed()?> Uhr</p>
+                                    <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
                                 </span>
                                 <span class="buttons">
                                     <button class="editieren">Editieren</button>
