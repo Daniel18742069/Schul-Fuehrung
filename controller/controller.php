@@ -11,11 +11,25 @@ class Controller
         $this->$aktion(); // LOGIK
         $this->generatePage($aktion); //VIEW
     }
-    
+
+    //user
     public function fe_startseite(){
       $this->addContext("fe_startseite","nix");
     }
 
+    //admin
+    public function bg_neuer_od(){
+        $this->addContext("bg_neuer_od","nix");
+    }
+    public function bg_od_erfolgreich(){
+
+        $offener_tag = new Offener_tag($_POST);
+        $offener_tag->speichere();
+
+        $this->addContext("bg_od_erfolgreich",$offener_tag);
+    }
+    public function bg_alle_einstellungen(){
+        $this->addContext("bg_alle_einstellungen",Offener_tag::findeOffenenTag($_GET['id']));
     public function be_alle_od(){
         $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
     }

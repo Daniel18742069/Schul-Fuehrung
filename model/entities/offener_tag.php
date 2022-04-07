@@ -33,7 +33,7 @@ class Offener_tag{
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));
         
-        //$this->setId() = DB::getDB()->lastInsertId();
+        $this->id = DB::getDB()->lastInsertId();
 
     }
     
@@ -135,7 +135,16 @@ class Offener_tag{
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_offener_tag');
         return $abfrage->fetch();
     }
+    public static function findeOffenenTag($id) {
 
+        $sql = 'SELECT * FROM offener_tag WHERE id = ?';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute(array($id));
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        return $abfrage->fetch();
+    }
+    
 
 
 
