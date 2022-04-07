@@ -16,20 +16,6 @@ class Anmeldung
 
     private bool $valid = false;
 
-    public function loeschen()
-    {
-
-        echo "WIP";
-    }
-
-    private function _update()
-    {
-        echo "WIP";
-    }
-
-
-
-
     public function getToken()
     {
         return $this->token;
@@ -118,53 +104,89 @@ class Anmeldung
         return $this;
     }
 
-    public function __construct(
-        $datum,
-        $telefon,
-        $vorname,
-        $nachname,
-        $email,
-        $fuehrung_id,
-        $anzahl
-    ) {
+    public function __construct(array $array = array())
+    {
         $this->token = self::generate_token();
-        $this->datum = $datum;
-        $this->telefon = $telefon;
-        $this->vorname = $vorname;
-        $this->nachname = $nachname;
-        $this->email = $email;
-        $this->fuehrung_id = $fuehrung_id;
-        $this->anzahl = $anzahl;
+
+        if ($array) {
+            foreach ($array as $key => $value) {
+                $setter = 'set' . ucfirst($key);
+                if (method_exists($this, $setter)) {
+                    $this->$setter($value);
+                }
+            }
+        }
+    }
+
+    public static function findeAnmeldung(string $token)
+    {
+        $sql = 'SELECT * FROM od_anmeldung WHERE token = "' . $token . '";';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
+        return $abfrage->fetch();
+    }
+
+    public static function findeAlleAnmeldungen()
+    {
+        $sql = 'SELECT * FROM od_anmeldung;';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
+        return $abfrage->fetchAll();
     }
 
     public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
     {
-        $sql = 'SELECT * FROM anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
+        $sql = 'SELECT * FROM od_anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
 
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
         return $abfrage->fetchAll();
     }
 
-    public function save(): void
+    public function speichere(): void
     {
-        if ($this->valid)
-            $this->_insert();
+        if ($this->valid) {
+
+        }
     }
 
-    private function _insert(): void
+    private function _insert()
     {
-        $sql = 'INSERT INTO anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)'
-            . 'VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+        $sql = 'INSERT INTO od_anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)
+            VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));
     }
 
-    private static function generate_token(): string
+    private function _update()
+    {
+        $sql = 'ALTER TABLE od_anmeldung 
+            SET telefon = :telefon
+            , vorname = :vorname
+            , nachname = :nachname
+            , email = :email
+            , fuehrung_id = :fuehrung_id
+            , anzahl = :anzahl 
+            WHERE token = :token;';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+    }
+
+    private function _delete(): void
+    {
+        $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray(false));
+    }
+
+    public static function generate_token(): string
     {
         $unixtime = microtime(true);
-
         $letter = chr(mt_rand(97, 122));
 
         return $unixtime . $letter;
@@ -172,13 +194,15 @@ class Anmeldung
 
     public function validate_data(): bool
     {
-        return $this->validate_datum($this->datum)
+        $this->valid = $this->validate_datum($this->datum)
             && $this->validate_telefon($this->telefon)
             && $this->validate_name($this->vorname)
             && $this->validate_name($this->nachname)
             && $this->validate_email($this->email)
             && $this->validate_fuehrung_id($this->fuehrung_id)
             && $this->validate_anzahl($this->anzahl, $this->fuehrung_id);
+
+        return $this->valid;
     }
 
     private function validate_datum(string $date, $format = 'Y-m-d'): bool

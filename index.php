@@ -1,7 +1,5 @@
 <?php
 
-echo "geat";
-
 require_once 'model/entities/db.php';
 require_once 'model/entities/entity.php';
 require_once 'model/entities/anmeldung.php';
@@ -9,7 +7,7 @@ require_once 'model/entities/fachrichtung.php';
 require_once 'model/entities/fuehrung.php';
 require_once 'model/entities/offener_tag.php';
 require_once 'model/funktionen.php';
-require_once 'config/settings.conf.php';
+require_once 'config/settings.ini.php';
 
 
 require_once 'controller/controller.php';

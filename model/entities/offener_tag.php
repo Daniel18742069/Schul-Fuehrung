@@ -105,16 +105,16 @@ class Offener_tag{
     }
 
     public static function findeAlleOffener_tag() {
-        $sql = 'SELECT * FROM offener_tag';
+        $sql = 'SELECT * FROM od_offener_tag';
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
         return $abfrage->fetchAll();
     }
 
     public static function findeNeuestenOffenenTag() {
-        $sql = 'SELECT * FROM offener_tag ORDER BY id DESC LIMIT 1';
+        $sql = 'SELECT * FROM od_offener_tag ORDER BY id DESC LIMIT 1';
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
         return $abfrage->fetch();
     }
 

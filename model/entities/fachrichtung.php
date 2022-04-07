@@ -33,7 +33,7 @@ class Fachrichtung{
 
 
     public static function findeAlleFachrichtungen() {
-        $sql = 'SELECT * FROM fachrichtung';
+        $sql = 'SELECT * FROM od_fachrichtung';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fachrichtung');
         return $abfrage->fetchAll();

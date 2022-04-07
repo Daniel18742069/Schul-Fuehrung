@@ -14,15 +14,16 @@ function ersetze_platzhalter(string $string, array $pattern_replacement)
 
 function stringsVergleichen($string1, $string2)
 {
-    if ($string1 === $string2) {
-        return true;
-    } else {
-        return false;
-    }
+    return $string1 === $string2;
 }
 
 function logge_ein($benutzername)
 {
     $_SESSION['eingeloggt'] = $benutzername;
     $_SESSION['id'] = "true";
+}
+
+function mindestens_1_tag_entfernt($date1, $date2)
+{
+    return strtotime('+1 day', $date1) < strtotime($date2);
 }
