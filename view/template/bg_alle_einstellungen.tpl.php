@@ -17,8 +17,7 @@
             <h1>Einstellungen</h1>
             <form action="index.php?aktion=bg_alle_einstellungen&id=<?=$_GET['id']?>" method="post"> 
             
-        <?php $alleFachrichtungen = Fachrichtung::findeAlleFachrichtungen();
-        var_dump($bg_alle_einstellungen); ?>
+        <?php $alleFachrichtungen = Fachrichtung::findeAlleFachrichtungen();    ?>
 
             <?php foreach ($alleFachrichtungen as $fachrichtung) { ?>
                 <input type="checkbox" name="<?=$fachrichtung->getId()?>" value="<?=$fachrichtung->getId()?>" id="<?=$fachrichtung->getId()?>">

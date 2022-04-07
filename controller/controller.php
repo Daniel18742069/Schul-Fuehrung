@@ -30,6 +30,7 @@ class Controller
     }
     public function bg_alle_einstellungen(){
         $this->addContext("bg_alle_einstellungen",Offener_tag::findeOffenenTag($_GET['id']));
+    }
     public function be_alle_od(){
         $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
     }

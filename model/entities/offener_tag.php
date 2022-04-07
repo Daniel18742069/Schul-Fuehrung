@@ -137,11 +137,11 @@ class Offener_tag{
     }
     public static function findeOffenenTag($id) {
 
-        $sql = 'SELECT * FROM offener_tag WHERE id = ?';
+        $sql = 'SELECT * FROM od_offener_tag WHERE id = ?';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute(array($id));
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'offener_tag');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_offener_tag');
         return $abfrage->fetch();
     }
     
