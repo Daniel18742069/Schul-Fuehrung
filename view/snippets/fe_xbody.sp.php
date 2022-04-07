@@ -46,85 +46,28 @@
                     <div class="uhrzeit"><?= $counter ?>:00 Uhr</div>
                     <div class="lehrer">Lehrer</div>
                     <div class="kapazitaet">0/10</div>
-                    </div><!-- end of accordion item -->
+                    </div>
                     <div class="accordion-body js-accordion-body">
                         <div class="accordion-body__contents">
                             Test
                             Test
                         </div>
-                    </div><!-- end of accordion body -->
-                
+                    </div>
                 </div>
         <?php $counter++;
         } ?>
          
 
-    </div><!-- end of accordion -->
+    </div>
 
 
     <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script id="rendered-js">
-        var accordion = function() {
 
-            var $accordion = $('.js-accordion');
-            var $accordion_header = $accordion.find('.js-accordion-header');
-            var $accordion_item = $('.js-accordion-item');
-
-            // default settings 
-            var settings = {
-                // animation speed
-                speed: 400,
-
-                // close all other accordion items if true
-                oneOpen: false
-            };
-
-
-            return {
-                // pass configurable object literal
-                init: function($settings) {
-                    $accordion_header.on('click', function() {
-                        accordion.toggle($(this));
-                    });
-
-                    $.extend(settings, $settings);
-
-                    // ensure only one accordion is active if oneOpen is true
-                    if (settings.oneOpen && $('.js-accordion-item.active').length > 1) {
-                        $('.js-accordion-item.active:not(:first)').removeClass('active');
-                    }
-
-                    // reveal the active accordion bodies
-                    $('.js-accordion-item.active').find('> .js-accordion-body').show();
-                },
-                toggle: function($this) {
-
-                    if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
-                        $this.closest('.js-accordion').
-                        find('> .js-accordion-item').
-                        removeClass('active').
-                        find('.js-accordion-body').
-                        slideUp();
-                    }
-
-                    // show/hide the clicked accordion item
-                    $this.closest('.js-accordion-item').toggleClass('active');
-                    $this.next().stop().slideToggle(settings.speed);
-                }
-            };
-
-        }();
-
-        $(document).ready(function() {
-            accordion.init({
-                speed: 300,
-                oneOpen: true
-            });
-        });
-        //# sourceURL=pen.js
-    </script>
+    <script>accordion()</script>
+    
+        
 
 
 
