@@ -29,7 +29,7 @@
                                     <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
                                 </span>
                                 <span class="buttons">
-                                    <button class="editieren">Editieren</button>
+                                    <button class="editieren" href=">Editieren</button>
                                     <button class="editieren">Führung hinzufügen</button>
                                 </span>
                             </div>
