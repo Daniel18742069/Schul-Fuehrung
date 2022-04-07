@@ -16,13 +16,14 @@
 
             <h1>Einstellungen</h1>
             <form action="index.php?aktion=bg_alle_einstellungen&id=<?=$_GET['id']?>" method="post"> 
-            
-        <?php $alleFachrichtungen = Fachrichtung::findeAlleFachrichtungen();    ?>
 
-            <?php foreach ($alleFachrichtungen as $fachrichtung) { ?>
-                <input type="checkbox" name="<?=$fachrichtung->getId()?>" value="<?=$fachrichtung->getId()?>" id="<?=$fachrichtung->getId()?>">
-	            <label for="<?=$fachrichtung->getId()?>"><?=$fachrichtung->getBeschreibung()?></label>              
+            <?php  foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
                 
+                <div>
+                <input type="checkbox" name="i<?=$einstellung['id']?>" value="c<?=$einstellung['id']?>">
+                <label for="c<?=$einstellung['id']?>"><?=$einstellung['beschreibung']?></label>
+                </div>
+
             <?php } ?>
 
             <input type="submit" name="anmelden" value="Anmelden"/>
