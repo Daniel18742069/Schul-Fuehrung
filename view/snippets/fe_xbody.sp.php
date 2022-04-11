@@ -46,17 +46,25 @@
                     <div class="uhrzeit"><?= $counter ?>:00 Uhr</div>
                     <div class="lehrer">Lehrer</div>
                     <div class="kapazitaet">0/10</div>
-                    </div>
-                    <div class="accordion-body js-accordion-body">
-                        <div class="accordion-body__contents">
-                            Test
-                            Test
-                        </div>
+                </div>
+                <div class="accordion-body js-accordion-body">
+                    <div class="accordion-body__contents">
+                        <form>
+                            <label for="vorname">Vorname:</label>
+                            <input type="text" id="vorname" name="vorname" value=""> </br>
+                            <label for="nachname">Nachname:</label><br>
+                            <input type="text" id="nachname" name="nachname" value=""> </br>
+                            <label for="tel">Telefon:</label><br>
+                            <input type="tel" id="tel" name="tel" value=""> </br>
+                            <label for="email">E-Mail:</label><br>
+                            <input type="email" id="email" name="email" value=""> </br>
+                        </form>
                     </div>
                 </div>
+            </div>
         <?php $counter++;
         } ?>
-         
+
 
     </div>
 
@@ -65,9 +73,11 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-    <script>accordion()</script>
-    
-        
+    <script>
+        accordion()
+    </script>
+
+
 
 
 
