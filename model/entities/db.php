@@ -12,7 +12,7 @@ class DB {
        
        if (self::$db == NULL){
         try{
-         self::$db = new PDO('mysql:host=localhost;dbname=schulfuehrung;charset=utf8', 'schulfuehrung_admin','schulfuehrung_admin');
+         self::$db = new PDO('mysql:host=localhost;dbname=schulfuehrung;charset=utf8', 'root');
          self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e){
