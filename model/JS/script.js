@@ -58,3 +58,26 @@ function accordions() {
         });
     }
 }
+
+
+
+
+
+//termin abmelden bestätigen
+function termin_abmelden(){
+    var bestaetigung  = document.getElementsByClassName("termin_bestaetigen");
+    var formular  = document.getElementsByClassName("termin");
+
+    if(bestaetigung.style.display == "none"){
+        bestaetigung.style.display = "block";
+    }else {
+        bestaetigung.style.display = "none";
+    }
+
+
+    if(formular.style.display == "block"){
+        formular.style.display = "none";
+    }else {
+        formular.style.display = "block";
+    }
+}

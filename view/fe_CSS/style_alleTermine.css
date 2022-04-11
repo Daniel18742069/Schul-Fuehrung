@@ -36,3 +36,7 @@
   width: 20%;
   transition: all 0.3s;
 }
+
+.termin_bestaetigen {
+  display: none;
+}
