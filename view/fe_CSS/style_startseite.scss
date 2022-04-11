@@ -41,15 +41,6 @@ body {
     .tab:hover {
       cursor: pointer;
 
-.wrapper-fe_startseite{
-  margin-top: 5rem;
-  margin-bottom: 7rem;
-}
-
-h1,
-h2 {
-  color: $blueColor;
-}
     }
 
   }
@@ -93,41 +84,37 @@ h2 {
   }
 }
 
-  // label {
-  //   order: 1;
-  //   margin-right: 0.2rem;
-  //   color: $blueColor;
-  //   background-color: rgba(245, 196, 0, 0.8);
-  //   border-color: #e6b800;
-  //   padding: 0.45rem 1rem;
-  //   font-size: 1.1rem;
-  //   line-height: 1.5;
-  //   border-radius: 0.25rem;
-  //   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+label {
+  order: 1;
+  margin-right: 0.2rem;
+  color: $blueColor;
+  background-color: rgba(245, 196, 0, 0.8);
+  border-color: #e6b800;
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
 
-  //   &:hover {
-  //     color: #e9ecef;
-  //     background-color: $blueColor;
-  //   }
+  &:hover {
+    color: #e9ecef;
+    background-color: $blueColor;
+  }
 
-  // }
+}
 
 input[type="button"]:hover {
   cursor: pointer;
   //background-color: #d5e3ff;
 }
 
-// input[type="button"]:hover {
-//   background-color: #d5e3ff;
-// }
+input[type="button"].active {
+  background-color: white;
+}
 
-// input[type="button"].active {
-//   background-color: white;
-// }
-
-// .active {
-//   background-color: white;
-// }
+.active {
+  background-color: white;
+}
 
 p {
   text-align: left;
@@ -144,16 +131,6 @@ p {
   margin: 0.5rem 0 2rem 0;
 }
 
-.kalenderbox {
-  input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-  }
-}
-
-/*
-.content {
 input {
   position: absolute;
   //opacity: 0;
@@ -340,4 +317,4 @@ form {
       font-size: 1rem;
     }
   }
-}*/
+}
