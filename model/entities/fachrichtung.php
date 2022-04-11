@@ -56,6 +56,11 @@ class Fachrichtung{
 
         return $this;
     }
+    public static function getFachrichtungBeiID($id){
+        $sql = 'SELECT beschreibung FROM od_fachrichtung where id = '. $id;
+        $abfrage = DB::getDB()->query($sql);
+        return $abfrage->fetch()['beschreibung'];
+    }
 }
 
 

@@ -29,9 +29,11 @@ class Controller
         $this->addContext("bg_od_erfolgreich",$offener_tag);
     }
     public function bg_alle_einstellungen(){
+        $this->addContext("offenertagID",$_REQUEST['id']);
         $this->addContext("bg_alle_einstellungen",Fachrichtung::findeAlleFachrichtungen());
     }
     public function be_alle_od(){
+        
         $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
     }
 
