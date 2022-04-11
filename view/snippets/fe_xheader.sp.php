@@ -1,21 +1,23 @@
 <script src="https://kit.fontawesome.com/6016e9420e.js" crossorigin="anonymous"></script>
 
-<header class="header">
+<header>
 
     <img src="view/img/lbshi_cropped.png" id="img_schule" width="100%">
 
-    <div id="white_label">
+    <div id="header_struktur">
+            <div id="white_label">
+                <div id="black_label">
+                    <h1>OPEN DAY</h1>
+                    <div id="logo_bs">
+                    <a href="index.php">
+                        <img src="view/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
+                    </a>
+                    </div>
+                </div>
+            </div>
     </div>
 
-    <div id="black_label">
-        <h1>OPEN DAY</h1>
-    </div>
-
-    <a href="../template/fe_startseite.tpl.php"> <!-- Später zu index ändern -->
-        <div id="logo_bs">
-            <img src="view/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
-        </div> 
-    </a>
+    <h1>Führungen buchen</h1>
 
     <div class="social_icons">
 

@@ -27,11 +27,19 @@ body .tabs .tab {
   padding: 0.45rem 1rem;
   font-size: 1.1rem;
   line-height: 1.5;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-body .wrapper-fe_startseite {
+body .tabs .tab:hover {
+  cursor: pointer;
+}
+body .tabs .tab:hover .wrapper-fe_startseite {
   margin-top: 5rem;
   margin-bottom: 7rem;
+}
+body .tabs .tab:hover h1,
+body .tabs .tab:hover h2 {
+  color: #002a50;
 }
 body h1,
 body h2 {
@@ -40,6 +48,7 @@ body h2 {
 body #wrapper {
   max-width: 1140px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 .box {
@@ -60,16 +69,12 @@ body #wrapper {
   text-align: right;
 }
 
-.fachrichtung {
-  padding: 10px;
-}
 .fachrichtung .active {
   background-color: #002a50;
 }
 
-.tab-content {
-  margin-left: 20px;
-  margin-right: 20px;
+input[type=button]:hover {
+  cursor: pointer;
 }
 
 p {
@@ -95,12 +100,145 @@ p {
 
 /*
 .content {
+input {
+  position: absolute;
+  //opacity: 0;
+  //z-index: -1;
+}
+
+.fachrichtung {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+
+
+}
+
+
+.accordion {
+  font-size: 1rem;
+  width: 30vw;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.accordion-header,
+.accordion-body {
+  background: white;
+}
+
+.accordion-header {
+  padding: 1.5em 1.5em;
+  background: #3F51B5;
+  color: white;
+  cursor: pointer;
+  font-size: .7em;
+  letter-spacing: .1em;
+  transition: all .3s;
+  text-transform: uppercase;
+}
+
+.accordion__item {
+  border-bottom: 1px solid #3a4ba4;
+}
+
+.accordion__item .accordion__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.accordion-header:hover {
+  background: #2D3D99;
+  position: relative;
+  z-index: 5;
+}
+
+.accordion-body {
+  background: #fcfcfc;
+  color: #353535;
   display: none;
-  overflow: hidden;
-}*/
+}
+
+.accordion-body__contents {
+  padding: 1.5em 1.5em;
+  font-size: .85em;
+}
+
+.accordion__item.active:last-child .accordion-header {
+  border-radius: none;
+}
+
+.accordion:first-child>.accordion__item>.accordion-header {
+  border-bottom: 1px solid transparent;
+}
+
+.accordion__item>.accordion-header:after {
+  content: "\f3d0";
+  font-family: IonIcons;
+  font-size: 1.2em;
+  float: right;
+  position: relative;
+  top: -2px;
+  transition: .3s all;
+  transform: rotate(0deg);
+}
+
+.accordion__item.active>.accordion-header:after {
+  transform: rotate(-180deg);
+}
+
+.accordion__item.active .accordion-header {
+  background: #2D3D99;
+}
+
+.accordion__item .accordion__item .accordion-header {
+  background: #f1f1f1;
+  color: #353535;
+}
+
+
+form {
+
+  input {
+
+
+    &:hover {
+      background-color: $color-orange;
+    }
+
+  }
+
+  .label {
+      color: $blueColor;
+      padding: 0.2rem 1rem;
+      font-size: 1.4rem;
+      margin-left: 1rem;
+      border: 1px solid $blueColor;
+      width: 20%;
+      transition: all 0.3s;
+
+    }
+  }
+
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 1em;
+  }
+
+  .accordion {
+    width: 100%;
+  }
+}
+
+
 @media (max-width: 45em) {
+
   .tabs .tab,
-.tabs label {
+  .tabs label {
     order: initial;
   }
 
@@ -110,24 +248,42 @@ p {
     margin-top: 0.2rem;
   }
 }
+
 @media (min-width: 992px) {
+
   .top_bar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 }
+
 @media (min-width: 640px) {
   body {
     font-size: 1rem;
+
+    header {
+      font-size: 1rem;
+    }
+
   }
 }
-@media (min-width: 960px) {
+
+@media (min-width:960px) {
   body {
     font-size: 1.2rem;
+
+    header {
+      font-size: 1rem;
+    }
   }
 }
-@media (min-width: 1100px) {
+
+@media (min-width:1100px) {
   body {
     font-size: 1.5rem;
+
+    header {
+      font-size: 1rem;
+    }
   }
-}
+}*/
