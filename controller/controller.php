@@ -18,6 +18,11 @@ class Controller
         $this->addContext("fe_startseite", "nix");
     }
 
+    private function test()
+    {
+        Anmeldung::findeAlleAnmeldungen();
+    }
+
     private function anmelden()
     {
         if (
@@ -29,17 +34,27 @@ class Controller
             isset($_REQUEST['fuehrung_id']) &&
             isset($_REQUEST['anzahl'])
         ) {
-            $Anmeldung = new Anmeldung(
-                $_REQUEST['datum'],
-                $_REQUEST['telefon'],
-                $_REQUEST['vorname'],
-                $_REQUEST['nachname'],
-                $_REQUEST['email'],
-                $_REQUEST['fuehrung_id'],
-                $_REQUEST['anzahl']
-            );
+            if (
+                Anmeldung::validate_data(
+                    $_REQUEST['datum'],
+                    $_REQUEST['telefon'],
+                    $_REQUEST['vorname'],
+                    $_REQUEST['nachname'],
+                    $_REQUEST['email'],
+                    $_REQUEST['fuehrung_id'],
+                    $_REQUEST['anzahl']
+                )
+            ) {
 
-            if ($Anmeldung->validate_data()) {
+                $Anmeldung = new Anmeldung(
+                    $_REQUEST['datum'],
+                    $_REQUEST['telefon'],
+                    $_REQUEST['vorname'],
+                    $_REQUEST['nachname'],
+                    $_REQUEST['email'],
+                    $_REQUEST['fuehrung_id'],
+                    $_REQUEST['anzahl']
+                );
                 $Anmeldung->speichere();
 
                 require_once 'model/email.php';
@@ -100,7 +115,7 @@ class Controller
                     if ($Offener_tag) {
 
                         if (mindestens_1_tag_entfernt($Anmeldung->getdate(), $Offener_tag->getdate())) {
-                            $Anmeldung->loeschen();
+                            $Anmeldung->loesche();
 
                             require_once 'model/email.php';
 
@@ -140,8 +155,7 @@ class Controller
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
 
-                if(isset($_REQUEST['anzahl'])) {
-                    
+                if (isset($_REQUEST['anzahl'])) {
                 }
             }
         }

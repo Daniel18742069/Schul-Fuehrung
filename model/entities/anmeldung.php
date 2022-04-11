@@ -14,7 +14,7 @@ class Anmeldung
     private int $fuehrung_id = 0;
     private int $anzahl = 0;
 
-    private bool $valid = false;
+    private bool $new = true;
 
     public function getToken()
     {
@@ -106,8 +106,6 @@ class Anmeldung
 
     public function __construct(array $array = array())
     {
-        $this->token = self::generate_token();
-
         if ($array) {
             foreach ($array as $key => $value) {
                 $setter = 'set' . ucfirst($key);
@@ -115,6 +113,12 @@ class Anmeldung
                     $this->$setter($value);
                 }
             }
+        }
+
+        if ($this->token == "") {
+            $this->token = self::generate_token();
+        } else {
+            $this->new = false;
         }
     }
 
@@ -147,8 +151,10 @@ class Anmeldung
 
     public function speichere(): void
     {
-        if ($this->valid) {
-
+        if ($this->new) {
+            $this->_insert();
+        } else {
+            $this->_update();
         }
     }
 
@@ -176,7 +182,7 @@ class Anmeldung
         $abfrage->execute($this->toArray(false));
     }
 
-    private function _delete(): void
+    private function _loesche(): void
     {
         $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
 
@@ -192,20 +198,25 @@ class Anmeldung
         return $unixtime . $letter;
     }
 
-    public function validate_data(): bool
-    {
-        $this->valid = $this->validate_datum($this->datum)
-            && $this->validate_telefon($this->telefon)
-            && $this->validate_name($this->vorname)
-            && $this->validate_name($this->nachname)
-            && $this->validate_email($this->email)
-            && $this->validate_fuehrung_id($this->fuehrung_id)
-            && $this->validate_anzahl($this->anzahl, $this->fuehrung_id);
-
-        return $this->valid;
+    public static function validate_data(
+        string $datum,
+        string $telefon,
+        string $vorname,
+        string $nachname,
+        string $email,
+        int $fuehrung_id,
+        int $anzahl
+    ): bool {
+        return self::validate_datum($datum)
+            && self::validate_telefon($telefon)
+            && self::validate_name($vorname)
+            && self::validate_name($nachname)
+            && self::validate_email($email)
+            && self::validate_fuehrung_id($fuehrung_id)
+            && self::validate_anzahl($anzahl, $fuehrung_id);
     }
 
-    private function validate_datum(string $date, $format = 'Y-m-d'): bool
+    public static function validate_datum(string $date, $format = 'Y-m-d'): bool
     {
         $date_format = DateTime::createFromFormat($format, $date);
 
@@ -213,7 +224,7 @@ class Anmeldung
             && $date_format->format($format) === $date;
     }
 
-    private function validate_telefon(string $telefon): bool
+    public static function validate_telefon(string $telefon): bool
     {
         $telefon_length = strlen($telefon);
 
@@ -221,7 +232,7 @@ class Anmeldung
             && preg_match_all('/^[0-9 ]{3,}$/', $telefon) == $telefon_length;
     }
 
-    private function validate_name(string $name): bool
+    public static function validate_name(string $name): bool
     {
         $name_length = strlen($name);
 
@@ -229,13 +240,13 @@ class Anmeldung
             && preg_match_all('/^[a-z]{3,}$/i', $name) == $name_length;
     }
 
-    private function validate_email(string $email): bool
+    public static function validate_email(string $email): bool
     {
         return $email
             && preg_match('/^[-._a-z1-9]+[@][a-z1-9]+[.][a-z]{2,3}$/i', $email);
     }
 
-    private function validate_fuehrung_id(int $fuehrung_id): bool
+    public static function validate_fuehrung_id(int $fuehrung_id): bool
     {
         $Fuehrungen = Fuehrung::findeAlleFuehrungen();
         foreach ($Fuehrungen as $Fuehrung) {
@@ -246,7 +257,7 @@ class Anmeldung
         return false;
     }
 
-    private function validate_anzahl(int $anzahl, int $fuehrung_id): bool
+    public static function validate_anzahl(int $anzahl, int $fuehrung_id): bool
     {
         if ($anzahl) {
             $Fuehrungen = Fuehrung::findeAlleFuehrungen();
