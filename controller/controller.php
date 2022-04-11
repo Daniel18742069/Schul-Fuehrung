@@ -10,6 +10,7 @@ class Controller
     {
         $this->$aktion(); // LOGIK
         $this->generatePage($aktion); //VIEW
+        unset($_REQUEST);
     }
 
     public function fe_startseite()
@@ -74,6 +75,9 @@ class Controller
 
                 $this->addContext('token', $Anmeldung->getToken());
                 $this->addContext('datum', $Anmeldung->getDatum());
+                $this->addContext('vorname', $Anmeldung->getVorname());
+                $this->addContext('nachname', $Anmeldung->getNachname());
+                $this->addContext('anzahl', $Anmeldung->getAnzahl());
             }
 
             return;
@@ -98,7 +102,26 @@ class Controller
                         if (mindestens_1_tag_entfernt($Anmeldung->getdate(), $Offener_tag->getdate())) {
                             $Anmeldung->loeschen();
 
-                            #email
+                            require_once 'model/email.php';
+
+                            $to_address = $Anmeldung->getEmail();
+                            $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
+                            $subject = 'Anmeldung Gelöscht';
+                            $message = file_get_contents('mail/abmeldung.mail.html');
+                            $message = ersetze_platzhalter($message, [
+                                ['url', URL],
+                                ['namen', $to_name],
+                                ['token', $Anmeldung->getToken()]
+                            ]);
+
+                            email::send(
+                                $subject,
+                                $message,
+                                $to_address,
+                                $to_name
+                            );
+
+                            $this->addContext('abmeldung', 'Erfolgreich!');
                         }
                     }
                 }
@@ -108,6 +131,20 @@ class Controller
         }
 
         header('Location: ?aktion=fe_startseite');
+    }
+
+    private function aendern()
+    {
+        if (isset($_REQUEST['token'])) {
+
+            $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
+            if ($Anmeldung) {
+
+                if(isset($_REQUEST['anzahl'])) {
+                    
+                }
+            }
+        }
     }
 
     private function generatePage($template)
