@@ -44,6 +44,10 @@ class Controller
         
     }
 
+    public function fe_termin(){
+        $this->addContext("fe_termin","nix");
+    }
+
     private function anmelden()
     {
         if (

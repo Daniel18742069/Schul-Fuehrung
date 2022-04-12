@@ -1,9 +1,11 @@
 <section id="wrapper">
 
-    <!-- Untertitel & kurzer Text -->
-    <div>
-        <h2>Alle Open Days</h2>
-    </div>
+    <div class="wrapper-be_startseite">
+
+        <!-- Untertitel & kurzer Text -->
+        <div>
+            <h2>Alle Open Days</h2>
+        </div>
 
     <!-- Kalender -->
     <div class="tab-content">
@@ -37,5 +39,5 @@
             </div>
             <?php } ?>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
