@@ -55,7 +55,7 @@ var accordion = function() {
   // default settings 
   var settings = {
       // animation speed
-      speed: 400,
+      //speed: 400,
 
       // close all other accordion items if true
       oneOpen: false
@@ -99,7 +99,7 @@ var accordion = function() {
 
 $(document).ready(function() {
   accordion.init({
-      speed: 300,
+      //speed: 300,
       oneOpen: true
   });
 });

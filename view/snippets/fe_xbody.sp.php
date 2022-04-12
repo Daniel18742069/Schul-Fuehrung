@@ -49,15 +49,15 @@
                 </div>
                 <div class="accordion-body js-accordion-body">
                     <div class="accordion-body__contents">
-                        <form>
+                        <form class="form_buchung">
                             <label for="vorname">Vorname:</label>
-                            <input type="text" id="vorname" name="vorname" value=""> </br>
-                            <label for="nachname">Nachname:</label><br>
-                            <input type="text" id="nachname" name="nachname" value=""> </br>
-                            <label for="tel">Telefon:</label><br>
-                            <input type="tel" id="tel" name="tel" value=""> </br>
-                            <label for="email">E-Mail:</label><br>
-                            <input type="email" id="email" name="email" value=""> </br>
+                            <input type="text" id="vorname" name="vorname" value=""><br>
+                            <label for="nachname">Nachname:</label>
+                            <input type="text" id="nachname" name="nachname" value=""><br>
+                            <label for="tel">Telefon:</label>
+                            <input type="tel" id="tel" name="tel" value=""><br>
+                            <label for="email">E-Mail:</label>
+                            <input type="email" id="email" name="email" value="">
                         </form>
                     </div>
                 </div>
@@ -161,8 +161,5 @@
             </div>
         </div>
                     -->
-
-
-
 
 </section>
