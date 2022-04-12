@@ -137,7 +137,6 @@ input {
 
 .accordion {
   font-size: 1rem;
-  width: 30vw;
   margin: 0 auto;
   border-radius: 5px;
 }
@@ -198,7 +197,7 @@ input {
   float: right;
   position: relative;
   top: -2px;
-  transition: 2s all;
+  transition: 0.7s all;
   transform: rotate(0deg);
 }
 
@@ -215,14 +214,29 @@ input {
   color: #353535;
 }
 
-
-
 .form_buchung {
 
+  label {
+    width: 10rem;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    font-size: large;
+  }
+
+  input {
+    position: relative;
+    color: $blueColor;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
+    border: none;
+    border-bottom: 1px solid $blueColor;
+    width: 30%;
+    transition: all 0.3s;
+  }
+
 }
-
-
-
 
 @media screen and (max-width: 1000px) {
   body {
