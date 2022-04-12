@@ -2,7 +2,7 @@
 
 <header>
 
-    <img src="view/img/lbshi_cropped.png" id="img_schule" width="100%">
+    <img src="view/img/school.jpg" id="img_schule" width="100%">
 
     <div id="header_struktur">
             <div id="white_label">
