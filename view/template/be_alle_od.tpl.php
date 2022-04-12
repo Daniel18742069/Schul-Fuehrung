@@ -15,11 +15,11 @@
 
 <body>
 
-    <?php require 'view/snippets/xheader.sp.php'; ?>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
     <?php require 'view/snippets/be_xbody.sp.php'; ?>
 
-    <?php require 'view/snippets/xfooter.sp.php'; ?>
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 </body>
 

@@ -84,7 +84,7 @@ body {
   }
 }
 
-label {
+/*label {
   order: 1;
   margin-right: 0.2rem;
   color: $blueColor;
@@ -101,7 +101,7 @@ label {
     background-color: $blueColor;
   }
 
-}
+}*/
 
 input[type="button"]:hover {
   cursor: pointer;
@@ -132,7 +132,7 @@ p {
 }
 
 input {
-  position: absolute;
+  //position: absolute;
   //opacity: 0;
   //z-index: -1;
 }
@@ -231,7 +231,7 @@ input {
 }
 
 
-form {
+/*form {
 
   input {
 
@@ -252,7 +252,7 @@ form {
       transition: all 0.3s;
 
     }
-  }
+}*/
 
 
 @media screen and (max-width: 1000px) {
