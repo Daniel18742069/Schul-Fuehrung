@@ -16,7 +16,7 @@ require_once 'controller/controller.php';
 //var_dump($_SESSION);
 
 
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'fe_startseite';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'be_alle_od';
 
 $controller = new Controller();
 
