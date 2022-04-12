@@ -17,7 +17,8 @@
 
         <h1>Offener Tag erfolgreich erstellt</h1>
 
-        <a href="index.php?aktion=bg_alle_einstellungen&id=<?= $bg_od_erfolgreich->getId()?>">Zu den Genaueren Einstellungen</a>
+        <a href="index.php?aktion=bg_alle_einstellungen&id=<?= $bg_od_erfolgreich->getId()?>">Zu den Genaueren
+            Einstellungen</a>
         <a href="index.php?aktion=bg_alle_od">Zurück zum Admin Pannel</a>
 
     </main>

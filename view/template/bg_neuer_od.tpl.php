@@ -17,15 +17,19 @@
 
         <h1>Neuer Open Day</h1>
 
-        <form action="index.php?aktion=bg_od_erfolgreich" method="post"> 
+        <form action="index.php?aktion=bg_od_erfolgreich" method="post">
 
-            <div class="felder" class="felder"><span>Bezeichnung:</span><input type="text" name="bezeichnung" id="bezeichnung" required /></div>
+            <div class="felder" class="felder"><span>Bezeichnung:</span><input type="text" name="bezeichnung"
+                    id="bezeichnung" required /></div>
 
-            <div class="felder"><span>Intervall:</span><input type="number" name="intervall" id="intervall" required /></div>
+            <div class="felder"><span>Intervall:</span><input type="number" name="intervall" id="intervall" required />
+            </div>
 
-            <div class="felder" class="felder"><span>Datum:</span><input type="date" name="datum" id="datum" required /></div>
+            <div class="felder" class="felder"><span>Datum:</span><input type="date" name="datum" id="datum" required />
+            </div>
 
-            <div class="felder" class="felder"><span>Startuhrzeit:</span><input type="time" name="start" id="start" required /></div>
+            <div class="felder" class="felder"><span>Startuhrzeit:</span><input type="time" name="start" id="start"
+                    required /></div>
 
             <div class="felder"><span>Enduhrzeit:</span><input type="time" name="ende" id="ende" required /></div>
 
