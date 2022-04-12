@@ -27,6 +27,10 @@ function logge_ein($benutzername)
     $_SESSION['id'] = "true";
 }
 function erstelle_Fuehrungen($fuehrungsDaten){
-    var_dump($fuehrungsDaten);
+
+
+
+
+
 }
 
