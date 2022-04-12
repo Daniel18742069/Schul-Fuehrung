@@ -34,13 +34,12 @@ $blueColor: #002a50;
     padding: 0.2rem 1rem;
     font-size: 1.4rem;
     margin-left: 1rem;
-    //background-color: ;
     border: 1px solid $blueColor;
     width: 20%;
     transition: all 0.3s;
 }
 
 
-.termin_bestaetigen{
+.termin_bestaetigen, .termin_aendern{
     display: none;
 }

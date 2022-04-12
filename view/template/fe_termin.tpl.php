@@ -15,7 +15,7 @@
 
 <body>
 
-    <?php require 'view/snippets/xheader.sp.php'; ?>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
     
     <section id="wrapper">
@@ -25,7 +25,7 @@
 
         <h1>Ihre Führungen am 01.01.2001</h1>
 
-        <div class="termin">
+        <div class="termin" id="term">
             <span class="termine">
                 <p>Vorname: Donler</p>
                 <p>Nachname: TheMaschin</p>
@@ -36,14 +36,21 @@
             </span>
             <span class="buttons">
                 <input type="button" value="Abmelden" class="abmelden" onclick="termin_abmelden()">
-                <input type="submit" value="Ändern" class="aendern">
+                <input type="button" value="Ändern" class="aendern" onclick="termin_aendern()">
             </span>
         </div>
-        <div class="termin_bestaetigen">
+        <div class="termin_bestaetigen" id="term_best">
             <p>Wollen Sie sich wircklich abmelden?</p>
             <span class="buttons">
-                <input type="button" value="Abmelden" class="abmelden">
-                <input type="submit" value="Zurück" class="aendern">
+                <input type="submit" value="Abmelden" class="abmelden">
+                <input type="button" value="Zurück" class="aendern" onclick="termin_zurueck()">
+            </span>
+        </div>
+        <div class="termin_aendern" id="term_aend">
+            <p>Wollen Sie wirklich Ihren Termin ändern?</p>
+            <span class="buttons">
+                <input type="submit" value="Ändern" class="abmelden">
+                <input type="button" value="Zurück" class="aendern" onclick="termin_zurueck()">
             </span>
         </div>
 
@@ -54,7 +61,7 @@
 
 
 
-    <?php require 'view/snippets/xfooter.sp.php'; ?>
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 </body>
 

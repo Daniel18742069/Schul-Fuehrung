@@ -37,6 +37,6 @@
   transition: all 0.3s;
 }
 
-.termin_bestaetigen {
+.termin_bestaetigen, .termin_aendern {
   display: none;
 }
