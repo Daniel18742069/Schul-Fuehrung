@@ -12,6 +12,8 @@
 <body>
 
 
+    <?php //require 'view/snippets/fe_xheader.sp.php'; ?>
+
     <main>
         <?php  if(empty($_POST)){ ?>
         <h1>Wähle Fächer aus</h1>
@@ -20,10 +22,8 @@
 
             <?php  foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
 
-            <div>
-                <input type="checkbox" name="<?=$einstellung['id']?>" value="<?=$einstellung['id']?>">
-                <label for="c<?=$einstellung['id']?>"><?=$einstellung['beschreibung']?></label>
-            </div>
+                <input type="checkbox" name="<?=$einstellung->getId()?>" value="<?=$einstellung->getId()?>" />
+                <label for="c<?=$einstellung->getId()?>"><?=$einstellung->getBeschreibung()?></label>
 
             <?php } ?>
 
