@@ -12,8 +12,8 @@
 	<p>Ändern</p>
 	<p>Termin: <?= $datum ?></p>
 
-	<a href="<?= URL ?>?aktion=abmelden&token=<?= $token ?>">Abmelden</a>
-	<a href="<?= URL ?>?aktion=bearbeiten&token=<?= $token ?>">Bearbeiten</a>
+	<a href="?aktion=abmelden&token=<?= $token ?>">Abmelden</a>
+	<a href="?aktion=bearbeiten&token=<?= $token ?>">Bearbeiten</a>
 
 </body>
 

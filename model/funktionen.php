@@ -1,6 +1,14 @@
 <?php
 
-function ersetze_platzhalter(string $string, array $pattern_replacement)
+/**
+ * Syntax: &>PLATZHALTER; zB. &>name
+ * 
+ * @author Andreas Codalonga
+ * 
+ * @param string $string String mit Platzhaltern.
+ * @param array $pattern_replacement Ein 2D Array, dass den Platzhalterbegriff (zB. "name") und den String (zB. "John Doe") der eingefügt werden soll.
+ */
+function ersetze_platzhalter(string $string, array $pattern_replacement): string
 {
     foreach ($pattern_replacement as $p_r) {
         $pattern = '/&>' . $p_r[0] . '/';
@@ -23,7 +31,19 @@ function logge_ein($benutzername)
     $_SESSION['id'] = "true";
 }
 
-function mindestens_1_tag_entfernt($date1, $date2)
+/**
+ * @author Andreas Codalonga
+ */
+function datum_formatieren($datum, $format = 'Y-m-d'): string
 {
-    return strtotime('+1 day', $date1) < strtotime($date2);
+    $DateTime = new DateTime($datum);
+    return $DateTime->format($format);
+}
+
+/**
+ * @author Andreas Codalonga
+ */
+function mindestens_1_tag_entfernt($date1, $date2): bool
+{
+    return strtotime('+1 day', strtotime($date1)) < strtotime($date2);
 }

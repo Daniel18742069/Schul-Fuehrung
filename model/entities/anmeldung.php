@@ -115,7 +115,7 @@ class Anmeldung
             }
         }
 
-        if ($this->token == "") {
+        if ($this->token == '') {
             $this->token = self::generate_token();
         } else {
             $this->new = false;
@@ -164,22 +164,23 @@ class Anmeldung
             VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
 
         $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray(false));
+        $abfrage->execute($this->toArray());
     }
 
     private function _update()
     {
-        $sql = 'ALTER TABLE od_anmeldung 
+        $sql = 'UPDATE od_anmeldung
             SET telefon = :telefon
+            , datum = :datum
             , vorname = :vorname
             , nachname = :nachname
             , email = :email
             , fuehrung_id = :fuehrung_id
-            , anzahl = :anzahl 
+            , anzahl = :anzahl
             WHERE token = :token;';
 
         $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray(false));
+        $abfrage->execute($this->toArray());
     }
 
     private function _loesche(): void
@@ -187,7 +188,14 @@ class Anmeldung
         $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
 
         $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray(false));
+        $abfrage->execute($this->toArray());
+    }
+
+    public function toArray()
+    {
+        $attribute = get_object_vars($this);
+        unset($attribute['new']);
+        return $attribute;
     }
 
     public static function generate_token(): string
