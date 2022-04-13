@@ -34,3 +34,20 @@ function erstelle_Fuehrungen($fuehrungsDaten){
 
 }
 
+function arrayManipulieren($assotiativesArrayPost){
+
+$array = [];
+for ($i=0; $i < count($assotiativesArrayPost)-1; $i++) {
+    $variable = $i + 1;
+    if(array_key_exists('fachID'.$variable, $assotiativesArrayPost) && 
+    array_key_exists('anzahl'.$i, $assotiativesArrayPost)
+    ) {
+        $variable2 = $assotiativesArrayPost['fachID'.$variable] +1;
+        array_push($array,$variable2.
+         "_". $assotiativesArrayPost['anzahl'.$i]);
+        
+}
+}
+return $array;
+}
+
