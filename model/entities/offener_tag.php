@@ -118,6 +118,12 @@ class Offener_tag{
         return $abfrage->fetch();
     }
 
+    public static function findeOffenen_tag($datum) {
+        $sql = 'SELECT * FROM od_offener_tag WHERE datum = ' . $datum . ';';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
+        return $abfrage->fetch();
+    }
 
 
 
@@ -142,7 +148,3 @@ class Offener_tag{
         return $this;
     }
 }
-
-
-
-?>

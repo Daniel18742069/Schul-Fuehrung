@@ -18,6 +18,16 @@ class Controller
         $this->addContext("fe_startseite", "nix");
     }
 
+    private function ___test()
+    {
+        $date1 = date('Y-m-d');
+        $date2 = '2022-03-17';
+        echo !mindestens_1_tag_entfernt($date1, $date2);
+    }
+
+    /**
+     * @author Andreas Codalonga
+     */
     private function anmelden()
     {
         if (
@@ -29,17 +39,27 @@ class Controller
             isset($_REQUEST['fuehrung_id']) &&
             isset($_REQUEST['anzahl'])
         ) {
-            $Anmeldung = new Anmeldung(
-                $_REQUEST['datum'],
-                $_REQUEST['telefon'],
-                $_REQUEST['vorname'],
-                $_REQUEST['nachname'],
-                $_REQUEST['email'],
-                $_REQUEST['fuehrung_id'],
-                $_REQUEST['anzahl']
-            );
+            if (
+                Anmeldung::validate_data(
+                    $_REQUEST['datum'],
+                    $_REQUEST['telefon'],
+                    $_REQUEST['vorname'],
+                    $_REQUEST['nachname'],
+                    $_REQUEST['email'],
+                    $_REQUEST['fuehrung_id'],
+                    $_REQUEST['anzahl']
+                )
+            ) {
 
-            if ($Anmeldung->validate_data()) {
+                $Anmeldung = new Anmeldung(
+                    $_REQUEST['datum'],
+                    $_REQUEST['telefon'],
+                    $_REQUEST['vorname'],
+                    $_REQUEST['nachname'],
+                    $_REQUEST['email'],
+                    $_REQUEST['fuehrung_id'],
+                    $_REQUEST['anzahl']
+                );
                 $Anmeldung->speichere();
 
                 require_once 'model/email.php';
@@ -66,9 +86,12 @@ class Controller
         }
     }
 
+    /**
+     * @author Andreas Codalonga
+     */
     private function fe_termin()
     {
-        if (isset($_REQUEST['token'])) {
+        if (isset($_REQUEST['token']) && $_REQUEST['token']) {
 
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
@@ -86,9 +109,12 @@ class Controller
         header('Location: ?aktion=fe_startseite');
     }
 
+    /**
+     * @author Andreas Codalonga
+     */
     private function abmelden()
     {
-        if (isset($_REQUEST['token'])) {
+        if (isset($_REQUEST['token']) && $_REQUEST['token']) {
 
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
@@ -99,8 +125,8 @@ class Controller
                     $Offener_tag = Offener_tag::findeNeuestenOffenenTag();
                     if ($Offener_tag) {
 
-                        if (mindestens_1_tag_entfernt($Anmeldung->getdate(), $Offener_tag->getdate())) {
-                            $Anmeldung->loeschen();
+                        if (mindestens_1_tag_entfernt(date('Y-m-d'), $Offener_tag->getDatum())) {
+                            $Anmeldung->loesche();
 
                             require_once 'model/email.php';
 
@@ -133,18 +159,59 @@ class Controller
         header('Location: ?aktion=fe_startseite');
     }
 
+    /**
+     * @author Andreas Codalonga
+     */
     private function aendern()
     {
-        if (isset($_REQUEST['token'])) {
+        if (isset($_REQUEST['token']) && $_REQUEST['token']) {
 
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
 
-                if(isset($_REQUEST['anzahl'])) {
-                    
+                $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
+                if ($Fuehrung) {
+
+                    if (mindestens_1_tag_entfernt(date('Y-m-d'), $Fuehrung->getOffener_tag_datum())) {
+
+                        if (isset($_REQUEST['anzahl']) && $_REQUEST['anzahl']) {
+
+                            $differenz = $_REQUEST['anzahl'] - $Anmeldung->getAnzahl();
+                            if (Anmeldung::validate_anzahl($differenz, $Anmeldung->getFuehrung_id())) {
+
+                                $Anmeldung->setAnzahl($_REQUEST['anzahl']);
+                                $Anmeldung->speichere();
+
+                                require_once 'model/email.php';
+
+                                $to_address = $Anmeldung->getEmail();
+                                $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
+                                $subject = 'Anmeldung Bearbeitet';
+                                $message = file_get_contents('mail/bearbeitung.mail.html');
+                                $message = ersetze_platzhalter($message, [
+                                    ['url', URL],
+                                    ['namen', $to_name],
+                                    ['token', $Anmeldung->getToken()]
+                                ]);
+
+                                email::send(
+                                    $subject,
+                                    $message,
+                                    $to_address,
+                                    $to_name
+                                );
+
+                                $this->addContext('aenderung', 'Erfolgreich!');
+                            }
+                        }
+                    }
                 }
+
+                return;
             }
         }
+
+        header('Location: ?aktion=fe_startseite');
     }
 
     private function generatePage($template)
