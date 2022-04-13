@@ -108,39 +108,3 @@ $(document).ready(function() {
 
 //puzzle
 
-function puzzle(){
-
-$('#captcha').sliderCaptcha({
-    onSuccess: function () {
-      window.location.href = 'https://www.jquerypost.com';
-    }
-  });
-
-  $('#captcha').sliderCaptcha({
-    width: 280,
-    height: 155,
-    sliderL: 42,
-    sliderR: 9,
-    offset: 5, 
-    loadingText: 'Loading...',
-    failedText: 'Try It Again',
-    barText: 'Slide the Puzzle',
-    repeatIcon: 'fa fa-repeat',
-    maxLoadCount: 3,
-    localImages: function () { // uses local images instead
-      return 'images/Pic' + Math.round(Math.random() * 4) + '.jpg';
-    }
-  });
-
-  $('#captcha').sliderCaptcha({
-    onSuccess: function () {
-      // ...
-    },
-    onFail: function () {
-      // ...
-    },
-    onRefresh: function () {
-      // ...      
-    }
-  });
-}

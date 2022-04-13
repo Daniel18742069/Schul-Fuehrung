@@ -49,7 +49,7 @@
                 </div>
                 <div class="accordion-body js-accordion-body">
                     <div class="accordion-body__contents">
-                        <form class="form_buchung">
+                        <form class="form_buchung" method="POST" action="model/captcha/src/index.php">
                             <label for="vorname">Vorname:</label>
                             <!--Nils du muesch de namen no an die Datenbank anpassen-->
                             <input type="text" id="vorname" name="vorname" value=""><br>
@@ -61,8 +61,8 @@
                             <input type="email" id="email" name="email" value=""><br>
                             <label for="anzahl">Personen:</label>
                             <input type="number" id="anzahl" name="anzahl" value="" max="10" min="1" placeholder="1">
+                            <input type="submit" value="Submit">
 
-                          
 
 
                         </form>
@@ -72,9 +72,7 @@
         <?php $counter++;
         } ?>
 
-
     </div>
-
 
     <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
@@ -82,10 +80,6 @@
 
     <script>
         accordion()
-    </script>
-
-    <script>
-        puzzle()
     </script>
 
 </section>
