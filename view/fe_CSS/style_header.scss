@@ -1,4 +1,70 @@
-header {
+$blueColor: #002a50;
+$color-orange: #fc0;
+$font-color: rgba(255, 255, 255, 0.9);
+
+.header{
+    background-image: url('../img/school.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 41.3vh;
+
+    .white-label{
+        padding: 0.7rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: $font-color;
+    }
+
+    .socials {
+        a {
+            text-decoration: none;
+        }
+        .icon-cog {
+            color: $blueColor;
+            font-size: 2.5em;
+        }
+        .icon-cog:hover {
+            color: $color-orange;
+        }
+    }
+
+    .black-label{
+        background-color: black;
+        opacity: 0.8;
+        font-size: 40px;
+        color: $font-color;
+        font-weight: 750;
+        text-transform: uppercase;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        p{
+            text-align: center;
+            margin: 0.2rem;
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*header {
         width: 100%;
         margin: 0 auto;
         text-align: center;
@@ -74,4 +140,4 @@ header {
 
     .icon-cog:hover {
         color: rgba(245, 196, 0, 1);
-    }
+    }*/

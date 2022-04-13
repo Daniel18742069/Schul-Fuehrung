@@ -49,6 +49,20 @@ class Controller
         $this->addContext("fe_termin","nix");
     }
 
+
+    //Subfooter
+    public function impressum(){
+        $this->addContext("impressum","nix");
+    }
+
+    public function privacy(){
+        $this->addContext("privacy","nix");
+    }
+
+    public function cookies(){
+        $this->addContext("cookies","nix");
+    }
+
     private function anmelden()
     {
         if (
