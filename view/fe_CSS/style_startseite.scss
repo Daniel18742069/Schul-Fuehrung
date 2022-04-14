@@ -265,6 +265,26 @@ input {
 
 }
 
+input[type="submit"] {
+  margin-right: 0.2rem;
+  color: $blueColor;
+  background-color: rgba(245, 196, 0, 0.8);
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: 0.25rem;
+  border-color: $color-orange;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  float: right;
+  top: 1em;
+
+&:hover {
+  cursor: pointer;
+  background-color: $blueColor;
+  color: #e9ecef;
+}
+}
+
 @media screen and (max-width: 1000px) {
   body {
     padding: 1em;
