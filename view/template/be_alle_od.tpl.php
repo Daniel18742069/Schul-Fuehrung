@@ -26,21 +26,19 @@
             <h2>Alle Open Days</h2>
         </div>
 
-    <!-- Kalender -->
-    <div class="tab-content">
-
-        <div class="accordion-wrapper">
+        <div class="accordion-wrapper accordion js-accordion">
             <?php
                     foreach ($be_alle_od as $key => $offenerTag) {
                         ?>
 
-
-            <div class="kalenderbox alle_od">
+            <div class="accordion__item js-accordion-item">
+            <div class="kalenderbox alle_od accordion-header js-accordion-header">
                 <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
                 <span class="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
                 <span class="status"><?=$offenerTag->getStatusString()?></span>
             </div>
-            <div class="content">
+            <div class="content accordion-body js-accordion-body accordion-body__contents">
+                <div class="ccordion-body__contents">
                 <h3 class="bereichnung"><?=$offenerTag->getBezeichnung()?></h3>
                 <span class="inhalt_od">
                     <p>Datum: <?=$offenerTag->getDatumWelformed()?></p>
@@ -57,10 +55,20 @@
                     <button class="editieren">Führung hinzufügen</button>
                     </a>
                 </span>
+                    </div>
+            </div>
             </div>
             <?php } ?>
         </div>
-        </div>
+
+        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+        <script>
+            accordion()
+        </script>
+
     </section>
 
 
