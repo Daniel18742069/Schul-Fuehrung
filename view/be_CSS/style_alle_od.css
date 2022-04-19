@@ -28,7 +28,6 @@
 
 .editieren {
   order: 1;
-  margin-right: 0.2rem;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
   padding: 0.45rem 1rem;
@@ -36,6 +35,8 @@
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
+  width: calc(100% - 0.5rem);
+  align-items: center;
 }
 .editieren:hover {
   filter: brightness(0.85);
