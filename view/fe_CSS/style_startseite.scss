@@ -40,7 +40,8 @@ body {
 
     .tab:hover {
       cursor: pointer;
-
+      background-color: $blueColor;
+      color: #e9ecef;
     }
 
   }
@@ -84,24 +85,8 @@ body {
   }
 }
 
-/*label {
-  order: 1;
-  margin-right: 0.2rem;
-  color: $blueColor;
-  background-color: rgba(245, 196, 0, 0.8);
-  border-color: #e6b800;
-  padding: 0.45rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
 
-  &:hover {
-    color: #e9ecef;
-    background-color: $blueColor;
-  }
 
-}*/
 
 input[type="button"]:hover {
   cursor: pointer;
@@ -144,7 +129,7 @@ input {
   text-align: left;
   outline: none;
   font-size: 15px;
-  transition: 0.4s;
+  transition: 10.1s;
 
 
 }
@@ -152,7 +137,6 @@ input {
 
 .accordion {
   font-size: 1rem;
-  width: 30vw;
   margin: 0 auto;
   border-radius: 5px;
 }
@@ -164,8 +148,8 @@ input {
 
 .accordion-header {
   padding: 1.5em 1.5em;
-  background: #3F51B5;
-  color: white;
+  background: white;
+  color: $blueColor;
   cursor: pointer;
   font-size: .7em;
   letter-spacing: .1em;
@@ -174,7 +158,7 @@ input {
 }
 
 .accordion__item {
-  border-bottom: 1px solid #3a4ba4;
+  border-bottom: 1px solid $blueColor;
 }
 
 .accordion__item .accordion__item {
@@ -182,7 +166,7 @@ input {
 }
 
 .accordion-header:hover {
-  background: #2D3D99;
+  background: rgba($color: rgb(214, 212, 212), $alpha: 0.5);
   position: relative;
   z-index: 5;
 }
@@ -213,7 +197,7 @@ input {
   float: right;
   position: relative;
   top: -2px;
-  transition: .3s all;
+  transition: 0.7s all;
   transform: rotate(0deg);
 }
 
@@ -222,7 +206,7 @@ input {
 }
 
 .accordion__item.active .accordion-header {
-  background: #2D3D99;
+  background: rgba($color: rgb(214, 212, 212), $alpha: 0.5);
 }
 
 .accordion__item .accordion__item .accordion-header {
@@ -230,30 +214,72 @@ input {
   color: #353535;
 }
 
+.form_buchung {
 
 /*form {
 
   input {
-
-
-    &:hover {
-      background-color: $color-orange;
-    }
-
+    position: relative;
+    color: $blueColor;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
+    border: none;
+    border-bottom: 1px solid $blueColor;
+    width: 30%;
+    transition: all 0.3s;
   }
 
-  .label {
-      color: $blueColor;
-      padding: 0.2rem 1rem;
-      font-size: 1.4rem;
-      margin-left: 1rem;
-      border: 1px solid $blueColor;
-      width: 20%;
-      transition: all 0.3s;
+  .slidercaptcha {
+    margin: 0 auto;
+    width: 314px;
+    height: 286px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+    margin-top: 40px;
+}
 
+    .slidercaptcha .card-body {
+        padding: 1rem;
+    }
+
+    .slidercaptcha canvas:first-child {
+        border-radius: 4px;
+        border: 1px solid #e6e8eb;
+    }
+
+    .slidercaptcha.card .card-header {
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.03);
     }
 }*/
 
+.refreshIcon {
+    top: -54px;
+}
+
+}
+
+input[type="submit"] {
+  margin-right: 0.2rem;
+  color: $blueColor;
+  background-color: rgba(245, 196, 0, 0.8);
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: 0.25rem;
+  border-color: $color-orange;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  float: right;
+  top: 1em;
+
+&:hover {
+  cursor: pointer;
+  background-color: $blueColor;
+  color: #e9ecef;
+}
+}
 
 @media screen and (max-width: 1000px) {
   body {

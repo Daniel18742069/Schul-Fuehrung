@@ -49,15 +49,22 @@
                 </div>
                 <div class="accordion-body js-accordion-body">
                     <div class="accordion-body__contents">
-                        <form>
+                        <form class="form_buchung" method="POST" action="model/captcha/src/index.php">
                             <label for="vorname">Vorname:</label>
-                            <input type="text" id="vorname" name="vorname" value=""> </br>
-                            <label for="nachname">Nachname:</label><br>
-                            <input type="text" id="nachname" name="nachname" value=""> </br>
-                            <label for="tel">Telefon:</label><br>
-                            <input type="tel" id="tel" name="tel" value=""> </br>
-                            <label for="email">E-Mail:</label><br>
-                            <input type="email" id="email" name="email" value=""> </br>
+                            <!--Nils du muesch de namen no an die Datenbank anpassen-->
+                            <input type="text" id="vorname" name="vorname" value=""><br>
+                            <label for="nachname">Nachname:</label>
+                            <input type="text" id="nachname" name="nachname" value=""><br>
+                            <label for="tel">Telefon:</label>
+                            <input type="tel" id="tel" name="tel" value=""><br>
+                            <label for="email">E-Mail:</label>
+                            <input type="email" id="email" name="email" value=""><br>
+                            <label for="anzahl">Personen:</label>
+                            <input type="number" id="anzahl" name="anzahl" value="" max="10" min="1" placeholder="1">
+                            <input type="submit" value="Submit">
+
+
+
                         </form>
                     </div>
                 </div>
@@ -65,9 +72,7 @@
         <?php $counter++;
         } ?>
 
-
     </div>
-
 
     <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
@@ -76,93 +81,5 @@
     <script>
         accordion()
     </script>
-
-
-
-
-
-
-    <!--
-
-        
-    <div class="tab-content">
-            <div class="accordion">
-                <div id="info_elektro" data-tab-content class="fachrichtung active" style="display:none">
-                    <h2>Verfügbare Termine:</h2>
-                    <div class="accordion-wrapper">
-                        <?php /* $counter = 8;
-                        for ($i = 0; $i <= 10; $i++) { ?>
-                            <div class="kalenderbox" onclick="accordions()">
-                                <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
-                                <span class="lehrer">Lehrer</span>
-                                <span class="kapazitaet">0/10</span>
-                            </div>
-                            <span class="content">
-                                <p>TEST</p>
-                            </span>
-                        <?php $counter++;
-                        } ?>
-                    </div>
-                </div>
-
-                <div id="elektro_mechatronik" data-tab-content class="fachrichtung" style="display:none">
-                <h2>Verfügbare Termine:</h2>   
-                <div class="accordion-wrapper">
-                        <?php $counter = 8;
-                        for ($i = 0; $i <= 10; $i++) { ?>
-                            <div class="kalenderbox" onclick="accordions()">
-                                <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
-                                <span class="lehrer">Lehrer</span>
-                                <span class="kapazitaet">0/10</span>
-                            </div>
-                            <span class="content">
-                                <p>TEST</p>
-                            </span>
-                        <?php $counter++;
-                        } ?>
-                    </div>
-                </div>
-
-                <div id="friseur" data-tab-content class="fachrichtung" style="display:none">
-                <h2>Verfügbare Termine:</h2>    
-                <div class="accordion-wrapper">
-                        <?php $counter = 8;
-                        for ($i = 0; $i <= 10; $i++) { ?>
-                            <div class="kalenderbox" onclick="accordions()">
-                                <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
-                                <span class="lehrer">Lehrer</span>
-                                <span class="kapazitaet">0/10</span>
-                            </div>
-                            <span class="content">
-                                <p>TEST</p>
-                            </span>
-                        <?php $counter++;
-                        } ?>
-                    </div>
-                </div>
-
-                <div id="holzbau" data-tab-content class="fachrichtung" style="display:none">
-                <h2>Verfügbare Termine:</h2>
-                    <div class="accordion-wrapper">
-                        <?php $counter = 8;
-                        for ($i = 0; $i <= 10; $i++) { ?>
-                            <div class="kalenderbox" onclick="accordions()">
-                                <span class="uhrzeit"><?= $counter ?>:00 Uhr</span>
-                                <span class="lehrer">Lehrer</span>
-                                <span class="kapazitaet">0/10</span>
-                            </div>
-                            <span class="content">
-                                <p>TEST</p>
-                            </span>
-                        <?php $counter++;
-                        } */ ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-                    -->
-
-
-
 
 </section>
