@@ -10,7 +10,7 @@ session_start();
         //header('Location: ../index...');
     }
     //PASSWORT UND BENUTZERNAME STIMMEN
-    else if(stringsVergleichen($_POST['passwort'], "STATISCHE PASSWORT") && stringsVergleichen($_POST['benutzername'], "STATISCHER BENUTZERNAME")){
+    else if(stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])){
         logge_ein($_POST['benutzername']);
         //header('Location: ../view/Backend/bg_startseite.tpl.html');
     }
