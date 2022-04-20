@@ -24,6 +24,11 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 
 
+    <!--CAPTCHA-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="model/captcha/src/disk/slidercaptcha.min.css" rel="stylesheet" />
+
+
     <script type="text/javascript" src="model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
@@ -31,6 +36,44 @@
 <body>
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+
+
+    <?php if(!empty($_REQUEST['vorname'])){//captcha ?>
+        
+        <div class="wrapper-subfooter">
+
+        <div class="container-fluid">
+        <div class="form-row">
+            <div class="col-12">
+                <div class="slidercaptcha card">
+                    <div class="card-header">
+                        <span>Complete the security check</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="captcha"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="model/captcha/src/disk/longbow.slidercaptcha.min.js"></script>
+    <script>
+        var captcha = sliderCaptcha({
+            id: 'captcha',
+            repeatIcon: 'fa fa-redo',
+            onSuccess: function () {
+                window.location = "http://www.google.de/";
+                var handler = setTimeout(function () {
+                    window.clearTimeout(handler);
+                    captcha.reset();
+                }, 500);
+            }
+        });</script>
+
+        </div>
+        
+
+    <?php }else{ ?>    
 
     <section id="wrapper">
 
@@ -64,14 +107,6 @@
 
 
 
-        <script>
-            if (document.location.search.match(/type=embed/gi)) {
-                window.parent.postMessage("resize", "*");
-            }
-        </script>
-
-            <h1></h1>
-
         <div class="accordion js-accordion">
 
             <?php $counter = 8;
@@ -84,7 +119,7 @@
                     </div>
                     <div class="accordion-body js-accordion-body">
                         <div class="accordion-body__contents">
-                            <form class="form_buchung" method="POST" action="model/captcha/src/index.php">
+                            <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite">
                                 <label for="vorname">Vorname:</label>
                                 <!--Nils du muesch de namen no an die Datenbank anpassen-->
                                 <input type="text" id="vorname" name="vorname" value=""><br>
@@ -96,7 +131,7 @@
                                 <input type="email" id="email" name="email" value=""><br>
                                 <label for="anzahl">Personen:</label>
                                 <input type="number" id="anzahl" name="anzahl" value="" max="10" min="1" placeholder="1">
-                                <input type="submit" value="Submit">
+                                <input type="submit" value="Anmelden">
                             </form>
                         </div>
                     </div>
@@ -115,7 +150,7 @@
         </script>
 
     </section>
-
+            <?php } ?>
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 </body>
