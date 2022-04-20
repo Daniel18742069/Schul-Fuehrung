@@ -5,7 +5,7 @@ $font-color: rgba(255, 255, 255, 0.9);
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 450;
   line-height: 1.5;
   color: #212529;
@@ -59,6 +59,10 @@ body {
     max-width: 1140px;
     margin: 0 auto;
     padding: 1rem;
+    .wrapper-fuehrung_hinzufuegen{
+      margin-top: 5rem;
+      margin-bottom: 7rem;
+    }
   }
 
 }
@@ -83,7 +87,6 @@ body {
 
 
 .fachrichtung {
-
   .active {
     background-color: $blueColor;
   }
@@ -212,6 +215,9 @@ input {
 
 .accordion__item.active .accordion-header {
   background: rgba($color: rgb(214, 212, 212), $alpha: 0.5);
+  .bezeichnung{
+    font-weight: 700;
+  }
 }
 
 .accordion__item .accordion__item .accordion-header {
@@ -267,30 +273,39 @@ input {
 }
 
 input[type="submit"] {
-  margin-right: 0.2rem;
+  order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
   padding: 0.45rem 1rem;
   font-size: 1.1rem;
-  line-height: 1;
-  border-radius: 0.25rem;
-  border-color: $color-orange;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
-  float: right;
-  top: 1em;
+  line-height: 1.5;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out;
+  border: none;
+  align-items: center;
+  &:hover{
+      filter: brightness(0.85);
+      cursor: pointer;
+  }
+}
 
-&:hover {
-  cursor: pointer;
-  background-color: $blueColor;
-  color: #e9ecef;
+
+.wrapper-fuehrung_hinzufuegen{
+  form{
+    .fuehrung-hinzuf{
+      display: grid;
+      justify-content: space-around;
+      grid-template-columns: 1fr 1fr;
+      .checkbox{
+        width: 1.1rem;
+        height: 1.1rem;
+      }
+    }
+  }
 }
-}
+
+
 
 @media screen and (max-width: 1000px) {
-  body {
-    padding: 1em;
-  }
-
   .accordion {
     width: 100%;
   }
@@ -321,10 +336,10 @@ input[type="submit"] {
 
 @media screen and (min-width: 640px) {
   body {
-    font-size: 1rem;
+    //font-size: 1rem;
 
     header {
-      font-size: 1rem;
+      //font-size: 1rem;
     }
 
   }
@@ -332,20 +347,20 @@ input[type="submit"] {
 
 @media (min-width:960px) {
   body {
-    font-size: 1.2rem;
+    //font-size: 1.2rem;
 
     header {
-      font-size: 1rem;
+      //font-size: 1rem;
     }
   }
 }
 
 @media (min-width:1100px) {
   body {
-    font-size: 1.5rem;
+    //font-size: 1.5rem;
 
     header {
-      font-size: 1rem;
+      //font-size: 1rem;
     }
   }
 }

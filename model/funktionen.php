@@ -45,7 +45,6 @@ for ($i=0; $i < count($assotiativesArrayPost)-1; $i++) {
         $variable2 = $assotiativesArrayPost['fachID'.$variable] +1;
         array_push($array,$variable2.
          "_". $assotiativesArrayPost['anzahl'.$i]);
-        
 }
 }
 return $array;
