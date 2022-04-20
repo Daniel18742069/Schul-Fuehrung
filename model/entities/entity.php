@@ -23,7 +23,6 @@
             }
             return $attribute;
         }
-        
 
         public function speichere(){
 

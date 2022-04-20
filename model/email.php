@@ -19,7 +19,6 @@ class email
 	): bool {
 		require 'model/phpmailer/class.phpmailer.php';
 		require 'model/phpmailer/class.smtp.php';
-		require 'config/mail.conf.php';
 
 		$mail = new PHPMailer;
 
