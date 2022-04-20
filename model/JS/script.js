@@ -99,7 +99,7 @@ var accordion = function() {
 
 $(document).ready(function() {
   accordion.init({
-      speed: 400,
+      speed: 300,
       oneOpen: true
   });
 });
