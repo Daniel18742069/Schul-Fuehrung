@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="view/fe_CSS/w3Schools.css">
 
     <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
     <meta name="apple-mobile-web-app-title" content="CodePen">
@@ -70,6 +70,7 @@
             }
         </script>
 
+            <h1></h1>
 
         <div class="accordion js-accordion">
 
