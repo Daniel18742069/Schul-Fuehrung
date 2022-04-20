@@ -62,14 +62,6 @@
             window.console = window.console || function(t) {};
         </script>
 
-
-
-        <script>
-            if (document.location.search.match(/type=embed/gi)) {
-                window.parent.postMessage("resize", "*");
-            }
-        </script>
-
             <h1></h1>
 
         <div class="accordion js-accordion">
@@ -96,7 +88,7 @@
                                 <input type="email" id="email" name="email" value=""><br>
                                 <label for="anzahl">Personen:</label>
                                 <input type="number" id="anzahl" name="anzahl" value="" max="10" min="1" placeholder="1">
-                                <input type="submit" value="Submit">
+                                <input type="submit" value="Anmelden">
                             </form>
                         </div>
                     </div>
