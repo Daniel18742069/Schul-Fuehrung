@@ -22,8 +22,20 @@
 
             <?php  foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
 
-                <input type="checkbox" name="<?=$einstellung->getId()?>" value="<?=$einstellung->getId()?>" />
+                <input type="checkbox" name="fachID<?=$einstellung->getId()?>" value="<?=$key?>" />
                 <label for="c<?=$einstellung->getId()?>"><?=$einstellung->getBeschreibung()?></label>
+                
+                <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="1" checked>
+                <label for="contact<?=$key?>">1</label>
+
+                <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="2">
+                <label for="contact<?=$key?>">2</label>
+
+                <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="3">
+                <label for="contact<?=$key?>">3</label>
+
+                
+                <br>
 
             <?php } ?>
 
@@ -31,28 +43,31 @@
 
         </form>
         <?php
-            }else{ ?>
+            }else{ 
+                $array = arrayManipulieren($_POST);
+                var_dump($array);
+                
+                ?>
         <form action="index.php?aktion=be_alle_od" method="post">
-            <?php  foreach ($_POST as $key => $test) {
-                    if ($key == 'anmelden') {continue;}
-                    ?>
 
-            <p><?=Fachrichtung::getFachrichtungBeiID($_POST[$key]); ?>
-                <input type="text" name="fuehrungspersonen" placeholder="fuehrungspersonen" class="fuehrungspersonen"
-                    required /><br />
-                <input type="radio" id="contact<?=$key?>" name="<?=$key?>" value="1" checked>
-                <label for="contact<?=$key?>">1</label>
+            <?php for ($i=0; $i < count($array); $i++) { 
+                $stringArray = explode('_',$array[$i]);
+                $fach = $stringArray[0];
+                $anzahl = $stringArray[1];
 
-                <input type="radio" id="contact<?=$key?>" name="<?=$key?>" value="2">
-                <label for="contact<?=$key?>">2</label>
+                echo Fachrichtung::getFachrichtungBeiID($fach)."<br>";
+                for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?> 
+                    <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen" class="fuehrungspersonen" required /><br />
+                    <?php
+                }
 
-                <input type="radio" id="contact<?=$key?>" name="<?=$key?>" value="3">
-                <label for="contact<?=$key?>">3</label>
-            </p>
+            }
+                
+                ?>
 
+                
+                
 
-
-            <?php } ?>
 
             <input type="submit" name="anmelden" value="Anmelden" />
 
