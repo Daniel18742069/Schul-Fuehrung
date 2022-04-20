@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/config.php';
+require_once 'config/config.ini.php';
 require_once 'model/db.php';
 require_once 'model/funktionen.php';
 require_once 'model/entities/entity.php';
