@@ -11,9 +11,42 @@ class Controller
         $this->$aktion(); // LOGIK
         $this->generatePage($aktion); //VIEW
     }
-    
+
+    //user
     public function fe_startseite(){
       $this->addContext("fe_startseite","nix");
+    }
+
+    //admin
+    public function bg_neuer_od(){
+        $this->addContext("bg_neuer_od","nix");
+    }
+    public function bg_od_erfolgreich(){
+
+        $offener_tag = new Offener_tag($_POST);
+        $offener_tag->speichere();
+
+        $this->addContext("bg_od_erfolgreich",$offener_tag);
+    }
+    public function bg_alle_einstellungen(){
+            
+    
+        $this->addContext("offenertagID",$_REQUEST['id']);
+        
+        
+        $this->addContext("bg_alle_einstellungen",Fachrichtung::findeAlleFachrichtungen());
+    }
+    public function be_alle_od(){
+        if(!empty($_REQUEST)){
+            //erstelle_Fuehrungen($_REQUEST);
+        }
+        $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
+        
+        
+    }
+
+    public function fe_termin(){
+        $this->addContext("fe_termin","nix");
     }
 
     private function anmelden()

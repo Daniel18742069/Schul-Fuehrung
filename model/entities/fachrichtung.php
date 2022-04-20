@@ -15,7 +15,7 @@ class Fachrichtung{
 
     private function _insert(){
 
-        $sql = 'INSERT INTO events (beschreibung)' 
+        $sql = 'INSERT INTO od_fachrichtung (beschreibung)' 
                 . 'VALUES (:beschreibung)';
 
         $abfrage = DB::getDB()->prepare($sql);
@@ -33,7 +33,7 @@ class Fachrichtung{
 
 
     public static function findeAlleFachrichtungen() {
-        $sql = 'SELECT * FROM fachrichtung';
+        $sql = 'SELECT * FROM od_fachrichtung';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fachrichtung');
         return $abfrage->fetchAll();
@@ -55,6 +55,11 @@ class Fachrichtung{
         $this->beschreibung = $beschreibung;
 
         return $this;
+    }
+    public static function getFachrichtungBeiID($id){
+        $sql = 'SELECT beschreibung FROM od_fachrichtung where id = '. $id;
+        $abfrage = DB::getDB()->query($sql);
+        return $abfrage->fetch()['beschreibung'];
     }
 }
 

@@ -136,13 +136,14 @@ class Anmeldung
         $this->fuehrung_id = $fuehrung_id;
         $this->anzahl = $anzahl;
     }
+                //ändernnnnnn!!!!!!!!!!!!!!!!!
 
     public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
     {
-        $sql = 'SELECT * FROM anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
+        $sql = 'SELECT * FROM od_anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
 
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_fuehrung');
         return $abfrage->fetchAll();
     }
 
@@ -154,7 +155,7 @@ class Anmeldung
 
     private function _insert(): void
     {
-        $sql = 'INSERT INTO anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)'
+        $sql = 'INSERT INTO od_anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)'
             . 'VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
 
         $abfrage = DB::getDB()->prepare($sql);

@@ -85,8 +85,20 @@ body {
   }
 }
 
+/*label {
+  order: 1;
+  margin-right: 0.2rem;
+  color: $blueColor;
+  background-color: rgba(245, 196, 0, 0.8);
+  border-color: #e6b800;
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
 
 
+}*/
 
 input[type="button"]:hover {
   cursor: pointer;
@@ -117,7 +129,7 @@ p {
 }
 
 input {
-  position: absolute;
+  //position: absolute;
   //opacity: 0;
   //z-index: -1;
 }
@@ -222,6 +234,7 @@ input {
     padding: 0.5rem 2rem;
     font-size: large;
   }
+/*form {
 
   input {
     position: relative;
@@ -258,6 +271,7 @@ input {
         background-image: none;
         background-color: rgba(0, 0, 0, 0.03);
     }
+}*/
 
 .refreshIcon {
     top: -54px;

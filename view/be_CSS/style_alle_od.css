@@ -1,0 +1,47 @@
+.wrapper-be_startseite {
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+}
+
+.kalenderbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.inhalt_od, .buttons {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+}
+.inhalt_od p, .buttons p {
+  margin: 0;
+}
+
+.bereichnung {
+  text-align: center;
+}
+
+.content {
+  margin: 1rem 3rem;
+}
+
+.editieren {
+  order: 1;
+  margin-right: 0.2rem;
+  color: #002a50;
+  background-color: rgba(245, 196, 0, 0.8);
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border: none;
+}
+.editieren:hover {
+  filter: brightness(0.85);
+  cursor: pointer;
+}
+
+.buttons {
+  margin-bottom: 0.5rem;
+}

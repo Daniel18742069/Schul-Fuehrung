@@ -1,0 +1,42 @@
+.formular-termin {
+  margin: 7rem 0;
+}
+
+.termine, .buttons {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+}
+.termine p, .buttons p {
+  margin: 0;
+}
+
+.aendern, .abmelden {
+  order: 1;
+  margin: 1.5rem 0.2rem;
+  color: #002a50;
+  background-color: rgba(245, 196, 0, 0.8);
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border: none;
+}
+.aendern:hover, .abmelden:hover {
+  filter: brightness(0.85);
+  cursor: pointer;
+}
+
+.anzahlTeilnehmer {
+  color: #002a50;
+  padding: 0.2rem 1rem;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  border: 1px solid #002a50;
+  width: 20%;
+  transition: all 0.3s;
+}
+
+.termin_bestaetigen, .termin_aendern {
+  display: none;
+}
