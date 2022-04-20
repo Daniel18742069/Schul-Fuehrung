@@ -38,8 +38,8 @@ class Controller
     }
     public function be_alle_od(){
         if(!empty($_REQUEST)){
-            var_dump($_REQUEST);
-            //erstelle_Fuehrungen($_REQUEST);
+            
+            erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
         
@@ -62,6 +62,9 @@ class Controller
 
     public function cookies(){
         $this->addContext("cookies","nix");
+    }
+    public function test(){
+        $this->addContext("test","nix");
     }
 
     private function anmelden()
