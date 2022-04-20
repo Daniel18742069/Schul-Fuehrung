@@ -32,6 +32,7 @@
             id: 'captcha',
             repeatIcon: 'fa fa-redo',
             onSuccess: function () {
+                window.location = "http://www.google.de/";
                 var handler = setTimeout(function () {
                     window.clearTimeout(handler);
                     captcha.reset();
