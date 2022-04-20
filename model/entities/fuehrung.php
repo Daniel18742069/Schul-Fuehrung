@@ -11,7 +11,7 @@ class Fuehrung
     private $kapazitaet = 0;
     private $uhrzeit = "";
     private $fachrichtung_id = 0;
-    private $offener_tag_id  = "";
+    private $offener_tag_id  = 0;
 
 
 
