@@ -18,24 +18,24 @@
         <?php  if(empty($_POST)){ ?>
         <h1>Wähle Fächer aus</h1>
         <form action="index.php?aktion=bg_alle_einstellungen&id=<?=$_GET['id']?>" method="post">
-            
+
 
             <?php  foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
 
-                <input type="checkbox" name="fachID<?=$einstellung->getId()?>" value="<?=$key?>" />
-                <label for="c<?=$einstellung->getId()?>"><?=$einstellung->getBeschreibung()?></label>
-                
-                <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="1" checked>
-                <label for="contact<?=$key?>">1</label>
+            <input type="checkbox" name="fachID<?=$einstellung->getId()?>" value="<?=$key?>" />
+            <label for="c<?=$einstellung->getId()?>"><?=$einstellung->getBeschreibung()?></label>
 
-                <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="2">
-                <label for="contact<?=$key?>">2</label>
+            <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="1" checked>
+            <label for="contact<?=$key?>">1</label>
 
-                <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="3">
-                <label for="contact<?=$key?>">3</label>
+            <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="2">
+            <label for="contact<?=$key?>">2</label>
 
-                
-                <br>
+            <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="3">
+            <label for="contact<?=$key?>">3</label>
+
+
+            <br>
 
             <?php } ?>
 
@@ -56,20 +56,21 @@
                 $anzahl = $stringArray[1];
 
                 echo Fachrichtung::getFachrichtungBeiID($fach)."<br>";
-                for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?> 
-                    <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen" class="fuehrungspersonen" required /><br />
-                    <?php
+                for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?>
+            <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen"
+                class="fuehrungspersonen" required /><br />
+            <?php
                 }
 
             }
                 
                 ?>
 
-                
-                
 
 
-            <input type="submit" name="anmelden" value="Anmelden" />
+
+            <input type="text" name="offenerTag" value="<?=$_GET['id']?>" hidden/>
+            <input type="submit" name="anmeldebn" value="Anmelden" />
 
         </form>
 
