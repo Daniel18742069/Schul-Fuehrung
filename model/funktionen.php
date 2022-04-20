@@ -30,9 +30,25 @@ function logge_ein($benutzername)
     $_SESSION['eingeloggt'] = $benutzername;
     $_SESSION['id'] = "true";
 }
-function erstelle_Fuehrungen($fuehrungsDaten)
-{
-}
+function erstelle_Fuehrungen($fuehrungsDaten){
+    //fach_anzahl
+    var_dump($fuehrungsDaten);
+    echo "<br>";
+    echo $fuehrungsDaten['offenerTag']."<br>"; //offenerTagID
+    foreach ($fuehrungsDaten as $key => $daten) { 
+        //echo $key ."=> ". $value ."<br/>";
+        
+        if(substr($key,0,17) == "fuehrungspersonen"){
+            $stringArray = explode('_',substr($key,17));
+            $fach = $stringArray[0];
+            $anzahl = $stringArray[1] +1;
+            for ($i=0; $i < $anzahl; $i++) {
+                
+                
+
+                echo$fach . "_" . $anzahl."<br>";
+        }
+        
 
 function arrayManipulieren($assotiativesArrayPost)
 {

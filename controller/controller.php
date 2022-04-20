@@ -41,11 +41,10 @@ class Controller
 
         $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
-    public function be_alle_od()
-    {
-        if (!empty($_REQUEST)) {
-            var_dump($_REQUEST);
-            //erstelle_Fuehrungen($_REQUEST);
+    public function be_alle_od(){
+        if(!empty($_REQUEST)){
+            
+            erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
     }
@@ -70,6 +69,9 @@ class Controller
     private function ___test()
     {
         echo 'test';
+    }
+    public function test(){
+        $this->addContext("test","nix");
     }
 
     /**
