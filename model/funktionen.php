@@ -48,7 +48,10 @@ function erstelle_Fuehrungen($fuehrungsDaten){
 
                 echo$fach . "_" . $anzahl."<br>";
         }
-        
+
+    }
+}
+}
 
 function arrayManipulieren($assotiativesArrayPost)
 {
