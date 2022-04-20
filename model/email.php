@@ -27,12 +27,12 @@ class email
 		$mail->isSMTP();								// Set mailer to use SMTP
 		$mail->Host = 'smtp.gmail.com';					// Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;							// Enable SMTP authentication
-		$mail->Username = MAIL_ADDRESS;					// SMTP username
-		$mail->Password = MAIL_PASSWORD;				// SMTP password
+		$mail->Username = CONF['MAIL_ADDRESS'];					// SMTP username
+		$mail->Password = CONF['MAIL_PASSWORD'];				// SMTP password
 		$mail->SMTPSecure = 'tls';						// Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587;								// TCP port to connect to
 
-		$mail->setFrom(MAIL_ADDRESS, MAIL_NAME);
+		$mail->setFrom(CONF['MAIL_ADDRESS'], CONF['MAIL_NAME']);
 
 		if ($to_name == '') {
 			$mail->addAddress($to_address);				// Add a recipient

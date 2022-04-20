@@ -69,9 +69,7 @@ class Controller
 
     private function ___test()
     {
-        $date1 = date('Y-m-d');
-        $date2 = '2022-03-17';
-        echo !mindestens_1_tag_entfernt($date1, $date2);
+        echo 'test';
     }
 
     /**
@@ -118,7 +116,7 @@ class Controller
                 $subject = 'Anmeldung Erfolgreich';
                 $message = file_get_contents('mail/anmeldung.mail.html');
                 $message = ersetze_platzhalter($message, [
-                    ['url', URL],
+                    ['url', CONF['URL']],
                     ['namen', $to_name],
                     ['token', $Anmeldung->getToken()]
                 ]);
@@ -184,7 +182,7 @@ class Controller
                             $subject = 'Anmeldung Gelöscht';
                             $message = file_get_contents('mail/abmeldung.mail.html');
                             $message = ersetze_platzhalter($message, [
-                                ['url', URL],
+                                ['url', CONF['URL']],
                                 ['namen', $to_name],
                                 ['token', $Anmeldung->getToken()]
                             ]);
@@ -238,7 +236,7 @@ class Controller
                                 $subject = 'Anmeldung Bearbeitet';
                                 $message = file_get_contents('mail/bearbeitung.mail.html');
                                 $message = ersetze_platzhalter($message, [
-                                    ['url', URL],
+                                    ['url', CONF['URL']],
                                     ['namen', $to_name],
                                     ['token', $Anmeldung->getToken()]
                                 ]);
