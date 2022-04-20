@@ -10,60 +10,73 @@ class Controller
     {
         $this->$aktion(); // LOGIK
         $this->generatePage($aktion); //VIEW
+        unset($_REQUEST);
     }
 
     //user
-    public function fe_startseite(){
-      $this->addContext("fe_startseite","nix");
+    public function fe_startseite()
+    {
+        $this->addContext("fe_startseite", "nix");
     }
 
     //admin
-    public function bg_neuer_od(){
-        $this->addContext("bg_neuer_od","nix");
+    public function bg_neuer_od()
+    {
+        $this->addContext("bg_neuer_od", "nix");
     }
-    public function bg_od_erfolgreich(){
+    public function bg_od_erfolgreich()
+    {
 
         $offener_tag = new Offener_tag($_POST);
         $offener_tag->speichere();
 
-        $this->addContext("bg_od_erfolgreich",$offener_tag);
+        $this->addContext("bg_od_erfolgreich", $offener_tag);
     }
-    public function bg_alle_einstellungen(){
-            
-    
-        $this->addContext("offenertagID",$_REQUEST['id']);
-        
-        
-        $this->addContext("bg_alle_einstellungen",Fachrichtung::findeAlleFachrichtungen());
+    public function bg_alle_einstellungen()
+    {
+
+
+        $this->addContext("offenertagID", $_REQUEST['id']);
+
+
+        $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
     public function be_alle_od(){
         if(!empty($_REQUEST)){
-            var_dump($_REQUEST);
-            //erstelle_Fuehrungen($_REQUEST);
+            
+            erstelle_Fuehrungen($_REQUEST);
         }
-        $this->addContext("be_alle_od",Offener_tag::findeAlleOffener_tag());
-        
-        
-    }
-
-    public function fe_termin(){
-        $this->addContext("fe_termin","nix");
+        $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
     }
 
 
     //Subfooter
-    public function impressum(){
-        $this->addContext("impressum","nix");
+    public function impressum()
+    {
+        $this->addContext("impressum", "nix");
     }
 
-    public function privacy(){
-        $this->addContext("privacy","nix");
+    public function privacy()
+    {
+        $this->addContext("privacy", "nix");
     }
 
-    public function cookies(){
-        $this->addContext("cookies","nix");
+    public function cookies()
+    {
+        $this->addContext("cookies", "nix");
     }
 
+    private function ___test()
+    {
+        echo 'test';
+    }
+    public function test(){
+        $this->addContext("test","nix");
+    }
+
+    /**
+     * @author Andreas Codalonga
+     */
     private function anmelden()
     {
         if (
@@ -75,29 +88,39 @@ class Controller
             isset($_REQUEST['fuehrung_id']) &&
             isset($_REQUEST['anzahl'])
         ) {
-            $Anmelden = new anmeldung(
-                $_REQUEST['datum'],
-                $_REQUEST['telefon'],
-                $_REQUEST['vorname'],
-                $_REQUEST['nachname'],
-                $_REQUEST['email'],
-                $_REQUEST['fuehrung_id'],
-                $_REQUEST['anzahl']
-            );
+            if (
+                Anmeldung::validate_data(
+                    $_REQUEST['datum'],
+                    $_REQUEST['telefon'],
+                    $_REQUEST['vorname'],
+                    $_REQUEST['nachname'],
+                    $_REQUEST['email'],
+                    $_REQUEST['fuehrung_id'],
+                    $_REQUEST['anzahl']
+                )
+            ) {
 
-            if ($Anmelden->validate_data()) {
-                $Anmelden->save();
+                $Anmeldung = new Anmeldung(
+                    $_REQUEST['datum'],
+                    $_REQUEST['telefon'],
+                    $_REQUEST['vorname'],
+                    $_REQUEST['nachname'],
+                    $_REQUEST['email'],
+                    $_REQUEST['fuehrung_id'],
+                    $_REQUEST['anzahl']
+                );
+                $Anmeldung->speichere();
 
                 require_once 'model/email.php';
 
-                $to_address = $Anmelden->getEmail();
-                $to_name = ucwords($Anmelden->getVorname()) . ' ' . ucwords($Anmelden->getNachname());
+                $to_address = $Anmeldung->getEmail();
+                $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
                 $subject = 'Anmeldung Erfolgreich';
                 $message = file_get_contents('mail/anmeldung.mail.html');
                 $message = ersetze_platzhalter($message, [
-                    ['url', URL],
+                    ['url', CONF['URL']],
                     ['namen', $to_name],
-                    ['token', $Anmelden->getToken()]
+                    ['token', $Anmeldung->getToken()]
                 ]);
 
                 email::send(
@@ -112,10 +135,138 @@ class Controller
         }
     }
 
+    /**
+     * @author Andreas Codalonga
+     */
+    private function fe_termin()
+    {
+        if (isset($_REQUEST['token']) && $_REQUEST['token']) {
+
+            $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
+            if ($Anmeldung) {
+
+                $this->addContext('token', $Anmeldung->getToken());
+                $this->addContext('datum', $Anmeldung->getDatum());
+                $this->addContext('vorname', $Anmeldung->getVorname());
+                $this->addContext('nachname', $Anmeldung->getNachname());
+                $this->addContext('anzahl', $Anmeldung->getAnzahl());
+            }
+
+            return;
+        }
+
+        header('Location: ?aktion=fe_startseite');
+    }
+
+    /**
+     * @author Andreas Codalonga
+     */
+    private function abmelden()
+    {
+        if (isset($_REQUEST['token']) && $_REQUEST['token']) {
+
+            $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
+            if ($Anmeldung) {
+
+                $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
+                if ($Fuehrung) {
+
+                    $Offener_tag = Offener_tag::findeNeuestenOffenenTag();
+                    if ($Offener_tag) {
+
+                        if (mindestens_1_tag_entfernt(date('Y-m-d'), $Offener_tag->getDatum())) {
+                            $Anmeldung->loesche();
+
+                            require_once 'model/email.php';
+
+                            $to_address = $Anmeldung->getEmail();
+                            $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
+                            $subject = 'Anmeldung Gelöscht';
+                            $message = file_get_contents('mail/abmeldung.mail.html');
+                            $message = ersetze_platzhalter($message, [
+                                ['url', CONF['URL']],
+                                ['namen', $to_name],
+                                ['token', $Anmeldung->getToken()]
+                            ]);
+
+                            email::send(
+                                $subject,
+                                $message,
+                                $to_address,
+                                $to_name
+                            );
+
+                            $this->addContext('abmeldung', 'Erfolgreich!');
+                        }
+                    }
+                }
+
+                return;
+            }
+        }
+
+        header('Location: ?aktion=fe_startseite');
+    }
+
+    /**
+     * @author Andreas Codalonga
+     */
+    private function aendern()
+    {
+        if (isset($_REQUEST['token']) && $_REQUEST['token']) {
+
+            $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
+            if ($Anmeldung) {
+
+                $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
+                if ($Fuehrung) {
+
+                    if (mindestens_1_tag_entfernt(date('Y-m-d'), $Fuehrung->getOffener_tag_datum())) {
+
+                        if (isset($_REQUEST['anzahl']) && $_REQUEST['anzahl']) {
+
+                            $differenz = $_REQUEST['anzahl'] - $Anmeldung->getAnzahl();
+                            if (Anmeldung::validate_anzahl($differenz, $Anmeldung->getFuehrung_id())) {
+
+                                $Anmeldung->setAnzahl($_REQUEST['anzahl']);
+                                $Anmeldung->speichere();
+
+                                require_once 'model/email.php';
+
+                                $to_address = $Anmeldung->getEmail();
+                                $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
+                                $subject = 'Anmeldung Bearbeitet';
+                                $message = file_get_contents('mail/bearbeitung.mail.html');
+                                $message = ersetze_platzhalter($message, [
+                                    ['url', CONF['URL']],
+                                    ['namen', $to_name],
+                                    ['token', $Anmeldung->getToken()]
+                                ]);
+
+                                email::send(
+                                    $subject,
+                                    $message,
+                                    $to_address,
+                                    $to_name
+                                );
+
+                                $this->addContext('aenderung', 'Erfolgreich!');
+                            }
+                        }
+                    }
+                }
+
+                return;
+            }
+        }
+
+        header('Location: ?aktion=fe_startseite');
+    }
+
     private function generatePage($template)
     {
         extract($this->context);
-        require_once 'view/template/'.$template.".tpl.php";
+        require_once 'view/template/' . $template . ".tpl.php";
     }
 
     private function addContext($key, $value)

@@ -14,21 +14,7 @@ class Anmeldung
     private int $fuehrung_id = 0;
     private int $anzahl = 0;
 
-    private bool $valid = false;
-
-    public function loeschen()
-    {
-
-        echo "WIP";
-    }
-
-    private function _update()
-    {
-        echo "WIP";
-    }
-
-
-
+    private bool $new = true;
 
     public function getToken()
     {
@@ -118,23 +104,40 @@ class Anmeldung
         return $this;
     }
 
-    public function __construct(
-        $datum,
-        $telefon,
-        $vorname,
-        $nachname,
-        $email,
-        $fuehrung_id,
-        $anzahl
-    ) {
-        $this->token = self::generate_token();
-        $this->datum = $datum;
-        $this->telefon = $telefon;
-        $this->vorname = $vorname;
-        $this->nachname = $nachname;
-        $this->email = $email;
-        $this->fuehrung_id = $fuehrung_id;
-        $this->anzahl = $anzahl;
+    public function __construct(array $array = array())
+    {
+        if ($array) {
+            foreach ($array as $key => $value) {
+                $setter = 'set' . ucfirst($key);
+                if (method_exists($this, $setter)) {
+                    $this->$setter($value);
+                }
+            }
+        }
+
+        if ($this->token == '') {
+            $this->token = self::generate_token();
+        } else {
+            $this->new = false;
+        }
+    }
+
+    public static function findeAnmeldung(string $token)
+    {
+        $sql = 'SELECT * FROM od_anmeldung WHERE token = "' . $token . '";';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
+        return $abfrage->fetch();
+    }
+
+    public static function findeAlleAnmeldungen()
+    {
+        $sql = 'SELECT * FROM od_anmeldung;';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
+        return $abfrage->fetchAll();
     }
                 //ändernnnnnn!!!!!!!!!!!!!!!!!
 
@@ -143,46 +146,86 @@ class Anmeldung
         $sql = 'SELECT * FROM od_anmeldung WHERE fuehrung_id=' . $fuehrung_id . ';';
 
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_fuehrung');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
         return $abfrage->fetchAll();
     }
 
-    public function save(): void
+    public function speichere(): void
     {
-        if ($this->valid)
+        if ($this->new) {
             $this->_insert();
+        } else {
+            $this->_update();
+        }
     }
 
-    private function _insert(): void
+    private function _insert()
     {
-        $sql = 'INSERT INTO od_anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)'
-            . 'VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+        $sql = 'INSERT INTO od_anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)
+            VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
 
         $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray(false));
+        $abfrage->execute($this->toArray());
     }
 
-    private static function generate_token(): string
+    private function _update()
+    {
+        $sql = 'UPDATE od_anmeldung
+            SET telefon = :telefon
+            , datum = :datum
+            , vorname = :vorname
+            , nachname = :nachname
+            , email = :email
+            , fuehrung_id = :fuehrung_id
+            , anzahl = :anzahl
+            WHERE token = :token;';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
+    }
+
+    private function _loesche(): void
+    {
+        $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
+    }
+
+    public function toArray()
+    {
+        $attribute = get_object_vars($this);
+        unset($attribute['new']);
+        return $attribute;
+    }
+
+    public static function generate_token(): string
     {
         $unixtime = microtime(true);
-
         $letter = chr(mt_rand(97, 122));
 
         return $unixtime . $letter;
     }
 
-    public function validate_data(): bool
-    {
-        return $this->validate_datum($this->datum)
-            && $this->validate_telefon($this->telefon)
-            && $this->validate_name($this->vorname)
-            && $this->validate_name($this->nachname)
-            && $this->validate_email($this->email)
-            && $this->validate_fuehrung_id($this->fuehrung_id)
-            && $this->validate_anzahl($this->anzahl, $this->fuehrung_id);
+    public static function validate_data(
+        string $datum,
+        string $telefon,
+        string $vorname,
+        string $nachname,
+        string $email,
+        int $fuehrung_id,
+        int $anzahl
+    ): bool {
+        return self::validate_datum($datum)
+            && self::validate_telefon($telefon)
+            && self::validate_name($vorname)
+            && self::validate_name($nachname)
+            && self::validate_email($email)
+            && self::validate_fuehrung_id($fuehrung_id)
+            && self::validate_anzahl($anzahl, $fuehrung_id);
     }
 
-    private function validate_datum(string $date, $format = 'Y-m-d'): bool
+    public static function validate_datum(string $date, $format = 'Y-m-d'): bool
     {
         $date_format = DateTime::createFromFormat($format, $date);
 
@@ -190,7 +233,7 @@ class Anmeldung
             && $date_format->format($format) === $date;
     }
 
-    private function validate_telefon(string $telefon): bool
+    public static function validate_telefon(string $telefon): bool
     {
         $telefon_length = strlen($telefon);
 
@@ -198,7 +241,7 @@ class Anmeldung
             && preg_match_all('/^[0-9 ]{3,}$/', $telefon) == $telefon_length;
     }
 
-    private function validate_name(string $name): bool
+    public static function validate_name(string $name): bool
     {
         $name_length = strlen($name);
 
@@ -206,13 +249,13 @@ class Anmeldung
             && preg_match_all('/^[a-z]{3,}$/i', $name) == $name_length;
     }
 
-    private function validate_email(string $email): bool
+    public static function validate_email(string $email): bool
     {
         return $email
             && preg_match('/^[-._a-z1-9]+[@][a-z1-9]+[.][a-z]{2,3}$/i', $email);
     }
 
-    private function validate_fuehrung_id(int $fuehrung_id): bool
+    public static function validate_fuehrung_id(int $fuehrung_id): bool
     {
         $Fuehrungen = Fuehrung::findeAlleFuehrungen();
         foreach ($Fuehrungen as $Fuehrung) {
@@ -223,7 +266,7 @@ class Anmeldung
         return false;
     }
 
-    private function validate_anzahl(int $anzahl, int $fuehrung_id): bool
+    public static function validate_anzahl(int $anzahl, int $fuehrung_id): bool
     {
         if ($anzahl) {
             $Fuehrungen = Fuehrung::findeAlleFuehrungen();
