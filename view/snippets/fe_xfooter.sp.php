@@ -1,8 +1,7 @@
 <footer>
 <div class="footer">
-    <div class="shadow-box"></div>
     <div class="footer-box">
-        <span class="înfos-schule">
+        <div class="înfos-schule">
             <h3>Landesberfusschule für Handwerk und Industrie Bozen</h3>
             <p>Romstraße 20</p>
             <p>39100 Bozen</p>
@@ -10,8 +9,8 @@
             <h5>Emails:</h5>
             <p><a href="mailto:lbs.bz-handwerk-industrie@schule.suedtirol.it">lbs.bz-handwerk-industrie@schule.suedtirol.it</a></p>
             <p><a href="mailto:lbs.bz-handwerk-industrie@pec.prov.bz.it">lbs.bz-handwerk-industrie@pec.prov.bz.it</a></p>
-        </span>
-        <span class="oeffnungszeiten">
+        </div>
+        <div class="oeffnungszeiten">
             <h3>Öffnungszeiten</h3>
             <h5>Sekretariat</h5>
             <p>Parteienverkehr nur mit Terminvereinbarung</p>
@@ -20,7 +19,7 @@
             <h5>Emails:</h5>
             <p><a href="mailto:lbs.bz-handwerk-industrie@schule.suedtirol.it">lbs.bz-handwerk-industrie@schule.suedtirol.it</a></p>
             <p><a href="mailto:lbs.bz-handwerk-industrie@pec.prov.bz.it">lbs.bz-handwerk-industrie@pec.prov.bz.it</a></p>
-        </span>
+        </div>
         <span class="socials">
             <h3>Finde uns auf</h3>
             <div class="social_icons-footer">
@@ -45,7 +44,12 @@
                     </iframe>
                 </div>
             </div>
-        </span>
+                    </span>
+    </div>
+    <div class="shadow-box">
+        <p><a href="index.php?aktion=impressum">Impressum</a></p>
+        <p><a href="index.php?aktion=privacy">Privacy</a></p>
+        <p><a href="index.php?aktion=cookies">Cookies</a></p>
     </div>
 </div>
 </footer>
