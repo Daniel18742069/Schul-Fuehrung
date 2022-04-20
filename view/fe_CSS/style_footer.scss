@@ -11,6 +11,7 @@ $font-color: rgba(255, 255, 255, 0.9);
         background-color: $blueColor;
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
         padding: 2rem;
     }
 
@@ -19,6 +20,15 @@ $font-color: rgba(255, 255, 255, 0.9);
         opacity: 0.9;
         height: 4rem;
         z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        line-height: 4rem;
+        a{
+            margin: 1rem;
+            vertical-align: middle;
+            line-height: normal;
+        }
     }
 
     .gmap_canvas {
@@ -29,7 +39,6 @@ $font-color: rgba(255, 255, 255, 0.9);
 
     .mapouter {
         position: relative;
-        text-align: right;
         width: 100%;
         margin: 1rem 0;
     }
@@ -80,4 +89,17 @@ $font-color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
         }
     }
+
 }
+
+@media (max-width:1070px) {
+    .footer {
+      font-size: 1rem;
+        .footer-box{
+            display: block;
+        }
+        .infos-schule, .oeffnungszeiten, .socials{
+            margin-top: 3rem;
+        }
+    }
+  }

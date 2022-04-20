@@ -5,12 +5,16 @@ $font-color: rgba(255, 255, 255, 0.9);
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 450;
   line-height: 1.5;
   color: #212529;
   text-align: left;
   margin: 0;
+
+  h2{
+    text-transform: uppercase;
+  }
 
   .tabs {
     display: flex;
@@ -40,7 +44,8 @@ body {
 
     .tab:hover {
       cursor: pointer;
-
+      background-color: $blueColor;
+      color: #e9ecef;
     }
 
   }
@@ -64,8 +69,8 @@ body {
 
 .kalenderbox {
   padding: 1rem 0.5rem;
-  border: 1px solid;
-  margin: 0.5rem 0;
+  //border: 1px solid;
+  margin-top: 0.5rem;
 }
 
 .lehrer {
@@ -84,24 +89,8 @@ body {
   }
 }
 
-/*label {
-  order: 1;
-  margin-right: 0.2rem;
-  color: $blueColor;
-  background-color: rgba(245, 196, 0, 0.8);
-  border-color: #e6b800;
-  padding: 0.45rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
 
-  &:hover {
-    color: #e9ecef;
-    background-color: $blueColor;
-  }
 
-}*/
 
 input[type="button"]:hover {
   cursor: pointer;
@@ -144,15 +133,14 @@ input {
   text-align: left;
   outline: none;
   font-size: 15px;
-  transition: 0.4s;
+  transition: 10.1s;
 
 
 }
 
 
 .accordion {
-  font-size: 1rem;
-  width: 30vw;
+  font-size: 1.5rem;
   margin: 0 auto;
   border-radius: 5px;
 }
@@ -163,9 +151,10 @@ input {
 }
 
 .accordion-header {
-  padding: 1.5em 1.5em;
-  background: #3F51B5;
-  color: white;
+  padding: 1.5em;
+  margin-top: 1rem;
+  background: white;
+  color: $blueColor;
   cursor: pointer;
   font-size: .7em;
   letter-spacing: .1em;
@@ -174,7 +163,7 @@ input {
 }
 
 .accordion__item {
-  border-bottom: 1px solid #3a4ba4;
+  border-bottom: 1px solid $blueColor;
 }
 
 .accordion__item .accordion__item {
@@ -182,7 +171,7 @@ input {
 }
 
 .accordion-header:hover {
-  background: #2D3D99;
+  background: rgba($color: rgb(214, 212, 212), $alpha: 0.5);
   position: relative;
   z-index: 5;
 }
@@ -194,8 +183,9 @@ input {
 }
 
 .accordion-body__contents {
-  padding: 1.5em 1.5em;
-  font-size: .85em;
+  padding: 1.5rem;
+  padding-top: 0;
+  font-size: 1.3rem;
 }
 
 .accordion__item.active:last-child .accordion-header {
@@ -206,23 +196,23 @@ input {
   border-bottom: 1px solid transparent;
 }
 
-.accordion__item>.accordion-header:after {
+/*.accordion__item>.accordion-header:after {
   content: "\f3d0";
   font-family: IonIcons;
   font-size: 1.2em;
   float: right;
   position: relative;
   top: -2px;
-  transition: .3s all;
+  transition: 0.7s all;
   transform: rotate(0deg);
-}
+}*/
 
 .accordion__item.active>.accordion-header:after {
   transform: rotate(-180deg);
 }
 
 .accordion__item.active .accordion-header {
-  background: #2D3D99;
+  background: rgba($color: rgb(214, 212, 212), $alpha: 0.5);
 }
 
 .accordion__item .accordion__item .accordion-header {
@@ -230,30 +220,72 @@ input {
   color: #353535;
 }
 
+.form_buchung {
 
 /*form {
 
   input {
-
-
-    &:hover {
-      background-color: $color-orange;
-    }
-
+    position: relative;
+    color: $blueColor;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
+    border: none;
+    border-bottom: 1px solid $blueColor;
+    width: 30%;
+    transition: all 0.3s;
   }
 
-  .label {
-      color: $blueColor;
-      padding: 0.2rem 1rem;
-      font-size: 1.4rem;
-      margin-left: 1rem;
-      border: 1px solid $blueColor;
-      width: 20%;
-      transition: all 0.3s;
+  .slidercaptcha {
+    margin: 0 auto;
+    width: 314px;
+    height: 286px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+    margin-top: 40px;
+}
 
+    .slidercaptcha .card-body {
+        padding: 1rem;
+    }
+
+    .slidercaptcha canvas:first-child {
+        border-radius: 4px;
+        border: 1px solid #e6e8eb;
+    }
+
+    .slidercaptcha.card .card-header {
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.03);
     }
 }*/
 
+.refreshIcon {
+    top: -54px;
+}
+
+}
+
+input[type="submit"] {
+  margin-right: 0.2rem;
+  color: $blueColor;
+  background-color: rgba(245, 196, 0, 0.8);
+  padding: 0.45rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: 0.25rem;
+  border-color: $color-orange;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  float: right;
+  top: 1em;
+
+&:hover {
+  cursor: pointer;
+  background-color: $blueColor;
+  color: #e9ecef;
+}
+}
 
 @media screen and (max-width: 1000px) {
   body {
@@ -266,7 +298,7 @@ input {
 }
 
 
-@media (max-width: 45em) {
+@media screen and (max-width: 45em) {
 
   .tabs .tab,
   .tabs label {
@@ -280,7 +312,7 @@ input {
   }
 }
 
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
 
   .top_bar {
     padding-top: 0.5rem;
@@ -288,7 +320,7 @@ input {
   }
 }
 
-@media (min-width: 640px) {
+@media screen and (min-width: 640px) {
   body {
     font-size: 1rem;
 

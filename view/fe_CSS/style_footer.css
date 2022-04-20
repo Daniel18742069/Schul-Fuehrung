@@ -7,6 +7,7 @@
   background-color: #002a50;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 2rem;
 }
 .footer .shadow-box {
@@ -14,6 +15,15 @@
   opacity: 0.9;
   height: 4rem;
   z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 4rem;
+}
+.footer .shadow-box a {
+  margin: 1rem;
+  vertical-align: middle;
+  line-height: normal;
 }
 .footer .gmap_canvas {
   overflow: hidden;
@@ -22,7 +32,6 @@
 }
 .footer .mapouter {
   position: relative;
-  text-align: right;
   width: 100%;
   margin: 1rem 0;
 }
@@ -63,4 +72,16 @@
 }
 .footer .socials a {
   text-decoration: none;
+}
+
+@media (max-width: 1070px) {
+  .footer {
+    font-size: 1rem;
+  }
+  .footer .footer-box {
+    display: block;
+  }
+  .footer .infos-schule, .footer .oeffnungszeiten, .footer .socials {
+    margin-top: 3rem;
+  }
 }

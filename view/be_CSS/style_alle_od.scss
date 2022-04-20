@@ -32,7 +32,6 @@ $blueColor: #002a50;
 
 .editieren { 
     order: 1;
-    margin-right: 0.2rem;
     color: $blueColor;
     background-color: rgba(245, 196, 0, 0.8);
     padding: 0.45rem 1rem;
@@ -40,6 +39,8 @@ $blueColor: #002a50;
     line-height: 1.5;
     transition: color .15s ease-in-out, background-color .15s ease-in-out;
     border: none;
+    width: calc(100% - 0.5rem);
+    align-items: center;
     &:hover{
         filter: brightness(0.85);
         cursor: pointer;
