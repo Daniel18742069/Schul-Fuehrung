@@ -30,33 +30,58 @@ function logge_ein($benutzername)
     $_SESSION['eingeloggt'] = $benutzername;
     $_SESSION['id'] = "true";
 }
+
 function erstelle_Fuehrungen($fuehrungsDaten){
+    $offener_tag = Offener_tag::findeOffenenTag($fuehrungsDaten['offenerTag']);
+    $tempKapazitaet=0;
+    // var_dump($offener_tag);
     //fach_anzahl
-    $startzeit = strtotime("10:00");
-$endzeit = strtotime("12:30");
+    $startzeit = strtotime($offener_tag->getStartWelformed());
+    $endzeit = strtotime($offener_tag->getEndeWelformed());
  
 //Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
-$dauerInMinuten = intdiv((($endzeit - $startzeit)/60),30);  //intdiv keine Kommastellen
+$wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getIntervall());  //intdiv keine Kommastellen
  
-echo $dauerInMinuten."<br>";
 
     var_dump($fuehrungsDaten);
-    echo "<br>";
+    echo $wieVielePerioden. "<br>";
 
-    $offener_tag = Offener_tag::findeOffenenTag($fuehrungsDaten['offenerTag']);
-    var_dump($offener_tag);
+   
     
-    foreach ($fuehrungsDaten as $key => $daten) { 
+    foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
 
+        if(substr($key,0,10) == "kapazitaet"){
+            $tempKapazitaet = $daten;
+        }
         if(substr($key,0,17) == "fuehrungspersonen"){
             $stringArray = explode('_',substr($key,17));
             $fach = $stringArray[0];
-            $anzahl = $stringArray[1] +1;
-            for ($i=0; $i < $anzahl; $i++) {
-                
+            $anzahl = $stringArray[1]+1;
+            for ($i=0; $i < $wieVielePerioden; $i++) { 
 
-                echo$fach . "_" . $anzahl."<br>";
-        }
+                      //  private $fuehrungspersonen = "";
+                      //  private $sichtbar = 0;
+                      //  private $kapazitaet = 0;
+                      //  private $uhrzeit = "";
+                      //  private $fachrichtung_id = 0;
+                      //  private $offener_tag_id  = 0;
+                      
+                      $fuehrung = new Fuehrung();
+                      $fuehrung->setFuehrungspersonen($daten);
+                      $fuehrung->setSichtbar(0);
+                      $fuehrung->setKapazitaet($tempKapazitaet);
+                      $fuehrung->setFachrichtung_id($fach);
+                      $fuehrung->setOffener_tag_datum($offener_tag->getId());
+                      $fuehrung->setUhrzeit("10:00");
+                      $fuehrung->speichere();
+                      
+            
+                
+            }
+            echo $fach . "_" . $anzahl." fuehrungsperson: " . $daten ."<br>";
+
+            
+           
 
     }
 }
