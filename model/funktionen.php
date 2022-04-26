@@ -49,6 +49,7 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
    
     
     foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
+        echo $key;
 
         if(substr($key,0,10) == "kapazitaet"){
             $tempKapazitaet = $daten;
@@ -79,10 +80,6 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
                 
             }
             echo $fach . "_" . $anzahl." fuehrungsperson: " . $daten ."<br>";
-
-            
-           
-
     }
 }
 }

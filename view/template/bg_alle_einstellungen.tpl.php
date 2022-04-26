@@ -56,9 +56,12 @@
                 $anzahl = $stringArray[1];
 
                 echo Fachrichtung::getFachrichtungBeiID($fach)."<br>";
+
+                
                 for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?>
-            <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen" class="fuehrungspersonen" required />
-            <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /><br />
+                <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required />
+            <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen" class="fuehrungspersonen" required /><br />
+            
             <?php
                 }
 
