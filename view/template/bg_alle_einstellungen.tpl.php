@@ -59,6 +59,22 @@
             <?php
             } else {
                 $array = arrayManipulieren($_POST);
+                var_dump($array);
+                
+                ?>
+        <form action="index.php?aktion=be_alle_od" method="post">
+
+            <?php for ($i=0; $i < count($array); $i++) { 
+                $stringArray = explode('_',$array[$i]);
+                $fach = $stringArray[0];
+                $anzahl = $stringArray[1];
+
+                echo Fachrichtung::getFachrichtungBeiID($fach)."<br>";
+                for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?>
+            <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen"
+                class="fuehrungspersonen" required /><br />
+            <?php
+                }
 
             ?>
                 <form action="index.php?aktion=be_alle_od" method="post">
@@ -78,6 +94,9 @@
 
                     ?>
 
+
+            <input type="text" name="offenerTag" value="<?=$_GET['id']?>" hidden/>
+            <input type="submit" name="anmeldebn" value="Anmelden" />
 
                     <input type="submit" name="anmelden" value="Anmelden" />
 

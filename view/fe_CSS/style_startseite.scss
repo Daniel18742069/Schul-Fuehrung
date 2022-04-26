@@ -12,13 +12,14 @@ body {
   text-align: left;
   margin: 0;
 
-  h2{
+  h2 {
     text-transform: uppercase;
   }
 
   .tabs {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 
     &hover {
       color: #e9ecef;
@@ -31,21 +32,22 @@ body {
 
     .tab {
       order: 1;
-      margin-right: 0.2rem;
-      color: $blueColor;
+      color: #002a50;
       background-color: rgba(245, 196, 0, 0.8);
       padding: 0.45rem 1rem;
       font-size: 1.1rem;
       line-height: 1.5;
-      border-radius: 0.25rem;
-      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+      border: none;
+      float: right;
+      margin-left: .5em;
+      margin-right: .5em;
+    
+      &:hover {
+          filter: brightness(0.85);
+          cursor: pointer;
+      }
 
-    }
-
-    .tab:hover {
-      cursor: pointer;
-      background-color: $blueColor;
-      color: #e9ecef;
     }
 
   }
@@ -139,6 +141,7 @@ input {
   transition: 10.1s;
 
 
+
 }
 
 
@@ -154,8 +157,7 @@ input {
 }
 
 .accordion-header {
-  padding: 1.5em;
-  margin-top: 1rem;
+  padding: 2.5em;
   background: white;
   color: $blueColor;
   cursor: pointer;
@@ -163,6 +165,9 @@ input {
   letter-spacing: .1em;
   transition: all .3s;
   text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .accordion__item {
@@ -227,7 +232,14 @@ input {
 
 .form_buchung {
 
-/*form {
+  label {
+    width: 10rem;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    font-size: large;
+  }
+
+  /*form {
 
   input {
     position: relative;
@@ -266,9 +278,9 @@ input {
     }
 }*/
 
-.refreshIcon {
+  .refreshIcon {
     top: -54px;
-}
+  }
 
 }
 
@@ -279,10 +291,12 @@ input[type="submit"] {
   padding: 0.45rem 1rem;
   font-size: 1.1rem;
   line-height: 1.5;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
-  align-items: center;
-  &:hover{
+  width: calc(20% - 0.5rem);
+  float: right;
+
+  &:hover {
       filter: brightness(0.85);
       cursor: pointer;
   }
@@ -309,22 +323,15 @@ input[type="submit"] {
   .accordion {
     width: 100%;
   }
+
+  .tabs {
+    width: 120%;
+  }
+
 }
 
 
-@media screen and (max-width: 45em) {
 
-  .tabs .tab,
-  .tabs label {
-    order: initial;
-  }
-
-  .tabs label {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.2rem;
-  }
-}
 
 @media screen and (min-width: 992px) {
 
@@ -332,6 +339,17 @@ input[type="submit"] {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
+}
+
+@media screen and (max-width: 805px) {
+  .tabs {
+   flex-direction: column;
+  .tab {
+    text-align: center;
+    width: 100%;
+    margin-top: .5em;
+  }
+}
 }
 
 @media screen and (min-width: 640px) {

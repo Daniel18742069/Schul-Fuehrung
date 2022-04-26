@@ -105,9 +105,6 @@ function accordion() {
     });
 }
 
-
-//puzzle
-
 function hideShowElement(source, target) {
     element = document.getElementById(target);
     element.style.display = (source.checked)

@@ -14,6 +14,7 @@ body h2 {
 body .tabs {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 body .tabshover {
   color: #e9ecef;
@@ -24,19 +25,20 @@ body .tabs .active {
 }
 body .tabs .tab {
   order: 1;
-  margin-right: 0.2rem;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
   padding: 0.45rem 1rem;
   font-size: 1.1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border: none;
+  float: right;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 body .tabs .tab:hover {
+  filter: brightness(0.85);
   cursor: pointer;
-  background-color: #002a50;
-  color: #e9ecef;
 }
 body h1,
 body h2 {
@@ -122,8 +124,7 @@ p {
 }
 
 .accordion-header {
-  padding: 1.5em;
-  margin-top: 1rem;
+  padding: 2.5em;
   background: white;
   color: #002a50;
   cursor: pointer;
@@ -131,6 +132,9 @@ p {
   letter-spacing: 0.1em;
   transition: all 0.3s;
   text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .accordion__item {
@@ -232,6 +236,12 @@ p {
       }
   }*/
 }
+.form_buchung label {
+  width: 10rem;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  font-size: large;
+}
 .form_buchung .refreshIcon {
   top: -54px;
 }
@@ -245,7 +255,8 @@ input[type=submit] {
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
-  align-items: center;
+  width: calc(20% - 0.5rem);
+  float: right;
 }
 input[type=submit]:hover {
   filter: brightness(0.85);
@@ -266,22 +277,24 @@ input[type=submit]:hover {
   .accordion {
     width: 100%;
   }
-}
-@media screen and (max-width: 45em) {
-  .tabs .tab,
-.tabs label {
-    order: initial;
-  }
 
-  .tabs label {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.2rem;
+  .tabs {
+    width: 120%;
   }
 }
 @media screen and (min-width: 992px) {
   .top_bar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+}
+@media screen and (max-width: 805px) {
+  .tabs {
+    flex-direction: column;
+  }
+  .tabs .tab {
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5em;
   }
 }
