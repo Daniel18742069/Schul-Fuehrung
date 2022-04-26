@@ -31,11 +31,11 @@
 
                     <div class="fuehrung-hinzuf">
                         <div class="fachrichtungen">
-                            <input type="checkbox" class="checkbox" id="checkbox" name="fachID<?= $einstellung->getId() ?>" value="<?= $key ?>" onclick="showFuehrung(this,'<?= $einstellung->getBeschreibung() ?>')" />
+                            <input type="checkbox" class="checkbox" id="checkbox" name="fachID<?= $einstellung->getId() ?>" value="<?= $key ?>" onclick="hideShowElement(this,'<?= $einstellung->getBeschreibung() ?>')" />
                             <label for="c<?= $einstellung->getId() ?>"><?= $einstellung->getBeschreibung() ?></label>
                         </div>
 
-                        <span class="anzahl-fuehrungen" id="<?= $einstellung->getBeschreibung() ?>">
+                        <span class="anzahl-fuehrungen" id="<?= $einstellung->getBeschreibung() ?>" style="display: none;">
                             <span>Führungspersonen</span>
 
                             <input type="radio" id="contact" name="anzahl<?= $key ?>" value="1" checked>
@@ -46,7 +46,7 @@
 
                             <input type="radio" id="contact" name="anzahl<?= $key ?>" value="3">
                             <label for="contact<?= $key ?>">3</label>
-                    </span>
+                        </span>
                     </div>
 
                         <hr>
@@ -59,7 +59,6 @@
             <?php
             } else {
                 $array = arrayManipulieren($_POST);
-                var_dump($array);
 
             ?>
                 <form action="index.php?aktion=be_alle_od" method="post">
@@ -69,8 +68,8 @@
                         $fach = $stringArray[0];
                         $anzahl = $stringArray[1];
 
-                        echo Fachrichtung::getFachrichtungBeiID($fach) . "<br>";
-                        for ($j = 0; $j < $anzahl; $j++) {  //fach_anzahl  
+                        echo Fachrichtung::getFachrichtungBeiID($fach) . "<br />";
+                        for ($j = 0; $j < $anzahl; $j++) {  //fach_anzahl
                     ?>
                             <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" placeholder="fuehrungspersonen" class="fuehrungspersonen" required /><br />
                     <?php

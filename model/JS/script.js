@@ -108,10 +108,9 @@ function accordion() {
 
 //puzzle
 
-function showFuehrung(f, fachrichtung) {
-    element = document.getElementById(fachrichtung);
-    console.log(f);
-    element.style.display = (element.style.display == 'none')
+function hideShowElement(source, target) {
+    element = document.getElementById(target);
+    element.style.display = (source.checked)
         ? 'block'
         : 'none';
 }
