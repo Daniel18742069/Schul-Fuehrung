@@ -68,7 +68,7 @@ class Controller
 
     private function ___test()
     {
-        echo 'test';
+        require_once('model/printXLS.php');
     }
     public function test(){
         $this->addContext("test","nix");
