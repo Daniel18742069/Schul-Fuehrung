@@ -139,7 +139,6 @@ class Anmeldung
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
         return $abfrage->fetchAll();
     }
-    //ändernnnnnn!!!!!!!!!!!!!!!!!
 
     public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
     {
@@ -161,8 +160,8 @@ class Anmeldung
 
     private function _insert()
     {
-        $sql = 'INSERT INTO od_anmeldung (token, datum, vorname, nachname, email, fuehrung_id, anzahl)
-            VALUES (:token, :datum, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+        $sql = 'INSERT INTO od_anmeldung (token, datum, telefon, vorname, nachname, email, fuehrung_id, anzahl)
+            VALUES (:token, :datum, :telefon, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray());
@@ -235,18 +234,14 @@ class Anmeldung
 
     public static function validate_telefon(string $telefon): bool
     {
-        $telefon_length = strlen($telefon);
-
         return $telefon
-            && preg_match_all('/^[0-9 ]{3,}$/', $telefon) == $telefon_length;
+            && preg_match_all('/^[0-9 ]{3,}$/', $telefon);
     }
 
     public static function validate_name(string $name): bool
     {
-        $name_length = strlen($name);
-
         return $name
-            && preg_match_all('/^[a-z]{3,}$/i', $name) == $name_length;
+            && preg_match_all('/^[a-z]{3,}$/i', $name);
     }
 
     public static function validate_email(string $email): bool
@@ -268,24 +263,22 @@ class Anmeldung
 
     public static function validate_anzahl(int $anzahl, int $fuehrung_id): bool
     {
-        if ($anzahl) {
+        if ($anzahl && $anzahl > 0) {
             $Fuehrungen = Fuehrung::findeAlleFuehrungen();
             $Anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung_id);
 
+            $summe = $anzahl;
             if ($Anmeldungen) {
-                $summe = 0;
                 foreach ($Anmeldungen as $Anmeldung) {
                     $summe += $Anmeldung->getAnzahl();
                 }
-                $summe += $anzahl;
+            }
 
-                foreach ($Fuehrungen as $Fuehrung) {
-                    if ($Fuehrung->getId() == $fuehrung_id)
-                        return $summe <= $Fuehrung->getKapazitaet();
-                }
+            foreach ($Fuehrungen as $Fuehrung) {
+                if ($Fuehrung->getId() == $fuehrung_id)
+                    return $summe <= $Fuehrung->getKapazitaet();
             }
         }
-
         return false;
     }
 }

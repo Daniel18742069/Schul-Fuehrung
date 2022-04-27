@@ -5,20 +5,21 @@ $font-color: rgba(255, 255, 255, 0.9);
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 450;
   line-height: 1.5;
   color: #212529;
   text-align: left;
   margin: 0;
 
-  h2{
+  h2, h3 {
     text-transform: uppercase;
   }
 
   .tabs {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 
     &hover {
       color: #e9ecef;
@@ -31,27 +32,29 @@ body {
 
     .tab {
       order: 1;
-      margin-right: 0.2rem;
-      color: $blueColor;
+      color: #002a50;
       background-color: rgba(245, 196, 0, 0.8);
       padding: 0.45rem 1rem;
       font-size: 1.1rem;
       line-height: 1.5;
-      border-radius: 0.25rem;
-      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+      border: none;
+      float: right;
+      margin-left: .5em;
+      margin-right: .5em;
+    
+      &:hover {
+          filter: brightness(0.85);
+          cursor: pointer;
+      }
 
-    }
-
-    .tab:hover {
-      cursor: pointer;
-      background-color: $blueColor;
-      color: #e9ecef;
     }
 
   }
 
   h1,
-  h2 {
+  h2,
+  h3 {
     color: $blueColor;
   }
 
@@ -59,6 +62,10 @@ body {
     max-width: 1140px;
     margin: 0 auto;
     padding: 1rem;
+    .wrapper-fuehrung_hinzufuegen{
+      margin-top: 5rem;
+      margin-bottom: 7rem;
+    }
   }
 
 }
@@ -83,7 +90,6 @@ body {
 
 
 .fachrichtung {
-
   .active {
     background-color: $blueColor;
   }
@@ -136,6 +142,7 @@ input {
   transition: 10.1s;
 
 
+
 }
 
 
@@ -151,8 +158,7 @@ input {
 }
 
 .accordion-header {
-  padding: 1.5em;
-  margin-top: 1rem;
+  padding: 2.5em;
   background: white;
   color: $blueColor;
   cursor: pointer;
@@ -160,6 +166,9 @@ input {
   letter-spacing: .1em;
   transition: all .3s;
   text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .accordion__item {
@@ -184,7 +193,6 @@ input {
 
 .accordion-body__contents {
   padding: 1.5rem;
-  padding-top: 0;
   font-size: 1.3rem;
 }
 
@@ -213,6 +221,9 @@ input {
 
 .accordion__item.active .accordion-header {
   background: rgba($color: rgb(214, 212, 212), $alpha: 0.5);
+  .bezeichnung{
+    font-weight: 700;
+  }
 }
 
 .accordion__item .accordion__item .accordion-header {
@@ -222,7 +233,14 @@ input {
 
 .form_buchung {
 
-/*form {
+  label {
+    width: 10rem;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    font-size: large;
+  }
+
+  /*form {
 
   input {
     position: relative;
@@ -261,56 +279,70 @@ input {
     }
 }*/
 
-.refreshIcon {
+  .refreshIcon {
     top: -54px;
-}
+  }
 
 }
 
 input[type="submit"] {
-  margin-right: 0.2rem;
+  order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
   padding: 0.45rem 1rem;
   font-size: 1.1rem;
-  line-height: 1;
-  border-radius: 0.25rem;
-  border-color: $color-orange;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border: none;
+  width: calc(20% - 0.5rem);
   float: right;
-  top: 1em;
 
-&:hover {
-  cursor: pointer;
-  background-color: $blueColor;
-  color: #e9ecef;
+  &:hover {
+      filter: brightness(0.85);
+      cursor: pointer;
+  }
 }
+
+.fuehrungspersonen{
+  color: $blueColor;
+  font-size: 1rem;
+  margin-left: 1rem;
+  //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
+  border: 1px solid $blueColor;
+  transition: all 0.3s;
+  height: 2rem;
 }
+
+
+.wrapper-fuehrung_hinzufuegen{
+  form{
+    .fuehrung-hinzuf{
+      display: grid;
+      justify-content: space-around;
+      grid-template-columns: 1fr 1fr;
+      .checkbox{
+        width: 1.1rem;
+        height: 1.1rem;
+      }
+    }
+  }
+}
+
+
 
 @media screen and (max-width: 1000px) {
-  body {
-    padding: 1em;
-  }
-
   .accordion {
     width: 100%;
   }
+
+  .tabs {
+    width: 120%;
+  }
+
 }
 
 
-@media screen and (max-width: 45em) {
 
-  .tabs .tab,
-  .tabs label {
-    order: initial;
-  }
-
-  .tabs label {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.2rem;
-  }
-}
 
 @media screen and (min-width: 992px) {
 
@@ -320,12 +352,23 @@ input[type="submit"] {
   }
 }
 
+@media screen and (max-width: 805px) {
+  .tabs {
+   flex-direction: column;
+  .tab {
+    text-align: center;
+    width: 100%;
+    margin-top: .5em;
+  }
+}
+}
+
 @media screen and (min-width: 640px) {
   body {
-    font-size: 1rem;
+    //font-size: 1rem;
 
     header {
-      font-size: 1rem;
+      //font-size: 1rem;
     }
 
   }
@@ -333,20 +376,20 @@ input[type="submit"] {
 
 @media (min-width:960px) {
   body {
-    font-size: 1.2rem;
+    //font-size: 1.2rem;
 
     header {
-      font-size: 1rem;
+      //font-size: 1rem;
     }
   }
 }
 
 @media (min-width:1100px) {
   body {
-    font-size: 1.5rem;
+    //font-size: 1.5rem;
 
     header {
-      font-size: 1rem;
+      //font-size: 1rem;
     }
   }
 }

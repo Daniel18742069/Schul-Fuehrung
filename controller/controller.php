@@ -41,11 +41,10 @@ class Controller
 
         $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
-    public function be_alle_od()
-    {
-        if (!empty($_REQUEST)) {
-            var_dump($_REQUEST);
-            //erstelle_Fuehrungen($_REQUEST);
+    public function be_alle_od(){
+        if(!empty($_REQUEST)){
+            
+            erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
     }
@@ -88,6 +87,9 @@ class Controller
             $to_name
         );
     }
+    public function test(){
+        $this->addContext("test","nix");
+    }
 
     /**
      * @author Andreas Codalonga
@@ -114,16 +116,15 @@ class Controller
                     $_REQUEST['anzahl']
                 )
             ) {
-
-                $Anmeldung = new Anmeldung(
-                    $_REQUEST['datum'],
-                    $_REQUEST['telefon'],
-                    $_REQUEST['vorname'],
-                    $_REQUEST['nachname'],
-                    $_REQUEST['email'],
-                    $_REQUEST['fuehrung_id'],
-                    $_REQUEST['anzahl']
-                );
+                $Anmeldung = new Anmeldung([
+                    'datum' => $_REQUEST['datum'],
+                    'telefon' => $_REQUEST['telefon'],
+                    'vorname' => $_REQUEST['vorname'],
+                    'nachname' => $_REQUEST['nachname'],
+                    'email' => $_REQUEST['email'],
+                    'fuehrung_id' => $_REQUEST['fuehrung_id'],
+                    'anzahl' => $_REQUEST['anzahl']
+                ]);
                 $Anmeldung->speichere();
 
                 require_once 'model/email.php';

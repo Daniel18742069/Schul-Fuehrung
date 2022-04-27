@@ -34,12 +34,11 @@
             <div class="accordion__item js-accordion-item">
             <div class="kalenderbox alle_od accordion-header js-accordion-header">
                 <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
-                <span class="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
+                <span class="bezeichnung" id="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
                 <span class="status"><?=$offenerTag->getStatusString()?></span>
             </div>
             <div class="content accordion-body js-accordion-body accordion-body__contents">
                 <div class="ccordion-body__contents">
-                <h3 class="bereichnung"><?=$offenerTag->getBezeichnung()?></h3>
                 <span class="inhalt_od">
                     <p>Datum: <?=$offenerTag->getDatumWelformed()?></p>
                     <p>Status: <?=$offenerTag->getStatusString()?></p>
@@ -48,10 +47,10 @@
                     <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
                 </span>
                 <span class="buttons">
-                    <a href="index.php?aktion=bg_alle_einstellungen&id=<?=$offenerTag->getId()?>">
+                    <a href="">
                         <button class="editieren">Editieren</button>
                     </a>
-                    <a href="">
+                    <a href="index.php?aktion=bg_alle_einstellungen&id=<?=$offenerTag->getId()?>">
                     <button class="editieren">Führung hinzufügen</button>
                     </a>
                 </span>
