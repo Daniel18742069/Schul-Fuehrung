@@ -43,9 +43,9 @@ function erstelle_Fuehrungen($fuehrungsDaten){
 $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getIntervall());  //intdiv keine Kommastellen
  
 
-    var_dump($fuehrungsDaten);
-    echo $wieVielePerioden. "<br>";
-
+    $heute = new DateTime($offener_tag->getStartWelformed());
+    $minutes_to_add = $offener_tag->getIntervall();
+    $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
    
     
     foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
@@ -59,8 +59,6 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
             $fach = $stringArray[0];
             $anzahl = $stringArray[1]+1;
             for ($i=0; $i < $wieVielePerioden; $i++) {
-
-            
 
                       $fuehrung = new Fuehrung();
                       $fuehrung->setFuehrungspersonen($daten);
