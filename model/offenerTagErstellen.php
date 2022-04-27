@@ -1,10 +1,12 @@
 <?php
-require_once 'entities/db.php';
-require_once 'entities/entity.php';
-require_once 'entities/anmeldung.php';
-require_once 'entities/fachrichtung.php';
-require_once 'entities/fuehrung.php';
-require_once 'entities/offener_tag.php';
+require_once 'config/config.ini.php';
+require_once 'model/db.php';
+require_once 'model/funktionen.php';
+require_once 'model/entities/entity.php';
+require_once 'model/entities/anmeldung.php';
+require_once 'model/entities/fachrichtung.php';
+require_once 'model/entities/fuehrung.php';
+require_once 'model/entities/offener_tag.php';
 
 require_once 'controller/controller.php';
 

@@ -77,7 +77,7 @@ body {
 .kalenderbox {
   padding: 1rem 0.5rem;
   //border: 1px solid;
-  margin-top: 0.5rem;
+  //margin-top: 0.5rem;
 }
 
 .lehrer {
@@ -303,14 +303,21 @@ input[type="submit"] {
   }
 }
 
-.fuehrungspersonen{
+.fuehrungspersonen, .kapazitaet{
   color: $blueColor;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-left: 1rem;
   //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
   border: 1px solid $blueColor;
   transition: all 0.3s;
   height: 2rem;
+}
+
+
+.fueh-kap{
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
 }
 
 

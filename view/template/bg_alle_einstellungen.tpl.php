@@ -73,8 +73,10 @@
                     <?php
                         for ($j = 0; $j < $anzahl; $j++) {  //fach_anzahl
                     ?>
-                        <p>Kapazitaet: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /></p>
-                        <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required class="fuehrungsperson"/></p>
+                        <div class="fueh-kap">
+                            <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required />
+                            <p>Kapazitaet: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /></p>
+                        </div>
                     <?php
                         }
                     }
