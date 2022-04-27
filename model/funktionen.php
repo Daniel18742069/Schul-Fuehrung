@@ -43,13 +43,13 @@ function erstelle_Fuehrungen($fuehrungsDaten){
 $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getIntervall());  //intdiv keine Kommastellen
  
 
-    $heute = new DateTime($offener_tag->getStartWelformed());
-    $minutes_to_add = $offener_tag->getIntervall();
-    $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
-   
+    
+    
+
     
     foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
-        echo $key;
+        
+        $heute = new DateTime($offener_tag->getStartWelformed());
 
         if(substr($key,0,10) == "kapazitaet"){
             $tempKapazitaet = $daten;
@@ -66,8 +66,11 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
                       $fuehrung->setKapazitaet($tempKapazitaet);
                       $fuehrung->setFachrichtung_id($fach);
                       $fuehrung->setOffener_tag_datum($offener_tag->getId());
-                      $fuehrung->setUhrzeit("10:00");
+                      $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
                       $fuehrung->speichere();
+
+                $minutes_to_add = $offener_tag->getIntervall();
+                $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
                       
             
                 

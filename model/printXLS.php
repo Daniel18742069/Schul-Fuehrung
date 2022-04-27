@@ -18,7 +18,7 @@ header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
 
 
 
-$result = Fuehrung::findeAlleFuehrungenXLS();
+$result = Fuehrung::findeAlleFuehrungen();
 if ($result) {
     $first = $result[0]->toArray();
     echo implode("\t", array_keys($first)) . "\n";
