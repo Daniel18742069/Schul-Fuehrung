@@ -270,6 +270,7 @@ input[type=submit]:hover {
   margin-left: 1rem;
   border: 1px solid #002a50;
   transition: all 0.3s;
+  height: 2rem;
 }
 
 .wrapper-fuehrung_hinzufuegen form .fuehrung-hinzuf {

@@ -47,10 +47,10 @@
                     <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
                 </span>
                 <span class="buttons">
-                    <a href="index.php?aktion=bg_alle_einstellungen&id=<?=$offenerTag->getId()?>">
+                    <a href="">
                         <button class="editieren">Editieren</button>
                     </a>
-                    <a href="">
+                    <a href="index.php?aktion=bg_alle_einstellungen&id=<?=$offenerTag->getId()?>">
                     <button class="editieren">Führung hinzufügen</button>
                     </a>
                 </span>
