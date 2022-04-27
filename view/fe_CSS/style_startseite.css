@@ -61,7 +61,6 @@ body #wrapper .wrapper-fuehrung_hinzufuegen {
 
 .kalenderbox {
   padding: 1rem 0.5rem;
-  margin-top: 0.5rem;
 }
 
 .lehrer {
@@ -264,13 +263,19 @@ input[type=submit]:hover {
   cursor: pointer;
 }
 
-.fuehrungspersonen {
+.fuehrungspersonen, .kapazitaet {
   color: #002a50;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-left: 1rem;
   border: 1px solid #002a50;
   transition: all 0.3s;
   height: 2rem;
+}
+
+.fueh-kap {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
 }
 
 .wrapper-fuehrung_hinzufuegen form .fuehrung-hinzuf {
