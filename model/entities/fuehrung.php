@@ -24,8 +24,8 @@ class Fuehrung
     private function _insert()
     {
 
-        $sql = 'INSERT INTO od_fuehrung (fuehrungspersonen, sichtbar, kapazitaet, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id)'
-            . 'VALUES (:fuehrungspersonen, :sichtbar, :kapazitaet, :kapazitaet, :uhrzeit, :fachrichtung_id, :offener_tag_id)';
+        $sql = 'INSERT INTO od_fuehrung (fuehrungspersonen, sichtbar, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id)'
+            . 'VALUES (:fuehrungspersonen, :sichtbar, :kapazitaet, :uhrzeit, :fachrichtung_id, :offener_tag_id)';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));
