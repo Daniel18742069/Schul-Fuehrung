@@ -55,38 +55,34 @@
 
                     <input type="submit" name="anmelden" value="Führung hinzufügen" />
 
-        </form>
-        <?php
-            }else{ 
-                $array = arrayManipulieren($_POST);
-                var_dump($array);
-                
-                ?>
-        <form action="index.php?aktion=be_alle_od" method="post">
-
-            <?php for ($i=0; $i < count($array); $i++) { 
-                $stringArray = explode('_',$array[$i]);
-                $fach = $stringArray[0];
-                $anzahl = $stringArray[1];
-                ?>
-                <h2><?= Fachrichtung::getFachrichtungBeiID($fach)?></h2>
-
-                <?php
-                for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?>
-                <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required />
-                <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required /></p>
-            
+                </form>
             <?php
-            } 
+            } else {
+                $array = arrayManipulieren($_POST);
+                ?>
 
-                    
+                <form action="index.php?aktion=be_alle_od" method="post">
+
+                    <?php for ($i = 0; $i < count($array); $i++) {
+                        $stringArray = explode('_', $array[$i]);
+                        $fach = $stringArray[0];
+                        $anzahl = $stringArray[1];
+
+                    ?>
+                        <h2><?= Fachrichtung::getFachrichtungBeiID($fach)?></h2>
+                    <?php
+                        for ($j = 0; $j < $anzahl; $j++) {  //fach_anzahl
+                    ?>
+                        <p>Kapazitaet: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /></p>
+                        <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required class="fuehrungsperson"/></p>
+                    <?php
                         }
                     }
 
                     ?>
 
 
-            <input type="text" name="offenerTag" value="<?=$_GET['id']?>" hidden />
+            <input type="text" name="offenerTag" value="<?=$_GET['id']?>" hidden/>
             <input type="submit" name="anmeldebn" value="Anmelden" />
 
 
