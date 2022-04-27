@@ -200,7 +200,7 @@ class Anmeldung
 
     public static function generate_token(): string
     {
-        $unixtime = microtime(true);
+        $unixtime = strtotime('now');
         $letter = chr(mt_rand(97, 122));
 
         return $unixtime . $letter;
