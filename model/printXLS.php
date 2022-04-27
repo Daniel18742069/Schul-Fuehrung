@@ -1,10 +1,5 @@
 <?php
 
-function umlauteEntfernen()
-{
-    $inputString = "Á,Â,Ã,Ä,Å,Æ,Ç,È,É,Ê,Ë,Ì,Í,Î,Ï,Ð,Ñ,Ò,Ó,Ô,Õ,Ö,Ù,Ú,Û,Ü,Ý,Þ,ß,à,á,â,ã,ä,å,æ,ç,è,é,ê,ë,ì,í,î,ï,ð,ñ,ò,ó,ô,õ,ö,ù,ú,û,ü,ý,þ,ÿ";
-}
-
 function cleanData(&$str)
 {
     $str = preg_replace("/\t/", "\\t", $str);
@@ -23,19 +18,19 @@ header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
 
 
 
-$result = Fuehrung::findeAlleFuehrungen();
+$result = Fuehrung::findeAlleFuehrungenXLS();
 if ($result) {
     $first = $result[0]->toArray();
     echo implode("\t", array_keys($first)) . "\n";
 
     foreach ($result as $fuehrung) {
 
-        $fuehrung = cleanUmlauts($fuehrung->toArray(true));
+        $fuehrung = cleanUmlaute($fuehrung->toArray(true));
         echo implode("\t", $fuehrung) . "\n";
     }
 }
 
-function cleanUmlauts(array $array)
+function cleanUmlaute(array $array)
 {
     $extraCharsToRemove = "\"";
     $return = [];

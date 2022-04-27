@@ -53,6 +53,14 @@ class Fuehrung
         return $abfrage->fetchAll();
     }
 
+    public static function findeAlleFuehrungenXLS()
+    {
+        $sql = 'SELECT fuehrungspersonen, kapazitaet, uhrzeit FROM od_fuehrung';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
+
     public function getId()
     {
         return $this->id;
