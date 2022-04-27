@@ -5,41 +5,55 @@
 
     <meta charset="utf-8" />
     <title>Verwaltung</title>
-    <link rel="stylesheet" type="text/css" href="bg_CSS/login.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <script type="text/javascript" src="model/JS/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
 
 </head>
 
 <body>
 
 
-    <?php //require 'view/snippets/fe_xheader.sp.php'; ?>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-    <main>
-        <?php  if(empty($_POST)){ ?>
-        <h1>Wähle Fächer aus</h1>
-        <form action="index.php?aktion=bg_alle_einstellungen&id=<?=$_GET['id']?>" method="post">
-
-
-            <?php  foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
-
-            <input type="checkbox" name="fachID<?=$einstellung->getId()?>" value="<?=$key?>" />
-            <label for="c<?=$einstellung->getId()?>"><?=$einstellung->getBeschreibung()?></label>
-
-            <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="1" checked>
-            <label for="contact<?=$key?>">1</label>
-
-            <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="2">
-            <label for="contact<?=$key?>">2</label>
-
-            <input type="radio" id="contact<?=$key?>" name="anzahl<?=$key?>" value="3">
-            <label for="contact<?=$key?>">3</label>
+    <section id="wrapper">
+        <div class="wrapper-fuehrung_hinzufuegen">
+            <?php if (empty($_POST)) { ?>
+                <h2>Fächer auswählen</h2>
+                <form action="index.php?aktion=bg_alle_einstellungen&id=<?= $_GET['id'] ?>" method="post">
 
 
-            <br>
+                    <?php foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
 
-            <?php } ?>
+                    <div class="fuehrung-hinzuf">
+                        <div class="fachrichtungen">
+                            <input type="checkbox" class="checkbox" id="checkbox" name="fachID<?= $einstellung->getId() ?>" value="<?= $key ?>" onclick="hideShowElement(this,'<?= $einstellung->getBeschreibung() ?>')" />
+                            <label for="c<?= $einstellung->getId() ?>"><?= $einstellung->getBeschreibung() ?></label>
+                        </div>
 
-            <input type="submit" name="anmelden" value="Anmelden" />
+                        <span class="anzahl-fuehrungen" id="<?= $einstellung->getBeschreibung() ?>" style="display: none;">
+                            <span>Führungspersonen</span>
+
+                            <input type="radio" id="contact" name="anzahl<?= $key ?>" value="1" checked>
+                            <label for="contact<?= $key ?>">1</label>
+
+                            <input type="radio" id="contact" name="anzahl<?= $key ?>" value="2">
+                            <label for="contact<?= $key ?>">2</label>
+
+                            <input type="radio" id="contact" name="anzahl<?= $key ?>" value="3">
+                            <label for="contact<?= $key ?>">3</label>
+                        </span>
+                    </div>
+
+                        <hr>
+
+                    <?php } ?>
+
+                    <input type="submit" name="anmelden" value="Führung hinzufügen" />
 
         </form>
         <?php
@@ -54,33 +68,35 @@
                 $stringArray = explode('_',$array[$i]);
                 $fach = $stringArray[0];
                 $anzahl = $stringArray[1];
+                ?>
+                <h2><?= Fachrichtung::getFachrichtungBeiID($fach)?></h2>
 
-                echo Fachrichtung::getFachrichtungBeiID($fach)."<br>";
-
-                
+                <?php
                 for ($j=0; $j < $anzahl; $j++) {  //fach_anzahl  ?>
                 <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required />
-            <input type="text" name="fuehrungspersonen<?php echo $fach."_".$j ?>" placeholder="fuehrungspersonen" class="fuehrungspersonen" required /><br />
+                <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required /></p>
             
             <?php
-                }
+            } 
 
-            }
-                
-                ?>
+                    
+                        }
+                    }
 
-
+                    ?>
 
 
             <input type="text" name="offenerTag" value="<?=$_GET['id']?>" hidden />
             <input type="submit" name="anmeldebn" value="Anmelden" />
 
-        </form>
 
-        <?php } ?>
-    </main>
+                </form>
 
+            <?php } ?>
+        </div>
+    </section>
 
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 </body>
 
