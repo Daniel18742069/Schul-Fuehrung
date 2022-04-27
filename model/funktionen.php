@@ -58,15 +58,10 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
             $stringArray = explode('_',substr($key,17));
             $fach = $stringArray[0];
             $anzahl = $stringArray[1]+1;
-            for ($i=0; $i < $wieVielePerioden; $i++) { 
+            for ($i=0; $i < $wieVielePerioden; $i++) {
 
-                      //  private $fuehrungspersonen = "";
-                      //  private $sichtbar = 0;
-                      //  private $kapazitaet = 0;
-                      //  private $uhrzeit = "";
-                      //  private $fachrichtung_id = 0;
-                      //  private $offener_tag_id  = 0;
-                      
+            
+
                       $fuehrung = new Fuehrung();
                       $fuehrung->setFuehrungspersonen($daten);
                       $fuehrung->setSichtbar(0);
