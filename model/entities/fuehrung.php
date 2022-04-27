@@ -49,7 +49,7 @@ class Fuehrung
     {
         $sql = 'SELECT * FROM od_fuehrung';
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_fuehrung');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
     }
 
