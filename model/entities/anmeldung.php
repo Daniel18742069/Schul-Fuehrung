@@ -139,7 +139,7 @@ class Anmeldung
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
         return $abfrage->fetchAll();
     }
-                //ändernnnnnn!!!!!!!!!!!!!!!!!
+    //ändernnnnnn!!!!!!!!!!!!!!!!!
 
     public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
     {
@@ -184,12 +184,12 @@ class Anmeldung
         $abfrage->execute($this->toArray());
     }
 
-    private function _loesche(): void
+    public function loesche(): void
     {
         $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
 
         $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray());
+        $abfrage->execute(['token' => $this->getToken()]);
     }
 
     public function toArray()
