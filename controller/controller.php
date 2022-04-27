@@ -69,7 +69,24 @@ class Controller
 
     private function ___test()
     {
-        echo 'test';
+        require_once 'model/email.php';
+
+        $to_address = 'thelordarled@gmail.com';
+        $to_name = 'Andreas Codalonga';
+        $subject = 'Anmeldung Erfolgreich';
+        $message = file_get_contents('mail/anmeldung.mail.html');
+        $message = ersetze_platzhalter($message, [
+            ['url', CONF['URL']],
+            ['namen', $to_name],
+            ['token', Anmeldung::generate_token()]
+        ]);
+
+        email::send(
+            $subject,
+            $message,
+            $to_address,
+            $to_name
+        );
     }
 
     /**

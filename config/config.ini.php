@@ -9,7 +9,7 @@ $ini = '
 	DB_PASS=
 
 	[Mail Einstellungen]
-	MAIL_NAME=LBSHI Bozen
+	MAIL_NAME=LBSHI Bozen NoReply
 	MAIL_ADDRESS=berufsschulebozen.anmeldung@gmail.com
 	MAIL_PASSWORD=Lbshi-12345
 
