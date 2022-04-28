@@ -36,7 +36,7 @@
                         </div>
 
                         <span class="anzahl-fuehrungen" id="<?= $einstellung->getBeschreibung() ?>" style="display: none;">
-                            <span>Führungspersonen</span>
+                            <span>Anzahl Führungen</span>
 
                             <input type="radio" id="contact" name="anzahl<?= $key ?>" value="1" checked>
                             <label for="contact<?= $key ?>">1</label>
@@ -75,7 +75,7 @@
                     ?>
                         <div class="fueh-kap">
                             <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required />
-                            <p>Kapazitaet: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /></p>
+                            <p>Kapazität: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /></p>
                         </div>
                     <?php
                         }

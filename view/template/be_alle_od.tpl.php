@@ -22,8 +22,11 @@
     <div class="wrapper-be_startseite">
 
         <!-- Untertitel & kurzer Text -->
-        <div>
+        <div class="alle_od">
             <h2>Alle Open Days</h2>
+            <a href="index.php?aktion=bg_neuer_od">
+                <button class="neuer_od">neuer Open Day</button>
+            </a>
         </div>
 
         <div class="accordion-wrapper accordion js-accordion">
