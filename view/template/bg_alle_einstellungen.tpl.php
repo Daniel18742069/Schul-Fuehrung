@@ -85,7 +85,7 @@
 
 
             <input type="text" name="offenerTag" value="<?=$_GET['id']?>" hidden/>
-            <input type="submit" name="anmeldebn" value="Anmelden" />
+            <input type="submit" name="anmelden" value="Anmelden" />
 
 
                 </form>

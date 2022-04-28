@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
     <section id="wrapper">

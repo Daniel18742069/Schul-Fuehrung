@@ -18,7 +18,7 @@
         <h1>Anmeldung</h1>
 
 
-        <form action="model/adminAnmelden.php" method="post">
+        <form action="index.php?aktion=adminAnmeldung" method="post">
 
 
             <input type="text" name="benutzername" placeholder="Benutzername" class="benutzername" required /><br />

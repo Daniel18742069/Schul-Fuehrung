@@ -42,8 +42,8 @@ class Controller
         $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
     public function be_alle_od(){
-        if(!empty($_REQUEST)){
-            
+        if(!empty($_REQUEST) && !empty($_REQUEST['anmelden'])){
+            var_dump($_REQUEST);
             erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
@@ -53,6 +53,7 @@ class Controller
     //Subfooter
     public function impressum()
     {
+        
         $this->addContext("impressum", "nix");
     }
 
@@ -74,6 +75,33 @@ class Controller
         $this->addContext("test","nix");
     }
 
+    public function adminAnmeldung(){
+
+        if(empty($_POST['benutzername']) && empty($_POST['passwort'])){
+            header('Location: index.php?aktion=bg_login_admin');
+        }
+        //PASSWORT UND BENUTZERNAME LEER
+        else if(stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])){
+            logge_ein($_POST['benutzername']);
+            header('Location: index.php?aktion=be_alle_od');
+        }
+        //PASSWORT UND BENUTZERNAME STIMMEN überein
+        else{
+            header('Location: index.php?aktion=bg_login_admin');
+        }
+
+    }
+
+
+    public function bg_login_admin(){
+            if(isset($_REQUEST['benutzername']) && isset($_REQUEST['passwort'])){
+                
+            }
+        $this->addContext("bg_login_admin","nix");
+
+    }
+
+    
     /**
      * @author Andreas Codalonga
      */

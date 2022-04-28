@@ -11,14 +11,21 @@ require_once 'model/entities/offener_tag.php';
 
 require_once 'controller/controller.php';
 
-//session_start();
-//var_dump($_SESSION);
+session_start();
+var_dump($_SESSION);
+/*
+if(!ist_eingeloggt()){
+        header('Location: ./index.php');
+    }
 
+    Login
+*/
 
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'be_alle_od';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'bg_login_admin';
 
 $controller = new Controller();
 
 if (method_exists($controller, $aktion)) {
+     
     $controller->run($aktion);
 }
