@@ -8,20 +8,22 @@ function cleanData(&$str)
 }
 
 // filename for download
-$filename = "open_day_" . date('Ymd') . ".xls";
+$filename = "open_day_" . date('Y.m.d') . ".xls";
 
-header("Content-Disposition: attachment; filename=\"$filename\"");
-header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
+//header("Content-Disposition: attachment; filename=\"$filename\"");
+//header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
 
-//header("Content-Type: text/plain");
-
-
+header("Content-Type: text/plain");
 
 
-$result = Fuehrung::findeAlleFuehrungen();
+
+
+$result = Fuehrung::findeAlleFuehrungenXLS();
+
+
 if ($result) {
-    $first = $result[0]->toArray();
-    echo implode("\t", array_keys($first)) . "\n";
+    $title = $result[0]->toArray();
+    echo implode("\t", array_keys($title)) . "\n";
 
     foreach ($result as $fuehrung) {
 
@@ -32,11 +34,14 @@ if ($result) {
 
 function cleanUmlaute(array $array)
 {
-    $extraCharsToRemove = "\"";
+        $search = array("Ä", "Ö", "Ü", "ä", "ö", "ü");
+        $replace = array("Ae", "Oe", "Ue", "ae", "oe", "ue");
+        return str_replace($search, $replace, $array);
+
     $return = [];
 
     foreach ($array as $string) {
-        $return[] = str_replace($extraCharsToRemove, "", iconv("utf-8", "ASCII//TRANSLIT", $string));
+        $return[] = str_replace($search, $replace, $string);
     }
 
     return $return;

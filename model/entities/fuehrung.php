@@ -53,9 +53,8 @@ class Fuehrung
         return $abfrage->fetchAll();
     }
 
-    public static function findeAlleFuehrungenXLS()
-    {
-        $sql = 'SELECT fuehrungspersonen, kapazitaet, uhrzeit FROM od_fuehrung';
+    public static function findeAlleFuehrungenXLS(){
+        $sql = 'SELECT fuehrungspersonen, kapazitaet, uhrzeit FROM od_fuehrung WHERE fuehrung not in (".implode(', ', $fuehrung).") ")';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
