@@ -281,4 +281,23 @@ class Anmeldung
         }
         return false;
     }
+
+    public static function findeAlleAnmeldungen_limitierteColumns(array $columns)
+    {
+        $sql = 'SELECT ';
+        $count = 0;
+        foreach ($columns as $column) {
+
+            $sql .= ($count > 0)
+                ? ',' . $column
+                : $column;
+
+            $count++;
+        }
+        $sql .= ' FROM od_anmeldung';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_ASSOC);
+        return $abfrage->fetchAll();
+    }
 }
