@@ -20,33 +20,44 @@ class Controller
     }
 
     //admin
-    public function bg_neuer_od()
+    public function be_neuer_od()
     {
-        $this->addContext("bg_neuer_od", "nix");
+        $this->addContext("be_neuer_od", "nix");
     }
-    public function bg_od_erfolgreich()
+    public function be_neues_fach()
     {
-
-        $offener_tag = new Offener_tag($_POST);
-        $offener_tag->speichere();
-
-        $this->addContext("bg_od_erfolgreich", $offener_tag);
+        $this->addContext("be_neues_fach", "nix");
     }
-    public function bg_alle_einstellungen()
+    public function be_od_erfolgreich()
+    {
+        if(!empty($_REQUEST['beschreibung'])){
+            $this->addContext("text", "Neues Fach wurde erfolgreich hinzugefügt");
+            $fachrichtung = new Fachrichtung($_REQUEST);
+            $fachrichtung->speichere();
+        }else{
+            $offener_tag = new Offener_tag($_POST);
+            $offener_tag->speichere();
+    
+            $this->addContext("text", "Open Day wurde erfolgreich erstellt");
+        }
+
+        
+    }
+    public function be_alle_einstellungen()
     {
 
 
         $this->addContext("offenertagID", $_REQUEST['id']);
 
 
-        $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
+        $this->addContext("be_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
     public function be_alle_od(){
         if(!empty($_REQUEST) && !empty($_REQUEST['anmelden'])){
             var_dump($_REQUEST);
             erstelle_Fuehrungen($_REQUEST);
         }
-        $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
+        $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
     }
 
 
@@ -78,7 +89,7 @@ class Controller
     public function adminAnmeldung(){
 
         if(empty($_POST['benutzername']) && empty($_POST['passwort'])){
-            header('Location: index.php?aktion=bg_login_admin');
+            header('Location: index.php?aktion=be_login_admin');
         }
         //PASSWORT UND BENUTZERNAME LEER
         else if(stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])){
@@ -87,17 +98,17 @@ class Controller
         }
         //PASSWORT UND BENUTZERNAME STIMMEN überein
         else{
-            header('Location: index.php?aktion=bg_login_admin');
+            header('Location: index.php?aktion=be_login_admin');
         }
 
     }
 
 
-    public function bg_login_admin(){
+    public function be_login_admin(){
             if(isset($_REQUEST['benutzername']) && isset($_REQUEST['passwort'])){
                 
             }
-        $this->addContext("bg_login_admin","nix");
+        $this->addContext("be_login_admin","nix");
 
     }
 

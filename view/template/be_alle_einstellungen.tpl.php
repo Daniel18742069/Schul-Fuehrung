@@ -24,10 +24,10 @@
         <div class="wrapper-fuehrung_hinzufuegen">
             <?php if (empty($_POST)) { ?>
                 <h2>Fächer auswählen</h2>
-                <form action="index.php?aktion=bg_alle_einstellungen&id=<?= $_GET['id'] ?>" method="post">
+                <form action="index.php?aktion=be_alle_einstellungen&id=<?= $_GET['id'] ?>" method="post">
 
 
-                    <?php foreach ($bg_alle_einstellungen as $key => $einstellung) { ?>
+                    <?php foreach ($be_alle_einstellungen as $key => $einstellung) { ?>
 
                     <div class="fuehrung-hinzuf">
                         <div class="fachrichtungen">
