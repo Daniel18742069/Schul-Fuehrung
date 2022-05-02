@@ -246,6 +246,11 @@ input {
 
 }
 
+
+.neuer-od-erstellen{
+  width: auto;
+}
+
 input[type="submit"], .neuer_od {
   order: 1;
   color: $blueColor;
@@ -255,7 +260,7 @@ input[type="submit"], .neuer_od {
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
-  width: 100%;
+  //width: 100%;
   max-height: 3rem;
   float: right;
 
@@ -266,6 +271,9 @@ input[type="submit"], .neuer_od {
 }
 
 
+.neuer-od-bezeichnung{
+  width: 100%;
+}
 
 .alle_od{
   display: flex;

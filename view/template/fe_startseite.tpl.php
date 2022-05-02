@@ -89,12 +89,17 @@
         <div class="box">
 
             <!-- Tabs Fachrichtung -->
+            
+            <?php
+                if($fachrichtungen){
+            ?>
             <div class="tabs active">
-                <button type="button" value="Button" name="tab_elektro" id="tab_elektro" class="info_elektro-button active tab" onclick="openCalender('info_elektro')">Informatik / Elektrotechnik</button>
-                <button name="tab_mechatronik" id="tab_mechatronik" class="elektro_mechatronik-button tab" onclick="openCalender('elektro_mechatronik')">Elektrotechnik / Mechatronik</button>
-                <button name="tab_friseur" id="tab_friseur" class="friseur-button tab" onclick="openCalender('friseur')">Friseur</button>
-                <button name="tab_holz" id="tab_holz" class="holzbau-button tab" onclick="openCalender('holzbau')">Holzbau</button>
+                    <?php foreach($fachrichtungen as $fachrichtung){ ?>
+                        <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="info_elektro-button active tab" onclick="openCalender('<?= $fachrichtung->getBeschreibung() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                    <?php } ?>
             </div>
+
+            <?php } ?>
 
         </div>
 
@@ -105,17 +110,22 @@
             window.console = window.console || function(t) {};
         </script>
 
-
+                        
 
         <div class="accordion js-accordion">
 
-            <?php $counter = 8;
-            for ($i = 0; $i <= 10; $i++) { ?>
+            <?php 
+                //$intervall = $offener_tag->getIntervall() * 60;
+
+                //for ($seconds = 0; $seconds <= $offener_tag->getEnde(); $seconds + (60)) {
+                foreach($fuehrungen as $fuehrung){
+                    if($fuehrung->getSichtbar() == 1)continue;
+                    ?>
                 <div class="accordion__item js-accordion-item">
                     <div class="accordion-header js-accordion-header">
-                        <div class="uhrzeit"><?= $counter ?>:00 Uhr</div>
-                        <div class="lehrer">Lehrer</div>
-                        <div class="kapazitaet">0/10</div>
+                        <div class="uhrzeit"><?= $fuehrung->getUhrzeit(); ?> Uhr</div>
+                        <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
+                        <div class="kapazitaet">x/<?= $fuehrung->getKapazitaet(); ?></div>
                     </div>
                     <div class="accordion-body js-accordion-body">
                         <div class="accordion-body__contents">
@@ -136,8 +146,7 @@
                         </div>
                     </div>
                 </div>
-            <?php $counter++;
-            } ?>
+            <?php } ?>
 
         </div>
 

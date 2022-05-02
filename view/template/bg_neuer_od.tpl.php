@@ -28,7 +28,7 @@
 
                 <div class="neuer-od-formular">
                     <span><p>Bezeichnung:</p></span>
-                    <span><p><input type="text" name="bezeichnung" id="bezeichnung" required class="felder-neuer-od feld-neuer-od-bez"/></p></span>
+                    <span><input type="text" name="bezeichnung" id="bezeichnung" required class="felder-neuer-od feld-neuer-od-bez"/></span>
                 </div>
                     
 
@@ -44,7 +44,7 @@
 
                 </div>
 
-                <input type="submit" value="Erstellen">
+                <input type="submit" value="Erstellen" class="neuer-od-erstellen">
 
             </form>
 

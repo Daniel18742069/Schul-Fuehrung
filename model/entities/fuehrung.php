@@ -49,7 +49,15 @@ class Fuehrung
     {
         $sql = 'SELECT * FROM od_fuehrung';
         $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'od_fuehrung');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
+
+    public static function findeSpezifischeFuehrungen(int $offener_tag_id)
+    {
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id;
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
     }
 
