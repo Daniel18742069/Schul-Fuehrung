@@ -50,7 +50,14 @@ class Offener_tag
 
 
 
-
+    public function aendereStatus()
+    {
+        if($this->status == 0){
+            $this->status = 1;
+        }else{
+            $this->status = 0;
+        }
+    }
     public function getDatum()
     {
         return $this->datum;
@@ -153,6 +160,7 @@ class Offener_tag
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
         return $abfrage->fetchAll();
     }
+    
 
     public static function findeNeuestenOffenenTag()
     {

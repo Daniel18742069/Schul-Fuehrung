@@ -4,14 +4,13 @@
 <h1>AJAX Test</h1>
 <form id="MyForm" name="MyForm">
   <label>Your Value: <input name="MyName" id="MyID" value="YourValue" /></label>
-  <p><button type="button" onclick="CallPhpScript()">Call PHP-Script</button></p>
+  <p><button type="button" onclick="aendereStatusFuehrung()" value="10" name="jurgen">Call PHP-Script</button></p>
 </form>
 <div id="GenResult">
   <br>
 </div>
 <script>
-function CallPhpScript()
-{
+function aendereStatusFuehrung(){
   var xhttp;
   try {
     xhttp = new XMLHttpRequest();

@@ -37,7 +37,33 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
     document.getElementById(rudr_tab_id).className = 'tab active';
 }
 
-
+function aendereStatusFuehrung(offenerTag) {
+    window.alert(offenerTag);
+    var xhttp;
+    try {
+        xhttp = new XMLHttpRequest();
+    } catch (e) {
+        try {
+            xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                return;
+            }
+        }
+    }
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("GenResult").innerHTML = this.responseText + "<br>";
+            console.log(responseText);
+        }
+    };
+    xhttp.open("POST", "model/aktualisieren.php");
+    formData = new FormData();
+    formData.append("offenerTag", offenerTag); // add some extra post variables
+    xhttp.send(formData);
+}
 
 
 
@@ -46,7 +72,7 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 
 function accordion() {
 
-    var accordion = function () {
+    var accordion = function() {
 
         var $accordion = $('.js-accordion');
         var $accordion_header = $accordion.find('.js-accordion-header');
@@ -64,8 +90,8 @@ function accordion() {
 
         return {
             // pass configurable object literal
-            init: function ($settings) {
-                $accordion_header.on('click', function () {
+            init: function($settings) {
+                $accordion_header.on('click', function() {
                     accordion.toggle($(this));
                 });
 
@@ -79,14 +105,14 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: function ($this) {
+            toggle: function($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
-                        find('> .js-accordion-item').
-                        removeClass('active').
-                        find('.js-accordion-body').
-                        slideUp();
+                    find('> .js-accordion-item').
+                    removeClass('active').
+                    find('.js-accordion-body').
+                    slideUp();
                 }
 
                 // show/hide the clicked accordion item
@@ -97,7 +123,7 @@ function accordion() {
 
     }();
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         accordion.init({
             speed: 300,
             oneOpen: true
@@ -107,7 +133,7 @@ function accordion() {
 
 function hideShowElement(source, target) {
     element = document.getElementById(target);
-    element.style.display = (source.checked)
-        ? 'block'
-        : 'none';
+    element.style.display = (source.checked) ?
+        'block' :
+        'none';
 }

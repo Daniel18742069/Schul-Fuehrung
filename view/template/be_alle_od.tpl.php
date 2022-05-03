@@ -31,7 +31,7 @@
                     <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
                 </a>
             </div>
-            
+
 
             <div class="accordion-wrapper accordion js-accordion">
                 <?php 
@@ -52,9 +52,17 @@
                                 <p>Start: <?=$offenerTag->getStartWelformed()?> Uhr</p>
                                 <p>Ende: <?=$offenerTag->getEndeWelformed()?> Uhr</p>
                                 <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
-                                <p><a href="index.php?aktion=be_alle_od">
-                                        <button class="" onclick="alert('<?=$offenerTag->getBezeichnung()?> wurde aktiviert!')"><?=$offenerTag->getStatusString()?></button>
-                                    </a></p>
+                                <p>
+                                <form id="MyForm" name="MyForm">
+                                            <input name="MyName" id="MyID" value="YourValue" hidden/>
+                                            <p>
+                                                <button type="button" onclick="aendereStatusFuehrung('<?=$offenerTag->getId()?>')">Hallo</button>
+                                            </p>
+                                            <div id="GenResult">
+                                                <br>
+                                            </div>
+                                </form>
+                                </p>
                             </span>
                             <span class="buttons">
                                 <a href="">
@@ -77,7 +85,8 @@
             <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
             <script>
-            accordion()
+                accordion();
+ 
             </script>
 
     </section>
