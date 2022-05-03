@@ -13,35 +13,19 @@ $filename = "open_day_" . date('Y.m.d') . ".xls";
 //header("Content-Disposition: attachment; filename=\"$filename\"");
 //header("Content-Type: application/vnd.ms-excel; charset=UTF-8");
 
-//header("Content-Type: text/plain");
+// header("Content-Type: text/plain");
 
 
-$result = Anmeldung::findeAlleAnmeldungen_limitierteColumns([
-    'datum',
-    'vorname',
-    'nachname',
-    'anzahl',
-    'email',
-    'telefon'
-]);
+$alleAnmeldungen = Anmeldung::findeAlleAnmeldungenSortiertDatum();
+$alleFachrigungen = Fachrichtung::findeAlleFachrichtungen();
+$alleFuehrungen = Fuehrung::findeAlleFuehrungen();
 
-$result2 = Fachrichtung::findeAlleFachrichtungen_limitierteColumns([
-    'beschreibung'
-], 1);
-
-$result3 = Fuehrung::findeAlleFuehrungen_limitierteColumns([
-    'fuehrungspersonen',
-    'kapazitaet',
-    'uhrzeit'
-]);
-
-
-
-if ($result) {
-
+if ($alleAnmeldungen && $alleFachrigungen && $alleFuehrungen) {
 ?>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
+
         table,
         th,
         td {
@@ -51,18 +35,108 @@ if ($result) {
         table td:first-child::first-letter {
             text-transform: uppercase;
         }
+
+        table {
+            font-size: 12px;
+            color: #333333;
+            width: 100%;
+            border-width: 1px;
+            border-color: #a9a9a9;
+            border-collapse: collapse;
+        }
+
+        table th {
+            font-size: 12px;
+            background-color: #b8b8b8;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9a9a9;
+            text-align: left;
+        }
+
+        table .active {
+            background-color: #ffffff;
+        }
+        
+        table  {
+            background-color: grey;
+        }
+        /* zweite tabellen farbe */
+
+        table td {
+            font-size: 12px;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9a9a9;
+        }
+        table tr:hover {
+            background-color: #ffff99;
+        }
     </style>
 
-    <table>
+    <table class="tftable">
         <thead>
             <tr>
-                <th><?php echo implode('</th><th>', array_keys(current($result))); ?></th>
+                <th>Datum</th>
+                <th>Uhrzeit</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Anzahl</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Beschreibung</th>
+                <th>Fuehrungspersonen</th>
+                <th>Kapazitaet</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($result as $row) : array_map('htmlentities', $row); ?>
-                <tr>
-                    <td><?php echo implode('</td><td>', $row); ?></td>
+            <?php $letztes_datum = 'datum_formatieren($Anmeldung->getDatum()';
+             foreach ($alleAnmeldungen as $Anmeldung) :
+               if ($letztes_datum < datum_formatieren($Anmeldung->getDatum())) { ?>
+                <script>
+                $("table").removeClass("active")
+                </script>
+                <?php
+            }
+
+                $fuehrung_id = $Anmeldung->getFuehrung_id();
+
+                $Fuehrung = $alleFuehrungen[$fuehrung_id];
+                $Fachrichung = $alleFachrigungen[$Fuehrung->getFachrichtung_id()];
+            ?>
+                <tr class="active">
+                    <td>
+                        <?= datum_formatieren($Anmeldung->getDatum()); ?>
+                    </td>
+                    <td>
+                        <?= datum_formatieren($Fuehrung->getUhrzeit(), 'H:i'); ?> Uhr
+                    </td>
+                    <td>
+                        <?= cleanUmlaute($Anmeldung->getVorname()); ?>
+                    </td>
+                    <td>
+                        <?= cleanUmlaute($Anmeldung->getNachname()); ?>
+                    </td>
+                    <td>
+                        <?= $Anmeldung->getAnzahl(); ?>
+                    </td>
+                    <td>
+                        <?= $Anmeldung->getEmail(); ?>
+                    </td>
+                    <td>
+                        <?= $Anmeldung->getTelefon(); ?>
+                    </td>
+                    <td>
+                        <?= cleanUmlaute($Fachrichung->getBeschreibung()); ?>
+                    </td>
+                    <td>
+                        <?= cleanUmlaute($Fuehrung->getFuehrungspersonen()); ?>
+                    </td>
+                    <td>
+                        <?= $Fuehrung->getKapazitaet(); ?>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -71,59 +145,14 @@ if ($result) {
 <?php
 
 }
-if ($result2) {
-?>
-    <table>
-        <thead>
-            <tr>
-                <th><?php echo implode('</th><th>', array_keys(current($result2))); ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($result2 as $row) : array_map('htmlentities', $row); ?>
-                <tr>
-                    <td><?php echo implode('</td><td>', $row); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-
-<?php
-}
-if ($result3) {
-?>
-    <table>
-        <thead>
-            <tr>
-                <th><?php echo implode('</th><th>', array_keys(current($result3))); ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($result3 as $row) : array_map('htmlentities', $row); ?>
-                <tr>
-                    <td><?php echo implode('</td><td>', $row); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-
-<?php
-}
 
 
-function cleanUmlaute(array $array)
+function cleanUmlaute(string $string)
 {
     $search = array("Ä", "Ö", "Ü", "ä", "ö", "ü");
     $replace = array("Ae", "Oe", "Ue", "ae", "oe", "ue");
-    return str_replace($search, $replace, $array);
 
-    $return = [];
-
-    foreach ($array as $string) {
-        $return[] = str_replace($search, $replace, $string);
-    }
-
-    return $return;
+    return str_replace($search, $replace, $string);
 }
 
 exit;

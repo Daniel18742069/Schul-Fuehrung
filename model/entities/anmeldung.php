@@ -122,6 +122,22 @@ class Anmeldung
         }
     }
 
+    /**
+     * @author Andreas Codalonga
+     */
+    private static function indexiereArray(array $Klassen): array
+    {
+        $Klassen_indexiert = [];
+
+        if ($Klassen) {
+            foreach ($Klassen as $Klasse) {
+                $Klassen_indexiert[$Klasse->getToken()] = $Klasse;  #TOKEN statt ID
+            }
+        }
+
+        return $Klassen_indexiert;
+    }
+
     public static function findeAnmeldung(string $token)
     {
         $sql = 'SELECT * FROM od_anmeldung WHERE token = "' . $token . '";';
@@ -137,7 +153,18 @@ class Anmeldung
 
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
+    }
+
+    public static function findeAlleAnmeldungenSortiertDatum()
+    {
+        $sql = 'SELECT * FROM od_anmeldung, od_fuehrung WHERE od_anmeldung.fuehrung_id = od_fuehrung.id ORDER BY date(datum), uhrzeit ASC;';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     public static function findeAlleAnmeldungen_von_fuehrung(int $fuehrung_id)
@@ -146,7 +173,8 @@ class Anmeldung
 
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Anmeldung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     public function speichere(): void
@@ -280,24 +308,5 @@ class Anmeldung
             }
         }
         return false;
-    }
-
-    public static function findeAlleAnmeldungen_limitierteColumns(array $columns)
-    {
-        $sql = 'SELECT ';
-        $count = 0;
-        foreach ($columns as $column) {
-
-            $sql .= ($count > 0)
-                ? ',' . $column
-                : $column;
-
-            $count++;
-        }
-        $sql .= ' FROM od_anmeldung';
-
-        $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_ASSOC);
-        return $abfrage->fetchAll();
     }
 }

@@ -50,26 +50,8 @@ class Fuehrung
         $sql = 'SELECT * FROM od_fuehrung';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
-        return $abfrage->fetchAll();
-    }
-
-    public static function findeAlleFuehrungen_limitierteColumns(array $columns)
-    {
-        $sql = 'SELECT ';
-        $count = 0;
-        foreach ($columns as $column) {
-
-            $sql .= ($count > 0)
-                ? ',' . $column
-                : $column;
-
-            $count++;
-        }
-        $sql .= ' FROM od_fuehrung';
-
-        $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_ASSOC);
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     public function getId()

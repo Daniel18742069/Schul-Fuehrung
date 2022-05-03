@@ -36,7 +36,8 @@ class Fachrichtung{
         $sql = 'SELECT * FROM od_fachrichtung';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fachrichtung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     public function getId(){
@@ -61,28 +62,6 @@ class Fachrichtung{
         $abfrage = DB::getDB()->query($sql);
         return $abfrage->fetch()['beschreibung'];
     }
-
-
-    public static function findeAlleFachrichtungen_limitierteColumns(array $columns, $id)
-    {
-
-    $sql = 'SELECT ';
-        $count = 0;
-        foreach ($columns as $column) {
-
-            $sql .= ($count > 0)
-                ? ',' . $column
-                : $column;
-
-            $count++;
-        }
-        $sql .= ' FROM od_fachrichtung WHERE id = '. $id;
-
-        $abfrage = DB::getDB()->query($sql);
-        $abfrage->setFetchMode(PDO::FETCH_ASSOC);
-        return $abfrage->fetchAll();
-
-}
 }
 
 
