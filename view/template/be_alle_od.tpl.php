@@ -14,65 +14,71 @@
 </head>
 
 <body>
-    
+
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
     <section id="wrapper">
 
-    <div class="wrapper-be_startseite">
+        <div class="wrapper-be_startseite">
 
-        <!-- Untertitel & kurzer Text -->
-        <div class="alle_od">
-            <h2>Alle Open Days</h2>
-            <a href="index.php?aktion=be_neuer_od">
-                <button class="neuer_od">neuer Open Day</button>
-            </a>
-            <a href="index.php?aktion=be_neues_fach">
-                <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
-            </a>
-        </div>
+            <!-- Untertitel & kurzer Text -->
+            <div class="alle_od">
+                <h2>Alle Open Days</h2>
+                <a href="index.php?aktion=be_neuer_od">
+                    <button class="neuer_od">neuer Open Day</button>
+                </a>
+                <a href="index.php?aktion=be_neues_fach">
+                    <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
+                </a>
+            </div>
+            
 
-        <div class="accordion-wrapper accordion js-accordion">
-            <?php
+            <div class="accordion-wrapper accordion js-accordion">
+                <?php 
                     foreach ($be_alle_od as $key => $offenerTag) {
                         ?>
 
-            <div class="accordion__item js-accordion-item">
-            <div class="kalenderbox alle_od accordion-header js-accordion-header">
-                <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
-                <span class="bezeichnung" id="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
-                <span class="status"><?=$offenerTag->getStatusString()?></span>
-            </div>
-            <div class="content accordion-body js-accordion-body accordion-body__contents">
-                <div class="ccordion-body__contents">
-                <span class="inhalt_od">
-                    <p>Datum: <?=$offenerTag->getDatumWelformed()?></p>
-                    <p>Status: <?=$offenerTag->getStatusString()?></p>
-                    <p>Start: <?=$offenerTag->getStartWelformed()?> Uhr</p>
-                    <p>Ende: <?=$offenerTag->getEndeWelformed()?> Uhr</p>
-                    <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
-                </span>
-                <span class="buttons">
-                    <a href="">
-                        <button class="editieren">Editieren</button>
-                    </a>
-                    <a href="index.php?aktion=be_alle_einstellungen&id=<?=$offenerTag->getId()?>">
-                    <button class="editieren">Führung hinzufügen</button>
-                    </a>
-                </span>
+                <div class="accordion__item js-accordion-item">
+                    <div class="kalenderbox alle_od accordion-header js-accordion-header">
+                        <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
+                        <span class="bezeichnung" id="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
+                        <span class="status"><?=$offenerTag->getStatusString()?></span>
                     </div>
+                    <div class="content accordion-body js-accordion-body accordion-body__contents">
+                        <div class="ccordion-body__contents">
+                            <span class="inhalt_od">
+                                <p>Datum: <?=$offenerTag->getDatumWelformed()?></p>
+                                <p>Status: <?=$offenerTag->getStatusString()?></p>
+                                <p>Start: <?=$offenerTag->getStartWelformed()?> Uhr</p>
+                                <p>Ende: <?=$offenerTag->getEndeWelformed()?> Uhr</p>
+                                <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
+                                <p><a href="index.php?aktion=be_alle_od">
+                                        <button class="" onclick="alert('<?=$offenerTag->getBezeichnung()?> wurde aktiviert!')"><?=$offenerTag->getStatusString()?></button>
+                                    </a></p>
+                            </span>
+                            <span class="buttons">
+                                <a href="">
+                                    <button class="editieren">Editieren</button>
+                                </a>
+                                <a href="index.php?aktion=be_alle_einstellungen&id=<?=$offenerTag->getId()?>">
+                                    <button class="editieren">Führung hinzufügen</button>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
             </div>
-            </div>
-            <?php } ?>
-        </div>
 
-        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+            <script
+                src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js">
+            </script>
 
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-        <script>
+            <script>
             accordion()
-        </script>
+            </script>
 
     </section>
 
