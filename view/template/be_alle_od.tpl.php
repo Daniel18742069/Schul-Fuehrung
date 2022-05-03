@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
     <section id="wrapper">
@@ -53,7 +53,7 @@
                     <a href="">
                         <button class="editieren">Editieren</button>
                     </a>
-                    <a href="index.php?aktion=bg_alle_einstellungen&id=<?=$offenerTag->getId()?>">
+                    <a href="index.php?aktion=be_alle_einstellungen&id=<?=$offenerTag->getId()?>">
                     <button class="editieren">Führung hinzufügen</button>
                     </a>
                 </span>

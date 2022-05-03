@@ -146,6 +146,13 @@ class Offener_tag
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
         return $abfrage->fetchAll();
     }
+    public static function findeAlleOffener_tagDesc()
+    {
+        $sql = 'SELECT * FROM od_offener_tag ORDER BY id desc';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
+        return $abfrage->fetchAll();
+    }
 
     public static function findeNeuestenOffenenTag()
     {

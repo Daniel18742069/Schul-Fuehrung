@@ -28,7 +28,7 @@ function stringsVergleichen($string1, $string2)
 function logge_ein($benutzername)
 {
     $_SESSION['eingeloggt'] = $benutzername;
-    $_SESSION['id'] = "true";
+    $_SESSION['aktiv'] = "true";
 }
 
 function erstelle_Fuehrungen($fuehrungsDaten){
@@ -96,6 +96,20 @@ function arrayManipulieren($assotiativesArrayPost)
         }
     }
     return $array;
+}
+
+function ist_eingeloggt() {
+    $erg = false;
+    if (isset($_SESSION['eingeloggt'])) {
+        if (!empty($_SESSION['eingeloggt']))
+            $erg = true;
+    }
+    return $erg;
+}
+
+function logge_aus() {
+    unset($_SESSION['eingeloggt']);
+    unset($_SESSION['id']);
 }
 
 
