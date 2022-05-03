@@ -288,4 +288,14 @@ class Anmeldung
 
         return false;
     }
+
+
+
+    public static function anzahlTeilnehmer($fuehrung_id){
+        $sql = 'SELECT SUM(anzahl) AS anzahl FROM od_anmeldung WHERE fuehrung_id = ?';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute(array($fuehrung_id));
+        return $abfrage->fetch()["anzahl"];
+    }
 }

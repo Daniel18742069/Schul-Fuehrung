@@ -12,13 +12,12 @@ body h2, body h3 {
   text-transform: uppercase;
 }
 body .tabs {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-body .tabshover {
-  color: #e9ecef;
-  background-color: #002a50;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-direction: row;
 }
 body .tabs .active {
   background-color: #002a50;
@@ -29,12 +28,11 @@ body .tabs .tab {
   background-color: rgba(245, 196, 0, 0.8);
   padding: 0.45rem 1rem;
   font-size: 1.1rem;
-  line-height: 1.5;
+  line-height: 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
   float: right;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  width: 100%;
 }
 body .tabs .tab:hover {
   filter: brightness(0.85);
@@ -116,6 +114,7 @@ p {
   font-size: 1.5rem;
   margin: 0 auto;
   border-radius: 5px;
+  display: none;
 }
 
 .accordion-header,
@@ -206,6 +205,11 @@ p {
   top: -54px;
 }
 
+.wrapper-fe_startseite {
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+}
+
 .neuer-od-erstellen {
   width: auto;
 }
@@ -238,13 +242,17 @@ input[type=submit]:hover, .neuer_od:hover {
   align-items: center;
 }
 
-.fuehrungspersonen, .kapazitaet, .felder-neuer-od {
+.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit {
   color: #002a50;
   font-size: 1.2rem;
   margin-left: 1rem;
   border: 1px solid #002a50;
   transition: all 0.3s;
   height: 2rem;
+}
+
+.kapazitaet, .lehrer, .uhrzeit {
+  border: none;
 }
 
 .feld-neuer-od-bez {
@@ -290,6 +298,5 @@ input[type=submit]:hover, .neuer_od:hover {
   .tabs .tab {
     text-align: center;
     width: 100%;
-    margin-top: 0.5em;
   }
 }

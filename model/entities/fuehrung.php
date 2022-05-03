@@ -111,6 +111,10 @@ class Fuehrung
     {
         return $this->uhrzeit;
     }
+    public function getUhrzeitWelformed()
+    {
+        return substr($this->uhrzeit, 0, -3);
+    }
     public function setUhrzeit($uhrzeit)
     {
         $this->uhrzeit = $uhrzeit;

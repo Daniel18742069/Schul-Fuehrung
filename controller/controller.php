@@ -24,7 +24,7 @@ class Controller
 
         $alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
         $alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
-
+        
         // personen die schon dabei sind ausrechnen mit foreach(führungen) oder so wos
 
         $this->addContext("fuehrungen", $alle_fuehrungen);
