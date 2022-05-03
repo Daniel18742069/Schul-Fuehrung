@@ -53,9 +53,19 @@ class Fuehrung
         return $abfrage->fetchAll();
     }
 
-    public static function findeAlleFuehrungenXLS()
+    /*public static function findeAlleFuehrungenXLS()
     {
         $sql = 'SELECT fuehrungspersonen, kapazitaet, uhrzeit FROM od_fuehrung';
+        
+        DONLER
+
+        */
+
+
+
+    public static function findeSpezifischeFuehrungen(int $offener_tag_id)
+    {
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id;
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();

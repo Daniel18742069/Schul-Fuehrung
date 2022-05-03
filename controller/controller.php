@@ -16,7 +16,18 @@ class Controller
     //user
     public function fe_startseite()
     {
-        $this->addContext("fe_startseite", "nix");
+        $offener_tag = Offener_tag::findeAktiverOffenen_tag();
+        $this->addContext("offener_tag", $offener_tag);
+
+        $alle_fachrichtungen = Fachrichtung::findeAlleFachrichtungen();
+        $this->addContext("fachrichtungen", $alle_fachrichtungen);
+
+        $alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
+        $alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
+
+        // personen die schon dabei sind ausrechnen mit foreach(führungen) oder so wos
+
+        $this->addContext("fuehrungen", $alle_fuehrungen);
     }
 
     //admin
@@ -41,9 +52,10 @@ class Controller
 
         $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
-    public function be_alle_od(){
-        if(!empty($_REQUEST)){
-            
+    public function be_alle_od()
+    {
+        if (!empty($_REQUEST)) {
+
             erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
@@ -70,8 +82,9 @@ class Controller
     {
         require_once('model/printXLS.php');
     }
-    public function test(){
-        $this->addContext("test","nix");
+    public function test()
+    {
+        $this->addContext("test", "nix");
     }
 
     /**

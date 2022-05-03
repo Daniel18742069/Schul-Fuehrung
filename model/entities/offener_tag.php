@@ -174,6 +174,16 @@ class Offener_tag
     }
 
 
+    public static function findeAktiverOffenen_tag(){
+
+        $sql = 'SELECT * FROM od_offener_tag WHERE status = 1';
+
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
+        return $abfrage->fetch();
+    }
+
+
 
 
     /**

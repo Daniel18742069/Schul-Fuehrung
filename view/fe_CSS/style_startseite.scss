@@ -240,52 +240,18 @@ input {
     font-size: large;
   }
 
-  /*form {
-
-  input {
-    position: relative;
-    color: $blueColor;
-    padding: 0.2rem 1rem;
-    font-size: 1rem;
-    margin-left: 1rem;
-    //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
-    border: none;
-    border-bottom: 1px solid $blueColor;
-    width: 30%;
-    transition: all 0.3s;
-  }
-
-  .slidercaptcha {
-    margin: 0 auto;
-    width: 314px;
-    height: 286px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
-    margin-top: 40px;
-}
-
-    .slidercaptcha .card-body {
-        padding: 1rem;
-    }
-
-    .slidercaptcha canvas:first-child {
-        border-radius: 4px;
-        border: 1px solid #e6e8eb;
-    }
-
-    .slidercaptcha.card .card-header {
-        background-image: none;
-        background-color: rgba(0, 0, 0, 0.03);
-    }
-}*/
-
   .refreshIcon {
     top: -54px;
   }
 
 }
 
-input[type="submit"] {
+
+.neuer-od-erstellen{
+  width: auto;
+}
+
+input[type="submit"], .neuer_od {
   order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
@@ -294,7 +260,8 @@ input[type="submit"] {
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
-  width: calc(20% - 0.5rem);
+  //width: 100%;
+  max-height: 3rem;
   float: right;
 
   &:hover {
@@ -303,7 +270,20 @@ input[type="submit"] {
   }
 }
 
-.fuehrungspersonen, .kapazitaet{
+
+.neuer-od-bezeichnung{
+  width: 100%;
+}
+
+.alle_od{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.fuehrungspersonen, .kapazitaet, .felder-neuer-od{
   color: $blueColor;
   font-size: 1.2rem;
   margin-left: 1rem;
@@ -313,6 +293,11 @@ input[type="submit"] {
   height: 2rem;
 }
 
+
+.feld-neuer-od-bez{
+  width: 100%;
+  margin-left: 0;
+}
 
 .fueh-kap{
   display: grid;

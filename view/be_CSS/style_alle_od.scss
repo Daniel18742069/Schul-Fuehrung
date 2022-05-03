@@ -12,13 +12,26 @@ $blueColor: #002a50;
     justify-content: space-between;
 }
 
-.inhalt_od, .buttons{
+.inhalt_od, .buttons, .neuer-od-formular{
     display: grid;
     justify-content: space-around;
     grid-template-columns: 1fr 1fr;
     p{
         margin: 0;
         //text-align: center;
+    }
+}
+
+.neuer-od-formular{
+    span{
+        padding: 1rem;
+        padding-left: 0;
+        p{
+            display: inline-block;
+            padding-left: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     }
 }
 
