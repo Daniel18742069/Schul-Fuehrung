@@ -24,8 +24,11 @@
         <!-- Untertitel & kurzer Text -->
         <div class="alle_od">
             <h2>Alle Open Days</h2>
-            <a href="index.php?aktion=bg_neuer_od">
+            <a href="index.php?aktion=be_neuer_od">
                 <button class="neuer_od">neuer Open Day</button>
+            </a>
+            <a href="index.php?aktion=be_neues_fach">
+                <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
             </a>
         </div>
 
