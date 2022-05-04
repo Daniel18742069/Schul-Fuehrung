@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="view/backend/bg_CSS/login.css">
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
 
-    <title>NOOOOOOOOO KOOOOOOOOOOOOOOOOAN TIIIIIIIIIIIIIIITEL</title>
+    <title>Neuer OpenDay erstellt</title>
 
 </head>
 
 <body>
 
-    <main>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-        <h1><?=$text ?></h1>
+    <section id="wrapper">
+        <div class="wrapper-fuehrung_hinzufuegen">
 
-        <a href="index.php?aktion=be_alle_od">Zurück zum Admin Pannel</a>
+            <h2><?= $text ?></h2>
 
-    </main>
+            <a href="index.php?aktion=be_alle_od" class="zurueck">Zurück zum Admin Pannel</a>
+
+        </div>
+    </section>
+
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 </body>
 

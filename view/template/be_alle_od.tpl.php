@@ -24,12 +24,14 @@
             <!-- Untertitel & kurzer Text -->
             <div class="alle_od">
                 <h2>Alle Open Days</h2>
-                <a href="index.php?aktion=be_neuer_od">
-                    <button class="neuer_od">neuer Open Day</button>
-                </a>
-                <a href="index.php?aktion=be_neues_fach">
-                    <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
-                </a>
+                <span>
+                    <a href="index.php?aktion=be_neuer_od">
+                        <button class="neuer_od">neuer Open Day</button>
+                    </a>
+                    <a href="index.php?aktion=be_neues_fach">
+                        <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
+                    </a>
+                </span>
             </div>
 
 
@@ -51,19 +53,12 @@
                                 <p>Start: <?=$offenerTag->getStartWelformed()?> Uhr</p>
                                 <p>Ende: <?=$offenerTag->getEndeWelformed()?> Uhr</p>
                                 <p>Intervall: <?=$offenerTag->getIntervall()?> min</p>
-                                <p>
                                 <form id="MyForm" name="MyForm">
-                                            <input name="MyName" id="MyID" value="YourValue" hidden/>
-                                            <p>
-                                                <button type="button" onclick="aendereStatusFuehrung('<?=$offenerTag->getId()?>')">Status ändern</button>
-                                            </p>
-                                            <div id="GenResult">
-                                                <br>
-                                            </div>
+                                    <button type="button" class="neuer_od andereStatus" onclick="aendereStatusFuehrung('<?=$offenerTag->getId()?>')">Status ändern</button>
+                                    <input name="MyName" id="MyID" value="YourValue" hidden/>
                                 </form>
-                                </p>
                             </span>
-                            <span class="buttons">
+                            <span class="buttons buttons-alle_od">
                                 <a href="">
                                     <button class="editieren">Editieren</button>
                                 </a>

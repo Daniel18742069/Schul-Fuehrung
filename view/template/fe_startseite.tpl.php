@@ -130,9 +130,9 @@
                                 $anzahlTeilnehmer = 0;
                             }
                         ?>
-                        <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
-                        <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
-                        <div class="kapazitaet"><?= $anzahlTeilnehmer ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                        <div class="uhrzeit uhrzeit-none"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
+                        <div class="lehrer lehrer-none"><?= $fuehrung->getFuehrungspersonen(); ?></div>
+                        <div class="kapazitaet kapazitaet-none"><?= $anzahlTeilnehmer ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                     </div>
                     <div class="accordion-body js-accordion-body">
                         <div class="accordion-body__contents">
