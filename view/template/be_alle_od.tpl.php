@@ -42,7 +42,7 @@
                     <div class="kalenderbox alle_od accordion-header js-accordion-header">
                         <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
                         <span class="bezeichnung" id="bezeichnung"><?=$offenerTag->getBezeichnung()?></span>
-                        <span class="status"><?=$offenerTag->getStatusString()?></span>
+                        <span class="status"><div  id="namenAendern<?=$offenerTag->getId()?>"><?=$offenerTag->getStatusString()?></div></span>
                     </div>
                     <div class="content accordion-body js-accordion-body accordion-body__contents">
                         <div class="ccordion-body__contents">
@@ -56,7 +56,7 @@
                                 <form id="MyForm" name="MyForm">
                                             <input name="MyName" id="MyID" value="YourValue" hidden/>
                                             <p>
-                                                <button type="button" onclick="aendereStatusFuehrung('<?=$offenerTag->getId()?>')">Hallo</button>
+                                                <button type="button" onclick="aendereStatusFuehrung('<?=$offenerTag->getId()?>')">Status ändern</button>
                                             </p>
                                             <div id="GenResult">
                                                 <br>

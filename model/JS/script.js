@@ -39,6 +39,13 @@ function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
 
 function aendereStatusFuehrung(offenerTag) {
     window.alert(offenerTag);
+    var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
+    console.log(status);
+    if (status == "deaktiviert") {
+        document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
+    } else {
+        document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
+    }
     var xhttp;
     try {
         xhttp = new XMLHttpRequest();
@@ -53,19 +60,12 @@ function aendereStatusFuehrung(offenerTag) {
             }
         }
     }
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("GenResult").innerHTML = this.responseText + "<br>";
-            console.log(responseText);
-        }
-    };
     xhttp.open("POST", "model/aktualisieren.php");
     formData = new FormData();
-    formData.append("offenerTag", offenerTag); // add some extra post variables
+    formData.append("offenerTag", offenerTag); //extra variable
     xhttp.send(formData);
+
 }
-
-
 
 
 //accordions

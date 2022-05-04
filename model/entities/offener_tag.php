@@ -98,6 +98,7 @@ class Offener_tag
             return "aktiviert";
         }
     }
+
     public function setStatus($status)
     {
         $this->status = $status;
