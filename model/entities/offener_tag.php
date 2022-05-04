@@ -192,7 +192,7 @@ class Offener_tag
 
     public static function findeAktiverOffenen_tag(){
 
-        $sql = 'SELECT * FROM od_offener_tag WHERE status = 1';
+        $sql = 'SELECT * FROM od_offener_tag WHERE status = 1 LIMIT 1';
 
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');

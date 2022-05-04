@@ -63,9 +63,10 @@ class Fuehrung
 
 
 
-    public static function findeSpezifischeFuehrungen(int $offener_tag_id)
+    public static function findeSpezifischeFuehrungen(int $offener_tag_id, int $fachrichtung_id, $sichtbar = 1)
     {
-        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id;
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id.' AND fachrichtung_id = '.$fachrichtung_id;
+        $sql .= ($sichtbar) ?' AND sichtbar = '.$sichtbar : '';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
@@ -120,6 +121,10 @@ class Fuehrung
     public function getUhrzeit()
     {
         return $this->uhrzeit;
+    }
+    public function getUhrzeitWelformed()
+    {
+        return substr($this->uhrzeit, 0, -3);
     }
     public function setUhrzeit($uhrzeit)
     {

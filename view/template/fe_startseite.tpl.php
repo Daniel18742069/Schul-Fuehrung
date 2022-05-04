@@ -77,6 +77,8 @@
 
     <section id="wrapper">
 
+    <div class="wrapper-fe_startseite">
+
         <!-- Untertitel & kurzer Text -->
         <div>
             <h2>Zeit für einen Rundgang?</h2>
@@ -95,7 +97,8 @@
             ?>
             <div class="tabs active">
                     <?php foreach($fachrichtungen as $fachrichtung){ ?>
-                        <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="info_elektro-button active tab" onclick="openCalender('<?= $fachrichtung->getBeschreibung() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                        <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="info_elektro-button active tab" 
+                        onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
                     <?php } ?>
             </div>
 
@@ -112,20 +115,24 @@
 
                         
 
-        <div class="accordion js-accordion">
-
+        <div class="accordion js-accordion" id="accordion">
             <?php 
+                $fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId(), 2); //I DONT KNOW
                 //$intervall = $offener_tag->getIntervall() * 60;
-
                 //for ($seconds = 0; $seconds <= $offener_tag->getEnde(); $seconds + (60)) {
                 foreach($fuehrungen as $fuehrung){
-                    if($fuehrung->getSichtbar() == 1)continue;
                     ?>
-                <div class="accordion__item js-accordion-item">
+                <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>">
                     <div class="accordion-header js-accordion-header">
-                        <div class="uhrzeit"><?= $fuehrung->getUhrzeit(); ?> Uhr</div>
+                        <?php
+                            $anzahlTeilnehmer =  Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+                            if($anzahlTeilnehmer == NULL){
+                                $anzahlTeilnehmer = 0;
+                            }
+                        ?>
+                        <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
                         <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
-                        <div class="kapazitaet">x/<?= $fuehrung->getKapazitaet(); ?></div>
+                        <div class="kapazitaet"><?= $anzahlTeilnehmer ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                     </div>
                     <div class="accordion-body js-accordion-body">
                         <div class="accordion-body__contents">
@@ -158,8 +165,11 @@
             accordion()
         </script>
 
+
+                </div>
     </section>
             <?php } ?>
+
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 </body>

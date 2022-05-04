@@ -22,12 +22,12 @@ class Controller
         $alle_fachrichtungen = Fachrichtung::findeAlleFachrichtungen();
         $this->addContext("fachrichtungen", $alle_fachrichtungen);
 
-        $alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
-        $alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
-
+        //$alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
+        //$alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
+        
         // personen die schon dabei sind ausrechnen mit foreach(führungen) oder so wos
 
-        $this->addContext("fuehrungen", $alle_fuehrungen);
+        //$this->addContext("fuehrungen", $alle_fuehrungen);
     }
 
     //admin
