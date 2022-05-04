@@ -143,10 +143,13 @@ input {
 }
 
 
-.accordion {
+.accordion-be, .accordion {
   font-size: 1.5rem;
   margin: 0 auto;
   border-radius: 5px;
+}
+
+.accordion{
   display: none;
 }
 
@@ -331,7 +334,7 @@ input[type="submit"], .neuer_od {
 
 
 @media screen and (max-width: 1000px) {
-  .accordion {
+  .accordion, .accordion-be {
     width: 100%;
   }
 

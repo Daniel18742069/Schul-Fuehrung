@@ -33,11 +33,10 @@
             </div>
 
 
-            <div class="accordion-wrapper accordion js-accordion">
+            <div class="accordion-wrapper accordion-be js-accordion">
                 <?php 
                     foreach ($be_alle_od as $key => $offenerTag) {
                         ?>
-
                 <div class="accordion__item js-accordion-item">
                     <div class="kalenderbox alle_od accordion-header js-accordion-header">
                         <span class="datum"><?=$offenerTag->getDatumWelformed()?></span>
