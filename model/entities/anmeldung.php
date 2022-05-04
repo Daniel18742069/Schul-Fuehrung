@@ -108,6 +108,7 @@ class Anmeldung
     {
         if ($array) {
             foreach ($array as $key => $value) {
+                if ($key = 'new') continue;
                 $setter = 'set' . ucfirst($key);
                 if (method_exists($this, $setter)) {
                     $this->$setter($value);
@@ -263,7 +264,7 @@ class Anmeldung
 
     public static function validate_anzahl(int $anzahl, int $fuehrung_id): bool
     {
-        if ($anzahl && $anzahl > 0) {
+        if ($anzahl) {
             $Fuehrungen = Fuehrung::findeAlleFuehrungen();
             $Anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung_id);
 
