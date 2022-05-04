@@ -98,7 +98,7 @@
             <div class="tabs active">
                     <?php foreach($fachrichtungen as $fachrichtung){ ?>
                         <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="info_elektro-button active tab" 
-                        onclick="tabs(this,'<?= $fachrichtung->getBeschreibung() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                        onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
                     <?php } ?>
             </div>
 
@@ -117,13 +117,12 @@
 
         <div class="accordion js-accordion" id="accordion">
             <?php 
+                $fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId(), 2); //I DONT KNOW
                 //$intervall = $offener_tag->getIntervall() * 60;
-                        
                 //for ($seconds = 0; $seconds <= $offener_tag->getEnde(); $seconds + (60)) {
                 foreach($fuehrungen as $fuehrung){
-                    if($fuehrung->getSichtbar() == 1)continue;
                     ?>
-                <div class="accordion__item js-accordion-item">
+                <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>">
                     <div class="accordion-header js-accordion-header">
                         <?php
                             $anzahlTeilnehmer =  Anmeldung::anzahlTeilnehmer($fuehrung->getId());

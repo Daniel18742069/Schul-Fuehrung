@@ -1,15 +1,26 @@
 //Tabs
 
-function tabs(source, button){
+function tabs(button, fachrichung_id) {
     accordion = document.getElementById("accordion");
-    element = document.getElementById(button);
-    element.style.border = '1px solid black';
-    element.style.fontWeight = '700';
-    element.style.filter = 'brightness(0.7)';
+    button.style.border = '1px solid black';
+    button.style.fontWeight = '700';
+    button.style.filter = 'brightness(0.7)';
     //console.log(button.checked);
-    accordion.style.display = (source.active)
+    accordion.style.display = (button.active)
         ? 'none'
         : 'block';
+
+    fuehrungen = document.getElementsByClassName('fuehrung');
+    for (fuehrung in fuehrungen) {
+        // hide all
+        fuehrung.style.display = 'none';
+    }
+
+    fuehrungen = document.getElementsByClassName(fachrichung_id);
+    for (fuehrung in fuehrungen) {
+        // show all
+        fuehrung.style.display = 'block';
+    }
 }
 
 

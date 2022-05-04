@@ -392,3 +392,39 @@ input[type="submit"], .neuer_od {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.active-tab {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: none;
+  position: relative;
+  color: black;
+  
+  &:after {
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    content: "";
+    bottom: -0.1em;
+    left: 0;
+    background: white;
+  }
+}
