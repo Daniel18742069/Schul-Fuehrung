@@ -1,5 +1,7 @@
-<script type="text/javascript" src="/model/JS/script.js"></script>
-
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+        </script>
+        <script src="jquery.table2excel.js"></script>
 <?php
 
 function cleanData(&$str)
@@ -12,8 +14,8 @@ function cleanData(&$str)
 // filename for download
 $filename = "open_day_" . date('Y.m.d') . ".xls";
 
-header("Content-Disposition: attachment; filename=\"$filename\"");
-header('Content-Type: application/xls');
+//header("Content-Disposition: attachment; filename=\"$filename\"");
+//header('Content-Type: application/xls');
 
 // header("Content-Type: text/plain");
 
@@ -84,7 +86,7 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
         }
     </style>
 
-    <table border="1" class="tftable">
+    <table id="table">
         <thead>
             <tr>
                 <th class="order">Datum</th>
@@ -146,7 +148,12 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             <?php endforeach; ?>
         </tbody>
     </table>
-
+    <button class="exportBtnClass">
+                  Export to XLS file
+         </button>
+    <input type="hidden" name="file_content" id="file_content" />
+    <button type="button" name="convert" id="convert" class="btn btn-primary">Convert</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <?php
 
 }
@@ -209,11 +216,31 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 </script>
 
 <script>
-     function printDiv() {
-         window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
-         window.frames["print_frame"].window.focus();
-         window.frames["print_frame"].window.print();
-       }
+    $(function() {
+                  
+                  $(".exportBtnClass").click(function(e){
+                      var table = $(this).prev('.table2excel');
+                      if(table && table.length){
+                          var preserveColors = 
+                         (table.hasClass('colorClass') ? true : false);
+    
+                          $(table).table2excel({
+    
+  // This class's content is excluded from getting exported
+                              exclude: ".noExl", 
+                              name: "Output excel file ",
+                              filename: 
+  "outputFile-" + new Date().toString().replace(/[\-\:\.]/g, "") + ".xls",
+    
+                              fileext: ".xls", //File extension type
+                              exclude_img: true,
+                              exclude_links: true,
+                              exclude_inputs: true,
+                              preserveColors: preserveColors
+                          });
+                      }
+                  });        
+              });
 </script>
 
 <?php
