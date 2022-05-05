@@ -79,6 +79,13 @@ class Fuehrung
         return $abfrage->fetchAll();
     }
 
+    public static function gemeinsame_idSortieren(int $offener_tag_id){
+
+        $sql = 'SELECT DISTINCT gemeinsame_id FROM od_fuehrung  WHERE offener_tag_id = '.$offener_tag_id. ' ORDER BY gemeinsame_id';
+        $abfrage = DB::getDB()->query($sql);
+        //$abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetch();
+    }
     public function getId()
     {
         return $this->id;
@@ -166,6 +173,7 @@ class Fuehrung
     {
         $Offener_tag = Offener_tag::findeOffenenTag($this->offener_tag_id);
         return $Offener_tag->getDatum();
+    }
 
     /**
      * Get the value of gemeinsame_id

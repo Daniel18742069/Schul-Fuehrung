@@ -96,17 +96,22 @@ function arrayManipulieren($assotiativesArrayPost)
 }
 function fuehrungenSortieren($unsortiertesArray){
 
-
+    
     $alleGemeinsammeIds = "funktion";
-    for ($i=0; $i < ; $i++) { 
+    foreach ($unsortiertesArray as $key => $value) {
+
+
+        for ($i=0; $i < sizeof($alleGemeinsammeIds); $i++) {
+            if($value->setGemeinsame_id() == $alleGemeinsammeIds[$i]);
         
-        # code...
+        }
     }
+    
 
 
 
 
-        var_dump($unsortiertesArray);
+        //var_dump($unsortiertesArray);
             return $unsortiertesArray;
 }
 
