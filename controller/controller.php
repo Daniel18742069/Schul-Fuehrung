@@ -74,6 +74,17 @@ class Controller
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
     }
 
+    public function be_od_mit_fuehrungen_editieren(){
+
+
+        
+        $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
+        $this->addContext("offenerTag", $offenerTag);
+        $alleFuehrungenUnsortiert = fuehrungenSortieren(Fuehrung::alleFuehrungEinesOD($offenerTag->getId()));
+        var_dump($alleFuehrungenUnsortiert);
+    }
+
+
 
     //Subfooter
     public function impressum()

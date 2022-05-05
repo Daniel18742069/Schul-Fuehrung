@@ -64,7 +64,7 @@
                                 </p>
                             </span>
                             <span class="buttons">
-                                <a href="">
+                                <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getId()?>">
                                     <button class="editieren">Editieren</button>
                                 </a>
                                 <a href="index.php?aktion=be_alle_einstellungen&id=<?=$offenerTag->getId()?>">

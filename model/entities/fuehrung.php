@@ -12,6 +12,7 @@ class Fuehrung
     private $uhrzeit = "";
     private $fachrichtung_id = 0;
     private $offener_tag_id  = 0;
+    private $gemeinsame_id  = "";
 
 
 
@@ -24,8 +25,8 @@ class Fuehrung
     private function _insert()
     {
 
-        $sql = 'INSERT INTO od_fuehrung (fuehrungspersonen, sichtbar, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id)'
-            . 'VALUES (:fuehrungspersonen, :sichtbar, :kapazitaet, :uhrzeit, :fachrichtung_id, :offener_tag_id)';
+        $sql = 'INSERT INTO od_fuehrung (fuehrungspersonen, sichtbar, kapazitaet, uhrzeit, fachrichtung_id, offener_tag_id, gemeinsame_id)'
+            . 'VALUES (:fuehrungspersonen, :sichtbar, :kapazitaet, :uhrzeit, :fachrichtung_id, :offener_tag_id, :gemeinsame_id)';
 
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute($this->toArray(false));
@@ -62,7 +63,13 @@ class Fuehrung
         */
 
 
+    public static function alleFuehrungEinesOD(int $offener_tag_id){
 
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id;
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
     public static function findeSpezifischeFuehrungen(int $offener_tag_id, int $fachrichtung_id, $sichtbar = 1)
     {
         $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id.' AND fachrichtung_id = '.$fachrichtung_id;
@@ -159,5 +166,23 @@ class Fuehrung
     {
         $Offener_tag = Offener_tag::findeOffenenTag($this->offener_tag_id);
         return $Offener_tag->getDatum();
+
+    /**
+     * Get the value of gemeinsame_id
+     */ 
+    public function getGemeinsame_id()
+    {
+        return $this->gemeinsame_id;
+    }
+
+    /**
+     * Set the value of gemeinsame_id
+     *
+     * @return  self
+     */ 
+    public function setGemeinsame_id($gemeinsame_id)
+    {
+        $this->gemeinsame_id = $gemeinsame_id;
+
     }
 }
