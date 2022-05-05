@@ -3,34 +3,43 @@
 
 <head>
 
-    <meta charset="utf-8" />
-    <title>Verwaltung</title>
-    <link rel="stylesheet" type="text/css" href="view/be_CSS/login.css" />
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+
+    <title>Neuer OpenDay erstellt</title>
 
 </head>
 
 <body>
 
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-    <main>
+    <section id="wrapper">
+        <div class="wrapper-fuehrung_hinzufuegen">
 
-
-        <h1>Anmeldung</h1>
+        <h2>Admin Anmeldung</h2>
 
 
         <form action="index.php?aktion=adminAnmeldung" method="post">
 
 
-            <input type="text" name="benutzername" placeholder="Benutzername" class="benutzername" required /><br />
-            <input type="password" name="passwort" placeholder="Passwort" class="passwort" required /><br />
+            <p class="name-fachrichtung">Benutzername: <input type="text" name="benutzername" required class="felder-neuer-od feld-fachrichtung" /></p>
+            <p class="name-fachrichtung">Passwort: <input type="password" name="passwort" required class="felder-neuer-od feld-fachrichtung" /></p>
 
             <input type="submit" name="anmelden" value="Anmelden" />
 
 
         </form>
 
+        </div>
+        </section>
 
-    </main>
+
+<?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 
 

@@ -43,6 +43,10 @@ class Controller
     {
         $this->addContext("be_neues_fach", "nix");
     }
+
+    public function be_fuehrung_erfolgreich(){
+        $this->addContext("text", "Führung erfolgreich hinzugefügt");
+    }
     public function be_od_erfolgreich()
     {
         if (!empty($_REQUEST['beschreibung'])) {

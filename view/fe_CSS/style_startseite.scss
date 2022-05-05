@@ -277,6 +277,19 @@ input[type="submit"], .neuer_od {
   }
 }
 
+.neuer_od{
+  margin: 0 0.5rem;
+  min-width: 13rem;
+}
+
+.andereStatus{
+  float: left;
+  margin: 0;
+}
+
+.buttons-alle_od{
+  margin-top: 2rem;
+}
 
 .neuer-od-bezeichnung{
   width: 100%;
@@ -300,8 +313,19 @@ input[type="submit"], .neuer_od {
   height: 2rem;
 }
 
-.kapazitaet, .lehrer, .uhrzeit{
+.kapazitaet-none, .lehrer-none, .uhrzeit-none{
   border: none;
+}
+
+.zurueck {
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  color: $blueColor;
+}
+
+.zurueck:hover {
+  opacity: 0.7;
 }
 
 
@@ -331,6 +355,15 @@ input[type="submit"], .neuer_od {
   }
 }
 
+
+.name-fachrichtung{
+  padding-left: 0;
+}
+
+
+.feld-fachrichtung{
+  min-width: 20rem;
+}
 
 
 @media screen and (max-width: 1000px) {

@@ -61,7 +61,7 @@
                 $array = arrayManipulieren($_POST);
                 ?>
 
-                <form action="index.php?aktion=be_alle_od" method="post">
+                <form action="index.php?aktion=be_fuehrung_erfolgreich" method="post">
 
                     <?php for ($i = 0; $i < count($array); $i++) {
                         $stringArray = explode('_', $array[$i]);
@@ -75,7 +75,7 @@
                     ?>
                         <div class="fueh-kap">
                             <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required />
-                            <p>Kapazität: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet" required /></p>
+                            <p>Kapazität: <input type="number" name="kapazitaet<?php echo $fach."_".$j ?>" value="1" class="kapazitaet kap" required /></p>
                         </div>
                     <?php
                         }

@@ -5,28 +5,40 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="view/be_CSS/login.css">
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
 
-    <title>Neues Fach</title>
+    <title>Neuer Open Day</title>
 
 </head>
 
 <body>
 
-    <main>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-        <h1>Neue Fachrichtung</h1>
+    <section id="wrapper">
+        <div class="wrapper-fuehrung_hinzufuegen">
 
-        <form action="index.php?aktion=be_od_erfolgreich" method="post">
 
-            <div class="felder" class="felder"><span>Fach:</span><input type="text" name="beschreibung"
-                    id="beschreibung" required /></div>
+            <h2>Neue Fachrichtung</h2>
 
-            <input type="submit" value="Erstellen">
+            <form action="index.php?aktion=be_od_erfolgreich" method="post">
 
-        </form>
+                <span>    
+                    <p class="name-fachrichtung">Name der Fachrichtung: <input type="text" name="beschreibung" id="beschreibung" required class="felder-neuer-od feld-fachrichtung" /></p>
+                </span>
 
-    </main>
+                <input type="submit" value="Erstellen">
+
+            </form>
+
+        </div>
+    </section>
+
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+
 
 </body>
 
