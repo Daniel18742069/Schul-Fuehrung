@@ -17,7 +17,16 @@
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-    <?php var_dump($offenerTag);?>
+
+    <section id="wrapper">
+        <div class="wrapper-fuehrung_hinzufuegen">
+
+
+            <?php var_dump($offenerTag);?>
+            
+
+        </div>
+    </section>
 
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>

@@ -60,7 +60,7 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
                       $fuehrung->setSichtbar(0);
                       $fuehrung->setKapazitaet($tempKapazitaet);
                       $fuehrung->setFachrichtung_id($fach);
-                      $fuehrung->setOffener_tag_datum($offener_tag->getId());
+                      $fuehrung->setOffener_tag_id($offener_tag->getId());
                       $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
                       $fuehrung->setGemeinsame_id($fach."_".$anzahl);
                       $fuehrung->speichere();
@@ -96,9 +96,9 @@ function arrayManipulieren($assotiativesArrayPost)
 }
 function fuehrungenSortieren($unsortiertesArray){
 
-
+    
     $alleGemeinsammeIds = "funktion";
-    for ($i=0; $i < ; $i++) { 
+    for ($i=0; $i < 9; $i++) { 
         
         # code...
     }

@@ -166,7 +166,7 @@ class Fuehrung
     {
         $Offener_tag = Offener_tag::findeOffenenTag($this->offener_tag_id);
         return $Offener_tag->getDatum();
-
+    }
     /**
      * Get the value of gemeinsame_id
      */ 
