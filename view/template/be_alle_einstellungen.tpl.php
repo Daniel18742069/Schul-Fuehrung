@@ -61,7 +61,7 @@
                 $array = arrayManipulieren($_POST);
                 ?>
 
-                <form action="index.php?aktion=be_alle_od" method="post">
+                <form action="index.php?aktion=be_fuehrung_erfolgreich" method="post">
 
                     <?php for ($i = 0; $i < count($array); $i++) {
                         $stringArray = explode('_', $array[$i]);

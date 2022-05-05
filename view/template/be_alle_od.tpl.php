@@ -59,7 +59,7 @@
                                 </form>
                             </span>
                             <span class="buttons buttons-alle_od">
-                                <a href="">
+                                <a href="index.php?aktion=be_">
                                     <button class="editieren">Editieren</button>
                                 </a>
                                 <a href="index.php?aktion=be_alle_einstellungen&id=<?=$offenerTag->getId()?>">
