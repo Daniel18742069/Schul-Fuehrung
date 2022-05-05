@@ -17,8 +17,7 @@
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-    <?php var_dump($offenerTag);
-    var_dump(Fuehrung::alleFuehrungEinesOD($offenerTag->getId())) ?>
+    <?php var_dump($offenerTag);?>
 
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>

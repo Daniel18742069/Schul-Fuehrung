@@ -73,9 +73,12 @@ class Controller
 
     public function be_od_mit_fuehrungen_editieren(){
 
+
         
-        
-        $this->addContext("offenerTag", Offener_tag::findeOffenenTag($_REQUEST['id']));
+        $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
+        $this->addContext("offenerTag", $offenerTag);
+        $alleFuehrungenUnsortiert = fuehrungenSortieren(Fuehrung::alleFuehrungEinesOD($offenerTag->getId()));
+        var_dump($alleFuehrungenUnsortiert);
     }
 
 
