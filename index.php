@@ -14,7 +14,11 @@ require_once 'controller/controller.php';
 
 
 session_start();
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'be_login_admin';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'fe_startseite';
+
+
+//$aktion = isset($_GET['aktion'])?$_GET['aktion']:'fe_startseite';
+//logge_aus();
 
 
 $controller = new Controller();
