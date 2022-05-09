@@ -180,6 +180,7 @@ class Offener_tag
         return $abfrage->fetch();
     }
     
+    
 
     public static function findeOffenen_tag(string $datum)
     {
