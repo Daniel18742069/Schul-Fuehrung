@@ -1,0 +1,60 @@
+
+        @media print {
+            * {
+                display: none;
+            }
+
+            #printableTable {
+                display: block;
+            }
+        }
+
+        table,
+        th,
+        td {
+            border: .5px solid black;
+            font:14px Verdana;
+            border:solid 1px #999;
+            padding:2px 3px;
+            text-align:center;
+        }
+
+        table td:first-child::first-letter {
+            text-transform: uppercase;
+        }
+
+        table {
+            font-size: 12px;
+            color: #333333;
+            width: 100%;
+            border-width: 1px;
+            border-color: #a9a9a9;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            cursor: pointer;
+        }
+
+        table th {
+            font-size: 12px;
+            background-color: #b8b8b8;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9a9a9;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table td {
+            font-size: 12px;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9a9a9;
+        }
+
+        table tr:hover {
+            background-color: #ffff99;
+        }
