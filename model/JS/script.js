@@ -1,25 +1,42 @@
 //Tabs
+function first_tab(fachrichung_id) { // wählt die erste Fachrichtung aus
+    buttons = document.getElementsByClassName('tab');
+    if (buttons) {
+        tabs(buttons[0], fachrichung_id);
+    }
+}
 
-function tabs(button, fachrichung_id) {
-    accordion = document.getElementById("accordion");
-    button.style.border = '1px solid black';
-    button.style.fontWeight = '700';
-    button.style.filter = 'brightness(0.7)';
-    //console.log(button.checked);
-    accordion.style.display = (button.active)
-        ? 'none'
-        : 'block';
+function tabs(actuated_button, fachrichung_id) {
+    buttons = document.getElementsByClassName('tab');
+    for (index = 0; buttons.length > index; index++) {
+        button = buttons[index];
 
-    fuehrungen = document.getElementsByClassName('fuehrung');
-    for (fuehrung in fuehrungen) {
-        // hide all
-        fuehrung.style.display = 'none';
+        if (button === actuated_button) {
+            // Actuated Button
+            button.disabled = true;
+            button.style.border = '1px solid black';
+            button.style.fontWeight = '700';
+            button.style.filter = 'brightness(0.7)';
+        } else {
+            // Reset other Buttons
+            button.disabled = false;
+            button.style.border = 'none';
+            button.style.fontWeight = 'normal';
+            button.style.filter = 'none';
+        }
     }
 
-    fuehrungen = document.getElementsByClassName(fachrichung_id);
-    for (fuehrung in fuehrungen) {
-        // show all
-        fuehrung.style.display = 'block';
+    fuehrungen = document.getElementsByClassName('fuehrung');
+    for (index = 0; fuehrungen.length > index; index++) {
+        fuehrung = fuehrungen[index];
+
+        if (fuehrung.classList.contains(fachrichung_id)) {
+            // show element
+            fuehrung.style.display = 'block';
+        } else {
+            // hide element
+            fuehrung.style.display = 'none';
+        }
     }
 }
 
@@ -58,7 +75,7 @@ function aendereStatusFuehrung(offenerTag) {
 
 function accordion() {
 
-    var accordion = function() {
+    var accordion = function () {
 
         var $accordion = $('.js-accordion');
         var $accordion_header = $accordion.find('.js-accordion-header');
@@ -76,8 +93,8 @@ function accordion() {
 
         return {
             // pass configurable object literal
-            init: function($settings) {
-                $accordion_header.on('click', function() {
+            init: function ($settings) {
+                $accordion_header.on('click', function () {
                     accordion.toggle($(this));
                 });
 
@@ -91,14 +108,14 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: function($this) {
+            toggle: function ($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
-                    find('> .js-accordion-item').
-                    removeClass('active').
-                    find('.js-accordion-body').
-                    slideUp();
+                        find('> .js-accordion-item').
+                        removeClass('active').
+                        find('.js-accordion-body').
+                        slideUp();
                 }
 
                 // show/hide the clicked accordion item
@@ -109,7 +126,7 @@ function accordion() {
 
     }();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         accordion.init({
             speed: 300,
             oneOpen: true
