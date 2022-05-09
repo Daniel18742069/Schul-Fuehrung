@@ -1,8 +1,10 @@
 <?php
 
+/**
+ * @author Daniel Kienzl
+ */
+
 require_once 'view/template/printXLS.tpl.php';
-
-
 
 // filename for download
 $filename = "open_day_" . date('Y.m.d') . ".xls";
@@ -20,7 +22,7 @@ $alleFuehrungen = Fuehrung::findeAlleFuehrungen();
 if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 ?>
 
-    <table class="table" id="table2excel">
+    <table id="tbl_exporttable_to_xls">
         <thead>
             <tr>
                 <th class="order">Datum</th>
@@ -82,7 +84,16 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button class="exportToExcel">Export</button>
+
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"
+        integrity = "sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg=="
+        crossorigin = "anonymous"
+        referrerpolicy = "no-referrer" >
+            TableExport(document.getElementsByTagName("table"), {
+                filename: 'excelfile',
+                sheetname: "sheet1"
+            });
+    </script>
     <script>
         table_sort()
     </script>
