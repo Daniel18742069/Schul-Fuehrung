@@ -65,7 +65,7 @@ class Fuehrung
 
     public static function findeSpezifischeFuehrungen(int $offener_tag_id)
     {
-        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id;
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id;
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
@@ -139,14 +139,37 @@ class Fuehrung
         return $this;
     }
 
-    public function getOffener_tag_datum()
+    public function getOffener_tag_id()
     {
         return $this->offener_tag_id;
     }
-    public function setOffener_tag_datum($offener_tag_id)
+    public function setOffener_tag_id($offener_tag_id)
     {
         $this->offener_tag_id  = $offener_tag_id;
 
         return $this;
+    }
+    public function getOffener_tag_datum()
+    {
+        $Offener_tag = Offener_tag::findeOffenenTag($this->offener_tag_id);
+        return $Offener_tag->getDatum();
+    }
+
+    /**
+     * Get the value of gemeinsame_id
+     */
+    public function getGemeinsame_id()
+    {
+        return $this->gemeinsame_id;
+    }
+
+    /**
+     * Set the value of gemeinsame_id
+     *
+     * @return  self
+     */
+    public function setGemeinsame_id($gemeinsame_id)
+    {
+        $this->gemeinsame_id = $gemeinsame_id;
     }
 }
