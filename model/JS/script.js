@@ -1,45 +1,74 @@
-//Teil-Laden Kalender
-function openCalender(idName) {
-    var i;
-    var x = document.getElementsByClassName("fachrichtung");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "block";
+//Tabs
+function first_tab(fachrichung_id) { // wählt die erste Fachrichtung aus
+    buttons = document.getElementsByClassName('tab');
+    if (buttons) {
+        tabs(buttons[0], fachrichung_id);
     }
-    document.getElementById(idName).style.display = "none";
 }
 
-/*map
-var mapCanvas = document.getElementById("map");
-var mapOptions = {
-    center: new google.maps.LatLng(51.5, -0.2),
-    zoom: 10
-}
-var map = new google.maps.Map(mapCanvas, mapOptions);*/
+function tabs(actuated_button, fachrichung_id) {
+    buttons = document.getElementsByClassName('tab');
+    for (index = 0; buttons.length > index; index++) {
+        button = buttons[index];
 
-
-
-//tabs
-function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
-    // first of all we get all tab content blocks (I think the best way to get them by class names)
-    var x = document.getElementsByClassName("fachrichtung");
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = 'none'; // hide all tab content
+        if (button === actuated_button) {
+            // Actuated Button
+            button.disabled = true;
+            button.style.border = '1px solid black';
+            button.style.fontWeight = '700';
+            button.style.filter = 'brightness(0.7)';
+        } else {
+            // Reset other Buttons
+            button.disabled = false;
+            button.style.border = 'none';
+            button.style.fontWeight = 'normal';
+            button.style.filter = 'none';
+        }
     }
-    document.getElementById(rudr_tab_content).style.display = 'block'; // display the content of the tab we need
 
-    // now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
-    var x = document.getElementsByClassName("tab");
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].className = 'tab';
+    fuehrungen = document.getElementsByClassName('fuehrung');
+    for (index = 0; fuehrungen.length > index; index++) {
+        fuehrung = fuehrungen[index];
+
+        if (fuehrung.classList.contains(fachrichung_id)) {
+            // show element
+            fuehrung.style.display = 'block';
+        } else {
+            // hide element
+            fuehrung.style.display = 'none';
+        }
     }
-    document.getElementById(rudr_tab_id).className = 'tab active';
 }
 
+function aendereStatusFuehrung(offenerTag) {
+    window.alert(offenerTag);
+    var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
+    console.log(status);
+    if (status == "deaktiviert") {
+        document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
+    } else {
+        document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
+    }
+    var xhttp;
+    try {
+        xhttp = new XMLHttpRequest();
+    } catch (e) {
+        try {
+            xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                return;
+            }
+        }
+    }
+    xhttp.open("POST", "model/aktualisieren.php");
+    formData = new FormData();
+    formData.append("offenerTag", offenerTag); //extra variable
+    xhttp.send(formData);
 
-
-
+}
 
 
 //accordions
@@ -105,9 +134,12 @@ function accordion() {
     });
 }
 
+
+
+//Backend Führung hinzufügen
 function hideShowElement(source, target) {
     element = document.getElementById(target);
-    element.style.display = (source.checked)
-        ? 'block'
-        : 'none';
+    element.style.display = (source.checked) ?
+        'block' :
+        'none';
 }

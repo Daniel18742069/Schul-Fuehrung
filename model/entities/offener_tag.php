@@ -50,7 +50,14 @@ class Offener_tag
 
 
 
-
+    public function aendereStatus()
+    {
+        if($this->status == 0){
+            $this->status = 1;
+        }else{
+            $this->status = 0;
+        }
+    }
     public function getDatum()
     {
         return $this->datum;
@@ -91,6 +98,7 @@ class Offener_tag
             return "aktiviert";
         }
     }
+
     public function setStatus($status)
     {
         $this->status = $status;
@@ -153,6 +161,7 @@ class Offener_tag
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
         return $abfrage->fetchAll();
     }
+    
 
     public static function findeNeuestenOffenenTag()
     {
@@ -170,6 +179,7 @@ class Offener_tag
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');
         return $abfrage->fetch();
     }
+    
 
     public static function findeOffenen_tag(string $datum)
     {
@@ -183,7 +193,7 @@ class Offener_tag
 
     public static function findeAktiverOffenen_tag(){
 
-        $sql = 'SELECT * FROM od_offener_tag WHERE status = 1';
+        $sql = 'SELECT * FROM od_offener_tag WHERE status = 1 LIMIT 1';
 
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Offener_tag');

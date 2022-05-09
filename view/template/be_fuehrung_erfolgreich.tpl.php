@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
 
-    <title>Neuer OpenDay erstellt</title>
+    <title>Führung erfolgreich</title>
 
 </head>
 

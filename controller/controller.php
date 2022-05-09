@@ -13,6 +13,10 @@ class Controller
         unset($_REQUEST);
     }
 
+    private function ___test()
+    {
+    }
+
     //user
     public function fe_startseite()
     {
@@ -22,12 +26,12 @@ class Controller
         $alle_fachrichtungen = Fachrichtung::findeAlleFachrichtungen();
         $this->addContext("fachrichtungen", $alle_fachrichtungen);
 
-        $alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
-        $alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
-
+        //$alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
+        //$alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
+        
         // personen die schon dabei sind ausrechnen mit foreach(führungen) oder so wos
 
-        $this->addContext("fuehrungen", $alle_fuehrungen);
+        //$this->addContext("fuehrungen", $alle_fuehrungen);
     }
 
     //admin
@@ -39,20 +43,22 @@ class Controller
     {
         $this->addContext("be_neues_fach", "nix");
     }
+
+    public function be_fuehrung_erfolgreich(){
+        $this->addContext("text", "Führung erfolgreich hinzugefügt");
+    }
     public function be_od_erfolgreich()
     {
-        if(!empty($_REQUEST['beschreibung'])){
+        if (!empty($_REQUEST['beschreibung'])) {
             $this->addContext("text", "Neues Fach wurde erfolgreich hinzugefügt");
             $fachrichtung = new Fachrichtung($_REQUEST);
             $fachrichtung->speichere();
-        }else{
+        } else {
             $offener_tag = new Offener_tag($_POST);
             $offener_tag->speichere();
-    
+
             $this->addContext("text", "Open Day wurde erfolgreich erstellt");
         }
-
-        
     }
     public function be_alle_einstellungen()
     {
@@ -63,19 +69,31 @@ class Controller
 
         $this->addContext("be_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
-    public function be_alle_od(){
-        if(!empty($_REQUEST) && !empty($_REQUEST['anmelden'])){
+    public function be_alle_od()
+    {
+        if (!empty($_REQUEST) && !empty($_REQUEST['anmelden'])) {
             var_dump($_REQUEST);
             erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
     }
 
+    public function be_od_mit_fuehrungen_editieren(){
+
+
+        
+        $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
+        $this->addContext("offenerTag", $offenerTag);
+        $alleFuehrungenUnsortiert = fuehrungenSortieren(Fuehrung::alleFuehrungEinesOD($offenerTag->getId()));
+        var_dump($alleFuehrungenUnsortiert);
+    }
+
+
 
     //Subfooter
     public function impressum()
     {
-        
+
         $this->addContext("impressum", "nix");
     }
 
@@ -89,42 +107,32 @@ class Controller
         $this->addContext("cookies", "nix");
     }
 
-    private function ___test()
+    public function adminAnmeldung()
     {
-        require_once('model/printXLS.php');
-    }
-    public function test()
-    {
-        $this->addContext("test", "nix");
-    }
 
-    public function adminAnmeldung(){
-
-        if(empty($_POST['benutzername']) && empty($_POST['passwort'])){
+        if (empty($_POST['benutzername']) && empty($_POST['passwort'])) {
             header('Location: index.php?aktion=be_login_admin');
         }
         //PASSWORT UND BENUTZERNAME LEER
-        else if(stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])){
+        else if (stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])) {
             logge_ein($_POST['benutzername']);
             header('Location: index.php?aktion=be_alle_od');
         }
         //PASSWORT UND BENUTZERNAME STIMMEN überein
-        else{
+        else {
             header('Location: index.php?aktion=be_login_admin');
         }
-
     }
 
 
-    public function be_login_admin(){
-            if(isset($_REQUEST['benutzername']) && isset($_REQUEST['passwort'])){
-                
-            }
-        $this->addContext("be_login_admin","nix");
-
+    public function be_login_admin()
+    {
+        if (isset($_REQUEST['benutzername']) && isset($_REQUEST['passwort'])) {
+        }
+        $this->addContext("be_login_admin", "nix");
     }
 
-    
+
     /**
      * @author Andreas Codalonga
      */
@@ -221,33 +229,30 @@ class Controller
                 $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
                 if ($Fuehrung) {
 
-                    $Offener_tag = Offener_tag::findeNeuestenOffenenTag();
-                    if ($Offener_tag) {
+                    if (mindestens_1_tag_entfernt(date('Y-m-d'), $Fuehrung->getOffener_tag_datum())) {
 
-                        if (mindestens_1_tag_entfernt(date('Y-m-d'), $Offener_tag->getDatum())) {
-                            $Anmeldung->loesche();
+                        $Anmeldung->loesche();
 
-                            require_once 'model/email.php';
+                        require_once 'model/email.php';
 
-                            $to_address = $Anmeldung->getEmail();
-                            $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
-                            $subject = 'Anmeldung Gelöscht';
-                            $message = file_get_contents('mail/abmeldung.mail.html');
-                            $message = ersetze_platzhalter($message, [
-                                ['url', CONF['URL']],
-                                ['namen', $to_name],
-                                ['token', $Anmeldung->getToken()]
-                            ]);
+                        $to_address = $Anmeldung->getEmail();
+                        $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
+                        $subject = 'Anmeldung Gelöscht';
+                        $message = file_get_contents('mail/abmeldung.mail.html');
+                        $message = ersetze_platzhalter($message, [
+                            ['url', CONF['URL']],
+                            ['namen', $to_name],
+                            ['token', $Anmeldung->getToken()]
+                        ]);
 
-                            email::send(
-                                $subject,
-                                $message,
-                                $to_address,
-                                $to_name
-                            );
+                        email::send(
+                            $subject,
+                            $message,
+                            $to_address,
+                            $to_name
+                        );
 
-                            $this->addContext('abmeldung', 'Erfolgreich!');
-                        }
+                        $this->addContext('abmeldung', 'Erfolgreich!');
                     }
                 }
 
@@ -276,6 +281,7 @@ class Controller
                         if (isset($_REQUEST['anzahl']) && $_REQUEST['anzahl']) {
 
                             $differenz = $_REQUEST['anzahl'] - $Anmeldung->getAnzahl();
+
                             if (Anmeldung::validate_anzahl($differenz, $Anmeldung->getFuehrung_id())) {
 
                                 $Anmeldung->setAnzahl($_REQUEST['anzahl']);

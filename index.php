@@ -11,6 +11,8 @@ require_once 'model/entities/offener_tag.php';
 
 require_once 'controller/controller.php';
 
+
+
 session_start();
 $aktion = isset($_GET['aktion']) ? $_GET['aktion'] : CONF['DEFAULT_SITE'];
 

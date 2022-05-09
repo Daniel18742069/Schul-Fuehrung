@@ -41,12 +41,7 @@ function erstelle_Fuehrungen($fuehrungsDaten){
  
 //Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
 $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getIntervall());  //intdiv keine Kommastellen
- 
 
-    
-    
-
-    
     foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
         
         $heute = new DateTime($offener_tag->getStartWelformed());
@@ -67,7 +62,9 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
                       $fuehrung->setFachrichtung_id($fach);
                       $fuehrung->setOffener_tag_id($offener_tag->getId());
                       $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
+                      $fuehrung->setGemeinsame_id($fach."_".$anzahl);
                       $fuehrung->speichere();
+                      var_dump($fuehrung);
 
                 $minutes_to_add = $offener_tag->getIntervall();
                 $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));

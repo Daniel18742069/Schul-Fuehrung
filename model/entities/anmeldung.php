@@ -108,6 +108,7 @@ class Anmeldung
     {
         if ($array) {
             foreach ($array as $key => $value) {
+                if ($key = 'new') continue;
                 $setter = 'set' . ucfirst($key);
                 if (method_exists($this, $setter)) {
                     $this->$setter($value);
@@ -263,7 +264,7 @@ class Anmeldung
 
     public static function validate_anzahl(int $anzahl, int $fuehrung_id): bool
     {
-        if ($anzahl && $anzahl > 0) {
+        if ($anzahl) {
             $Fuehrungen = Fuehrung::findeAlleFuehrungen();
             $Anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung_id);
 
@@ -280,5 +281,15 @@ class Anmeldung
             }
         }
         return false;
+    }
+
+
+
+    public static function anzahlTeilnehmer($fuehrung_id){
+        $sql = 'SELECT SUM(anzahl) AS anzahl FROM od_anmeldung WHERE fuehrung_id = ?';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute(array($fuehrung_id));
+        return $abfrage->fetch()["anzahl"];
     }
 }
