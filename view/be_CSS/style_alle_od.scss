@@ -1,32 +1,36 @@
 $blueColor: #002a50;
 
 
-.wrapper-be_startseite{
+.wrapper-be_startseite {
     margin-top: 5rem;
     margin-bottom: 7rem;
-  }
+}
 
-.kalenderbox{
+.kalenderbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.inhalt_od, .buttons, .neuer-od-formular{
+.inhalt_od,
+.buttons,
+.neuer-od-formular {
     display: grid;
     justify-content: space-around;
     grid-template-columns: 1fr 1fr;
-    p{
+
+    p {
         margin: 0;
         //text-align: center;
     }
 }
 
-.neuer-od-formular{
-    span{
+.neuer-od-formular {
+    span {
         padding: 1rem;
         padding-left: 0;
-        p{
+
+        p {
             display: inline-block;
             padding-left: 0;
             padding-top: 0;
@@ -35,15 +39,15 @@ $blueColor: #002a50;
     }
 }
 
-.bereichnung{
+.bereichnung {
     text-align: center;
 }
 
-.content{
+.content {
     margin: 1rem 3rem;
 }
 
-.editieren { 
+.editieren {
     order: 1;
     color: $blueColor;
     background-color: rgba(245, 196, 0, 0.8);
@@ -54,12 +58,21 @@ $blueColor: #002a50;
     border: none;
     width: calc(100% - 0.5rem);
     align-items: center;
-    &:hover{
+
+    &:hover {
         filter: brightness(0.85);
         cursor: pointer;
     }
 }
 
-.buttons{
+.buttons {
     margin-bottom: 0.5rem;
+}
+
+.felder-neuer-od {
+
+            margin: 1em;
+            height: 2em;
+            display: inline-block;
+
 }

@@ -124,9 +124,8 @@ p {
 }
 
 input {
-  //position: absolute;
-  //opacity: 0;
-  //z-index: -1;
+  margin: 1em;
+  height: 2em;
 }
 
 .fachrichtung {
@@ -137,8 +136,6 @@ input {
   outline: none;
   font-size: 15px;
   transition: 10.1s;
-
-
 
 }
 
@@ -309,7 +306,6 @@ input[type="submit"], .neuer_od {
   font-size: 1.2rem;
   margin-left: 1rem;
   //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
-  border: 1px solid $blueColor;
   transition: all 0.3s;
   height: 2rem;
 }
@@ -429,21 +425,6 @@ input[type="submit"], .neuer_od {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

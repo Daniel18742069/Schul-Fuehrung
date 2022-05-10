@@ -139,13 +139,13 @@
                                     <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite">
                                         <label for="vorname">Vorname:</label>
                                         <!--Nils du muesch de namen no an die Datenbank anpassen-->
-                                        <input type="text" id="vorname" name="vorname" value=""><br>
+                                        <input type="text" id="vorname" name="vorname" value="" required><br>
                                         <label for="nachname">Nachname:</label>
-                                        <input type="text" id="nachname" name="nachname" value=""><br>
+                                        <input type="text" id="nachname" name="nachname" value="" required><br>
                                         <label for="tel">Telefon:</label>
-                                        <input type="tel" id="tel" name="tel" value=""><br>
+                                        <input type="tel" id="tel" name="tel" value="" required><br>
                                         <label for="email">E-Mail:</label>
-                                        <input type="email" id="email" name="email" value=""><br>
+                                        <input type="email" id="email" name="email" value="" required><br>
                                         <label for="anzahl">Personen:</label>
                                         <input type="number" id="anzahl" name="anzahl" value="" max="10" min="1" placeholder="1">
                                         <input type="submit" value="Anmelden">
