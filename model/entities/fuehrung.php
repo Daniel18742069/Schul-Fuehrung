@@ -34,8 +34,10 @@ class Fuehrung
 
     private function _update()
     {
+        $sql = 'UPDATE od_fuehrung SET fuehrungspersonen =:fuehrungspersonen, sichtbar=:sichtbar, kapazitaet=:kapazitaet, uhrzeit=:uhrzeit, fachrichtung_id=:fachrichtung_id, offener_tag_id=:offener_tag_id, gemeinsame_id=:gemeinsame_id WHERE id =:id';
 
-        echo "WIP";
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
     }
 
     public static function findeFuehrung(int $id)

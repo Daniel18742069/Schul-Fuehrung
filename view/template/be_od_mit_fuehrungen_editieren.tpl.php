@@ -32,7 +32,7 @@ private $id = 0;
     foreach ($fuehrungen as $key => $fuehrung) {
 
         $anzahlTeilnehmer =  Anmeldung::anzahlTeilnehmer($fuehrung->getId());
-            if($anzahlTeilnehmer == NULL){
+            if($anzahlTeilnehmer == NULL){  //anzahl Formatieren
              $anzahlTeilnehmer = 0;
             }
             if($gemID == 0){
@@ -42,12 +42,17 @@ private $id = 0;
                     $gemID = $fuehrung->getGemeinsame_id();
             }
         ?>
-        <form action="index.php?aktion=adminAnmeldung" method="post">
-        <input type="text" name="fuehrungspersonen?>" class="fuehrungspersonen" value="<?=$fuehrung->getFuehrungspersonen()?>" required />
+        <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID() ?>" method="post">
+        <!--input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"-->
+        <?php echo $fuehrung->getUhrzeit() ." ";  ?>
+        <input type="text" name="fuehrungspersonen" class="fuehrungspersonen" value="<?=$fuehrung->getFuehrungspersonen()?>" required />
+        <input type="number" name="f_id" value="<?=$fuehrung->getID() ?>" hidden="hidden" /> <!-- secreat -->
         <?php 
-        echo $fuehrung->getUhrzeit() ." "; 
-        echo $anzahlTeilnehmer. " / ". $fuehrung->getKapazitaet() ." ";
-        echo $fuehrung->getGemeinsame_id();
+        
+        echo $anzahlTeilnehmer. " / ". $fuehrung->getKapazitaet() ."<br>";
+        $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
+        var_dump($anmeldungen);
+        //echo $fuehrung->getGemeinsame_id();
         ?>
         <input type="submit" name="anmelden" value="Anmelden" />
         </form>
