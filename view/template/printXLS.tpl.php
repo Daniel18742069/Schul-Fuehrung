@@ -17,6 +17,10 @@
 
 <body>
 
+
+    <?php require_once("model/printXLS.php") ?>
+
+
 </body>
 
 

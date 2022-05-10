@@ -66,9 +66,11 @@ class Controller
         $this->addContext("cookies", "nix");
     }
 
-    private function ___test()
+    public function printXLS()
     {
-        require_once('model/printXLS.php');
+        //require_once('model/printXLS.php');
+        
+        $this->addContext("","");
     }
     public function test(){
         $this->addContext("test","nix");
