@@ -14,6 +14,7 @@ class Anmeldung
     private int $fuehrung_id = 0;
     private int $anzahl = 0;
 
+    //Nicht DB
     private bool $new = true;
 
     public function getToken()

@@ -34,8 +34,10 @@ class Fuehrung
 
     private function _update()
     {
+        $sql = 'UPDATE od_fuehrung SET fuehrungspersonen =:fuehrungspersonen, sichtbar=:sichtbar, kapazitaet=:kapazitaet, uhrzeit=:uhrzeit, fachrichtung_id=:fachrichtung_id, offener_tag_id=:offener_tag_id, gemeinsame_id=:gemeinsame_id WHERE id =:id';
 
-        echo "WIP";
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
     }
 
     public static function findeFuehrung(int $id)
@@ -79,6 +81,19 @@ class Fuehrung
         return $abfrage->fetchAll();
     }
 
+    public static function gemeinsame_idSortieren(int $offener_tag_id){
+
+        $sql = 'SELECT DISTINCT gemeinsame_id FROM od_fuehrung  WHERE offener_tag_id = '.$offener_tag_id. ' ORDER BY gemeinsame_id';
+        $abfrage = DB::getDB()->query($sql);
+        //$abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetch();
+    }
+    public static function gemeinsammeIDmitID(int $offener_tag_id){
+        $sql = 'SELECT * FROM od_fuehrung where offener_tag_id = '.$offener_tag_id. ' ORDER BY gemeinsame_id ASC, uhrzeit ASC';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
     public function getId()
     {
         return $this->id;
@@ -166,6 +181,7 @@ class Fuehrung
     {
         $Offener_tag = Offener_tag::findeOffenenTag($this->offener_tag_id);
         return $Offener_tag->getDatum();
+    }
 
     /**
      * Get the value of gemeinsame_id
