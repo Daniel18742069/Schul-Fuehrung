@@ -16,8 +16,6 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
-    <!--icon noch ändern!!!-->
-
     <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" /> <!-- für Safari soweit ich weiss-->
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
