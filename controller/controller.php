@@ -76,6 +76,7 @@ class Controller
             erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
+        
     }
 
     public function be_od_mit_fuehrungen_editieren(){
