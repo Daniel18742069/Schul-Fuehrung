@@ -1,6 +1,9 @@
 <?php
 
 $ini = '
+	[Standard Seite]
+	DEFAULT_SITE=fe_startseite
+
 	[URL zur Webseite]
 	URL=127.0.0.1/schul-fuehrung/
 

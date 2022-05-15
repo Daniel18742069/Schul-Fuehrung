@@ -65,17 +65,18 @@ class Fuehrung
         */
 
 
-    public static function alleFuehrungEinesOD(int $offener_tag_id){
+    public static function alleFuehrungEinesOD(int $offener_tag_id)
+    {
 
-        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id;
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id;
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
     }
     public static function findeSpezifischeFuehrungen(int $offener_tag_id, int $fachrichtung_id, $sichtbar = 1)
     {
-        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = '.$offener_tag_id.' AND fachrichtung_id = '.$fachrichtung_id;
-        $sql .= ($sichtbar) ?' AND sichtbar = '.$sichtbar : '';
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id . ' AND fachrichtung_id = ' . $fachrichtung_id;
+        $sql .= ($sichtbar) ? ' AND sichtbar = ' . $sichtbar : '';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
@@ -166,7 +167,6 @@ class Fuehrung
         return $this;
     }
 
-
     public function getOffener_tag_id()
     {
         return $this->offener_tag_id;
@@ -185,7 +185,7 @@ class Fuehrung
 
     /**
      * Get the value of gemeinsame_id
-     */ 
+     */
     public function getGemeinsame_id()
     {
         return $this->gemeinsame_id;
@@ -195,10 +195,9 @@ class Fuehrung
      * Set the value of gemeinsame_id
      *
      * @return  self
-     */ 
+     */
     public function setGemeinsame_id($gemeinsame_id)
     {
         $this->gemeinsame_id = $gemeinsame_id;
-
     }
 }

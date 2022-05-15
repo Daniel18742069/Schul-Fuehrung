@@ -55,6 +55,32 @@ body {
     color: $blueColor;
   }
 
+  #content {
+    filter: blur(0px); // wird durch JS geändert
+  }
+
+  #captcha_background {
+    z-index: 999;
+    display: none;  // wird mit JS geändert
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    #captcha_box {
+      z-index: 1000;
+      position: fixed;
+      top: 50vh;
+      left: 50vw;
+      transform: translate(-50%, -50%);
+      box-shadow: 5px 8px 21px rgba(0,0,0,0.2);
+      
+      background-color: white;
+    }
+  }
+
   #wrapper {
     max-width: 1140px;
     margin: 0 auto;
@@ -274,6 +300,11 @@ input[type="submit"], .neuer_od {
   &:hover {
       filter: brightness(0.85);
       cursor: pointer;
+  }
+
+  &:disabled {
+    filter: brightness(0.3);
+    cursor: not-allowed;
   }
 }
 
