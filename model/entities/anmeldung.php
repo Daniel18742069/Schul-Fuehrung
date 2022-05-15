@@ -121,8 +121,6 @@ class Anmeldung
         } else {
             $this->new = false;
         }
-
-        // print_r($this->toArray());
     }
 
     public static function findeAnmeldung(string $token)
