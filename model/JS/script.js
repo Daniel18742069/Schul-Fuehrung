@@ -40,6 +40,27 @@ function tabs(actuated_button, fachrichung_id) {
     }
 }
 
+function formAusgefuellt(element) {
+    const parent = element.parentNode;
+    const inputs = parent.getElementsByTagName('input');
+    // bricht ab wenn 1+ feld leer ist
+    for (let index = 0; index < inputs.length; index++) {
+        if (inputs[index].value === '') return;
+    }
+
+    showHideCaptcha(true);
+    parent.querySelector('input[name="submit"]').disabled = false;
+}
+
+function showHideCaptcha(anzeigen = false) {
+    content = document.querySelector('#content');
+    captcha_background = document.querySelector('#captcha_background');
+    // Webseite Blurren/Normal
+    content.style.filter = (anzeigen) ? 'blur(5px)' : '';
+    // Captcha Anzeigen/Verstecken
+    captcha_background.style.display = (anzeigen) ? 'block' : 'none';
+}
+
 function aendereStatusFuehrung(offenerTag) {
     window.alert(offenerTag);
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;

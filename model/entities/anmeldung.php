@@ -108,7 +108,7 @@ class Anmeldung
     {
         if ($array) {
             foreach ($array as $key => $value) {
-                if ($key = 'new') continue;
+                if ($key == 'new') continue;
                 $setter = 'set' . ucfirst($key);
                 if (method_exists($this, $setter)) {
                     $this->$setter($value);
@@ -121,6 +121,8 @@ class Anmeldung
         } else {
             $this->new = false;
         }
+
+        // print_r($this->toArray());
     }
 
     public static function findeAnmeldung(string $token)
@@ -208,7 +210,6 @@ class Anmeldung
     }
 
     public static function validate_data(
-        string $datum,
         string $telefon,
         string $vorname,
         string $nachname,
@@ -216,8 +217,7 @@ class Anmeldung
         int $fuehrung_id,
         int $anzahl
     ): bool {
-        return self::validate_datum($datum)
-            && self::validate_telefon($telefon)
+        return self::validate_telefon($telefon)
             && self::validate_name($vorname)
             && self::validate_name($nachname)
             && self::validate_email($email)
@@ -228,9 +228,9 @@ class Anmeldung
     public static function validate_datum(string $date, $format = 'Y-m-d'): bool
     {
         $date_format = DateTime::createFromFormat($format, $date);
-
+    
         return $date_format
-            && $date_format->format($format) === $date;
+            && $date_format->format($format) == $date;
     }
 
     public static function validate_telefon(string $telefon): bool
@@ -285,7 +285,8 @@ class Anmeldung
 
 
 
-    public static function anzahlTeilnehmer($fuehrung_id){
+    public static function anzahlTeilnehmer($fuehrung_id)
+    {
         $sql = 'SELECT SUM(anzahl) AS anzahl FROM od_anmeldung WHERE fuehrung_id = ?';
 
         $abfrage = DB::getDB()->prepare($sql);

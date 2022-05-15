@@ -28,7 +28,7 @@ class Controller
 
         //$alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
         //$alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
-        
+
         // personen die schon dabei sind ausrechnen mit foreach(führungen) oder so wos
 
         //$this->addContext("fuehrungen", $alle_fuehrungen);
@@ -44,7 +44,8 @@ class Controller
         $this->addContext("be_neues_fach", "nix");
     }
 
-    public function be_fuehrung_erfolgreich(){
+    public function be_fuehrung_erfolgreich()
+    {
         $this->addContext("text", "Führung erfolgreich hinzugefügt");
     }
     public function be_od_erfolgreich()
@@ -78,10 +79,11 @@ class Controller
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
     }
 
-    public function be_od_mit_fuehrungen_editieren(){
+    public function be_od_mit_fuehrungen_editieren()
+    {
 
 
-        
+
         $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
         $this->addContext("offenerTag", $offenerTag);
         $alleFuehrungenUnsortiert = fuehrungenSortieren(Fuehrung::alleFuehrungEinesOD($offenerTag->getId()));
@@ -139,7 +141,6 @@ class Controller
     private function anmelden()
     {
         if (
-            isset($_REQUEST['datum']) &&
             isset($_REQUEST['telefon']) &&
             isset($_REQUEST['vorname']) &&
             isset($_REQUEST['nachname']) &&
@@ -149,7 +150,6 @@ class Controller
         ) {
             if (
                 Anmeldung::validate_data(
-                    $_REQUEST['datum'],
                     $_REQUEST['telefon'],
                     $_REQUEST['vorname'],
                     $_REQUEST['nachname'],
@@ -158,8 +158,13 @@ class Controller
                     $_REQUEST['anzahl']
                 )
             ) {
+                $Fuehrung = Fuehrung::findeFuehrung($_REQUEST['fuehrung_id']);
+                $offener_tag_datum = $Fuehrung->getOffener_tag_datum();
+                $fuehrung_zeit = $Fuehrung->getUhrzeit();
+                $datum = date('Y-m-d H:i:s', strtotime("$offener_tag_datum $fuehrung_zeit"));
+
                 $Anmeldung = new Anmeldung([
-                    'datum' => $_REQUEST['datum'],
+                    'datum' => $datum,
                     'telefon' => $_REQUEST['telefon'],
                     'vorname' => $_REQUEST['vorname'],
                     'nachname' => $_REQUEST['nachname'],

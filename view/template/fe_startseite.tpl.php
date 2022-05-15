@@ -33,48 +33,9 @@
 </head>
 
 <body>
+    <div id="content">
+        <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
-
-
-    <?php if (!empty($_REQUEST['vorname'])) { //captcha 
-    ?>
-
-        <div class="wrapper-subfooter">
-
-            <div class="container-fluid">
-                <div class="form-row">
-                    <div class="col-12">
-                        <div class="slidercaptcha card">
-                            <div class="card-header">
-                                <span>Complete the security check</span>
-                            </div>
-                            <div class="card-body">
-                                <div id="captcha"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script src="model/captcha/src/disk/longbow.slidercaptcha.min.js"></script>
-            <script>
-                var captcha = sliderCaptcha({
-                    id: 'captcha',
-                    repeatIcon: 'fa fa-redo',
-                    onSuccess: function() {
-                        window.location = "http://www.google.de/";
-                        var handler = setTimeout(function() {
-                            window.clearTimeout(handler);
-                            captcha.reset();
-                        }, 500);
-                    }
-                });
-            </script>
-
-        </div>
-
-
-    <?php } else { ?>
 
         <section id="wrapper">
 
@@ -136,19 +97,19 @@
                             </div>
                             <div class="accordion-body js-accordion-body">
                                 <div class="accordion-body__contents">
-                                    <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite">
+                                    <form class="form_buchung" method="POST" action="index.php?aktion=anmelden">
                                         <label for="vorname">Vorname:</label>
-                                        <!--Nils du muesch de namen no an die Datenbank anpassen-->
-                                        <input type="text" id="vorname" name="vorname" value=""><br>
+                                        <input type="text" name="vorname" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="nachname">Nachname:</label>
-                                        <input type="text" id="nachname" name="nachname" value=""><br>
-                                        <label for="tel">Telefon:</label>
-                                        <input type="tel" id="tel" name="tel" value=""><br>
+                                        <input type="text" name="nachname" value="" onchange="formAusgefuellt(this)" /><br />
+                                        <label for="telefon">Telefon:</label>
+                                        <input type="telefon" name="telefon" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="email">E-Mail:</label>
-                                        <input type="email" id="email" name="email" value=""><br>
+                                        <input type="email" name="email" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" id="anzahl" name="anzahl" value="" max="10" min="1" placeholder="1">
-                                        <input type="submit" value="Anmelden">
+                                        <input type="number" name="anzahl" value="" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onmouseout="formAusgefuellt(this)" />
+                                        <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
+                                        <input type="submit" name="submit" value="Anmelden" disabled="disabled" />
                                     </form>
                                 </div>
                             </div>
@@ -168,10 +129,45 @@
 
             </div>
         </section>
-    <?php } ?>
 
-    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+        <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
+    </div>
+
+    <div id="captcha_background">
+        <div id="captcha_box">
+
+            <div class="container-fluid">
+                <div class="form-row">
+                    <div class="col-12">
+                        <div class="slidercaptcha card">
+                            <div class="card-header">
+                                <span>Complete the security check</span>
+                            </div>
+                            <div class="card-body">
+                                <div id="captcha"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="model/captcha/src/disk/longbow.slidercaptcha.min.js"></script>
+            <script>
+                var captcha = sliderCaptcha({
+                    id: 'captcha',
+                    repeatIcon: 'fa fa-redo',
+                    onSuccess: function() {
+                        showHideCaptcha();
+                        var handler = setTimeout(function() {
+                            window.clearTimeout(handler);
+                            captcha.reset();
+                        }, 500);
+                    }
+                });
+            </script>
+
+        </div>
+    </div>
 </body>
 
 <?php if ($fachrichtungen) { ?>
