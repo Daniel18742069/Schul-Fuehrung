@@ -124,8 +124,8 @@ p {
 }
 
 input {
-  margin: 1em;
-  height: 2em;
+  margin: 3em;
+  height: 2.5em;
 }
 
 .fachrichtung {
@@ -355,6 +355,7 @@ input[type="submit"], .neuer_od {
 
 .name-fachrichtung{
   padding-left: 0;
+  display: inline;
 }
 
 
