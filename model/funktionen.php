@@ -87,16 +87,20 @@ function arrayManipulieren($assotiativesArrayPost)
 {
 
     $array = [];
-    for ($i = 0; $i < count($assotiativesArrayPost) - 1; $i++) {
+    for ($i = 0; $i < count($assotiativesArrayPost); $i++) {
         $variable = $i + 1;
-        if (
-            array_key_exists('fachID' . $variable, $assotiativesArrayPost) &&
-            array_key_exists('anzahl' . $i, $assotiativesArrayPost)
-        ) {
-            $variable2 = $assotiativesArrayPost['fachID' . $variable] + 1;
-            array_push($array, $variable2 .
-                "_" . $assotiativesArrayPost['anzahl' . $i]);
+        for ($z=$i+1; $z < 25; $z++) { 
+            if (
+                array_key_exists('f' . $variable, $assotiativesArrayPost) &&
+                array_key_exists('a' . $z, $assotiativesArrayPost)
+            ) {
+                $z = 25;
+                $variable2 = $assotiativesArrayPost['f' . $variable] + 1;
+                array_push($array, $variable2 .
+                    "_" . $assotiativesArrayPost['a' . $i]);
+            }
         }
+        
     }
     return $array;
 }
