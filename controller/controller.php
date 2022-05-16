@@ -41,9 +41,10 @@ class Controller
 
         $this->addContext("bg_alle_einstellungen", Fachrichtung::findeAlleFachrichtungen());
     }
-    public function be_alle_od(){
-        if(!empty($_REQUEST)){
-            
+    public function be_alle_od()
+    {
+        if (!empty($_REQUEST)) {
+
             erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tag());
@@ -68,12 +69,22 @@ class Controller
 
     public function printXLS()
     {
-        //require_once('model/printXLS.php');
-        
-        $this->addContext("","");
+        $alleAnmeldungen = Anmeldung::findeAlleAnmeldungenSortiertDatum();
+        $this->addContext("alleAnmeldungen", $alleAnmeldungen);
+
+        $alleFachrichtungen = Fachrichtung::findeAlleFachrichtungen();
+        $this->addContext("alleFachrichtungen", $alleFachrichtungen);
+
+        $alleFuehrungen = Fuehrung::findeAlleFuehrungen();
+        $this->addContext("alleFuehrungen", $alleFuehrungen);
+
+        require_once('model/printXLS.php');
+
+        $this->addContext("", "");
     }
-    public function test(){
-        $this->addContext("test","nix");
+    public function test()
+    {
+        $this->addContext("test", "nix");
     }
 
     /**
