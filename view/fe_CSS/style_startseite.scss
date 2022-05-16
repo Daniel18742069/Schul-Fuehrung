@@ -271,6 +271,9 @@ input {
     top: -54px;
   }
 
+  :not(input[type="submit"], label) {
+    width: 15em;
+  }
 }
 
 
@@ -338,8 +341,6 @@ input[type="submit"], .neuer_od {
   color: $blueColor;
   font-size: 1.2rem;
   margin-left: 1rem;
-  //background-color: rgba($color: rgb(214, 212, 212), $alpha: 0.2);
-  border: 1px solid $blueColor;
   transition: all 0.3s;
   height: 2rem;
 }
