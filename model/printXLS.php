@@ -12,37 +12,23 @@ $filename = "open_day_" . date('Y.m.d') . ".xls";
 
 // header("Content-Type: text/plain");
 ?>
-<script type="text/javascript">
-        function closePrint() {
-            document.body.removeChild(this.__container__);
-        }
 
-        function setPrint() {
-            this.contentWindow.__container__ = this;
-            this.contentWindow.onbeforeunload = closePrint;
-            this.contentWindow.onafterprint = closePrint;
-            this.contentWindow.focus(); // Required for IE
-            this.contentWindow.print();
-        }
-
-        function printPage(sURL) {
-            var oHiddFrame = document.createElement("iframe");
-            oHiddFrame.onload = setPrint;
-            oHiddFrame.style.visibility = "hidden";
-            oHiddFrame.style.position = "fixed";
-            oHiddFrame.style.right = "0";
-            oHiddFrame.style.bottom = "0";
-            oHiddFrame.src = sURL;
-            document.body.appendChild(oHiddFrame);
-        }
-    </script>
 <?php
 if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 ?>
 
-    
+    <script>
+        $(document).ready(function() {
+            $('#tbl_exporttable_to_xls').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'print'
+                ]
+            });
+        });
+    </script>
 
-    <table id="tbl_exporttable_to_xls">
+    <table id="tbl_exporttable_to_xls" class="display" style="width:100%">
 
         <thead>
             <tr>
@@ -105,12 +91,7 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button id="btn-download">Als Excel-Datei herunterladen</button>
-    <p><span onclick="printPage('model/printXLS.php');" style="cursor:pointer;text-decoration:underline;color:#0000ff;">Print external page!</span></p>
 
-    <script>
-        downloadXLS()
-    </script>
 <?php
 
 }
@@ -135,6 +116,5 @@ function cleanUmlaute(string $string)
 }
 */
 
-exit;
 
 ?>

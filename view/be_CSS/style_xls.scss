@@ -1,60 +1,48 @@
+$blueColor: #002a50;
+$color-orange: #fc0;
+$font-color: rgba(255, 255, 255, 0.9);
 
-        @media print {
-            * {
-                display: none;
-            }
+#tbl_exporttable_to_xls_wrapper {
+    padding: 1em;
+}
 
-            #printableTable {
-                display: block;
-            }
-        }
+button.dt-button {
+    order: 1;
+    color: $blueColor !important;
+    background-color: rgba(245, 196, 0, 0.8) !important;
+    padding: 0.45rem 1rem !important;
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    border: none !important;
+    float: right !important;
 
-        table,
-        th,
-        td {
-            border: .5px solid black;
-            font:14px Verdana;
-            border:solid 1px #999;
-            padding:2px 3px;
-            text-align:center;
-        }
+    &:hover {
+        filter: brightness(0.8) !important;
+        cursor: pointer;
+    }
+}
 
-        table td:first-child::first-letter {
-            text-transform: uppercase;
-        }
+.paginate_button {
+    color: $blueColor !important;
+    background-color: rgba(245, 196, 0, 0.8) !important;
+    padding: 0.45rem 1rem !important;
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+   
+    border: none !important;
 
-        table {
-            font-size: 12px;
-            color: #333333;
-            width: 100%;
-            border-width: 1px;
-            border-color: #a9a9a9;
-            border-collapse: collapse;
-        }
+    &:hover {
+        filter: brightness(0.8) !important;
+        cursor: pointer;
+    }
+}
 
-        table thead {
-            cursor: pointer;
-        }
-
-        table th {
-            font-size: 12px;
-            background-color: #b8b8b8;
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #a9a9a9;
-            text-align: left;
-            font-weight: bold;
-        }
-
-        table td {
-            font-size: 12px;
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #a9a9a9;
-        }
-
-        table tr:hover {
-            background-color: #ffff99;
-        }
+@media print {
+    @page {
+        size: auto;
+        /* auto is the initial value */
+        margin: 0mm;
+        /* this affects the margin in the printer settings */
+    }
+}

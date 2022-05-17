@@ -78,7 +78,7 @@ class Controller
         $alleFuehrungen = Fuehrung::findeAlleFuehrungen();
         $this->addContext("alleFuehrungen", $alleFuehrungen);
 
-        require_once('model/printXLS.php');
+        $this->addContext("printXLS", "nix");
 
         $this->addContext("", "");
     }
