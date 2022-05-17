@@ -82,7 +82,7 @@
                             <div class="accordion-header js-accordion-header">
                                 <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
                                 <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
-                                <div class="kapazitaet"><?= $anzahl_teilnehmer[$fuehrung->getId()] ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                                <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                             </div>
                             <div class="accordion-body js-accordion-body">
                                 <div class="accordion-body__contents">
