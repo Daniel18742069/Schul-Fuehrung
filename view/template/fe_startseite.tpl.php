@@ -77,12 +77,23 @@
 
 
                 <div class="accordion js-accordion" id="accordion">
-                    <?php foreach ($fuehrungen as $fuehrung) { ?>
+                    <?php
+                    $fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId(), 2); //I DONT KNOW
+                    //$intervall = $offener_tag->getIntervall() * 60;
+                    //for ($seconds = 0; $seconds <= $offener_tag->getEnde(); $seconds + (60)) {
+                    foreach ($fuehrungen as $fuehrung) {
+                    ?>
                         <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>">
                             <div class="accordion-header js-accordion-header">
+                                <?php
+                                $anzahlTeilnehmer =  Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+                                if ($anzahlTeilnehmer == NULL) {
+                                    $anzahlTeilnehmer = 0;
+                                }
+                                ?>
                                 <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
                                 <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
-                                <div class="kapazitaet"><?= $anzahl_teilnehmer[$fuehrung->getId()] ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                                <div class="kapazitaet"><?= $anzahlTeilnehmer ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                             </div>
                             <div class="accordion-body js-accordion-body">
                                 <div class="accordion-body__contents">
@@ -146,10 +157,10 @@
                     id: 'captcha',
                     repeatIcon: 'fa fa-redo',
                     onSuccess: function() {
-                        var handler = setTimeout(() => {
+                        showHideCaptcha();
+                        var handler = setTimeout(function() {
                             window.clearTimeout(handler);
                             captcha.reset();
-                            showHideCaptcha();
                         }, 500);
                     }
                 });
