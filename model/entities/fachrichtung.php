@@ -40,7 +40,7 @@ class Fachrichtung{
     }
 
     public static function findeFachrichtungen_OffenerTag($offener_tag_id) {
-        $sql = 'SELECT `fa`.*
+        $sql = 'SELECT DISTINCT `fa`.*
             FROM `od_fachrichtung` `fa`
             LEFT JOIN `od_fuehrung` `fu`
             ON `fa`.`id` = `fu`.`fachrichtung_id`

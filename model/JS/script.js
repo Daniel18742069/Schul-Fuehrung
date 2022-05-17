@@ -98,12 +98,11 @@ function accordion() {
 
     const accordion = function () {
 
-        var $accordion = $('.js-accordion');
-        var $accordion_header = $accordion.find('.js-accordion-header');
-        var $accordion_item = $('.js-accordion-item');
+        const $accordion = $('.js-accordion');
+        const $accordion_header = $accordion.find('.js-accordion-header');
 
         // default settings 
-        var settings = {
+        const settings = {
             // animation speed
             speed: 300,
 

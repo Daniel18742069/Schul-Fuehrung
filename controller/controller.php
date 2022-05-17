@@ -26,12 +26,14 @@ class Controller
         $fachrichtungen = Fachrichtung::findeFachrichtungen_OffenerTag($offener_tag->getId());
         $this->addContext("fachrichtungen", $fachrichtungen);
 
-        //$alle_fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId());
-        //$alle_anmeldungen = Anmeldung::findeAlleAnmeldungen();
+        $fuehrungen = Fuehrung::findeSichtbareFuehrungen($offener_tag->getId());
+        $this->addContext("fuehrungen", $fuehrungen);
 
-        // personen die schon dabei sind ausrechnen mit foreach(führungen) oder so wos
-
-        //$this->addContext("fuehrungen", $alle_fuehrungen);
+        $anzahl_teilnehmer = [];
+        foreach($fuehrungen as $fuehrung) {
+            $anzahl_teilnehmer[$fuehrung->getId()] = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+        }
+        $this->addContext("anzahl_teilnehmer", $anzahl_teilnehmer);
     }
 
     //admin
