@@ -1,9 +1,7 @@
 //Tabs
-function first_tab(fachrichung_id) { // wählt die erste Fachrichtung aus
+function first_tab() { // wählt die erste Fachrichtung aus
     buttons = document.getElementsByClassName('tab');
-    if (buttons) {
-        tabs(buttons[0], fachrichung_id);
-    }
+    if (buttons) buttons[0].click();
 }
 
 function tabs(actuated_button, fachrichung_id) {

@@ -59,7 +59,7 @@
                     ?>
                         <div class="tabs active">
                             <?php foreach ($fachrichtungen as $fachrichtung) { ?>
-                                <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="info_elektro-button active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                                <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
                             <?php } ?>
                         </div>
 
@@ -161,7 +161,7 @@
 
 <?php if ($fachrichtungen) { ?>
     <script>
-        first_tab('<?= $fachrichtung->getId() ?>');
+        first_tab();
     </script>
 <?php } ?>
 
