@@ -31,20 +31,20 @@
 
                     <div class="fuehrung-hinzuf">
                         <div class="fachrichtungen">
-                            <input type="checkbox" class="checkbox" id="checkbox" name="f<?= $einstellung->getId() ?>" value="<?= $key ?>" onclick="hideShowElement(this,'<?= $einstellung->getBeschreibung() ?>')" />
+                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?=$einstellung->getId() ?>" onclick="hideShowElement(this,'<?= $einstellung->getBeschreibung() ?>')" />
                             <label for="c<?= $einstellung->getId() ?>"><?= $einstellung->getBeschreibung() ?></label>
                         </div>
 
                         <span class="anzahl-fuehrungen" id="<?= $einstellung->getBeschreibung() ?>" style="display: none;">
                             <span>Anzahl Führungen</span>
 
-                            <input type="radio" id="contact" name="a<?= $key ?>" value="1" checked>
+                            <input type="radio" id="contact" name="number<?= $key ?>" value="1" checked>
                             <label for="contact<?= $key ?>">1</label>
 
-                            <input type="radio" id="contact" name="a<?= $key ?>" value="2">
+                            <input type="radio" id="contact" name="number<?= $key ?>" value="2">
                             <label for="contact<?= $key ?>">2</label>
 
-                            <input type="radio" id="contact" name="a<?= $key ?>" value="3">
+                            <input type="radio" id="contact" name="number<?= $key ?>" value="3">
                             <label for="contact<?= $key ?>">3</label>
                         </span>
                     </div>
@@ -59,8 +59,6 @@
             <?php
             } else {
                 $array = arrayManipulieren($_POST);
-                var_dump($array); echo "<br>";
-                var_dump($_POST);
                 ?>
 
                 <form action="index.php?aktion=be_fuehrung_erfolgreich" method="post">

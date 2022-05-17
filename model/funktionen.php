@@ -83,23 +83,18 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
 }
 }
 
-function arrayManipulieren($assotiativesArrayPost)
-{
+function arrayManipulieren($assotiativesArrayPost){
 
     $array = [];
-    for ($i = 0; $i < count($assotiativesArrayPost); $i++) {
-        $variable = $i + 1;
-        for ($z=$i+1; $z < 25; $z++) { 
+    for ($i = 0; $i < count($assotiativesArrayPost); $i++) { //fach_menge
             if (
-                array_key_exists('f' . $variable, $assotiativesArrayPost) &&
-                array_key_exists('a' . $z, $assotiativesArrayPost)
+                array_key_exists('checkbox' . $i, $assotiativesArrayPost) &&
+                array_key_exists('number' . $i, $assotiativesArrayPost)
             ) {
-                $z = 25;
-                $variable2 = $assotiativesArrayPost['f' . $variable] + 1;
-                array_push($array, $variable2 .
-                    "_" . $assotiativesArrayPost['a' . $i]);
+                $fach = $assotiativesArrayPost['checkbox' . $i];
+                array_push($array, $fach .
+                    "_" . $assotiativesArrayPost['number' . $i]);
             }
-        }
         
     }
     return $array;
@@ -117,10 +112,6 @@ function fuehrungenSortieren($unsortiertesArray){
         }
     }
     
-
-
-
-
         //var_dump($unsortiertesArray);
             return $unsortiertesArray;
 }
