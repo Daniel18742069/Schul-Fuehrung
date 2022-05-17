@@ -82,6 +82,13 @@ class Fuehrung
         return $abfrage->fetchAll();
     }
 
+    public static function findeSichtbareFuehrungen(int $offener_tag_id) {
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id . ' AND sichtbar = 1';
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetchAll();
+    }
+
     public static function gemeinsame_idSortieren(int $offener_tag_id){
 
         $sql = 'SELECT DISTINCT gemeinsame_id FROM od_fuehrung  WHERE offener_tag_id = '.$offener_tag_id. ' ORDER BY gemeinsame_id';
