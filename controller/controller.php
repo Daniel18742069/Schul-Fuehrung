@@ -23,8 +23,8 @@ class Controller
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
         $this->addContext("offener_tag", $offener_tag);
 
-        $alle_fachrichtungen = Fachrichtung::findeAlleFachrichtungen();
-        $this->addContext("fachrichtungen", $alle_fachrichtungen);
+        $fachrichtungen = Fachrichtung::findeFachrichtungen_OffenerTag($offener_tag->getId());
+        $this->addContext("fachrichtungen", $fachrichtungen);
 
         $fuehrungen = Fuehrung::findeSichtbareFuehrungen($offener_tag->getId());
         $this->addContext("fuehrungen", $fuehrungen);

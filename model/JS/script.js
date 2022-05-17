@@ -96,7 +96,7 @@ function aendereStatusFuehrung(offenerTag) {
 
 function accordion() {
 
-    const accordion = () => {
+    const accordion = function () {
 
         const $accordion = $('.js-accordion');
         const $accordion_header = $accordion.find('.js-accordion-header');
@@ -128,7 +128,7 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: ($this) => {
+            toggle: function ($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
@@ -144,7 +144,7 @@ function accordion() {
             }
         };
 
-    };
+    }();
 
     $(document).ready(function () {
         accordion.init({
