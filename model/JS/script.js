@@ -96,13 +96,14 @@ function aendereStatusFuehrung(offenerTag) {
 
 function accordion() {
 
-    const accordion = () => {
+    var accordion = function () {
 
-        const $accordion = $('.js-accordion');
-        const $accordion_header = $accordion.find('.js-accordion-header');
+        var $accordion = $('.js-accordion');
+        var $accordion_header = $accordion.find('.js-accordion-header');
+        var $accordion_item = $('.js-accordion-item');
 
         // default settings 
-        const settings = {
+        var settings = {
             // animation speed
             speed: 300,
 
@@ -128,7 +129,7 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: ($this) => {
+            toggle: function ($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
@@ -144,7 +145,7 @@ function accordion() {
             }
         };
 
-    };
+    }();
 
     $(document).ready(function () {
         accordion.init({

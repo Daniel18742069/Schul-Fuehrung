@@ -77,26 +77,37 @@
 
 
                 <div class="accordion js-accordion" id="accordion">
-                    <?php foreach ($fuehrungen as $fuehrung) { ?>
+                    <?php
+                    $fuehrungen = Fuehrung::findeSpezifischeFuehrungen($offener_tag->getId(), 2); //I DONT KNOW
+                    //$intervall = $offener_tag->getIntervall() * 60;
+                    //for ($seconds = 0; $seconds <= $offener_tag->getEnde(); $seconds + (60)) {
+                    foreach ($fuehrungen as $fuehrung) {
+                    ?>
                         <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>">
                             <div class="accordion-header js-accordion-header">
+                                <?php
+                                $anzahlTeilnehmer =  Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+                                if ($anzahlTeilnehmer == NULL) {
+                                    $anzahlTeilnehmer = 0;
+                                }
+                                ?>
                                 <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
                                 <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
-                                <div class="kapazitaet"><?= $anzahl_teilnehmer[$fuehrung->getId()] ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                                <div class="kapazitaet"><?= $anzahlTeilnehmer ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                             </div>
                             <div class="accordion-body js-accordion-body">
                                 <div class="accordion-body__contents">
                                     <form class="form_buchung" method="POST" action="index.php?aktion=anmelden">
                                         <label for="vorname">Vorname:</label>
-                                        <input type="text" name="vorname" value="" onblur="formAusgefuellt(this)" /><br />
+                                        <input type="text" name="vorname" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="nachname">Nachname:</label>
-                                        <input type="text" name="nachname" value="" onblur="formAusgefuellt(this)" /><br />
+                                        <input type="text" name="nachname" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="telefon">Telefon:</label>
-                                        <input type="telefon" name="telefon" value="" onblur="formAusgefuellt(this)" /><br />
+                                        <input type="telefon" name="telefon" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="email">E-Mail:</label>
-                                        <input type="email" name="email" value="" onblur="formAusgefuellt(this)" /><br />
+                                        <input type="email" name="email" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" />
+                                        <input type="number" name="anzahl" value="" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onmouseout="formAusgefuellt(this)" />
                                         <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
                                         <input type="submit" name="submit" value="Anmelden" disabled="disabled" />
                                     </form>
@@ -146,10 +157,10 @@
                     id: 'captcha',
                     repeatIcon: 'fa fa-redo',
                     onSuccess: function() {
-                        var handler = setTimeout(() => {
+                        showHideCaptcha();
+                        var handler = setTimeout(function() {
                             window.clearTimeout(handler);
                             captcha.reset();
-                            showHideCaptcha();
                         }, 500);
                     }
                 });
