@@ -39,14 +39,15 @@ class Fachrichtung{
         return $abfrage->fetchAll();
     }
 
-    public static function findeFachrichtungen_OffenerTag($offener_tag_id) {
+    public static function findeFachrichtungen_OffenerTag(int $offener_tag_id, int $aktiv = 1) {
         $sql = 'SELECT DISTINCT `fa`.*
             FROM `od_fachrichtung` `fa`
             JOIN `od_fuehrung` `fu`
             ON `fa`.`id` = `fu`.`fachrichtung_id`
             JOIN `od_offener_tag` `of`
             ON `fu`.`offener_tag_id` = `of`.`id`
-            WHERE `of`.`id` = ' . $offener_tag_id;
+            WHERE `fu`.`sichtbar` = ' . $aktiv 
+            . ' AND `of`.`id` = ' . $offener_tag_id;
 
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fachrichtung');
