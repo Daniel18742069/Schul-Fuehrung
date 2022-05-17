@@ -18,6 +18,10 @@
 <body>
 
 
+
+<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+
+
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
     <section id="wrapper">
