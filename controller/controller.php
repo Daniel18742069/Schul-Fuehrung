@@ -44,8 +44,10 @@ class Controller
         $this->addContext("be_neues_fach", "nix");
     }
 
-    public function be_fuehrung_erfolgreich()
-    {
+    public function be_fuehrung_erfolgreich(){
+        if (!empty($_REQUEST) && !empty($_REQUEST['anmelden'])) {
+            erstelle_Fuehrungen($_REQUEST);
+        }
         $this->addContext("text", "Führung erfolgreich hinzugefügt");
     }
     public function be_od_erfolgreich()
@@ -72,23 +74,15 @@ class Controller
     }
     public function be_alle_od()
     {
-        if (!empty($_REQUEST) && !empty($_REQUEST['anmelden'])) {
-            var_dump($_REQUEST);
-            erstelle_Fuehrungen($_REQUEST);
-        }
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
         
     }
 
     public function be_od_mit_fuehrungen_editieren(){
         if(isset($_REQUEST['anmelden'])){
-            var_dump($_REQUEST);
             $fuehrung = Fuehrung::findeFuehrung($_REQUEST['f_id']);
             $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
             $fuehrung->speichere();
-            var_dump($fuehrung);
-
-            var_dump($fuehrung);
         }
         
         

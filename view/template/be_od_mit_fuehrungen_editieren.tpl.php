@@ -43,7 +43,6 @@ private $id = 0;
             }
         ?>
         <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID() ?>" method="post">
-        <!--input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"-->
         <?php echo $fuehrung->getUhrzeit() ." ";  ?>
         <input type="text" name="fuehrungspersonen" class="fuehrungspersonen" value="<?=$fuehrung->getFuehrungspersonen()?>" required />
         <input type="number" name="f_id" value="<?=$fuehrung->getID() ?>" hidden="hidden" /> <!-- secreat -->
@@ -51,7 +50,6 @@ private $id = 0;
         
         echo $anzahlTeilnehmer. " / ". $fuehrung->getKapazitaet() ."<br>";
         $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
-        var_dump($anmeldungen);
         //echo $fuehrung->getGemeinsame_id();
         ?>
         <input type="submit" name="anmelden" value="Anmelden" />
