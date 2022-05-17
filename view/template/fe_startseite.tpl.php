@@ -59,7 +59,7 @@
                     ?>
                         <div class="tabs active">
                             <?php foreach ($fachrichtungen as $fachrichtung) { ?>
-                                <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="info_elektro-button active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                                <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
                             <?php } ?>
                         </div>
 
@@ -82,7 +82,7 @@
                             <div class="accordion-header js-accordion-header">
                                 <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
                                 <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
-                                <div class="kapazitaet"><?= $anzahl_teilnehmer[$fuehrung->getId()] ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                                <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                             </div>
                             <div class="accordion-body js-accordion-body">
                                 <div class="accordion-body__contents">
@@ -161,7 +161,7 @@
 
 <?php if ($fachrichtungen) { ?>
     <script>
-        first_tab('<?= $fachrichtung->getId() ?>');
+        first_tab();
     </script>
 <?php } ?>
 
