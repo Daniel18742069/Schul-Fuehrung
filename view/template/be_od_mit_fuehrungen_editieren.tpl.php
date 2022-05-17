@@ -16,7 +16,7 @@
 <body>
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
-
+    <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID() ?>" method="post">
     <?php 
     /*
 private $id = 0;
@@ -42,7 +42,7 @@ private $id = 0;
                     $gemID = $fuehrung->getGemeinsame_id();
             }
         ?>
-        <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID() ?>" method="post">
+        
         <?php echo $fuehrung->getUhrzeit() ." ";  ?>
         <input type="text" name="fuehrungspersonen" class="fuehrungspersonen" value="<?=$fuehrung->getFuehrungspersonen()?>" required />
         <input type="number" name="f_id" value="<?=$fuehrung->getID() ?>" hidden="hidden" /> <!-- secreat -->
@@ -52,14 +52,14 @@ private $id = 0;
         $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
         //echo $fuehrung->getGemeinsame_id();
         ?>
-        <input type="submit" name="anmelden" value="Anmelden" />
-        </form>
+       
 
         <?php 
     }
     
     //var_dump($fuehrungen);?>
-
+ <input type="submit" name="anmelden" value="Anmelden" />
+        </form>
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
