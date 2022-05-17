@@ -29,14 +29,15 @@ button.dt-button {
     padding: 0.45rem 1rem !important;
     font-size: 1.1rem !important;
     line-height: 1.5 !important;
-   
     border: none !important;
 
     &:hover {
         filter: brightness(0.8) !important;
         cursor: pointer;
     }
+
 }
+
 
 @media print {
     @page {
