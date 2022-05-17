@@ -63,7 +63,7 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
 
                       $fuehrung = new Fuehrung();
                       $fuehrung->setFuehrungspersonen($daten);
-                      $fuehrung->setSichtbar(0);
+                      $fuehrung->setSichtbar(1);
                       $fuehrung->setKapazitaet($kapazitaetArray[$counter]);
                       $fuehrung->setFachrichtung_id($fach);
                       $fuehrung->setOffener_tag_id($offener_tag->getId());
@@ -99,6 +99,43 @@ function arrayManipulieren($assotiativesArrayPost){
     }
     return $array;
 }
+function isUpdate($request){
+
+    for ($i = 0; $i < count($request); $i++) {
+
+        if (
+            array_key_exists($i, $request)  &&
+            
+            array_key_exists('fuehrungspersonen' . $i, $request)
+        ) {
+            $fuehrung = Fuehrung::findeFuehrung($request[$i]);
+
+           if(array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 0 ){
+           $fuehrung->setSichtbar(1);
+           }elseif(!array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 1 ){
+            $fuehrung->setSichtbar(0);
+           }
+
+           if($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i] ){
+            $fuehrung->setFuehrungspersonen($request['fuehrungspersonen' . $i] );
+            }
+           
+
+
+           $fuehrung->speichere();
+            
+
+
+            //array_key_exists('checkbox' . $i, $request)
+
+        }
+
+    }
+
+
+
+}
+
 function fuehrungenSortieren($unsortiertesArray){
 
     
