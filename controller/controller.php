@@ -30,7 +30,7 @@ class Controller
         $this->addContext("fuehrungen", $fuehrungen);
 
         $anzahl_teilnehmer = [];
-        foreach($fuehrungen as $fuehrung) {
+        foreach ($fuehrungen as $fuehrung) {
             $anzahl_teilnehmer[$fuehrung->getId()] = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
         }
         $this->addContext("anzahl_teilnehmer", $anzahl_teilnehmer);
@@ -46,7 +46,8 @@ class Controller
         $this->addContext("be_neues_fach", "nix");
     }
 
-    public function be_fuehrung_erfolgreich(){
+    public function be_fuehrung_erfolgreich()
+    {
         if (!empty($_REQUEST) && !empty($_REQUEST['anmelden'])) {
             erstelle_Fuehrungen($_REQUEST);
         }
@@ -77,17 +78,17 @@ class Controller
     public function be_alle_od()
     {
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
-        
     }
 
-    public function be_od_mit_fuehrungen_editieren(){
-        if(isset($_REQUEST['anmelden'])){
+    public function be_od_mit_fuehrungen_editieren()
+    {
+        if (isset($_REQUEST['anmelden'])) {
             $fuehrung = Fuehrung::findeFuehrung($_REQUEST['f_id']);
             $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
             $fuehrung->speichere();
         }
-        
-        
+
+
         $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
         $this->addContext("offenerTag", $offenerTag);
         $this->addContext("fuehrungen", Fuehrung::gemeinsammeIDmitID($offenerTag->getId()));
@@ -210,11 +211,17 @@ class Controller
 
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
-
-                $this->addContext('token', $Anmeldung->getToken());
-                $this->addContext('datum', $Anmeldung->getDatum());
+                $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
+                $fachrichtung = Fachrichtung::getFachrichtungBeiID($Fuehrung->getFachrichtung_id());
+                
+                $this->addContext('datum', datum_formatieren($Anmeldung->getDatum(), 'd.m.Y'));
                 $this->addContext('vorname', $Anmeldung->getVorname());
                 $this->addContext('nachname', $Anmeldung->getNachname());
+                $start = strtotime($Fuehrung->getUhrzeit());
+                $this->addContext('start', date('H:i', $start));
+                $ende = addiere_minuten($start);
+                $this->addContext('ende', date('H:i', $ende));
+                $this->addContext('fachrichtung', $fachrichtung);
                 $this->addContext('anzahl', $Anmeldung->getAnzahl());
             }
 

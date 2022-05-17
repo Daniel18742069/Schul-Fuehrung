@@ -23,16 +23,16 @@
         
     <form action="" method="post" class="formular-termin">
 
-        <h1>Ihre Führungen am 01.01.2001</h1>
+        <h1>Ihre Führungen am <?= $datum; ?></h1>
 
         <div class="termin" id="term">
             <span class="termine">
-                <p>Vorname: Donler</p>
-                <p>Nachname: TheMaschin</p>
-                <p>Start: 10:00 Uhr</p>
-                <p>Ende: 11:00 Uhr</p>
-                <p>Fachrichtung: Holz</p>
-                <p><label for="anzahl">Anzahl Personen:</label><input class="anzahlTeilnehmer" type="number" id="anzahl" value="7" max="10" min="1"></p>
+                <p>Vorname: <?= $vorname ?></p>
+                <p>Nachname: <?= $nachname ?></p>
+                <p>Start: <?= $start ?> Uhr</p>
+                <p>Ende: <?= $ende ?> Uhr</p>
+                <p>Fachrichtung: <?= $fachrichtung ?></p>
+                <p><label for="anzahl">Anzahl Personen:</label><input class="anzahlTeilnehmer" type="number" id="anzahl" value="<?= $anzahl ?>" max="10" min="1"></p>
             </span>
             <span class="buttons">
                 <input type="button" value="Abmelden" class="abmelden" onclick="termin_abmelden()">
