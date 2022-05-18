@@ -17,6 +17,59 @@ class Anmeldung
     //Nicht DB
     private bool $new = true;
 
+    public function __construct(array $array = array())
+    {
+        if ($array) {
+            foreach ($array as $key => $value) {
+                if ($key == 'new') continue;
+                $setter = 'set' . ucfirst($key);
+                if (method_exists($this, $setter)) {
+                    $this->$setter($value);
+                }
+            }
+        }
+
+        if ($this->token == '') {
+            $this->token = self::generate_token();
+        } else {
+            $this->new = false;
+        }
+    }
+
+    private function _insert()
+    {
+        $sql = 'INSERT INTO od_anmeldung (token, datum, telefon, vorname, nachname, email, fuehrung_id, anzahl)
+            VALUES (:token, :datum, :telefon, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
+    }
+
+    private function _update()
+    {
+        $sql = 'UPDATE od_anmeldung
+            SET telefon = :telefon
+            , datum = :datum
+            , vorname = :vorname
+            , nachname = :nachname
+            , email = :email
+            , fuehrung_id = :fuehrung_id
+            , anzahl = :anzahl
+            WHERE token = :token;';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute($this->toArray());
+    }
+
+    public function loesche(): void
+    {
+        $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
+
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute(['token' => $this->getToken()]);
+    }
+
+
     public function getToken()
     {
         return $this->token;
@@ -105,24 +158,7 @@ class Anmeldung
         return $this;
     }
 
-    public function __construct(array $array = array())
-    {
-        if ($array) {
-            foreach ($array as $key => $value) {
-                if ($key == 'new') continue;
-                $setter = 'set' . ucfirst($key);
-                if (method_exists($this, $setter)) {
-                    $this->$setter($value);
-                }
-            }
-        }
-
-        if ($this->token == '') {
-            $this->token = self::generate_token();
-        } else {
-            $this->new = false;
-        }
-    }
+    
 
     public static function findeAnmeldung(string $token)
     {
@@ -160,38 +196,7 @@ class Anmeldung
         }
     }
 
-    private function _insert()
-    {
-        $sql = 'INSERT INTO od_anmeldung (token, datum, telefon, vorname, nachname, email, fuehrung_id, anzahl)
-            VALUES (:token, :datum, :telefon, :vorname, :nachname, :email, :fuehrung_id, :anzahl)';
-
-        $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray());
-    }
-
-    private function _update()
-    {
-        $sql = 'UPDATE od_anmeldung
-            SET telefon = :telefon
-            , datum = :datum
-            , vorname = :vorname
-            , nachname = :nachname
-            , email = :email
-            , fuehrung_id = :fuehrung_id
-            , anzahl = :anzahl
-            WHERE token = :token;';
-
-        $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute($this->toArray());
-    }
-
-    public function loesche(): void
-    {
-        $sql = 'DELETE FROM od_anmeldung WHERE token = :token;';
-
-        $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute(['token' => $this->getToken()]);
-    }
+    
 
     public function toArray()
     {

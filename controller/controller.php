@@ -41,6 +41,29 @@ class Controller
     {
         $this->addContext("be_neuer_od", "nix");
     }
+    public function be_od_erfolgreich()
+    {
+        if (!empty($_REQUEST['beschreibung'])) {
+            $this->addContext("text", "Neues Fach wurde erfolgreich hinzugefügt");
+            $this->addContext("title", "Fach wurde erfolgreich hinzugefügt");
+            $fachrichtung = new Fachrichtung($_REQUEST);
+            $fachrichtung->speichere();
+        } else {
+            if(strtotime($_REQUEST['start']) < strtotime($_REQUEST['ende'])){
+                $offener_tag = new Offener_tag($_REQUEST);
+                $offener_tag->speichere();
+    
+                $this->addContext("text", "Open Day wurde erfolgreich erstellt");
+                $this->addContext("title", "Neuer Open Day");
+            }else{
+                $this->addContext("text", "Open Day wurde nicht erstellt. Überprüfen Sie die Start- und Endzeit!");
+                $this->addContext("title", "Fehler");
+            }
+            
+        }
+    }
+
+
     public function be_neues_fach()
     {
         $this->addContext("be_neues_fach", "nix");
@@ -51,19 +74,6 @@ class Controller
             erstelle_Fuehrungen($_REQUEST);
         }
         $this->addContext("text", "Führung erfolgreich hinzugefügt");
-    }
-    public function be_od_erfolgreich()
-    {
-        if (!empty($_REQUEST['beschreibung'])) {
-            $this->addContext("text", "Neues Fach wurde erfolgreich hinzugefügt");
-            $fachrichtung = new Fachrichtung($_REQUEST);
-            $fachrichtung->speichere();
-        } else {
-            $offener_tag = new Offener_tag($_POST);
-            $offener_tag->speichere();
-
-            $this->addContext("text", "Open Day wurde erfolgreich erstellt");
-        }
     }
     public function be_alle_einstellungen()
     {
