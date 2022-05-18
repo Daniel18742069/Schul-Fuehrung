@@ -217,16 +217,18 @@ class Controller
 
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
+                // führe aktion aus
+                if (isset($_REQUEST['aendern'])) {
+                    $this->aendern();
+                    $Anmeldung = Anmeldung::findeAnmeldung($Anmeldung->getToken()); // aktualisieren
+                } else if (isset($_REQUEST['abmelden'])) {
+                    $this->abmelden();
+                    header('Location: ?aktion=fe_startseite');
+                }
+
                 $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
                 $Offener_tag = Offener_tag::findeOffenenTag($Fuehrung->getOffener_tag_id());
                 $fachrichtung = Fachrichtung::getFachrichtungBeiID($Fuehrung->getFachrichtung_id());
-
-                // führe aktion aus
-                if (isset($_REQUEST['abmelden'])) {
-                    echo 'Abmelden';
-                } else if (isset($_REQUEST['aendern'])) {
-                    echo 'Aendern';
-                }
 
                 // frontend daten vorbereiten
                 $this->addContext('token', $Anmeldung->getToken());
@@ -241,9 +243,9 @@ class Controller
                 $this->addContext('anzahl', $Anmeldung->getAnzahl());
                 $max_anzahl = $Fuehrung->getKapazitaet() - Anmeldung::anzahlTeilnehmer($Fuehrung->getId()) + $Anmeldung->getAnzahl();
                 $this->addcontext('maxanzahl', $max_anzahl);
-            }
 
-            return;
+                return;
+            }
         }
 
         header('Location: ?aktion=fe_startseite');
