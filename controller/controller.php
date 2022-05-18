@@ -197,9 +197,15 @@ class Controller
                     $to_name
                 );
 
-                $this->addContext('anmeldung', 'Erfolgreich!');
+                $this->addContext('info', 'Ihre Anmeldung war Erfolgreich!');
+                return;
             }
+
+            $this->addContext('info', 'Manche der Eingegebenen Daten sind nicht Valide!');
+            return;
         }
+
+        $this->addContext('info', 'Manche der Eingaben sind Leer!');
     }
 
     /**
@@ -212,17 +218,29 @@ class Controller
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
                 $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
+                $Offener_tag = Offener_tag::findeOffenenTag($Fuehrung->getOffener_tag_id());
                 $fachrichtung = Fachrichtung::getFachrichtungBeiID($Fuehrung->getFachrichtung_id());
-                
+
+                // führe aktion aus
+                if (isset($_REQUEST['abmelden'])) {
+                    echo 'Abmelden';
+                } else if (isset($_REQUEST['aendern'])) {
+                    echo 'Aendern';
+                }
+
+                // frontend daten vorbereiten
+                $this->addContext('token', $Anmeldung->getToken());
                 $this->addContext('datum', datum_formatieren($Anmeldung->getDatum(), 'd.m.Y'));
                 $this->addContext('vorname', $Anmeldung->getVorname());
                 $this->addContext('nachname', $Anmeldung->getNachname());
                 $start = strtotime($Fuehrung->getUhrzeit());
                 $this->addContext('start', date('H:i', $start));
-                $ende = addiere_minuten($start);
+                $ende = addiere_minuten($start, $Offener_tag->getIntervall());
                 $this->addContext('ende', date('H:i', $ende));
                 $this->addContext('fachrichtung', $fachrichtung);
                 $this->addContext('anzahl', $Anmeldung->getAnzahl());
+                $max_anzahl = $Fuehrung->getKapazitaet() - Anmeldung::anzahlTeilnehmer($Fuehrung->getId()) + $Anmeldung->getAnzahl();
+                $this->addcontext('maxanzahl', $max_anzahl);
             }
 
             return;
@@ -267,12 +285,20 @@ class Controller
                             $to_name
                         );
 
-                        $this->addContext('abmeldung', 'Erfolgreich!');
+                        $this->addContext('info', 'Ihre Abmeldung war Erfolgreich!');
+                        return;
                     }
+
+                    $this->addContext('info', 'Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist!');
+                    return;
                 }
 
+                $this->addContext('info', 'Die zugehörige Führung wurde nicht gefunden!');
                 return;
             }
+
+            $this->addContext('info', 'Ihre Anmeldung wurde nicht gefunden!');
+            return;
         }
 
         header('Location: ?aktion=fe_startseite');
@@ -321,14 +347,27 @@ class Controller
                                     $to_name
                                 );
 
-                                $this->addContext('aenderung', 'Erfolgreich!');
+                                $this->addContext('aenderung', 'Ihre Änderung war Erfolgreich!');
                             }
+
+                            $this->addContext('info', 'Ihre Eingabe überschreitet die maximale Teilnehmeranzahl!');
+                            return;
                         }
+
+                        $this->addContext('info', 'Ihre Eingabe der anzahl der Teilnehmer ist Leer!');
+                        return;
                     }
+
+                    $this->addContext('info', 'Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist!');
+                    return;
                 }
 
+                $this->addContext('info', 'Die zugehörige Führung wurde nicht gefunden!');
                 return;
             }
+
+            $this->addContext('info', 'Ihre Anmeldung wurde nicht gefunden!');
+            return;
         }
 
         header('Location: ?aktion=fe_startseite');

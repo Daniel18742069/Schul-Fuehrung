@@ -90,8 +90,9 @@ function aendereStatusFuehrung(offenerTag) {
 }
 
 
-//accordions
-
+/**
+ * accordion
+ */
 function accordion() {
 
     const accordion = function () {
@@ -154,10 +155,37 @@ function accordion() {
 
 
 
-//Backend Führung hinzufügen
+/**
+ * Backend Führung hinzufügen
+ */
 function hideShowElement(source, target) {
     element = document.getElementById(target);
     element.style.display = (source.checked) ?
         'block' :
         'none';
+}
+
+/**
+ * Termin Abmelden bestaetigun einblenden
+ */
+function termin_abmelden_bestaetigen() {
+    document.querySelector('#term').style.display = 'none';
+    document.querySelector('#term_abme').style.display = 'block';
+}
+
+/**
+ * Termin Aendern bestaetigun einblenden
+ */
+function termin_aendern_bestaetigen() {
+    document.querySelector('#term').style.display = 'none';
+    document.querySelector('#term_aend').style.display = 'block';
+}
+
+/**
+ * Zurueck zum Termin menue
+ */
+function termin_aktion_abbrechen() {
+    document.querySelector('#term_abme').style.display = 'none';
+    document.querySelector('#term_aend').style.display = 'none';
+    document.querySelector('#term').style.display = 'block';
 }

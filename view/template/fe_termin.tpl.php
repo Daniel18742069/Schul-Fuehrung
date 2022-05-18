@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ihre Führungen</title>
+    <title>Ihre Führung</title>
     <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_alleTermine.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
@@ -21,9 +21,9 @@
     <section id="wrapper">
 
         
-    <form action="" method="post" class="formular-termin">
+    <form action="?aktion=fe_termin&token=<?= $token ?>" method="post" class="formular-termin">
 
-        <h1>Ihre Führungen am <?= $datum; ?></h1>
+        <h1>Ihre Führung am <?= $datum; ?></h1>
 
         <div class="termin" id="term">
             <span class="termine">
@@ -32,25 +32,25 @@
                 <p>Start: <?= $start ?> Uhr</p>
                 <p>Ende: <?= $ende ?> Uhr</p>
                 <p>Fachrichtung: <?= $fachrichtung ?></p>
-                <p><label for="anzahl">Anzahl Personen:</label><input class="anzahlTeilnehmer" type="number" id="anzahl" value="<?= $anzahl ?>" max="10" min="1"></p>
+                <p><label for="anzahl">Anzahl Personen:</label><input class="anzahlTeilnehmer" name="anzahl" type="number" id="anzahl" value="<?= $anzahl ?>" max="<?= $maxanzahl ?>" min="1" /></p>
             </span>
             <span class="buttons">
-                <input type="button" value="Abmelden" class="abmelden" onclick="termin_abmelden()">
-                <input type="button" value="Ändern" class="aendern" onclick="termin_aendern()">
+                <input type="button" name="abmelden_auswaehlen" value="Abmelden" class="abmelden" onclick="termin_abmelden_bestaetigen()" />
+                <input type="button" name="aendern_auswaehlen" value="Ändern" class="aendern" onclick="termin_aendern_bestaetigen()" />
             </span>
         </div>
-        <div class="termin_bestaetigen" id="term_best">
-            <p>Wollen Sie sich wircklich abmelden?</p>
+        <div class="termin_abmelden" id="term_abme">
+            <p>Wollen Sie sich wirklich abmelden?</p>
             <span class="buttons">
-                <input type="submit" value="Abmelden" class="abmelden">
-                <input type="button" value="Zurück" class="aendern" onclick="termin_zurueck()">
+                <input type="submit" name="abmelden" value="Abmelden" class="abmelden" />
+                <input type="button" name="nicht_abmelden" value="Zurück" class="aendern" onclick="termin_aktion_abbrechen()" />
             </span>
         </div>
         <div class="termin_aendern" id="term_aend">
             <p>Wollen Sie wirklich Ihren Termin ändern?</p>
             <span class="buttons">
-                <input type="submit" value="Ändern" class="abmelden">
-                <input type="button" value="Zurück" class="aendern" onclick="termin_zurueck()">
+                <input type="submit" name="aendern" value="Ändern" class="abmelden" />
+                <input type="button" name="nicht_aendern" value="Zurück" class="aendern" onclick="termin_aktion_abbrechen()" />
             </span>
         </div>
 

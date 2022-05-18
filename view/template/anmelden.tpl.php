@@ -1,6 +1,4 @@
 <?php
-if (isset($anmeldung)) {
-	echo $anmeldung;
-} else {
-	echo "none";
+if (isset($info)) {
+	echo $info;
 }
