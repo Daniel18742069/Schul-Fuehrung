@@ -89,12 +89,35 @@ function aendereStatusFuehrung(offenerTag) {
 
 }
 
+function loescheAnmeldung(anmeldungsToken) {
+    var xhttp;
+    console.log(anmeldungsToken);
+    try {
+        xhttp = new XMLHttpRequest();
+    } catch (e) {
+        try {
+            xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                return;
+            }
+        }
+    }
+    xhttp.open("POST", "model/anmeldungEntfernen.php");
+    formData = new FormData();
+    formData.append("token", anmeldungsToken); //extra variable
+    xhttp.send(formData);
+
+}
+
 
 //accordions
 
 function accordion() {
 
-    const accordion = function () {
+    const accordion = function() {
 
         const $accordion = $('.js-accordion');
         const $accordion_header = $accordion.find('.js-accordion-header');
@@ -111,8 +134,8 @@ function accordion() {
 
         return {
             // pass configurable object literal
-            init: function ($settings) {
-                $accordion_header.on('click', function () {
+            init: function($settings) {
+                $accordion_header.on('click', function() {
                     accordion.toggle($(this));
                 });
 
@@ -126,14 +149,14 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: function ($this) {
+            toggle: function($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
-                        find('> .js-accordion-item').
-                        removeClass('active').
-                        find('.js-accordion-body').
-                        slideUp();
+                    find('> .js-accordion-item').
+                    removeClass('active').
+                    find('.js-accordion-body').
+                    slideUp();
                 }
 
                 // show/hide the clicked accordion item
@@ -144,7 +167,7 @@ function accordion() {
 
     }();
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         accordion.init({
             speed: 300,
             oneOpen: true

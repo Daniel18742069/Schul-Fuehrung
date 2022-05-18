@@ -103,6 +103,11 @@ class Anmeldung
         return $this;
     }
 
+    public function getFullName()
+    {
+        return $this->vorname. " " . $this->nachname;
+    }
+
     public function getVorname()
     {
         return $this->vorname;
