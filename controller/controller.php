@@ -81,11 +81,18 @@ class Controller
     }
 
     public function be_od_mit_fuehrungen_editieren(){
-        if(isset($_REQUEST['anmelden'])){
+       if(isset($_REQUEST['anmeldenButton'])){
+
+        isUpdate($_REQUEST);
+        
+
+        /*
             $fuehrung = Fuehrung::findeFuehrung($_REQUEST['f_id']);
             $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
             $fuehrung->speichere();
+            */
         }
+
         
         
         $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);

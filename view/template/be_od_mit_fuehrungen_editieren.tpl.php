@@ -41,11 +41,19 @@ private $id = 0;
                     echo "<br>";
                     $gemID = $fuehrung->getGemeinsame_id();
             }
-        ?>
         
+        ?>
+        <input type="fuehrungsid" name="<?=$key ?>" value="<?=$fuehrung->getID() ?>" hidden="hidden" /> <!-- secreat -->
+        <?php
+        if($fuehrung->getSichtbar() == 1){ ?>
+        <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?=$key ?>" checked="checked"/>
+       <?php }else{ ?>
+           <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?=$key ?>"/>
+      <?php } ?>
+
         <?php echo $fuehrung->getUhrzeit() ." ";  ?>
-        <input type="text" name="fuehrungspersonen" class="fuehrungspersonen" value="<?=$fuehrung->getFuehrungspersonen()?>" required />
-        <input type="number" name="f_id" value="<?=$fuehrung->getID() ?>" hidden="hidden" /> <!-- secreat -->
+        <input type="text" name="fuehrungspersonen<?=$key ?>" class="fuehrungspersonen" value="<?=$fuehrung->getFuehrungspersonen()?>" required />
+        
         <?php 
         
         echo $anzahlTeilnehmer. " / ". $fuehrung->getKapazitaet() ."<br>";
@@ -58,7 +66,7 @@ private $id = 0;
     }
     
     //var_dump($fuehrungen);?>
- <input type="submit" name="anmelden" value="Anmelden" />
+ <input type="submit" name="anmeldenButton" value="Anmelden" />
         </form>
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
