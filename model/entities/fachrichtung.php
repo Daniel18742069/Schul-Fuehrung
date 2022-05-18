@@ -36,7 +36,8 @@ class Fachrichtung{
         $sql = 'SELECT * FROM od_fachrichtung';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fachrichtung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     public static function findeFachrichtungen_OffenerTag(int $offener_tag_id, int $aktiv = 1) {

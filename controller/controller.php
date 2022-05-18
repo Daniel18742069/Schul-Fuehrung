@@ -153,6 +153,25 @@ class Controller
         }
         $this->addContext("be_login_admin", "nix");
     }
+    public function printXLS()
+    {
+        $alleAnmeldungen = Anmeldung::findeAlleAnmeldungenSortiertDatum();
+        $this->addContext("alleAnmeldungen", $alleAnmeldungen);
+
+        $alleFachrichtungen = Fachrichtung::findeAlleFachrichtungen();
+        $this->addContext("alleFachrichtungen", $alleFachrichtungen);
+
+        $alleFuehrungen = Fuehrung::findeAlleFuehrungen();
+        $this->addContext("alleFuehrungen", $alleFuehrungen);
+
+        $this->addContext("printXLS", "nix");
+
+        $this->addContext("", "");
+    }
+    public function test()
+    {
+        $this->addContext("test", "nix");
+    }
 
 
     /**
