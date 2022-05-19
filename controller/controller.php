@@ -92,7 +92,6 @@ class Controller
 
     public function be_od_mit_fuehrungen_editieren(){
        if(isset($_REQUEST['anmeldenButton'])){
-        var_dump($_REQUEST);
         isUpdate($_REQUEST);
         
 
