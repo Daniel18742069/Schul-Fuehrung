@@ -43,11 +43,12 @@ function formAusgefuellt(element) {
     const inputs = parent.getElementsByTagName('input');
     // bricht ab wenn 1+ feld leer ist
     for (let index = 0; index < inputs.length; index++) {
+        parent.querySelector('input[name="anmelden"]').disabled = true;
         if (inputs[index].value === '') return;
     }
 
     showHideCaptcha(true);
-    parent.querySelector('input[name="submit"]').disabled = false;
+    parent.querySelector('input[name="anmelden"]').disabled = false;
 }
 
 function showHideCaptcha(anzeigen = false) {

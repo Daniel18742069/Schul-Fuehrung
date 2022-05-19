@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/fe_CSS/info_box.css" />
 
     <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
     <meta name="apple-mobile-web-app-title" content="CodePen">
@@ -33,6 +34,8 @@
 </head>
 
 <body>
+    <?php require 'view/snippets/info_box.sp.php'; ?>
+
     <div id="content">
         <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
@@ -86,19 +89,19 @@
                             </div>
                             <div class="accordion-body js-accordion-body">
                                 <div class="accordion-body__contents">
-                                    <form class="form_buchung" method="POST" action="index.php?aktion=anmelden">
+                                    <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite">
                                         <label for="vorname">Vorname:</label>
-                                        <input type="text" name="vorname" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="text" name="vorname" title="zB. Max" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="nachname">Nachname:</label>
-                                        <input type="text" name="nachname" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="text" name="nachname" title="zB. Mustermann" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="telefon">Telefon:</label>
-                                        <input type="telefon" name="telefon" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="telefon" name="telefon" title="zB. 339 123 4567" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="email">E-Mail:</label>
-                                        <input type="email" name="email" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="email" name="email" title="zB. max.mustermann@gmail.com" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> />
+                                        <input type="number" name="anzahl" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> />
                                         <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
-                                        <input type="submit" name="submit" value="Anmelden" disabled="disabled" />
+                                        <input type="submit" name="anmelden" value="Anmelden" disabled="disabled" />
                                     </form>
                                 </div>
                             </div>

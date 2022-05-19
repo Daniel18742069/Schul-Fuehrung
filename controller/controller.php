@@ -20,6 +20,10 @@ class Controller
     //user
     public function fe_startseite()
     {
+        if (isset($_REQUEST['anmelden'])) {
+            $this->anmelden();
+        }
+
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
         $this->addContext("offener_tag", $offener_tag);
 
@@ -206,6 +210,7 @@ class Controller
         }
 
         $this->addContext('info', 'Manche der Eingaben sind Leer!');
+        return;
     }
 
     /**
