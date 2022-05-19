@@ -232,7 +232,7 @@ class Controller
 
                 // frontend daten vorbereiten
                 $this->addContext('token', $Anmeldung->getToken());
-                $this->addContext('datum', datum_formatieren($Anmeldung->getDatum(), 'd.m.Y'));
+                $this->addContext('datum', datum_formatieren($Offener_tag->getDatum(), 'd.m.Y'));
                 $this->addContext('vorname', $Anmeldung->getVorname());
                 $this->addContext('nachname', $Anmeldung->getNachname());
                 $start = strtotime($Fuehrung->getUhrzeit());
@@ -349,7 +349,8 @@ class Controller
                                     $to_name
                                 );
 
-                                $this->addContext('aenderung', 'Ihre Änderung war Erfolgreich!');
+                                $this->addContext('info', 'Ihre Änderung war Erfolgreich!');
+                                return;
                             }
 
                             $this->addContext('info', 'Ihre Eingabe überschreitet die maximale Teilnehmeranzahl!');

@@ -14,7 +14,10 @@ require_once 'controller/controller.php';
 
 
 session_start();
-$aktion = isset($_GET['aktion']) ? $_GET['aktion'] : CONF['DEFAULT_SITE'];
+
+$aktion = isset($_GET['aktion'])
+    ? $_GET['aktion']
+    : CONF['DEFAULT_SITE'];
 
 $controller = new Controller();
 
@@ -25,7 +28,9 @@ if (substr($aktion, 0, 2) == "be") {
         $aktion = "be_login_admin";
     }
 }
-if (method_exists($controller, $aktion)) {
 
-    $controller->run($aktion);
+if (!method_exists($controller, $aktion)) {
+    $aktion = CONF['DEFAULT_SITE'];
 }
+
+$controller->run($aktion);
