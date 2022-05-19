@@ -37,9 +37,7 @@
 
             <div class="accordion-wrapper accordion-be js-accordion">
                 <?php 
-                var_dump($be_alle_od);
                     foreach ($be_alle_od as $offenerTag) {
-                        print_r($offenerTag);
                         ?>
                 <div class="accordion__item js-accordion-item">
                     <div class="kalenderbox alle_od accordion-header js-accordion-header">
