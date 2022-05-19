@@ -50,8 +50,9 @@ private $id = 0;
             ?>
             <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
                 <div class="accordion-header js-accordion-header">
-                    <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
                     <!-- secreat -->
+                    <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
+                    
                     <?php
                         if ($fuehrung->getSichtbar() == 1) { ?>
                     <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>"
@@ -78,9 +79,9 @@ private $id = 0;
                                 echo "Email: ". $anmeldung->getEmail()."<br>";
                                 echo "Telefonnummer: ". $anmeldung->getTelefon()."<br>";
                                 echo "Datum: ". $anmeldung->getDatum()."<br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
-                                echo "Anzahl: ". $anmeldung->getAnzahl()."<br>";
+                                echo "Anzahl: ". $anmeldung->getAnzahl()."<br>"."<br>";
                                 ?>
-                                <a href="#" onclick="loescheAnmeldung('<?=$anmeldung->getToken()?>')">Löschen</a>
+                                <a href="#" >Löschen</a>
 
                         <?php
                             }

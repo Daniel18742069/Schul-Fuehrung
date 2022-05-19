@@ -89,28 +89,6 @@ function aendereStatusFuehrung(offenerTag) {
 
 }
 
-function loescheAnmeldung(anmeldungsToken) {
-    var xhttp;
-    console.log(anmeldungsToken);
-    try {
-        xhttp = new XMLHttpRequest();
-    } catch (e) {
-        try {
-            xhttp = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
-            try {
-                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (e) {
-                return;
-            }
-        }
-    }
-    xhttp.open("POST", "model/anmeldungEntfernen.php");
-    formData = new FormData();
-    formData.append("token", anmeldungsToken); //extra variable
-    xhttp.send(formData);
-
-}
 
 
 //accordions
