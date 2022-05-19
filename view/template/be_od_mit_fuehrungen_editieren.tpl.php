@@ -97,7 +97,7 @@ private $id = 0;
             accordion();
             </script>
         </div>
-        <input type="submit" value="DRÜCKE MICH" name="anmeldenButton">
+        <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
     </form>
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
