@@ -31,6 +31,12 @@ class Fachrichtung{
 
     }
 
+    public static function groeßteID() {
+        $sql = 'SELECT id FROM od_fachrichtung order by id desc limit 1';
+        $abfrage = DB::getDB()->query($sql);
+        return $abfrage->fetch();
+    }
+
 
     public static function findeAlleFachrichtungen() {
         $sql = 'SELECT * FROM od_fachrichtung';

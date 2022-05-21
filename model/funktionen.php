@@ -86,7 +86,7 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
 function arrayManipulieren($assotiativesArrayPost){
 
     $array = [];
-    for ($i = 0; $i < count($assotiativesArrayPost); $i++) { //fach_menge
+    for ($i = 0; $i < Fachrichtung::groeßteID()['id']+1; $i++) { //fach_menge
             if (
                 array_key_exists('checkbox' . $i, $assotiativesArrayPost) &&
                 array_key_exists('number' . $i, $assotiativesArrayPost)
