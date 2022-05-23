@@ -166,10 +166,7 @@ class Controller
                     $_REQUEST['anzahl']
                 )
             ) {
-                $Fuehrung = Fuehrung::findeFuehrung($_REQUEST['fuehrung_id']);
-                $offener_tag_datum = $Fuehrung->getOffener_tag_datum();
-                $fuehrung_zeit = $Fuehrung->getUhrzeit();
-                $datum = date('Y-m-d H:i:s', strtotime("$offener_tag_datum $fuehrung_zeit"));
+                $datum = date("Y-m-d H:i:s", strtotime("now"));
 
                 $Anmeldung = new Anmeldung([
                     'datum' => $datum,
