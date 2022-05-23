@@ -85,7 +85,7 @@ class Fuehrung
     }
 
     public static function findeSichtbareFuehrungen(int $offener_tag_id) {
-        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id . ' AND sichtbar = 1';
+        $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id . ' AND sichtbar = 1 ORDER BY uhrzeit, id ASC';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
         return $abfrage->fetchAll();
