@@ -9,6 +9,6 @@
                 document.querySelector('#info_box').remove();
                 document.querySelector('#info_script').remove();
             }, 300);
-        }, 10000);
+        }, 1E4);
     </script>
 <?php } ?>
