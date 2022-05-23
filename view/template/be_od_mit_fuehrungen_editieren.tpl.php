@@ -22,7 +22,17 @@
 <body>
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+
+
+    
+
+    <section id="wrapper">
+
+<div class="wrapper-fe_startseite">
+
+
     <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>" method="post">
+        <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
         <?php
         /*
 private $id = 0;
@@ -98,8 +108,10 @@ private $id = 0;
                 accordion();
             </script>
         </div>
-        <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
     </form>
+
+</div>
+    </section>
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 

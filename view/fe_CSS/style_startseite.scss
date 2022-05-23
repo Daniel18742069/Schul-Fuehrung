@@ -119,6 +119,16 @@ body {
 }
 
 
+#btn_anmelden{
+  /*position: fixed;
+  bottom: 3rem;
+  right: 5rem;*/
+
+  position: sticky;
+  top: 2rem;
+  right: 3rem;
+}
+
 
 
 input[type="button"]:hover {
