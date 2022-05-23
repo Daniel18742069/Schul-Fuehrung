@@ -14,7 +14,7 @@ require_once 'controller/controller.php';
 
 
 session_start();
-logge_aus();
+//logge_aus();
 $aktion = isset($_GET['aktion']) ? $_GET['aktion'] : CONF['DEFAULT_SITE'];
 
 $controller = new Controller();

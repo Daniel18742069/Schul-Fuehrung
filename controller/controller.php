@@ -91,7 +91,7 @@ class Controller
     }
 
     public function be_od_mit_fuehrungen_editieren(){
-       if(isset($_REQUEST['anmeldenButton'])){
+       if(isset($_REQUEST['anmeldenButton']) && !isset($_REQUEST['delete'])){
         isUpdate($_REQUEST);
         
 
@@ -100,6 +100,10 @@ class Controller
             $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
             $fuehrung->speichere();
             */
+        }elseif(isset($_REQUEST['delete'])==1){
+            $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['id']);
+            $anmeldung->loesche();
+
         }
         
        
