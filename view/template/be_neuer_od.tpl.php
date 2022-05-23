@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
     <title>Neuer Open Day</title>
 
 </head>
@@ -30,8 +32,7 @@
                         <span>
                             <p>Bezeichnung:</p>
                         </span>
-                        <span><input type="text" name="bezeichnung" id="bezeichnung" required
-                                class="felder-neuer-od feld-neuer-od-bez" /></span>
+                        <span><input type="text" name="bezeichnung" id="bezeichnung" required class="felder-neuer-od feld-neuer-od-bez" /></span>
                     </div>
 
 
@@ -42,18 +43,15 @@
                         </span>
 
                         <span>
-                            <p>Intervall:</p><input type="number" name="intervall" id="intervall" min="10"
-                                placeholder="Minuten" required class="felder-neuer-od" />
+                            <p>Intervall:</p><input type="number" name="intervall" id="intervall" min="10" placeholder="Minuten" required class="felder-neuer-od" />
                         </span>
 
                         <span>
-                            <p>Startuhrzeit:</p><input type="time" name="start" id="start" required
-                                class="felder-neuer-od" />
+                            <p>Startuhrzeit:</p><input type="time" name="start" id="start" required class="felder-neuer-od" />
                         </span>
 
                         <span>
-                            <p>Enduhrzeit:</p><input type="time" name="ende" id="ende" required
-                                class="felder-neuer-od" />
+                            <p>Enduhrzeit:</p><input type="time" name="ende" id="ende" required class="felder-neuer-od" />
                         </span>
 
                     </div>
