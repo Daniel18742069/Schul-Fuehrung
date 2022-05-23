@@ -13,6 +13,10 @@
     <script type="text/javascript" src="model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
+
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
 </head>
 
 <body>
@@ -48,53 +52,50 @@ private $id = 0;
                     $gemID = $fuehrung->getGemeinsame_id();
                 }
             ?>
-            <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
-                <div class="accordion-header js-accordion-header">
-                    <!-- secreat -->
-                    <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
-                    
-                    <?php
+                <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
+                    <div class="accordion-header js-accordion-header">
+                        <!-- secreat -->
+                        <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
+
+                        <?php
                         if ($fuehrung->getSichtbar() == 1) { ?>
-                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>"
-                        checked="checked" />
-                    <?php } else { ?>
-                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
-                        value="<?= $key ?>" />
-                    <?php } ?>
-                    <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
-                    <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen"
-                        value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
-                    <?php
+                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
+                        <?php } else { ?>
+                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" />
+                        <?php } ?>
+                        <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
+                        <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen" value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
+                        <?php
 
                         echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
                         $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                         ?>
-                </div>
-                <div class="accordion-body js-accordion-body">
-                    <div class="accordion-body__contents">
-                        <?php // hier werden die Angemeldeten personen angezeigt
+                    </div>
+                    <div class="accordion-body js-accordion-body">
+                        <div class="accordion-body__contents">
+                            <?php // hier werden die Angemeldeten personen angezeigt
                             $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                             foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
-                                echo "Name: ". $anmeldung->getFullName()."<br>";
-                                echo "Email: ". $anmeldung->getEmail()."<br>";
-                                echo "Telefonnummer: ". $anmeldung->getTelefon()."<br>";
-                                echo "Datum: ". $anmeldung->getDatum()."<br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
-                                echo "Anzahl: ". $anmeldung->getAnzahl()."<br>"."<br>";
-                                ?>
-                                <a href="#" >Löschen</a>
+                                echo "Name: " . $anmeldung->getFullName() . "<br>";
+                                echo "Email: " . $anmeldung->getEmail() . "<br>";
+                                echo "Telefonnummer: " . $anmeldung->getTelefon() . "<br>";
+                                echo "Datum: " . $anmeldung->getDatum() . "<br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
+                                echo "Anzahl: " . $anmeldung->getAnzahl() . "<br>" . "<br>";
+                            ?>
+                                <a href="#">Löschen</a>
 
-                        <?php
+                            <?php
                             }
-                            
+
                             ?>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <?php } ?>
             <script>
-            accordion();
+                accordion();
             </script>
         </div>
         <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">

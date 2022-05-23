@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
     <title><?= $title ?></title>
 
 </head>

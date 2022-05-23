@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
     <title>Neuer Open Day</title>
 
 </head>
@@ -26,7 +28,7 @@
 
             <form action="index.php?aktion=be_od_erfolgreich" method="post">
 
-                <span>    
+                <span>
                     <p class="name-fachrichtung">Name der Fachrichtung: <input type="text" name="beschreibung" id="beschreibung" required class="felder-neuer-od feld-fachrichtung" /></p>
                 </span>
 
