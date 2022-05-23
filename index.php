@@ -29,7 +29,10 @@ if (substr($aktion, 0, 2) == "be") {
     }
 }
 
-if (!method_exists($controller, $aktion)) {
+if (
+    !method_exists($controller, $aktion)
+    || $aktion == "run"
+) {
     $aktion = CONF['DEFAULT_SITE'];
 }
 
