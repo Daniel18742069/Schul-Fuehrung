@@ -119,20 +119,16 @@ function isUpdate($request){
            if($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i] ){
             $fuehrung->setFuehrungspersonen($request['fuehrungspersonen' . $i] );
             }
-           
-
-
            $fuehrung->speichere();
-            
-
-
             //array_key_exists('checkbox' . $i, $request)
-
         }
 
     }
+}
 
+function deleteFuehrung(){
 
+    
 
 }
 

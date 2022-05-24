@@ -91,7 +91,7 @@ class Controller
     }
 
     public function be_od_mit_fuehrungen_editieren(){
-       if(isset($_REQUEST['anmeldenButton'])){
+       if(isset($_REQUEST['anmeldenButton']) && !isset($_REQUEST['delete'])){
         isUpdate($_REQUEST);
         
 
@@ -100,11 +100,13 @@ class Controller
             $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
             $fuehrung->speichere();
             */
-        }
-        
-       
+        }elseif(isset($_REQUEST['delete'])){
+            $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['delete']);
+            if($anmeldung!=NULL){
+                $anmeldung->loesche();
+            }           
 
-        
+        }
         
         $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
         $this->addContext("offenerTag", $offenerTag);
