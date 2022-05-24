@@ -239,9 +239,6 @@ p {
 .form_buchung .refreshIcon {
   top: -54px;
 }
-.form_buchung :not(input[type=submit], label) {
-  width: 15em;
-}
 
 .wrapper-fe_startseite {
   margin-top: 5rem;
@@ -269,8 +266,9 @@ input[type=submit]:hover, .neuer_od:hover {
   cursor: pointer;
 }
 input[type=submit]:disabled, .neuer_od:disabled {
-  filter: brightness(0.3);
+  opacity: 0.6;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .neuer_od {
@@ -298,7 +296,7 @@ input[type=submit]:disabled, .neuer_od:disabled {
   align-items: center;
 }
 
-.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit {
+.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit, .anmeldeinputs {
   color: #002a50;
   font-size: 1.2rem;
   margin-left: 1rem;
