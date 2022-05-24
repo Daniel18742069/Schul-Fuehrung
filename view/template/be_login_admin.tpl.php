@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
     <title>Neuer OpenDay erstellt</title>
 
 </head>
@@ -23,15 +21,19 @@
     <section id="wrapper">
         <div class="wrapper-fuehrung_hinzufuegen">
 
-            <h2>Admin Anmeldung</h2>
+            <h2>Login</h2>
 
 
             <form action="index.php?aktion=adminAnmeldung" method="post">
 
-
-                <p class="name-fachrichtung">Benutzername: <input type="text" name="benutzername" required class="felder-neuer-od feld-fachrichtung" /></p>
-                <p class="name-fachrichtung">Passwort: <input type="password" name="passwort" required class="felder-neuer-od feld-fachrichtung" /></p>
-
+                <p>
+                <label for="benutzername" class="name-fachrichtung">Benutzername:</label>
+                <input type="text" name="benutzername" required class="felder-neuer-od feld-fachrichtung" />
+                </p>
+                <p>
+                <label for="password" class="name-fachrichtung">Password:</label>
+                <input type="password" name="passwort" required class="felder-neuer-od feld-fachrichtung" />
+                </p>
                 <input type="submit" name="anmelden" value="Anmelden" />
 
 
