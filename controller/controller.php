@@ -100,15 +100,13 @@ class Controller
             $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
             $fuehrung->speichere();
             */
-        }elseif(isset($_REQUEST['delete'])==1){
-            $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['id']);
-            $anmeldung->loesche();
+        }elseif(isset($_REQUEST['delete'])){
+            $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['delete']);
+            if($anmeldung!=NULL){
+                $anmeldung->loesche();
+            }           
 
         }
-        
-       
-
-        
         
         $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
         $this->addContext("offenerTag", $offenerTag);
