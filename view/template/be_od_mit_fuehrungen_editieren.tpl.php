@@ -88,13 +88,13 @@ private $id = 0;
                             foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
                                 ?>
                                 <div>
-                                    <?php
-                                echo "<b>Name: </b>" . $anmeldung->getFullName() . "</br>";
-                                echo "<b>Email: </b>" . $anmeldung->getEmail() . "</br>";
-                               // echo "<b>Telefonnummer: </b>" . $anmeldung->getTelefon() . "<br>";
-                                echo "<b>Datum: </b>" . $anmeldung->getDatum() . "</br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
-                                echo "<b>Anzahl: </b>" . $anmeldung->getAnzahl() . "</br>";
-                            ?> 
+                                    
+                                <b>Name: </b> <?= $anmeldung->getFullName() ?>  </br>
+                                <b>Email: </b> <?= $anmeldung->getEmail() ?> </br>
+                                <b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </br>
+                                <b>Datum: </b> <?= $anmeldung->getDatum() ?>  </br>
+                                <b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </br>
+                           
                                 <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button> </br>
                                 </div>
                             <?php
