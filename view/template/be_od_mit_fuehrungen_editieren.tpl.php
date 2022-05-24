@@ -82,7 +82,7 @@ private $id = 0;
                                 echo "Datum: " . $anmeldung->getDatum() . "<br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
                                 echo "Anzahl: " . $anmeldung->getAnzahl() . "<br>" . "<br>";
                             ?>
-                                <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche </a>
+                                <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button>
 
                             <?php
                             }
