@@ -275,11 +275,6 @@ p {
   .refreshIcon {
     top: -54px;
   }
-
-  :not(input[type="submit"], label) {
-    width: 15em;
-    padding: 0.5em;
-  }
 }
 
 
@@ -312,8 +307,10 @@ input[type="submit"], .neuer_od {
   }
 
   &:disabled {
-    filter: brightness(0.3);
+    //filter: grayscale(0.9);
+    opacity: 0.6;
     cursor: not-allowed;
+    pointer-events: none;
   }
 
 
@@ -345,7 +342,7 @@ input[type="submit"], .neuer_od {
 }
 
 
-.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit{
+.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit, .anmeldeinputs{
   color: $blueColor;
   font-size: 1.2rem;
   margin-left: 1rem;

@@ -83,15 +83,15 @@
                                 <div class="accordion-body__contents">
                                     <form class="form_buchung" method="POST" action="index.php?aktion=anmelden">
                                         <label for="vorname">Vorname:</label>
-                                        <input type="text" name="vorname" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="text" class="anmeldeinputs" name="vorname" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="nachname">Nachname:</label>
-                                        <input type="text" name="nachname" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="text" class="anmeldeinputs" name="nachname" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="telefon">Telefon:</label>
-                                        <input type="telefon" name="telefon" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="telefon" class="anmeldeinputs" name="telefon" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="email">E-Mail:</label>
-                                        <input type="email" name="email" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
+                                        <input type="email" class="anmeldeinputs" name="email" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> />
+                                        <input type="number" class="anmeldeinputs" name="anzahl" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> />
                                         <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
                                         <input type="submit" name="submit" value="Anmelden" disabled="disabled" />
                                     </form>
