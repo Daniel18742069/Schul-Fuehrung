@@ -12,9 +12,9 @@ function tabs(actuated_button, fachrichung_id) {
         if (button === actuated_button) {
             // Actuated Button
             button.disabled = true;
-            button.style.border = '1px solid black';
+            //button.style.border = '1px solid black';
             button.style.fontWeight = '700';
-            button.style.filter = 'brightness(0.7)';
+            button.style.filter = 'brightness(0.8)';
         } else {
             // Reset other Buttons
             button.disabled = false;

@@ -356,7 +356,7 @@ input[type=submit]:disabled, .neuer_od:disabled {
   }
 
   .tabs {
-    width: 120%;
+    flex-wrap: wrap;
   }
 }
 @media screen and (min-width: 992px) {
@@ -380,7 +380,7 @@ input[type=submit]:disabled, .neuer_od:disabled {
   border-right: 1px solid #ccc;
   border-bottom: none;
   position: relative;
-  color: black;
+  color: #000000;
 }
 .active-tab:after {
   width: 100%;

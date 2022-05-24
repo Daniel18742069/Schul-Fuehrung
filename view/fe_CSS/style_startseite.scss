@@ -23,6 +23,7 @@ body {
     justify-content: space-between;
     gap: 1rem;
     flex-direction: row;
+    //flex-wrap: wrap;
 
     .active {
       background-color: $blueColor;
@@ -157,12 +158,6 @@ p {
 .textZwei {
   padding: 0;
   margin: 0.5rem 0 2rem 0;
-}
-
-input {
-  //position: absolute;
-  //opacity: 0;
-  //z-index: -1;
 }
 
 .fachrichtung {
@@ -418,7 +413,7 @@ input[type="submit"], .neuer_od {
   }
 
   .tabs {
-    width: 120%;
+    flex-wrap: wrap;
   }
 
 }
@@ -498,7 +493,7 @@ input[type="submit"], .neuer_od {
   border-right: 1px solid #ccc;
   border-bottom: none;
   position: relative;
-  color: black;
+  color: #000000;
   
   &:after {
     width: 100%;
