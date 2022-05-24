@@ -86,14 +86,17 @@ private $id = 0;
                             <?php // hier werden die Angemeldeten personen angezeigt
                             $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                             foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
-                                echo "Name: " . $anmeldung->getFullName() . "<br>";
-                                echo "Email: " . $anmeldung->getEmail() . "<br>";
-                                echo "Telefonnummer: " . $anmeldung->getTelefon() . "<br>";
-                                echo "Datum: " . $anmeldung->getDatum() . "<br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
-                                echo "Anzahl: " . $anmeldung->getAnzahl() . "<br>" . "<br>";
-                            ?>
-                                <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button>
-
+                                ?>
+                                <div>
+                                    <?php
+                                echo "<b>Name: </b>" . $anmeldung->getFullName() . "</br>";
+                                echo "<b>Email: </b>" . $anmeldung->getEmail() . "</br>";
+                               // echo "<b>Telefonnummer: </b>" . $anmeldung->getTelefon() . "<br>";
+                                echo "<b>Datum: </b>" . $anmeldung->getDatum() . "</br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
+                                echo "<b>Anzahl: </b>" . $anmeldung->getAnzahl() . "</br>" . "</br>";
+                            ?> 
+                                <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button> </br>
+                                </div>
                             <?php
                             }
 

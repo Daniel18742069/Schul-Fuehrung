@@ -226,7 +226,14 @@ p {
 .accordion-body__contents {
   padding: 1.5rem;
   font-size: 1.3rem;
+
+  div {
+    display: inline-block;
+    padding: 1rem;
+  }
 }
+
+
 
 .accordion__item.active:last-child .accordion-header {
   border-radius: none;
@@ -287,7 +294,7 @@ p {
   width: auto;
 }
 
-input[type="submit"], .neuer_od {
+input[type="submit"], .neuer_od, #btn_loesche{
   order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
@@ -315,7 +322,12 @@ input[type="submit"], .neuer_od {
 
 }
 
-.neuer_od{
+#btn_loesche {
+  float: none;
+}
+
+
+.neuer_od {
   margin: 0 0.5rem;
   min-width: 13rem;
 }
@@ -400,7 +412,6 @@ input[type="submit"], .neuer_od {
 .feld-fachrichtung{
   min-width: 20rem;
 }
-
 
 
 
