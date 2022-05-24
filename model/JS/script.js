@@ -63,7 +63,7 @@ function aendereStatusFuehrung(offenerTag) {
     window.alert(offenerTag);
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
     console.log(status);
-    if (status == "deaktiviert") {
+    if (status == "DEAKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
     } else {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
