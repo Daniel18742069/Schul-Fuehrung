@@ -87,24 +87,26 @@
                                 <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
                                 <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                             </div>
-                            <div class="accordion-body js-accordion-body">
-                                <div class="accordion-body__contents">
-                                    <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite">
-                                        <label for="vorname">Vorname:</label>
-                                        <input type="text" name="vorname" title="zB. Max" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
-                                        <label for="nachname">Nachname:</label>
-                                        <input type="text" name="nachname" title="zB. Mustermann" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
-                                        <label for="telefon">Telefon:</label>
-                                        <input type="telefon" name="telefon" title="zB. 339 123 4567" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
-                                        <label for="email">E-Mail:</label>
-                                        <input type="email" name="email" title="zB. max.mustermann@gmail.com" value="" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> /><br />
-                                        <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> />
-                                        <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
-                                        <input type="submit" name="anmelden" value="Anmelden" disabled="disabled" />
-                                    </form>
+                            <?php if (($anzahl_teilnehmer[$fuehrung->getId()] !== $fuehrung->getKapazitaet())) : ?>
+                                <div class="accordion-body js-accordion-body">
+                                    <div class="accordion-body__contents">
+                                        <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite&anmelden=1">
+                                            <label for="vorname">Vorname:</label>
+                                            <input type="text" name="vorname" title="zB. Max" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <label for="nachname">Nachname:</label>
+                                            <input type="text" name="nachname" title="zB. Mustermann" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <label for="telefon">Telefon:</label>
+                                            <input type="telefon" name="telefon" title="zB. 339 123 4567" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <label for="email">E-Mail:</label>
+                                            <input type="email" name="email" title="zB. max.mustermann@gmail.com" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <label for="anzahl">Personen:</label>
+                                            <input type="number" name="anzahl" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" />
+                                            <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
+                                            <input type="submit" value="Anmelden" disabled="disabled" />
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                     <?php } ?>
 
@@ -152,7 +154,8 @@
                         var handler = setTimeout(() => {
                             window.clearTimeout(handler);
                             captcha.reset();
-                            showHideCaptcha();
+                            toggleCaptcha();
+                            window.submitForm.submit();
                         }, 500);
                     }
                 });
@@ -165,6 +168,7 @@
 <?php if ($fachrichtungen) { ?>
     <script>
         first_tab();
+        set_events();
     </script>
 <?php } ?>
 

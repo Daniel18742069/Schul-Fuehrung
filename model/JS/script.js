@@ -43,15 +43,33 @@ function formAusgefuellt(element) {
     const inputs = parent.getElementsByTagName('input');
     // bricht ab wenn 1+ feld leer ist
     for (let index = 0; index < inputs.length; index++) {
-        parent.querySelector('input[name="anmelden"]').disabled = true;
+        parent.querySelector('input[type="submit"]').disabled = true;
         if (inputs[index].value === '') return;
     }
 
-    showHideCaptcha(true);
-    parent.querySelector('input[name="anmelden"]').disabled = false;
+    parent.querySelector('input[type="submit"]').disabled = false;
 }
 
-function showHideCaptcha(anzeigen = false) {
+function set_events() {
+    set_submit_events();
+}
+
+function set_submit_events() {
+    const submits = document.querySelectorAll('input[type="submit"]');
+    if (submits) {
+        for (const submit of submits) {
+            submit.parentNode.addEventListener("submit", formSubmit, true);
+        }
+    }
+}
+
+function formSubmit(event) {
+    event.preventDefault();
+    window.submitForm = event.srcElement;
+    toggleCaptcha(true);
+}
+
+function toggleCaptcha(anzeigen = false) {
     content = document.querySelector('#content');
     captcha_background = document.querySelector('#captcha_background');
     // Webseite Blurren/Normal
