@@ -23,6 +23,7 @@ body {
     justify-content: space-between;
     gap: 1rem;
     flex-direction: row;
+    //flex-wrap: wrap;
 
     .active {
       background-color: $blueColor;
@@ -119,6 +120,16 @@ body {
 }
 
 
+#btn_anmelden{
+  /*position: fixed;
+  bottom: 3rem;
+  right: 5rem;*/
+
+  position: sticky;
+  top: 2rem;
+  right: 3rem;
+}
+
 
 
 input[type="button"]:hover {
@@ -147,12 +158,6 @@ p {
 .textZwei {
   padding: 0;
   margin: 0.5rem 0 2rem 0;
-}
-
-input {
-  //position: absolute;
-  //opacity: 0;
-  //z-index: -1;
 }
 
 .fachrichtung {
@@ -269,11 +274,6 @@ input {
   .refreshIcon {
     top: -54px;
   }
-
-  :not(input[type="submit"], label) {
-    width: 15em;
-    padding: 0.5em;
-  }
 }
 
 
@@ -306,8 +306,10 @@ input[type="submit"], .neuer_od {
   }
 
   &:disabled {
-    filter: brightness(0.3);
+    //filter: grayscale(0.9);
+    opacity: 0.6;
     cursor: not-allowed;
+    pointer-events: none;
   }
 
 
@@ -339,7 +341,7 @@ input[type="submit"], .neuer_od {
 }
 
 
-.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit{
+.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit, .anmeldeinputs{
   color: $blueColor;
   font-size: 1.2rem;
   margin-left: 1rem;
@@ -408,7 +410,7 @@ input[type="submit"], .neuer_od {
   }
 
   .tabs {
-    width: 120%;
+    flex-wrap: wrap;
   }
 
 }
@@ -488,7 +490,7 @@ input[type="submit"], .neuer_od {
   border-right: 1px solid #ccc;
   border-bottom: none;
   position: relative;
-  color: black;
+  color: #000000;
   
   &:after {
     width: 100%;
