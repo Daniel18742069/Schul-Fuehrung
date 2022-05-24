@@ -82,7 +82,7 @@ private $id = 0;
                         ?>
                     </div>
                     <div class="accordion-body js-accordion-body">
-                        <div class="accordion-body__contents">
+                        <div class="accordion-body__contents asdf">
                             <?php // hier werden die Angemeldeten personen angezeigt
                             $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                             foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
@@ -93,7 +93,7 @@ private $id = 0;
                                 echo "<b>Email: </b>" . $anmeldung->getEmail() . "</br>";
                                // echo "<b>Telefonnummer: </b>" . $anmeldung->getTelefon() . "<br>";
                                 echo "<b>Datum: </b>" . $anmeldung->getDatum() . "</br>"; //datum isch no folsch, Ander mocht de kloanigkeit no
-                                echo "<b>Anzahl: </b>" . $anmeldung->getAnzahl() . "</br>" . "</br>";
+                                echo "<b>Anzahl: </b>" . $anmeldung->getAnzahl() . "</br>";
                             ?> 
                                 <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button> </br>
                                 </div>

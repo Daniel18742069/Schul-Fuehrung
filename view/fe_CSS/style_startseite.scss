@@ -226,10 +226,16 @@ p {
 .accordion-body__contents {
   padding: 1.5rem;
   font-size: 1.3rem;
+}
 
-  div {
-    display: inline-block;
-    padding: 1rem;
+
+
+.asdf {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+  div{
+    margin: 1.2rem 0;
   }
 }
 
