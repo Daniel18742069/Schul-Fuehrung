@@ -234,6 +234,7 @@ p {
   display: grid;
   justify-content: space-around;
   grid-template-columns: 1fr 1fr;
+
   div{
     margin: 1.2rem 0;
   }
@@ -330,6 +331,7 @@ input[type="submit"], .neuer_od, #btn_loesche{
 
 #btn_loesche {
   float: none;
+  margin-top: 1rem;
 }
 
 
