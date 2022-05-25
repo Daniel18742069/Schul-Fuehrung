@@ -22,6 +22,9 @@ function tabs(actuated_button, fachrichung_id) {
             button.style.fontWeight = 'normal';
             button.style.filter = 'none';
         }
+
+        document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
+
     }
 
     fuehrungen = document.getElementsByClassName('fuehrung');
@@ -43,14 +46,33 @@ function formAusgefuellt(element) {
     const inputs = parent.getElementsByTagName('input');
     // bricht ab wenn 1+ feld leer ist
     for (let index = 0; index < inputs.length; index++) {
+        parent.querySelector('input[type="submit"]').disabled = true;
         if (inputs[index].value === '') return;
     }
 
-    showHideCaptcha(true);
-    parent.querySelector('input[name="submit"]').disabled = false;
+    parent.querySelector('input[type="submit"]').disabled = false;
 }
 
-function showHideCaptcha(anzeigen = false) {
+function set_events() {
+    set_submit_events();
+}
+
+function set_submit_events() {
+    const submits = document.querySelectorAll('input[type="submit"]');
+    if (submits) {
+        for (const submit of submits) {
+            submit.parentNode.addEventListener("submit", formSubmit, true);
+        }
+    }
+}
+
+function formSubmit(event) {
+    event.preventDefault();
+    window.submitForm = event.srcElement;
+    toggleCaptcha(true);
+}
+
+function toggleCaptcha(anzeigen = false) {
     content = document.querySelector('#content');
     captcha_background = document.querySelector('#captcha_background');
     // Webseite Blurren/Normal
@@ -90,9 +112,9 @@ function aendereStatusFuehrung(offenerTag) {
 }
 
 
-
-//accordions
-
+/**
+ * accordion
+ */
 function accordion() {
 
     const accordion = function() {
@@ -155,10 +177,37 @@ function accordion() {
 
 
 
-//Backend Führung hinzufügen
+/**
+ * Backend Führung hinzufügen
+ */
 function hideShowElement(source, target) {
     element = document.getElementById(target);
     element.style.display = (source.checked) ?
         'block' :
         'none';
+}
+
+/**
+ * Termin Abmelden bestaetigun einblenden
+ */
+function termin_abmelden_bestaetigen() {
+    document.querySelector('#term').style.display = 'none';
+    document.querySelector('#term_abme').style.display = 'block';
+}
+
+/**
+ * Termin Aendern bestaetigun einblenden
+ */
+function termin_aendern_bestaetigen() {
+    document.querySelector('#term').style.display = 'none';
+    document.querySelector('#term_aend').style.display = 'block';
+}
+
+/**
+ * Zurueck zum Termin menue
+ */
+function termin_aktion_abbrechen() {
+    document.querySelector('#term_abme').style.display = 'none';
+    document.querySelector('#term_aend').style.display = 'none';
+    document.querySelector('#term').style.display = 'block';
 }

@@ -79,28 +79,15 @@ private $id = 0;
                                 echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
                                 $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                                 ?>
-                            </div>
-                            <div class="accordion-body js-accordion-body">
-                                <div class="accordion-body__contents asdf">
-                                    <?php // hier werden die Angemeldeten personen angezeigt
-                                    $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
-                                    foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
-                                    ?>
-                                        <div>
-
-                                            <b>Name: </b> <?= $anmeldung->getFullName() ?> </br>
-                                            <b>Email: </b> <?= $anmeldung->getEmail() ?> </br>
-                                            <b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </br>
-                                            <b>Datum: </b> <?= $anmeldung->getDatum() ?> </br>
-                                            <b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </br>
-
-                                            <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">Lösche</button> </br>
-                                        </div>
-                                    <?php
-                                    }
-
-                                    ?>
-
+                                <div>
+                                    
+                                <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
+                                <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
+                                <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
+                                <p><b>Datum: </b> <?= $anmeldung->getDatum() ?>  </p>
+                                <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
+                           
+                                <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button> </br>
                                 </div>
                             </div>
                         </div>
