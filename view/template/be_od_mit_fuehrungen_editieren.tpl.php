@@ -89,11 +89,11 @@ private $id = 0;
                                 ?>
                                 <div>
                                     
-                                <b>Name: </b> <?= $anmeldung->getFullName() ?>  </br>
-                                <b>Email: </b> <?= $anmeldung->getEmail() ?> </br>
-                                <b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </br>
-                                <b>Datum: </b> <?= $anmeldung->getDatum() ?>  </br>
-                                <b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </br>
+                                <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
+                                <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
+                                <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
+                                <p><b>Datum: </b> <?= $anmeldung->getDatum() ?>  </p>
+                                <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
                            
                                 <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button> </br>
                                 </div>
