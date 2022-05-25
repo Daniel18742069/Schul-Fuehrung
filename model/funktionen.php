@@ -73,8 +73,6 @@ function erstelle_Fuehrungen($fuehrungsDaten)
             }
             $counter++;
     }
-}
-}
 
 function arrayManipulieren($assotiativesArrayPost)
 {

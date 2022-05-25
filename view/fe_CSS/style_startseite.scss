@@ -365,12 +365,12 @@ input[type="submit"], .neuer_od, #btn_loesche{
 }
 
 
-.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit, .anmeldeinputs{
-  color: $blueColor;
-  font-size: 1.2rem;
-  margin-left: 1rem;
-  transition: all 0.3s;
-  height: 2rem;
+.fuehrungspersonen, .kapazitaet, .felder-neuer-od, .lehrer, .uhrzeit, .anmeldeinputs {
+  color: $blueColor!important;
+  font-size: 1.2rem!important;
+  margin-left: 1rem!important;
+  transition: all 0.3s!important;
+  height: 2rem!important;
 }
 
 .kapazitaet-none, .lehrer-none, .uhrzeit-none{
