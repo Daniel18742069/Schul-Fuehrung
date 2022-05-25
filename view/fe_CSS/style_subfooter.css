@@ -47,3 +47,6 @@
   filter: brightness(0.85);
   cursor: pointer;
 }
+.wrapper-subfooter h1 {
+  color: red;
+}
