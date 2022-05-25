@@ -92,15 +92,15 @@
                                     <div class="accordion-body__contents">
                                         <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite&anmelden=1">
                                             <label for="vorname">Vorname:</label>
-                                            <input type="text" name="vorname" title="zB. Max" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <input type="text" name="vorname" title="zB. Max" value="" onchange="formAusgefuellt(this)" /><br />
                                             <label for="nachname">Nachname:</label>
-                                            <input type="text" name="nachname" title="zB. Mustermann" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <input type="text" name="nachname" title="zB. Mustermann" value="" onchange="formAusgefuellt(this)" /><br />
                                             <label for="telefon">Telefon:</label>
-                                            <input type="telefon" name="telefon" title="zB. 339 123 4567" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <input type="telefon" name="telefon" title="zB. 339 123 4567" value="" onchange="formAusgefuellt(this)" /><br />
                                             <label for="email">E-Mail:</label>
-                                            <input type="email" name="email" title="zB. max.mustermann@gmail.com" value="" onblur="formAusgefuellt(this)" /><br />
+                                            <input type="email" name="email" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
                                             <label for="anzahl">Personen:</label>
-                                            <input type="number" name="anzahl" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" />
+                                            <input type="number" name="anzahl" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
                                             <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
                                             <input type="submit" value="Anmelden" disabled="disabled" />
                                         </form>

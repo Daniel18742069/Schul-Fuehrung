@@ -5,7 +5,7 @@
     </div>
     <script id=ib_info_script>
         setTimeout(() => {
-            document.querySelector('#ib_info_box').classList.add('t_fadeout');
+            document.querySelector('#ib_info_box').classList.add('ib_fadeout');
             setTimeout((info_box) => {
                 document.querySelector('#ib_info_box').remove();
                 document.querySelector('#ib_info_script').remove();
