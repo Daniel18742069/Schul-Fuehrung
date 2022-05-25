@@ -34,17 +34,16 @@ function logge_ein($benutzername)
 function erstelle_Fuehrungen($fuehrungsDaten)
 {
     $offener_tag = Offener_tag::findeOffenenTag($fuehrungsDaten['offenerTag']);
-    $tempKapazitaet = 0;
-    // var_dump($offener_tag);
     //fach_anzahl
     $startzeit = strtotime($offener_tag->getStartWelformed());
     $endzeit = strtotime($offener_tag->getEndeWelformed());
 
     //Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
-    $wieVielePerioden = intdiv((($endzeit - $startzeit) / 60), $offener_tag->getIntervall());  //intdiv keine Kommastellen
-
+    $wieVielePerioden = intdiv((($endzeit - $startzeit) / 60), $offener_tag->getIntervall()); //intdiv keine Kommastellen
     $kapazitaetArray = [];
+
     $counter = 0;
+
     foreach ($fuehrungsDaten as $key => $daten) {
         if (substr($key, 0, 10) == "kapazitaet") {
             array_push($kapazitaetArray, $daten);
@@ -52,78 +51,80 @@ function erstelle_Fuehrungen($fuehrungsDaten)
     }
 
     foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
-
         $heute = new DateTime($offener_tag->getStartWelformed());
 
+        if (substr($key, 0, 17) == "fuehrungspersonen") {
+            $stringArray = explode('_', substr($key, 17));
+            $fach = $stringArray[0];
+            $anzahl = $stringArray[1] + 1;
 
-                      $fuehrung = new Fuehrung();
-                      $fuehrung->setFuehrungspersonen($daten);
-                      $fuehrung->setSichtbar(1);
-                      $fuehrung->setKapazitaet($kapazitaetArray[$counter]);
-                      $fuehrung->setFachrichtung_id($fach);
-                      $fuehrung->setOffener_tag_id($offener_tag->getId());
-                      $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
-                      $fuehrung->setGemeinsame_id($fach."_".$anzahl);
-                      $fuehrung->speichere();
-                      
-                      
+            for ($i = 0; $i < $wieVielePerioden; $i++) {
+                $fuehrung = new Fuehrung();
+                $fuehrung->setFuehrungspersonen($daten);
+                $fuehrung->setSichtbar(1);
+                $fuehrung->setKapazitaet($kapazitaetArray[$counter]);
+                $fuehrung->setFachrichtung_id($fach);
+                $fuehrung->setOffener_tag_id($offener_tag->getId());
+                $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
+                $fuehrung->setGemeinsame_id($fach . "_" . $anzahl);
+                $fuehrung->speichere();
 
                 $minutes_to_add = $offener_tag->getIntervall();
                 $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
             }
+
             $counter++;
+            echo $fach . "_" . $anzahl . " fuehrungsperson: " . $daten . "<br>";
+        }
     }
 
+}
 function arrayManipulieren($assotiativesArrayPost)
 {
-
     $array = [];
-    for ($i = 0; $i < Fachrichtung::groeßteID()['id']+1; $i++) { //fach_menge
-            if (
-                array_key_exists('checkbox' . $i, $assotiativesArrayPost) &&
-                array_key_exists('number' . $i, $assotiativesArrayPost)
-            ) {
-                $fach = $assotiativesArrayPost['checkbox' . $i];
-                array_push($array, $fach .
-                    "_" . $assotiativesArrayPost['number' . $i]);
-            }
-        
+
+    for ($i = 0; $i < Fachrichtung::groeßteID()['id'] + 1; $i++) { //fach_menge
+        if (
+            array_key_exists('checkbox' . $i, $assotiativesArrayPost) &&
+            array_key_exists('number' . $i, $assotiativesArrayPost)
+        ) {
+            $fach = $assotiativesArrayPost['checkbox' . $i];
+            array_push($array, $fach .
+                "_" . $assotiativesArrayPost['number' . $i]);
+        }
     }
+
     return $array;
 }
-function isUpdate($request){
+function isUpdate($request)
+{
 
     for ($i = 0; $i < count($request); $i++) {
 
         if (
             array_key_exists($i, $request)  &&
-            
+
             array_key_exists('fuehrungspersonen' . $i, $request)
         ) {
             $fuehrung = Fuehrung::findeFuehrung($request[$i]);
 
-           if(array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 0 ){
-           $fuehrung->setSichtbar(1);
-           }elseif(!array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 1 ){
-            $fuehrung->setSichtbar(0);
-           }
-
-           if($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i] ){
-            $fuehrung->setFuehrungspersonen($request['fuehrungspersonen' . $i] );
+            if (array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 0) {
+                $fuehrung->setSichtbar(1);
+            } elseif (!array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 1) {
+                $fuehrung->setSichtbar(0);
             }
-           $fuehrung->speichere();
+
+            if ($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i]) {
+                $fuehrung->setFuehrungspersonen($request['fuehrungspersonen' . $i]);
+            }
+            $fuehrung->speichere();
             //array_key_exists('checkbox' . $i, $request)
         }
-
     }
 }
 
-function deleteFuehrung(){
-
-    
-
-}
-function ist_eingeloggt() {
+function ist_eingeloggt()
+{
     $erg = false;
     if (isset($_SESSION['eingeloggt'])) {
         if (!empty($_SESSION['eingeloggt']))
