@@ -24,17 +24,16 @@
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
 
-    
-
-    <section id="wrapper">
-
-<div class="wrapper-fe_startseite">
 
 
-    <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>" method="post">
-        <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
-        <?php
-        /*
+
+        <div class="wrapper-fe_startseite">
+
+
+            <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>" method="post">
+                <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
+                <?php
+                /*
 private $id = 0;
     private $fuehrungspersonen = "";
     private $sichtbar = 0;
@@ -44,77 +43,76 @@ private $id = 0;
     private $offener_tag_id  = 0;
     private $gemeinsame_id  = "";
     */
-        $gemID = 0;
-        //foreach ($fuehrungen as $key => $fuehrung) {
+                $gemID = 0;
+                //foreach ($fuehrungen as $key => $fuehrung) {
 
-        ?>
+                ?>
 
-        <div class="accordion js-accordion" id="accordion">
-            <?php foreach ($fuehrungen as $key => $fuehrung) {
-                $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
-                if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
-                    $anzahlTeilnehmer = 0;
-                }
-                if ($gemID == 0) {
-                    $gemID = $fuehrung->getGemeinsame_id();
-                } else if ($gemID !== $fuehrung->getGemeinsame_id()) {
-                    echo "<br>";
-                    $gemID = $fuehrung->getGemeinsame_id();
-                }
-            ?>
-                <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
-                    <div class="accordion-header js-accordion-header">
-                        <!-- secreat -->
-                        <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
+                <div class="accordion js-accordion" id="accordion">
+                    <?php foreach ($fuehrungen as $key => $fuehrung) {
+                        $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+                        if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
+                            $anzahlTeilnehmer = 0;
+                        }
+                        if ($gemID == 0) {
+                            $gemID = $fuehrung->getGemeinsame_id();
+                        } else if ($gemID !== $fuehrung->getGemeinsame_id()) {
+                            echo "<br>";
+                            $gemID = $fuehrung->getGemeinsame_id();
+                        }
+                    ?>
+                        <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
+                            <div class="accordion-header js-accordion-header">
+                                <!-- secreat -->
+                                <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
 
-                        <?php
-                        if ($fuehrung->getSichtbar() == 1) { ?>
-                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
-                        <?php } else { ?>
-                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" />
-                        <?php } ?>
-                        <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
-                        <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen" value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
-                        <?php
+                                <?php
+                                if ($fuehrung->getSichtbar() == 1) { ?>
+                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
+                                <?php } else { ?>
+                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" />
+                                <?php } ?>
+                                <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
+                                <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen" value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
+                                <?php
 
-                        echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
-                        $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
-                        ?>
-                    </div>
-                    <div class="accordion-body js-accordion-body">
-                        <div class="accordion-body__contents asdf">
-                            <?php // hier werden die Angemeldeten personen angezeigt
-                            $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
-                            foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
+                                echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
+                                $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                                 ?>
-                                <div>
-                                    
-                                <b>Name: </b> <?= $anmeldung->getFullName() ?>  </br>
-                                <b>Email: </b> <?= $anmeldung->getEmail() ?> </br>
-                                <b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </br>
-                                <b>Datum: </b> <?= $anmeldung->getDatum() ?>  </br>
-                                <b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </br>
-                           
-                                <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button> </br>
+                            </div>
+                            <div class="accordion-body js-accordion-body">
+                                <div class="accordion-body__contents asdf">
+                                    <?php // hier werden die Angemeldeten personen angezeigt
+                                    $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
+                                    foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
+                                    ?>
+                                        <div>
+
+                                            <b>Name: </b> <?= $anmeldung->getFullName() ?> </br>
+                                            <b>Email: </b> <?= $anmeldung->getEmail() ?> </br>
+                                            <b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </br>
+                                            <b>Datum: </b> <?= $anmeldung->getDatum() ?> </br>
+                                            <b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </br>
+
+                                            <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">Lösche</button> </br>
+                                        </div>
+                                    <?php
+                                    }
+
+                                    ?>
+
                                 </div>
-                            <?php
-                            }
-
-                            ?>
-
+                            </div>
                         </div>
-                    </div>
+
+                    <?php } ?>
+                    <script>
+                        accordion();
+                    </script>
                 </div>
+            </form>
 
-            <?php } ?>
-            <script>
-                accordion();
-            </script>
         </div>
-    </form>
-
-</div>
-    </section>
 
     <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 

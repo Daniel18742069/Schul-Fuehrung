@@ -93,7 +93,7 @@
                                         <label for="anzahl">Personen:</label>
                                         <input type="number" class="anmeldeinputs" name="anzahl" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onblur="formAusgefuellt(this)" <?= ($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet()) ? 'disabled' : ''; ?> />
                                         <input type="text" name="fuehrung_id" value="<?= $fuehrung->getId(); ?>" hidden />
-                                        <input type="submit" name="submit" value="Anmelden" disabled="disabled" />
+                                        <input type="submit" name="submit" class="anmelden-fuehrung" value="Anmelden" disabled="disabled" />
                                     </form>
                                 </div>
                             </div>

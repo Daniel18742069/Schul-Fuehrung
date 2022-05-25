@@ -126,8 +126,11 @@ body {
   right: 5rem;*/
 
   position: sticky;
-  top: 2rem;
-  right: 3rem;
+  top: 3rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
 }
 
 
@@ -205,6 +208,8 @@ p {
 
 .accordion__item {
   border-bottom: 1px solid $blueColor;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .accordion__item .accordion__item {
@@ -455,34 +460,52 @@ input[type="submit"], .neuer_od, #btn_loesche{
 }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (max-width: 640px) {
   body {
-    //font-size: 1rem;
+    font-size: 1rem;
 
     header {
-      //font-size: 1rem;
+      font-size: 1rem;
     }
 
   }
 }
 
-@media (min-width:960px) {
+@media (max-width:960px) {
   body {
-    //font-size: 1.2rem;
+    font-size: 1.2rem;
 
     header {
-      //font-size: 1rem;
+      font-size: 1rem;
     }
   }
 }
 
-@media (min-width:1100px) {
+@media (max-width:1100px) {
   body {
-    //font-size: 1.5rem;
+    font-size: 1.5rem;
 
     header {
-      //font-size: 1rem;
+      font-size: 1rem;
     }
+  }
+}
+
+
+@media (max-width: 700px){
+  .socials{
+    display: none;
+  }
+  .accordion-header{
+    display: block;
+    text-align: center;
+    .kapazitaet{
+      float: none;
+      text-align: center;
+    }
+  }
+  .anmelden-fuehrung{
+    float: none;
   }
 }
 
