@@ -74,8 +74,6 @@ function erstelle_Fuehrungen($fuehrungsDaten)
             $counter++;
             echo $fach . "_" . $anzahl . " fuehrungsperson: " . $daten . "<br>";
         }
-    }
-}
 
 function arrayManipulieren($assotiativesArrayPost)
 {
