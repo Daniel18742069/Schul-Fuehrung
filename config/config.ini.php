@@ -5,11 +5,11 @@ $ini = '
 	DEFAULT_SITE=fe_termin
 
 	[URL zur Webseite]
-	URL=localhost:3306/schul-fuehrung/
+	URL=127.0.0.1/Schul-Fuehrung/
 
 	[Database Einstellungen]
-	DB_USER=tschaufe_openday
-	DB_PASS=NilsStinkt132
+	DB_USER=root
+	DB_PASS=
 
 	[Mail Einstellungen]
 	MAIL_NAME=LBSHI Bozen NoReply
