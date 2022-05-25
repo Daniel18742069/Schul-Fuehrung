@@ -2,10 +2,10 @@
 
 $ini = '
 	[Standard Seite]
-	DEFAULT_SITE=fe_startseite
+	DEFAULT_SITE=fe_termin
 
 	[URL zur Webseite]
-	URL=127.0.0.1/schul-fuehrung/
+	URL=127.0.0.1/Schul-Fuehrung/
 
 	[Database Einstellungen]
 	DB_USER=root

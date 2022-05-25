@@ -279,7 +279,7 @@ class Anmeldung
     public static function validate_name(string $name): bool
     {
         return $name
-            && preg_match_all('/^[a-z]{3,}$/i', $name);
+            && preg_match_all('/^[a-züöäúùéèóòíì]{3,}$/i', $name);
     }
 
     public static function validate_email(string $email): bool

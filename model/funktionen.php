@@ -31,35 +31,30 @@ function logge_ein($benutzername)
     $_SESSION['aktiv'] = "true";
 }
 
-function erstelle_Fuehrungen($fuehrungsDaten){
+function erstelle_Fuehrungen($fuehrungsDaten)
+{
     $offener_tag = Offener_tag::findeOffenenTag($fuehrungsDaten['offenerTag']);
-    $tempKapazitaet=0;
+    $tempKapazitaet = 0;
     // var_dump($offener_tag);
     //fach_anzahl
     $startzeit = strtotime($offener_tag->getStartWelformed());
     $endzeit = strtotime($offener_tag->getEndeWelformed());
- 
-//Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
-$wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getIntervall());  //intdiv keine Kommastellen
+
+    //Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
+    $wieVielePerioden = intdiv((($endzeit - $startzeit) / 60), $offener_tag->getIntervall());  //intdiv keine Kommastellen
 
     $kapazitaetArray = [];
     $counter = 0;
-    foreach ($fuehrungsDaten as $key => $daten){
-        if(substr($key,0,10) == "kapazitaet"){
-            array_push($kapazitaetArray,$daten);
+    foreach ($fuehrungsDaten as $key => $daten) {
+        if (substr($key, 0, 10) == "kapazitaet") {
+            array_push($kapazitaetArray, $daten);
         }
     }
-    
+
     foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
-        
+
         $heute = new DateTime($offener_tag->getStartWelformed());
 
-        
-        if(substr($key,0,17) == "fuehrungspersonen"){
-            $stringArray = explode('_',substr($key,17));
-            $fach = $stringArray[0];
-            $anzahl = $stringArray[1]+1;
-            for ($i=0; $i < $wieVielePerioden; $i++) {
 
                       $fuehrung = new Fuehrung();
                       $fuehrung->setFuehrungspersonen($daten);
@@ -75,14 +70,14 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
 
                 $minutes_to_add = $offener_tag->getIntervall();
                 $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
- 
             }
             $counter++;
     }
 }
 }
 
-function arrayManipulieren($assotiativesArrayPost){
+function arrayManipulieren($assotiativesArrayPost)
+{
 
     $array = [];
     for ($i = 0; $i < Fachrichtung::groeßteID()['id']+1; $i++) { //fach_menge
@@ -139,7 +134,8 @@ function ist_eingeloggt() {
     return $erg;
 }
 
-function logge_aus() {
+function logge_aus()
+{
     unset($_SESSION['eingeloggt']);
     unset($_SESSION['id']);
 }
@@ -152,6 +148,11 @@ function datum_formatieren($datum, $format = 'Y-m-d'): string
 {
     $DateTime = new DateTime($datum);
     return $DateTime->format($format);
+}
+
+function addiere_minuten(int $timestamp, int $minutes = 30)
+{
+    return $timestamp + (60 * $minutes);
 }
 
 /**
