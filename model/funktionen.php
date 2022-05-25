@@ -78,7 +78,6 @@ $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getInterva
  
             }
             $counter++;
-            echo $fach . "_" . $anzahl." fuehrungsperson: " . $daten ."<br>";
     }
 }
 }
@@ -131,24 +130,6 @@ function deleteFuehrung(){
     
 
 }
-
-function fuehrungenSortieren($unsortiertesArray){
-
-    
-    $alleGemeinsammeIds = "funktion";
-    foreach ($unsortiertesArray as $key => $value) {
-
-
-        for ($i=0; $i < sizeof($alleGemeinsammeIds); $i++) {
-            if($value->setGemeinsame_id() == $alleGemeinsammeIds[$i]);
-        
-        }
-    }
-    
-        //var_dump($unsortiertesArray);
-            return $unsortiertesArray;
-}
-
 function ist_eingeloggt() {
     $erg = false;
     if (isset($_SESSION['eingeloggt'])) {
