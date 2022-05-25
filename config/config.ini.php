@@ -2,7 +2,7 @@
 
 $ini = '
 	[Standard Seite]
-	DEFAULT_SITE=fe_startseite
+	DEFAULT_SITE=fe_termin
 
 	[URL zur Webseite]
 	URL=localhost:3306/schul-fuehrung/

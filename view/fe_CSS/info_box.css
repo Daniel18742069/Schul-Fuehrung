@@ -1,0 +1,1 @@
+#ib_info_box{z-index:1000;position:fixed;top:1vw;left:1vw;box-shadow:5px 8px 21px rgba(0,0,0,.2);background-color:#fff;padding:1vw;border:rgba(245,196,0,.8) solid .5vw}#ib_info_box div{display:inline-block;vertical-align:middle;max-width:50vw;overflow-wrap:break-word}.ib_fadeout{visibility:hidden;opacity:0;transition:visibility 0s linear 300ms,opacity 300ms}
