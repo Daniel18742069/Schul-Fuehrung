@@ -31,50 +31,107 @@ function logge_ein($benutzername)
     $_SESSION['aktiv'] = "true";
 }
 
-function erstelle_Fuehrungen($fuehrungsDaten)
-{
-    $offener_tag = Offener_tag::findeOffenenTag($fuehrungsDaten['offenerTag']);
-    $tempKapazitaet = 0;
-    // var_dump($offener_tag);
-    //fach_anzahl
-    $startzeit = strtotime($offener_tag->getStartWelformed());
-    $endzeit = strtotime($offener_tag->getEndeWelformed());
+function erstelle_Fuehrungen($fuehrungsDaten){
 
+      $offener_tag = Offener_tag::findeOffenenTag($fuehrungsDaten['offenerTag']);
+    
+      $tempKapazitaet=0;
+    
+      // var_dump($offener_tag);
+    
+      //fach_anzahl
+    
+      $startzeit = strtotime($offener_tag->getStartWelformed());
+    
+      $endzeit = strtotime($offener_tag->getEndeWelformed());
+    
+    
+    
     //Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
-    $wieVielePerioden = intdiv((($endzeit - $startzeit) / 60), $offener_tag->getIntervall());  //intdiv keine Kommastellen
-
-    $kapazitaetArray = [];
-    $counter = 0;
-    foreach ($fuehrungsDaten as $key => $daten) {
-        if (substr($key, 0, 10) == "kapazitaet") {
-            array_push($kapazitaetArray, $daten);
+    
+    $wieVielePerioden = intdiv((($endzeit - $startzeit)/60),$offener_tag->getIntervall()); //intdiv keine Kommastellen
+    
+    
+    
+      $kapazitaetArray = [];
+    
+      $counter = 0;
+    
+      foreach ($fuehrungsDaten as $key => $daten){
+    
+        if(substr($key,0,10) == "kapazitaet"){
+    
+          array_push($kapazitaetArray,$daten);
+    
         }
-    }
-
-    foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
-
+    
+      }
+    
+      
+    
+      foreach ($fuehrungsDaten as $key => $daten) { //fach_anzahl
+    
+        
+    
         $heute = new DateTime($offener_tag->getStartWelformed());
-
-
-                      $fuehrung = new Fuehrung();
-                      $fuehrung->setFuehrungspersonen($daten);
-                      $fuehrung->setSichtbar(1);
-                      $fuehrung->setKapazitaet($kapazitaetArray[$counter]);
-                      $fuehrung->setFachrichtung_id($fach);
-                      $fuehrung->setOffener_tag_id($offener_tag->getId());
-                      $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
-                      $fuehrung->setGemeinsame_id($fach."_".$anzahl);
-                      $fuehrung->speichere();
-                      
-                      
-
-                $minutes_to_add = $offener_tag->getIntervall();
-                $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
-            }
-            $counter++;
-            echo $fach . "_" . $anzahl . " fuehrungsperson: " . $daten . "<br>";
-        }
-
+    
+    
+    
+        
+    
+        if(substr($key,0,17) == "fuehrungspersonen"){
+    
+          $stringArray = explode('_',substr($key,17));
+    
+          $fach = $stringArray[0];
+    
+          $anzahl = $stringArray[1]+1;
+    
+          for ($i=0; $i < $wieVielePerioden; $i++) {
+    
+    
+    
+               $fuehrung = new Fuehrung();
+    
+               $fuehrung->setFuehrungspersonen($daten);
+    
+               $fuehrung->setSichtbar(1);
+    
+               $fuehrung->setKapazitaet($kapazitaetArray[$counter]);
+    
+               $fuehrung->setFachrichtung_id($fach);
+    
+               $fuehrung->setOffener_tag_id($offener_tag->getId());
+    
+               $fuehrung->setUhrzeit(date_format($heute, 'H:i'));
+    
+               $fuehrung->setGemeinsame_id($fach."_".$anzahl);
+    
+               $fuehrung->speichere();
+    
+               
+    
+               
+    
+    
+    
+            $minutes_to_add = $offener_tag->getIntervall();
+    
+            $heute->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+    
+    
+    
+          }
+    
+          $counter++;
+    
+          echo $fach . "_" . $anzahl." fuehrungsperson: " . $daten ."<br>";
+    
+      }
+    
+    }
+    
+    }
 function arrayManipulieren($assotiativesArrayPost)
 {
 
