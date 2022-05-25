@@ -22,6 +22,9 @@ function tabs(actuated_button, fachrichung_id) {
             button.style.fontWeight = 'normal';
             button.style.filter = 'none';
         }
+
+        document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
+
     }
 
     fuehrungen = document.getElementsByClassName('fuehrung');

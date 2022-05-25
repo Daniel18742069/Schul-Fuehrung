@@ -76,9 +76,6 @@ function erstelle_Fuehrungen($fuehrungsDaten){
         $heute = new DateTime($offener_tag->getStartWelformed());
     
     
-    
-        
-    
         if(substr($key,0,17) == "fuehrungspersonen"){
     
           $stringArray = explode('_',substr($key,17));
@@ -176,29 +173,7 @@ function isUpdate($request){
     }
 }
 
-function deleteFuehrung(){
-
-    
-
-}
-
-function fuehrungenSortieren($unsortiertesArray){
-
-    $alleGemeinsammeIds = "funktion";
-    foreach ($unsortiertesArray as $key => $value) {
-
-
-        for ($i = 0; $i < sizeof($alleGemeinsammeIds); $i++) {
-            if ($value->setGemeinsame_id() == $alleGemeinsammeIds[$i]);
-        }
-    }
-
-    //var_dump($unsortiertesArray);
-    return $unsortiertesArray;
-}
-
-function ist_eingeloggt()
-{
+function ist_eingeloggt() {
     $erg = false;
     if (isset($_SESSION['eingeloggt'])) {
         if (!empty($_SESSION['eingeloggt']))
