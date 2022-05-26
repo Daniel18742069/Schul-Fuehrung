@@ -6,11 +6,3 @@ RewriteRule ^Startseite?$ index.php?aktion=fe_startseite
 
 RewriteRule ^Startseite/Success?$ index.php?aktion=fe_startseite&info=ce6
 
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
