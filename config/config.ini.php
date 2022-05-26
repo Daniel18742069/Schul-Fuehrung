@@ -8,8 +8,11 @@ $ini = '
 	URL=127.0.0.1/Schul-Fuehrung/
 
 	[Database Einstellungen]
+	DB_HOST=localhost
+	DB_NAME=schulfuehrung
 	DB_USER=root
 	DB_PASS=
+	
 
 	[Mail Einstellungen]
 	MAIL_NAME=LBSHI Bozen NoReply
