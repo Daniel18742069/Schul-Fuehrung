@@ -23,7 +23,7 @@ function tabs(actuated_button, fachrichung_id) {
             button.style.filter = 'none';
         }
 
-       // document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
+        // document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
 
     }
 
