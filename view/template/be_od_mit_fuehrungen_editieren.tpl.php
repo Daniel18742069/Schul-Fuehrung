@@ -42,23 +42,23 @@
                             <!-- secreat -->
                             <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>"
                                 hidden="hidden" />
+
                             <?php
-                        if ($fuehrung->getSichtbar() == 1 && $anzahlTeilnehmer >= 1) { ?>
+                        if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
                             <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
                                 value="<?= $key ?>" checked="checked" disabled="disabled" />
-                                
                             <?php
-                            var_dump("1");
-                        }else if($fuehrung->getSichtbar() == 1 && $anzahlTeilnehmer == 0){ ?>
+                        }elseif (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer == 0)){ ?>
                             <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
                                 value="<?= $key ?>" checked="checked" />
                             <?
-                            var_dump("2");
-                        } else { ?>
+                        } else{
+                             ?>
                             <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
                                 value="<?= $key ?>" disabled="disabled" />
                                 
-                            <?php var_dump("3"); } ?>
+                            <?php } ?>
+                            
                             <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
                             <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen"
                                 value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
