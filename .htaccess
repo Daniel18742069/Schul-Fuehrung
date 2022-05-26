@@ -1,0 +1,7 @@
+RewriteEngine On
+
+ErrorDocument 404 https://www.vozodo.it
+
+RewriteRule ^Startseite?$ index.php?aktion=fe_startseite
+
+RewriteRule ^Startseite/Success?$ index.php?aktion=fe_startseite&info=ce6
