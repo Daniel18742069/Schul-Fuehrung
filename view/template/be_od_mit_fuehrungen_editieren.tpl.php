@@ -24,7 +24,7 @@
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
 
-    
+
 
     <section id="wrapper-be">
 
@@ -35,72 +35,68 @@
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
-                $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
-                if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
-                    $anzahlTeilnehmer = 0;
-                }
-            ?>
-                    <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
-                        <div class="accordion-header js-accordion-header">
-                            <!-- secreat -->
-                            <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>"
-                                hidden="hidden" />
+                        $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+                        if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
+                            $anzahlTeilnehmer = 0;
+                        }
+                    ?>
+                        <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getId(); ?>">
+                            <div class="accordion-header js-accordion-header">
+                                <!-- secreat -->
+                                <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
 
-                            <?php
-                        if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
-                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
-                                value="<?= $key ?>" checked="checked" disabled="disabled" />
-                            <?php
-                        }elseif (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer == 0)){ ?>
-                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
-                                value="<?= $key ?>" checked="checked" />
-                            <?
-                        } else{
-                             ?>
-                            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>"
-                                value="<?= $key ?>" disabled="disabled" />
-                                
-                            <?php } ?>
-                            
-                            <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
-                            <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen"
-                                value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
-                            <?php
-
-                        echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
-                        $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
-                        ?>
-                        </div>
-                        <div class="accordion-body js-accordion-body">
-                            <div class="accordion-body__contents asdf">
-                                <?php // hier werden die Angemeldeten personen angezeigt
-                            $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
-                            foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
-                                ?>
                                 <div>
-
-                                    <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
-                                    <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
-                                    <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
-                                    <p><b>Datum: </b> <?= $anmeldung->getDatum() ?> </p>
-                                    <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
-
-                                    <button type="button" value="Button" id="btn_loesche"
-                                        onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?=$offenerTag->getID()?>&delete=<?=$anmeldung->getToken()?>">Lösche</button>
-                                    </br>
-                                </div>
                                 <?php
-                            }
+                                if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
+                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" disabled="disabled" />
+                                <?php
+                                } elseif (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer == 0)) { ?>
+                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
+                                <?php
+                                } else {
+                                ?>
+                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" disabled="disabled" />
 
-                            ?>
+                                <?php } ?>
 
+                                <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
+                                </div>
+                                <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen" value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
+                                <?php
+
+                                echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
+                                $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
+                                ?>
+                            </div>
+                            <div class="accordion-body js-accordion-body">
+                                <div class="accordion-body__contents asdf">
+                                    <?php // hier werden die Angemeldeten personen angezeigt
+                                    $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
+                                    foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
+                                    ?>
+                                        <div>
+
+                                            <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
+                                            <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
+                                            <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
+                                            <p><b>Datum: </b> <?= $anmeldung->getDatum() ?> </p>
+                                            <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
+
+                                            <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">Lösche</button>
+                                            </br>
+                                        </div>
+                                    <?php
+                                    }
+
+                                    ?>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     <?php } ?>
                     <script>
-                    accordion();
+                        accordion();
                     </script>
                 </div>
             </form>
