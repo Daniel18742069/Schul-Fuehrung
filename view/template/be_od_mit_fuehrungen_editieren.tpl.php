@@ -46,21 +46,22 @@
                                 <input type="fuehrungsid" name="<?= $key ?>" value="<?= $fuehrung->getID() ?>" hidden="hidden" />
 
                                 <div>
-                                <?php
-                                if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
-                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" disabled="disabled" />
-                                <?php
-                                } elseif (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer == 0)) { ?>
-                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
-                                <?php
-                                } else {
-                                ?>
-                                    <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" disabled="disabled" />
+                                    <?php
+                                    if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
+                                        <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" disabled="disabled" />
+                                    <?php
+                                    } elseif (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer == 0)) { ?>
+                                        <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" disabled="disabled" />
 
-                                <?php } ?>
+                                    <?php } ?>
 
-                                <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
+                                    <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
                                 </div>
+
                                 <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen" value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
                                 <?php
 
