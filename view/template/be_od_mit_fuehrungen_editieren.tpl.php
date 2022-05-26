@@ -23,7 +23,10 @@
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
-    <section id="wrapper">
+
+    
+
+    <section id="wrapper-be">
 
         <div class="wrapper-fe_startseite">
 

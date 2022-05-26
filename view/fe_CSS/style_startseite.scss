@@ -82,14 +82,17 @@ body {
     }
   }
 
-  #wrapper {
-    max-width: 1140px;
+  #wrapper, #wrapper-be {
     margin: 0 auto;
     padding: 1rem;
     .wrapper-fuehrung_hinzufuegen{
       margin-top: 5rem;
       margin-bottom: 7rem;
     }
+  }
+
+  #wrapper{
+    max-width: 1140px;
   }
 
 }
@@ -126,8 +129,11 @@ body {
   right: 5rem;*/
 
   position: sticky;
-  top: 2rem;
-  right: 3rem;
+  top: 3rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
 }
 
 
@@ -205,6 +211,8 @@ p {
 
 .accordion__item {
   border-bottom: 1px solid $blueColor;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .accordion__item .accordion__item {
@@ -488,6 +496,23 @@ input[type="submit"], .neuer_od, #btn_loesche{
       //font-size: 1rem;
     }
   }
+}
+
+
+
+@media screen and (max-width:700px){
+  .socials{
+    display: none;
+  }
+  .accordion-header{
+    display: block;
+    text-align: center;
+    .kapazitaet{
+      float: none;
+      text-align: center;
+    }
+  }
+  
 }
 
 
