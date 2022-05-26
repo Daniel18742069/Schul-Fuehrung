@@ -23,6 +23,9 @@ class Controller
         if (isset($_REQUEST['anmelden'])) {
             $this->anmelden();
         }
+        if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
+            $this->addContext('info', get_info($_REQUEST['info']));
+        }
 
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
         $this->addContext("offener_tag", $offener_tag);
@@ -53,17 +56,16 @@ class Controller
             $fachrichtung = new Fachrichtung($_REQUEST);
             $fachrichtung->speichere();
         } else {
-            if(strtotime($_REQUEST['start']) < strtotime($_REQUEST['ende'])){
+            if (strtotime($_REQUEST['start']) < strtotime($_REQUEST['ende'])) {
                 $offener_tag = new Offener_tag($_REQUEST);
                 $offener_tag->speichere();
-    
+
                 $this->addContext("text", "Open Day wurde erfolgreich erstellt");
                 $this->addContext("title", "Neuer Open Day");
-            }else{
+            } else {
                 $this->addContext("text", "Open Day wurde nicht erstellt. Überprüfen Sie die Start- und Endzeit!");
                 $this->addContext("title", "Fehler");
             }
-            
         }
     }
 
@@ -100,12 +102,11 @@ class Controller
         
         }elseif(isset($_REQUEST['delete'])){
             $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['delete']);
-            if($anmeldung!=NULL){
+            if ($anmeldung != NULL) {
                 $anmeldung->loesche();
-            }           
-
+            }
         }
-        
+
         $offenerTag = Offener_tag::findeOffenenTag($_REQUEST['id']);
         $this->addContext("offenerTag", $offenerTag);
         $this->addContext("fuehrungen", Fuehrung::gemeinsammeIDmitID($offenerTag->getId()));
@@ -174,6 +175,23 @@ class Controller
         $this->addContext("test", "nix");
     }
 
+    /**
+     * Sendet information an Seite($aktion) und beendet den derzeitigen Skript.
+     * 
+     * @author Andreas Codalonga
+     * @param string $aktion Seite die aufgerufen werden soll.
+     * @param string $info Nachricht die übergeben werden soll.
+     * @param string $token Optional
+     */
+    private function __add_info(string $aktion, string $info, string $token = "")
+    {
+        if ($token === '') {
+            header("Location: ?aktion=$aktion&info=$info");
+        } else {
+            header("Location: ?aktion=$aktion&info=$info&token=$token");
+        }
+        exit;
+    }
 
     /**
      * @author Andreas Codalonga
@@ -230,16 +248,13 @@ class Controller
                     $to_name
                 );
 
-                $this->addContext('info', 'Ihre Anmeldung war Erfolgreich!');
-                return;
+                $this->__add_info('fe_startseite', 'ce6');
             }
 
-            $this->addContext('info', 'Manche der Eingegebenen Daten sind nicht Valide!');
-            return;
+            $this->__add_info('fe_startseite', 'b8d');
         }
 
-        $this->addContext('info', 'Manche der Eingaben sind Leer!');
-        return;
+        $this->__add_info('fe_startseite', 'c8f');
     }
 
     /**
@@ -258,6 +273,9 @@ class Controller
                 } else if (isset($_REQUEST['abmelden'])) {
                     $this->abmelden();
                     header('Location: ?aktion=fe_startseite');
+                }
+                if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
+                    $this->addContext('info', get_info($_REQUEST['info']));
                 }
 
                 $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
@@ -321,20 +339,16 @@ class Controller
                             $to_name
                         );
 
-                        $this->addContext('info', 'Ihre Abmeldung war Erfolgreich!');
-                        return;
+                        $this->__add_info('fe_startseite', '2c4');
                     }
 
-                    $this->addContext('info', 'Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist!');
-                    return;
+                    $this->__add_info('fe_startseite', '8c5');
                 }
 
-                $this->addContext('info', 'Die zugehörige Führung wurde nicht gefunden!');
-                return;
+                $this->__add_info('fe_startseite', '2b0');
             }
 
-            $this->addContext('info', 'Ihre Anmeldung wurde nicht gefunden!');
-            return;
+            $this->__add_info('fe_startseite', 'fa3');
         }
 
         header('Location: ?aktion=fe_startseite');
@@ -383,28 +397,22 @@ class Controller
                                     $to_name
                                 );
 
-                                $this->addContext('info', 'Ihre Änderung war Erfolgreich!');
-                                return;
+                                $this->__add_info('fe_termin', '57d', $_REQUEST['token']);
                             }
 
-                            $this->addContext('info', 'Ihre Eingabe überschreitet die maximale Teilnehmeranzahl!');
-                            return;
+                            $this->__add_info('fe_termin', '9b8', $_REQUEST['token']);
                         }
 
-                        $this->addContext('info', 'Ihre Eingabe der anzahl der Teilnehmer ist Leer!');
-                        return;
+                        $this->__add_info('fe_termin', '734', $_REQUEST['token']);
                     }
 
-                    $this->addContext('info', 'Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist!');
-                    return;
+                    $this->__add_info('fe_termin', 'a95', $_REQUEST['token']);
                 }
 
-                $this->addContext('info', 'Die zugehörige Führung wurde nicht gefunden!');
-                return;
+                $this->__add_info('fe_startseite', '3b9');
             }
 
-            $this->addContext('info', 'Ihre Anmeldung wurde nicht gefunden!');
-            return;
+            $this->__add_info('fe_startseite', '54e');
         }
 
         header('Location: ?aktion=fe_startseite');
