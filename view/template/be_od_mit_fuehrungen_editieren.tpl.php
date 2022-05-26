@@ -32,6 +32,7 @@
 
             <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>" method="post">
                 <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
+                <a href="index.php?aktion=be_alle_od" class="link-admin-panel"><button class="zurueck-admin-panel">zurück</button></a>
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {

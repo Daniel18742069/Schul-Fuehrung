@@ -9,12 +9,12 @@
   justify-content: space-between;
 }
 
-.inhalt_od, .buttons, .neuer-od-formular {
+.inhalt_od, .neuer-od-formular {
   display: grid;
   justify-content: space-around;
   grid-template-columns: 1fr 1fr;
 }
-.inhalt_od p, .buttons p, .neuer-od-formular p {
+.inhalt_od p, .neuer-od-formular p {
   margin: 0;
 }
 
@@ -46,7 +46,6 @@
   line-height: 1.5;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
-  width: calc(100% - 0.5rem);
   align-items: center;
 }
 .editieren:hover {
@@ -55,5 +54,14 @@
 }
 
 .buttons {
-  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.buttons a, .buttons form {
+  text-decoration: none;
+  margin: 0 0.5rem;
+  width: 100%;
+}
+.buttons a button, .buttons form button {
+  width: 100%;
 }

@@ -53,14 +53,9 @@
                             <div class="ccordion-body__contents">
                                 <span class="inhalt_od">
                                     <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
-                                    <p>Status: <?= $offenerTag->getStatusString() ?></p>
+                                    <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
                                     <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
                                     <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
-                                    <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
-                                    <form id="MyForm" name="MyForm">
-                                        <button type="button" class="neuer_od andereStatus" onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">Status ändern</button>
-                                        <input name="MyName" id="MyID" value="YourValue" hidden />
-                                    </form>
                                 </span>
                                 <span class="buttons">
                                     <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
@@ -69,6 +64,10 @@
                                     <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
                                         <button class="editieren">Führung hinzufügen</button>
                                     </a>
+                                    <form id="MyForm" name="MyForm">
+                                        <button type="button" class="neuer_od andereStatus" onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">Status ändern</button>
+                                        <input name="MyName" id="MyID" value="YourValue" hidden />
+                                    </form>
                                 </span>
                             </div>
                         </div>
