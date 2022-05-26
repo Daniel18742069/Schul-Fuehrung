@@ -30,7 +30,7 @@ class email
 		$mail->SMTPAuth = true;							// Enable SMTP authentication
 		$mail->Username = CONF['MAIL_ADDRESS'];			// SMTP username
 		$mail->Password = CONF['MAIL_PASSWORD'];		// SMTP password
-		$mail->SMTPSecure = 'tls';						// Enable TLS encryption, `ssl` also accepted
+		$mail->SMTPSecure = 'tls';						// Enatble TLS encryption, `ssl` also accepted
 		$mail->Port = 587;								// TCP port to connect to
 
 		$mail->setFrom(CONF['MAIL_ADDRESS'], CONF['MAIL_NAME']);

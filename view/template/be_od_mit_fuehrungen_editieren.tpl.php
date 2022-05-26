@@ -31,7 +31,7 @@
         <div class="wrapper-fe_startseite">
 
             <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>" method="post">
-                <input type="submit" value="DRÜCKE MICH" name="anmeldenButton" id="btn_anmelden">
+                <input type="submit" value="SPEICHERN" name="anmeldenButton" id="btn_anmelden">
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
@@ -47,6 +47,7 @@
 
                                 <div>
                                     <?php
+                                    echo $fuehrung->getGemeinsame_id();
                                     if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
                                         <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" disabled="disabled" />
                                     <?php
@@ -82,9 +83,10 @@
                                             <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
                                             <p><b>Datum: </b> <?= $anmeldung->getDatum() ?> </p>
                                             <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
-
-                                            <button type="button" value="Button" id="btn_loesche" onclick="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">Lösche</button>
-                                            </br>
+                                            <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
+                                            <button type="button" value="Button" id="btn_loesche">Löschen</button>
+                                            </a>    
+                                        </br>
                                         </div>
                                     <?php
                                     }
