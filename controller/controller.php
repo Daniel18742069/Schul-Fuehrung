@@ -21,7 +21,7 @@ class Controller
     public function fe_startseite()
     {
         if (isset($_REQUEST['anmelden'])) {
-            $this->anmelden();
+            $this->__add_info($this->anmelden());
         }
         if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
             $this->addContext('info', get_info($_REQUEST['info']));
@@ -96,11 +96,11 @@ class Controller
         $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
     }
 
-    public function be_od_mit_fuehrungen_editieren(){
-       if(isset($_REQUEST['anmeldenButton']) && !isset($_REQUEST['delete'])){
-        isUpdate($_REQUEST);
-        
-        }elseif(isset($_REQUEST['delete'])){
+    public function be_od_mit_fuehrungen_editieren()
+    {
+        if (isset($_REQUEST['anmeldenButton']) && !isset($_REQUEST['delete'])) {
+            isUpdate($_REQUEST);
+        } elseif (isset($_REQUEST['delete'])) {
             $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['delete']);
             if ($anmeldung != NULL) {
                 $anmeldung->loesche();
@@ -176,19 +176,20 @@ class Controller
     }
 
     /**
-     * Sendet information an Seite($aktion) und beendet den derzeitigen Skript.
+     * Sendet information($array[1]) an Seite($array[0]) und beendet den derzeitigen Skript. Optional kann es einen Token($array[2]) mitgeben.
      * 
      * @author Andreas Codalonga
-     * @param string $aktion Seite die aufgerufen werden soll.
-     * @param string $info Nachricht die übergeben werden soll.
-     * @param string $token Optional
+     * @param array $array $array[0]=aktion; $array[1]=information; optional $array[2]=token;
      */
-    private function __add_info(string $aktion, string $info, string $token = "")
+    private function __add_info(array $array)
     {
-        if ($token === '') {
-            header("Location: ?aktion=$aktion&info=$info");
-        } else {
+        $aktion = $array[0];
+        $info = $array[1];
+        if (isset($array[2])) {
+            $token = $array[2];
             header("Location: ?aktion=$aktion&info=$info&token=$token");
+        } else {
+            header("Location: ?aktion=$aktion&info=$info");
         }
         exit;
     }
@@ -248,13 +249,13 @@ class Controller
                     $to_name
                 );
 
-                $this->__add_info('fe_startseite', 'ce6');
+                return ['fe_startseite', 'ce6'];
             }
 
-            $this->__add_info('fe_startseite', 'b8d');
+            return ['fe_startseite', 'b8d'];
         }
 
-        $this->__add_info('fe_startseite', 'c8f');
+        return ['fe_startseite', 'c8f'];
     }
 
     /**
@@ -268,11 +269,9 @@ class Controller
             if ($Anmeldung) {
                 // führe aktion aus
                 if (isset($_REQUEST['aendern'])) {
-                    $this->aendern();
-                    $Anmeldung = Anmeldung::findeAnmeldung($Anmeldung->getToken()); // aktualisieren
+                    $this->__add_info($this->aendern());
                 } else if (isset($_REQUEST['abmelden'])) {
-                    $this->abmelden();
-                    header('Location: ?aktion=fe_startseite');
+                    $this->__add_info($this->abmelden());
                 }
                 if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
                     $this->addContext('info', get_info($_REQUEST['info']));
@@ -339,19 +338,19 @@ class Controller
                             $to_name
                         );
 
-                        $this->__add_info('fe_startseite', '2c4');
+                        return ['fe_startseite', '2c4'];
                     }
 
-                    $this->__add_info('fe_startseite', '8c5');
+                    return ['fe_startseite', '8c5'];
                 }
 
-                $this->__add_info('fe_startseite', '2b0');
+                return ['fe_startseite', '2b0'];
             }
 
-            $this->__add_info('fe_startseite', 'fa3');
+            return ['fe_startseite', 'fa3'];
         }
 
-        header('Location: ?aktion=fe_startseite');
+        return ['Location: ?aktion=fe_startseite'];
     }
 
     /**
@@ -397,22 +396,22 @@ class Controller
                                     $to_name
                                 );
 
-                                $this->__add_info('fe_termin', '57d', $_REQUEST['token']);
+                                return ['fe_termin', '57d', $_REQUEST['token']];
                             }
 
-                            $this->__add_info('fe_termin', '9b8', $_REQUEST['token']);
+                            return ['fe_termin', '9b8', $_REQUEST['token']];
                         }
 
-                        $this->__add_info('fe_termin', '734', $_REQUEST['token']);
+                        return ['fe_termin', '734', $_REQUEST['token']];
                     }
 
-                    $this->__add_info('fe_termin', 'a95', $_REQUEST['token']);
+                    return ['fe_termin', 'a95', $_REQUEST['token']];
                 }
 
-                $this->__add_info('fe_startseite', '3b9');
+                return ['fe_startseite', '3b9'];
             }
 
-            $this->__add_info('fe_startseite', '54e');
+            return ['fe_startseite', '54e'];
         }
 
         header('Location: ?aktion=fe_startseite');
