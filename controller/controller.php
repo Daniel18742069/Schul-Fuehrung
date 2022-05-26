@@ -23,8 +23,8 @@ class Controller
         if (isset($_REQUEST['anmelden'])) {
             $this->anmelden();
         }
-        if (isset($_REQUEST['info'])) {
-            $this->addContext('info', $_REQUEST['info']);
+        if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
+            $this->addContext('info', get_info($_REQUEST['info']));
         }
 
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
@@ -255,13 +255,13 @@ class Controller
                     $to_name
                 );
 
-                $this->__add_info('fe_startseite', 'Ihre Anmeldung war Erfolgreich!');
+                $this->__add_info('fe_startseite', 'ce6');
             }
 
-            $this->__add_info('fe_startseite', 'Manche der eingegebenen Daten sind nicht Valide!');
+            $this->__add_info('fe_startseite', 'b8d');
         }
 
-        $this->__add_info('fe_startseite', 'Manche der eingaben sind Leer!');
+        $this->__add_info('fe_startseite', 'c8f');
     }
 
     /**
@@ -281,8 +281,8 @@ class Controller
                     $this->abmelden();
                     header('Location: ?aktion=fe_startseite');
                 }
-                if (isset($_REQUEST['info'])) {
-                    $this->addContext('info', $_REQUEST['info']);
+                if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
+                    $this->addContext('info', get_info($_REQUEST['info']));
                 }
 
                 $Fuehrung = Fuehrung::findeFuehrung($Anmeldung->getFuehrung_id());
@@ -346,16 +346,16 @@ class Controller
                             $to_name
                         );
 
-                        $this->__add_info('fe_startseite', 'Ihre Abmeldung war Erfolgreich!');
+                        $this->__add_info('fe_startseite', '2c4');
                     }
 
-                    $this->__add_info('fe_startseite', 'Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist!');
+                    $this->__add_info('fe_startseite', '8c5');
                 }
 
-                $this->__add_info('fe_startseite', 'Die zugehörige Führung wurde nicht gefunden!');
+                $this->__add_info('fe_startseite', '2b0');
             }
 
-            $this->__add_info('fe_startseite', 'Ihre Anmeldung wurde nicht gefunden!');
+            $this->__add_info('fe_startseite', 'fa3');
         }
 
         header('Location: ?aktion=fe_startseite');
@@ -404,22 +404,22 @@ class Controller
                                     $to_name
                                 );
 
-                                $this->__add_info('fe_termin', 'Ihre Änderung war Erfolgreich!', $_REQUEST['token']);
+                                $this->__add_info('fe_termin', '57d', $_REQUEST['token']);
                             }
 
-                            $this->__add_info('fe_termin', 'Ihre Eingabe überschreitet die maximale Teilnehmeranzahl!', $_REQUEST['token']);
+                            $this->__add_info('fe_termin', '9b8', $_REQUEST['token']);
                         }
 
-                        $this->__add_info('fe_termin', 'Ihre Eingabe der anzahl der Teilnehmer ist Leer!', $_REQUEST['token']);
+                        $this->__add_info('fe_termin', '734', $_REQUEST['token']);
                     }
 
-                    $this->__add_info('fe_termin', 'Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist!', $_REQUEST['token']);
+                    $this->__add_info('fe_termin', 'a95', $_REQUEST['token']);
                 }
 
-                $this->__add_info('fe_startseite', 'Die zugehörige Führung wurde nicht gefunden!');
+                $this->__add_info('fe_startseite', '3b9');
             }
 
-            $this->__add_info('fe_startseite', 'Ihre Anmeldung wurde nicht gefunden!');
+            $this->__add_info('fe_startseite', '54e');
         }
 
         header('Location: ?aktion=fe_startseite');

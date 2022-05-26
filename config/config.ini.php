@@ -21,5 +21,8 @@ $ini = '
 	ADMIN_PW=PLATZHALTER
 ';
 
-$config = parse_ini_string($ini);
-define('CONF', $config);
+$data = parse_ini_string($ini);
+define('CONF', $data);
+
+unset($ini);
+unset($data);
