@@ -98,12 +98,6 @@ class Controller
        if(isset($_REQUEST['anmeldenButton']) && !isset($_REQUEST['delete'])){
         isUpdate($_REQUEST);
         
-
-        /*
-            $fuehrung = Fuehrung::findeFuehrung($_REQUEST['f_id']);
-            $fuehrung->setFuehrungspersonen($_REQUEST['fuehrungspersonen']);
-            $fuehrung->speichere();
-            */
         }elseif(isset($_REQUEST['delete'])){
             $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['delete']);
             if($anmeldung!=NULL){
