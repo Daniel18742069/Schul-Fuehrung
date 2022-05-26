@@ -1,6 +1,6 @@
 RewriteEngine On
 
-ErrorDocument 404 https://www.vozodo.it
+RewriteRule ^$ index.php?aktion=fe_startseite
 
 RewriteRule ^Startseite?$ index.php?aktion=fe_startseite
 
