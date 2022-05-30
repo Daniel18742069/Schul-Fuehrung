@@ -95,7 +95,7 @@
                                         <label for="email">E-Mail:</label>
                                         <input type="email" name="email" class="anmeldeinputs" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
+                                        <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahl_teilnehmer[$fuehrung->getId()]; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
                                         <input type="text" name="fuehrung_id" class="anmeldeinputs" value="<?= $fuehrung->getId(); ?>" hidden />
                                         <input type="submit" value="Anmelden" disabled="disabled" />
                                     </form>
@@ -122,41 +122,8 @@
 
     </div>
 
-    <div id="captcha_background">
-        <div id="captcha_box">
-
-            <div class="container-fluid">
-                <div class="form-row">
-                    <div class="col-12">
-                        <div class="slidercaptcha card">
-                            <div class="card-header">
-                                <span>Complete the security check</span>
-                            </div>
-                            <div class="card-body">
-                                <div id="captcha"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script src="model/captcha/src/disk/longbow.slidercaptcha.min.js"></script>
-            <script>
-                var captcha = sliderCaptcha({
-                    id: 'captcha',
-                    repeatIcon: 'fa fa-redo',
-                    onSuccess: function() {
-                        var handler = setTimeout(() => {
-                            window.clearTimeout(handler);
-                            captcha.reset();
-                            toggleCaptcha();
-                            window.submitForm.submit();
-                        }, 500);
-                    }
-                });
-            </script>
-
-        </div>
-    </div>
+    <?php require_once 'view/snippets/captcha.sp.php'; ?>
+    <?php require_once 'view/snippets/loading_screen.sp.php'; ?>
 </body>
 
 <?php if ($fachrichtungen) { ?>
