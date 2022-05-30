@@ -16,6 +16,7 @@
 }
 .inhalt_od p, .neuer-od-formular p {
   margin: 0;
+  text-align: center;
 }
 
 .be_acc-content p {
