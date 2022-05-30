@@ -18,6 +18,16 @@
   margin: 0;
 }
 
+.be_acc-content p {
+  padding: 0.75rem 7rem;
+}
+.be_acc-content .buttons {
+  margin-top: 0.75rem;
+}
+.be_acc-content .intervall-ende {
+  text-align: right;
+}
+
 .neuer-od-formular span {
   padding: 1rem;
   padding-left: 0;
@@ -59,8 +69,7 @@
 }
 .buttons a, .buttons form {
   text-decoration: none;
-  margin: 0 0.5rem;
-  width: 100%;
+  width: calc(100% - 0.5rem);
 }
 .buttons a button, .buttons form button {
   width: 100%;

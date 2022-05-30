@@ -51,11 +51,11 @@
                         </div>
                         <div class="content accordion-body js-accordion-body accordion-body__contents">
                             <div class="ccordion-body__contents">
-                                <span class="inhalt_od">
+                                <span class="inhalt_od be_acc-content">
                                     <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
-                                    <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
+                                    <p class="intervall-ende">Intervall: <?= $offenerTag->getIntervall() ?> min</p>
                                     <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
-                                    <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
+                                    <p class="intervall-ende">Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
                                 </span>
                                 <span class="buttons">
                                     <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
