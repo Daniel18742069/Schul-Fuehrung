@@ -57,7 +57,6 @@
                                 <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
                                 <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
                                 <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
-                                <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
                             </span>
                             <span class="buttons">
 
