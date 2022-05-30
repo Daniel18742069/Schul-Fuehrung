@@ -58,9 +58,25 @@
                                 <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
                                 <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
                                 <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
+                            </span>
+                            <span class="buttons">
+
+                                <a
+                                    href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
+
+                                    <button class="editieren">Editieren</button>
+
+                                </a>
+
+                                <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
+
+                                    <button class="editieren">Führung hinzufügen</button>
+
+                                </a>
+
                                 <form id="MyForm" name="MyForm">
+
                                     <button type="button" class="neuer_od andereStatus"
-                                        
                                         onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">
                                         <div id="namenButtonAendern<?= $offenerTag->getId() ?>">
                                             <?= $offenerTag->getStatusStringUmgekehrt(); ?>
@@ -68,17 +84,11 @@
 
 
                                     </button>
+
                                     <input name="MyName" id="MyID" value="YourValue" hidden />
+
                                 </form>
-                            </span>
-                            <span class="buttons">
-                                <a
-                                    href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
-                                    <button class="editieren">Editieren</button>
-                                </a>
-                                <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
-                                    <button class="editieren">Führung hinzufügen</button>
-                                </a>
+
                             </span>
                         </div>
                         <div class="content accordion-body js-accordion-body accordion-body__contents">
@@ -90,14 +100,17 @@
                                     <p class="intervall-ende">Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
                                 </span>
                                 <span class="buttons">
-                                    <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
+                                    <a
+                                        href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
                                         <button class="editieren">Editieren</button>
                                     </a>
                                     <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
                                         <button class="editieren">Führung hinzufügen</button>
                                     </a>
                                     <form id="MyForm" name="MyForm">
-                                        <button type="button" class="neuer_od andereStatus" onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">Status ändern</button>
+                                        <button type="button" class="neuer_od andereStatus"
+                                            onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">Status
+                                            ändern</button>
                                         <input name="MyName" id="MyID" value="YourValue" hidden />
                                     </form>
                                 </span>
