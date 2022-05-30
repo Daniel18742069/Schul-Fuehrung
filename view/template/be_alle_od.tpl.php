@@ -54,7 +54,7 @@
                         <div class="ccordion-body__contents">
                             <span class="inhalt_od">
                                 <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
-                                <p>Status: <?= $offenerTag->getStatusString() ?></p>
+                                <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
                                 <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
                                 <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
                                 <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
