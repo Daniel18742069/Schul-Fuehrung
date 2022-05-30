@@ -53,7 +53,8 @@ class Fuehrung
         $sql = 'SELECT * FROM od_fuehrung';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     /*public static function findeAlleFuehrungenXLS()
@@ -71,7 +72,8 @@ class Fuehrung
         $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id;
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
     public static function findeSpezifischeFuehrungen(int $offener_tag_id, int $fachrichtung_id, $sichtbar = 1)
     {
@@ -88,7 +90,8 @@ class Fuehrung
         $sql = 'SELECT * FROM od_fuehrung WHERE offener_tag_id = ' . $offener_tag_id . ' AND sichtbar = 1 ORDER BY uhrzeit, id ASC';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
 
     public static function gemeinsame_idSortieren(int $offener_tag_id){
@@ -102,7 +105,8 @@ class Fuehrung
         $sql = 'SELECT * FROM od_fuehrung where offener_tag_id = '.$offener_tag_id. ' ORDER BY gemeinsame_id ASC, uhrzeit ASC';
         $abfrage = DB::getDB()->query($sql);
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
-        return $abfrage->fetchAll();
+        $Klassen = $abfrage->fetchAll();
+        return self::indexiereArray($Klassen);
     }
     public function getId()
     {

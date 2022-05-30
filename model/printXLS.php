@@ -4,20 +4,13 @@
  * @author Daniel Kienzl
  */
 
-// filename for download
-$filename = "open_day_" . date('Y.m.d') . ".xls";
-
-//header("Content-Disposition: attachment; filename=\"$filename\"");
-//header('Content-Type: application/xls');
-
-// header("Content-Type: text/plain");
 ?>
 
 <?php
 if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 ?>
 
-    <script>
+<script>
         $(document).ready(function() {
             $('#tbl_exporttable_to_xls').DataTable({
                 dom: 'Bfrtip',
@@ -49,7 +42,6 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 
             foreach ($alleAnmeldungen as $Anmeldung) :
                 $fuehrung_id = $Anmeldung->getFuehrung_id();
-
                 $Fuehrung = $alleFuehrungen[$fuehrung_id];
                 $Fachrichtung = $alleFachrichtungen[$Fuehrung->getFachrichtung_id()];
             ?>
@@ -103,18 +95,5 @@ function cleanUmlaute(string $string)
 
     return str_replace($search, $replace, $string);
 }
-
-
-
-
-
-/*function cleanData(&$str)
-{
-    $str = preg_replace("/\t/", "\\t", $str);
-    $str = preg_replace("/\r?\n/", "\\n", $str);
-    if (strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
-}
-*/
-
 
 ?>

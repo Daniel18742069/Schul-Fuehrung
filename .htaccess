@@ -1,8 +1,2 @@
-RewriteEngine On
 
-RewriteRule ^$ index.php?aktion=fe_startseite
-
-RewriteRule ^Startseite?$ index.php?aktion=fe_startseite
-
-RewriteRule ^Startseite/Success?$ index.php?aktion=fe_startseite&info=ce6
 
