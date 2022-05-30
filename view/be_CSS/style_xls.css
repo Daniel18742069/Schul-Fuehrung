@@ -1,1 +1,41 @@
-#tbl_exporttable_to_xls_wrapper{padding:1em}button.dt-button{order:1;color:#002a50 !important;background-color:rgba(245,196,0,.8) !important;padding:.45rem 1rem !important;font-size:1.1rem !important;line-height:1.5 !important;transition:color .15s ease-in-out,background-color .15s ease-in-out;border:none !important;float:right !important}button.dt-button:hover{filter:brightness(0.8) !important;cursor:pointer}.paginate_button{color:#002a50 !important;background-color:rgba(245,196,0,.8) !important;padding:.45rem 1rem !important;font-size:1.1rem !important;line-height:1.5 !important;border:none !important}.paginate_button:hover{filter:brightness(0.8) !important;cursor:pointer}@media print{@page{size:auto;margin:0mm}}
+#tbl_exporttable_to_xls_wrapper {
+  padding: 1em;
+}
+
+button.dt-button {
+  order: 1;
+  color: #002a50 !important;
+  background-color: rgba(245, 196, 0, 0.8) !important;
+  padding: 0.45rem 1rem !important;
+  font-size: 1.1rem !important;
+  line-height: 1.5 !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  border: none !important;
+  float: right !important;
+}
+button.dt-button:hover {
+  filter: brightness(0.8) !important;
+  cursor: pointer;
+}
+
+.paginate_button {
+  color: #002a50 !important;
+  background-color: rgba(245, 196, 0, 0.8) !important;
+  padding: 0.45rem 1rem !important;
+  font-size: 1.1rem !important;
+  line-height: 1.5 !important;
+  border: none !important;
+}
+.paginate_button:hover {
+  filter: brightness(0.8) !important;
+  cursor: pointer;
+}
+
+@media print {
+  @page {
+    size: auto;
+    /* auto is the initial value */
+    margin: 0mm;
+    /* this affects the margin in the printer settings */
+  }
+}
