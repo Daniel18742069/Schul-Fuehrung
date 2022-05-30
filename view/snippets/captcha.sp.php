@@ -22,12 +22,14 @@
 				repeatIcon: 'fa fa-redo',
 				onSuccess: function() {
 					var handler = setTimeout(() => {
+						toggleCaptcha();
+						toggleLoadingScreen(true);
+
 						window.clearTimeout(handler);
 						captcha.reset();
-						toggleCaptcha();
-						toggleLoadingScreen();
+
 						window.submitForm.submit();
-					}, 500);
+					}, 0);
 				}
 			});
 		</script>

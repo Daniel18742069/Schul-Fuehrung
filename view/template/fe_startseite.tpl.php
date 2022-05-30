@@ -95,7 +95,7 @@
                                         <label for="email">E-Mail:</label>
                                         <input type="email" name="email" class="anmeldeinputs" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahlTeilnehmer; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
+                                        <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahl_teilnehmer[$fuehrung->getId()]; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
                                         <input type="text" name="fuehrung_id" class="anmeldeinputs" value="<?= $fuehrung->getId(); ?>" hidden />
                                         <input type="submit" value="Anmelden" disabled="disabled" />
                                     </form>
