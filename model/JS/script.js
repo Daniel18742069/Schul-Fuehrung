@@ -73,22 +73,30 @@ function formSubmit(event) {
 }
 
 function toggleCaptcha(anzeigen = false) {
-    content = document.querySelector('#content');
+    toggleContentBlur(true);
     captcha_background = document.querySelector('#captcha_background');
-    // Webseite Blurren/Normal
-    content.style.filter = (anzeigen) ? 'blur(5px)' : '';
-    // Captcha Anzeigen/Verstecken
     captcha_background.style.display = (anzeigen) ? 'block' : 'none';
 }
 
+function toggleLoadingScreen(anzeigen = false) {
+    toggleContentBlur(true);
+    loading_screen = document.querySelector('#loading_screen');
+    loading_screen.style.display = (anzeigen) ? 'block' : 'none';
+}
+
+function toggleContentBlur(blurren = false) {
+    content = document.querySelector('#content');
+    content.style.filter = (blurren) ? 'blur(5px)' : '';
+}
+
 function aendereStatusFuehrung(offenerTag) {
-    window.alert(offenerTag);
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
-    console.log(status);
     if (status == "DEAKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
+        document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     } else {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
+        document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "AKTIVIEREN";
     }
     var xhttp;
     try {
@@ -117,7 +125,7 @@ function aendereStatusFuehrung(offenerTag) {
  */
 function accordion() {
 
-    const accordion = function() {
+    const accordion = function () {
 
         const $accordion = $('.js-accordion');
         const $accordion_header = $accordion.find('.js-accordion-header');
@@ -134,8 +142,8 @@ function accordion() {
 
         return {
             // pass configurable object literal
-            init: function($settings) {
-                $accordion_header.on('click', function() {
+            init: function ($settings) {
+                $accordion_header.on('click', function () {
                     accordion.toggle($(this));
                 });
 
@@ -149,14 +157,14 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: function($this) {
+            toggle: function ($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
-                    find('> .js-accordion-item').
-                    removeClass('active').
-                    find('.js-accordion-body').
-                    slideUp();
+                        find('> .js-accordion-item').
+                        removeClass('active').
+                        find('.js-accordion-body').
+                        slideUp();
                 }
 
                 // show/hide the clicked accordion item
@@ -167,7 +175,7 @@ function accordion() {
 
     }();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         accordion.init({
             speed: 300,
             oneOpen: true
