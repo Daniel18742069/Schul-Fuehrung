@@ -82,13 +82,13 @@ function toggleCaptcha(anzeigen = false) {
 }
 
 function aendereStatusFuehrung(offenerTag) {
-    window.alert(offenerTag);
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
-    console.log(status);
     if (status == "DEAKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
+        document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     } else {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
+        document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "AKTIVIEREN";
     }
     var xhttp;
     try {

@@ -98,6 +98,15 @@ class Offener_tag
             return "aktiviert";
         }
     }
+    public function getStatusStringUmgekehrt()
+    {
+        if ($this->status == 0) {
+            return "AKTIVIEREN";
+        } else {
+            return "DEAKTIVIEREN";
+        }
+    }
+
 
     public function setStatus($status)
     {
