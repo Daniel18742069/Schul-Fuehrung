@@ -43,7 +43,7 @@
                 <div>
                     <h2>Zeit für einen Rundgang?</h2>
                     <span>
-                        <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler an.</p>
+                        <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler und Eltern an.</p>
                         <p class="textZwei">Reservieren Sie eine Führung noch heute!</p>
                     </span>
                 </div>

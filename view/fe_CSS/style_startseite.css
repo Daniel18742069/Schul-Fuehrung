@@ -101,12 +101,15 @@ body #wrapper {
   /*position: fixed;
   bottom: 3rem;
   right: 5rem;*/
+  position: -webkit-sticky;
   position: sticky;
   top: 3rem;
   right: 5rem;
   float: none;
   display: block;
   margin-left: auto;
+  width: 10rem;
+  margin-bottom: 0.5rem;
 }
 
 input[type=button]:hover {
@@ -268,7 +271,7 @@ p {
   width: auto;
 }
 
-input[type=submit], .neuer_od, #btn_loesche {
+input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel {
   order: 1;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
@@ -280,14 +283,29 @@ input[type=submit], .neuer_od, #btn_loesche {
   max-height: 3rem;
   float: right;
 }
-input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover {
+input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover {
   filter: brightness(0.85);
   cursor: pointer;
 }
-input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled {
+input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck-admin-panel:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.zurueck-admin-panel {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
+  width: 10rem;
+}
+
+.link-admin-panel {
+  text-decoration: none;
 }
 
 #btn_loesche {
@@ -326,6 +344,14 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled {
   margin-left: 1rem !important;
   transition: all 0.3s !important;
   height: 2rem !important;
+}
+
+.anmeldeinputs {
+  width: 22rem;
+}
+
+.anmeldeinputs-number {
+  width: 5rem;
 }
 
 .kapazitaet-none, .lehrer-none, .uhrzeit-none {

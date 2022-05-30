@@ -134,6 +134,8 @@ body {
   float: none;
   display: block;
   margin-left: auto;
+  width: 10rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -313,7 +315,7 @@ p {
   width: auto;
 }
 
-input[type="submit"], .neuer_od, #btn_loesche{
+input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel{
   order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
@@ -339,6 +341,20 @@ input[type="submit"], .neuer_od, #btn_loesche{
   }
 
 
+}
+
+.zurueck-admin-panel{
+  position: sticky;
+  top: 6rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
+  width: 10rem;
+}
+
+.link-admin-panel{
+  text-decoration: none;
 }
 
 #btn_loesche {
@@ -379,6 +395,14 @@ input[type="submit"], .neuer_od, #btn_loesche{
   margin-left: 1rem!important;
   transition: all 0.3s!important;
   height: 2rem!important;
+}
+
+.anmeldeinputs{
+  width: 22rem;
+}
+
+.anmeldeinputs-number{
+  width: 5rem;
 }
 
 .kapazitaet-none, .lehrer-none, .uhrzeit-none{
