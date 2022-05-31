@@ -1,3 +1,2 @@
-RewriteRule ^(.*)$ http://localhost/Schul-Fuehrung [R=permanent,L,QSD]
 
-RewriteRule ^(.*)$ http://localhost/Schul-Fuehrung/? [R=permanent,L]
+
