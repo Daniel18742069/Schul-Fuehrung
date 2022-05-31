@@ -36,7 +36,6 @@
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
-                        
                         $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
                         if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
                             $anzahlTeilnehmer = 0;
