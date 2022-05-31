@@ -47,9 +47,7 @@
                         <p class="textZwei">Reservieren Sie eine Führung noch heute!</p>
                     </span>
                 </div>
-                <?php 
-                if($offener_tag){
-                     ?>
+
                 <div class="box">
 
                     <!-- Tabs Fachrichtung -->
@@ -104,14 +102,10 @@
                                 </div>
                             </div>
                         </div>
-                   
+                    <?php } ?>
 
                 </div>
 
-                
-                <?php } ?>
-
-                <?php } ?>   
                 <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -120,7 +114,6 @@
                     accordion()
                 </script>
 
-                                     
 
             </div>
         </section>
@@ -133,14 +126,11 @@
     <?php require_once 'view/snippets/loading_screen.sp.php'; ?>
 </body>
 
-<?php
- if($offener_tag){
-if ($fachrichtungen) { ?>
+<?php if ($fachrichtungen) { ?>
     <script>
         first_tab();
         set_events();
     </script>
-<?php } }
-?>
+<?php } ?>
 
 </html>
