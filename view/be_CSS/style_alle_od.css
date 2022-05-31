@@ -25,6 +25,9 @@
 .be_acc-content .buttons {
   margin-top: 0.75rem;
 }
+.be_acc-content .intervall-ende {
+  text-align: right;
+}
 
 .neuer-od-formular span {
   padding: 1rem;

@@ -4,13 +4,10 @@
  * @author Daniel Kienzl
  */
 
-?>
 
-<?php
 if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 ?>
-
-<script>
+    <script>
         $(document).ready(function() {
             $('#tbl_exporttable_to_xls').DataTable({
                 dom: 'Bfrtip',
@@ -25,7 +22,7 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 
         <thead>
             <tr>
-                <th class="order">Datum</th>
+                <!--<th class="order">Datum</th>-->
                 <th class="order">Uhrzeit</th>
                 <th class="order">Vorname</th>
                 <th class="order">Nachname</th>
@@ -47,13 +44,22 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             ?>
 
                 <tr>
+                   <!-- <td>
+                    <?php /* datum_formatieren($Anmeldung->getDatum(), 'd.m.Y');
+                        $letztes_datum = datum_formatieren($Anmeldung->getDatum(), 'd.m.Y');
+                        $counter = 0; */ ?>
+                    </td> -->
+                    <?php
+                    $uhrzeit = datum_formatieren($Fuehrung->getUhrzeit(), 'H:i');
+        
+                    ?>
                     <td>
-                        <?= datum_formatieren($Anmeldung->getDatum(), 'd.m.Y');
-                        $letztes_datum = datum_formatieren($Anmeldung->getDatum(), 'd.m.Y'); ?>
-                    </td>
-                    <td>
-                        <?= datum_formatieren($Fuehrung->getUhrzeit(), 'H:i'); ?> Uhr
-                    </td>
+                            <?= $uhrzeit ?> Uhr
+                        </td>
+                        <?php
+                    
+                    ?>
+                    
                     <td>
                         <?= cleanUmlaute($Anmeldung->getVorname()); ?>
                     </td>
@@ -80,13 +86,17 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
                     </td>
                 </tr>
 
+                <?php
+                
+                ?>
+
             <?php endforeach; ?>
         </tbody>
     </table>
 
 <?php
 
-}
+            }
 
 function cleanUmlaute(string $string)
 {
