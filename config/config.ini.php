@@ -13,6 +13,10 @@ $ini = '
 	DB_NAME=schulfuehrung
 	DB_USER=root
 	DB_PASS=
+<<<<<<< HEAD
+=======
+	
+>>>>>>> parent of 54a047c (id)
 
 	[Mail Einstellungen]
 	MAIL_NAME=LBSHI Bozen NoReply
