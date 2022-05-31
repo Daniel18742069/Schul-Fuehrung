@@ -1,5 +1,4 @@
 <?php
-$DEV_MODE = true;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
 
 $ini = '
 	[Standard Seite]
@@ -23,13 +22,3 @@ $ini = '
 	ADMIN_BN=PLATZHALTER
 	ADMIN_PW=PLATZHALTER
 ';
-
-if ($DEV_MODE) {
-	include_once 'config/dev_config.ini.php';
-}
-
-$data = parse_ini_string($ini);
-define('CONF', $data);
-
-unset($ini);
-unset($data);
