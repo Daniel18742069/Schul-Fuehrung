@@ -40,7 +40,14 @@
             <div class="accordion-wrapper accordion-be js-accordion">
                 <?php
                 foreach ($be_alle_od as $offenerTag) {
+                $disabled = '';
+                $value = 'editieren';
+                var_dump($offenerTag->get);
+                //if($offenerTag){
+
+                //}
                 ?>
+
                 <div class="accordion__item js-accordion-item">
                     <div class="kalenderbox alle_od accordion-header js-accordion-header">
                         <span class="datum"><?= $offenerTag->getDatumWelformed() ?></span>
