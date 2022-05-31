@@ -1,20 +1,37 @@
 #ib_info_box {
 	z-index: 1000;
 	position: fixed;
-	top: 1vw;
-	left: 1vw;
-	box-shadow: 5px 8px 21px rgba(0, 0, 0, 0.2);
+	top: 1vh;
+	left: 50vw;
+	transform: translateX(-50%);
+	max-width: 90vw;
+	padding: 1vh;
+
 	background-color: white;
-	padding: 1vw;
-	border: rgba(245, 196, 0, 0.8) solid .5vw;
+	border: rgba(245, 196, 0, 0.8) solid 1vh;
+	box-shadow: 5px 8px 21px rgba(0, 0, 0, 0.2);
+
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
 
 	div {
-		display: inline-block;
-		vertical-align: middle;
-        max-width: 50vw;
-        overflow-wrap: break-word;
+		padding: 1vh;
+	}
+
+	@media (max-width: 1080px) {
+		& {
+			top: 0;
+			left: 0;
+			transform: translateX(0);
+			max-width: 100vw;
+
+			width: calc(100vw - 4vh);
+		}
 	}
 }
+
+
 
 .ib_fadeout {
 	visibility: hidden;
