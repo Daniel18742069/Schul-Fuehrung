@@ -97,12 +97,21 @@
                                     <p class="intervall-ende">Intervall: <?= $offenerTag->getIntervall() ?> min</p>
                                     <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
                                     <p class="intervall-ende">Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
+                                    
                                 </span>
                                 <span class="buttons">
+                                    <?php if(false){ ?>
+
                                     <a
-                                        href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
-                                        <button class="editieren">Editieren</button>
+                                        href="indasdex.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>" >
+                                        <button class="editieren">Gay</button>
                                     </a>
+                                   <?php }else{ ?>
+                                    <a
+                                        href="#" >
+                                        <button class="editieren">Gay</button>
+                                    </a>
+                                   <?php } ?>
                                     <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
                                         <button class="editieren">Führung hinzufügen</button>
                                     </a>
