@@ -10,6 +10,6 @@
                 document.querySelector('#ib_info_box').remove();
                 document.querySelector('#ib_info_script').remove();
             }, 300);
-        }, 1E4);
+        }, 1E4); // =10s
     </script>
 <?php } ?>
