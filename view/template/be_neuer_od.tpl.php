@@ -24,7 +24,7 @@
         <div class="wrapper-fuehrung_hinzufuegen">
 
             <h2>Neuer Open Day</h2>
-            <form action="https://openday.tschaufer.it//AlleOpenDay" method="post">
+            <form action="https://openday.tschaufer.it/AlleOpenDay" method="post">
 
 
                 <div class="neuer-od-formular">
@@ -56,7 +56,7 @@
                 </div>
 
                 <input type="submit" value="Erstellen" class="neuer-od-erstellen">
-                <a href="https://openday.tschaufer.it//AlleOpenDay">
+                <a href="https://openday.tschaufer.it/AlleOpenDay">
                     <input type="button" id="btn-zurueck" value="Zurück" />
                 </a>
 

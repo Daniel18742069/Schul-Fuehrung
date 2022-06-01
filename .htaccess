@@ -1,27 +1,27 @@
 #RewriteEngine on
-#RewriteRule ^/?Startseite$ https://openday.tschaufer.it//?aktion=fe_startseite
-#RewriteRule ^/?AlleOpenDay$ https://openday.tschaufer.it//index.php?aktion=be_alle_od
-#RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it//index.php?aktion=be_neues_fach
-#RewriteRule ^/?NeuerOpenDay$ https://openday.tschaufer.it//index.php?aktion=be_neuer_od
-#RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ https://openday.tschaufer.it//index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L]
-#RewriteRule ^/?Einstellungen/([0-9-]+)$ https://openday.tschaufer.it//index.php?aktion=be_alle_einstellungen&id=$1 [L]
-#RewriteRule ^/?FuehrungErfolgreich$ https://openday.tschaufer.it//index.php?aktion=be_fuehrung_erfolgreich
-#RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it//index.php?aktion=be_neues_fach
-#RewriteRule ^/?OpenDayErfolgreich$ https://openday.tschaufer.it//index.php?aktion=be_od_erfolgreich
-#RewriteRule ^/?Impressum$ https://openday.tschaufer.it//index.php?aktion=impressum
-#RewriteRule ^/?Privacy$ https://openday.tschaufer.it//index.php?aktion=privacy
-#RewriteRule ^/?Cookies$ https://openday.tschaufer.it//index.php?aktion=cookies
+#RewriteRule ^/?Startseite$ https://openday.tschaufer.it/?aktion=fe_startseite
+#RewriteRule ^/?AlleOpenDay$ https://openday.tschaufer.it/index.php?aktion=be_alle_od
+#RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it/index.php?aktion=be_neues_fach
+#RewriteRule ^/?NeuerOpenDay$ https://openday.tschaufer.it/index.php?aktion=be_neuer_od
+#RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ https://openday.tschaufer.it/index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L]
+#RewriteRule ^/?Einstellungen/([0-9-]+)$ https://openday.tschaufer.it/index.php?aktion=be_alle_einstellungen&id=$1 [L]
+#RewriteRule ^/?FuehrungErfolgreich$ https://openday.tschaufer.it/index.php?aktion=be_fuehrung_erfolgreich
+#RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it/index.php?aktion=be_neues_fach
+#RewriteRule ^/?OpenDayErfolgreich$ https://openday.tschaufer.it/index.php?aktion=be_od_erfolgreich
+#RewriteRule ^/?Impressum$ https://openday.tschaufer.it/index.php?aktion=impressum
+#RewriteRule ^/?Privacy$ https://openday.tschaufer.it/index.php?aktion=privacy
+#RewriteRule ^/?Cookies$ https://openday.tschaufer.it/index.php?aktion=cookies
 
 RewriteEngine on
-RewriteRule ^/?Startseite$ https://openday.tschaufer.it//?aktion=fe_startseite
-RewriteRule ^/?AlleOpenDay$ https://openday.tschaufer.it//index.php?aktion=be_alle_od
-RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it//index.php?aktion=be_neues_fach
-RewriteRule ^/?NeuerOpenDay$ https://openday.tschaufer.it//index.php?aktion=be_neuer_od
-RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ https://openday.tschaufer.it//index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L]
-RewriteRule ^/?Einstellungen/([0-9-]+)$ https://openday.tschaufer.it//index.php?aktion=be_alle_einstellungen&id=$1 [L]
-RewriteRule ^/?FuehrungErfolgreich$ https://openday.tschaufer.it//index.php?aktion=be_fuehrung_erfolgreich
-RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it//index.php?aktion=be_neues_fach
-RewriteRule ^/?OpenDayErfolgreich$ https://openday.tschaufer.it//index.php?aktion=be_od_erfolgreich
-RewriteRule ^/?Impressum$ https://openday.tschaufer.it//index.php?aktion=impressum
-RewriteRule ^/?Privacy$ https://openday.tschaufer.it//index.php?aktion=privacy
-RewriteRule ^/?Cookies$ https://openday.tschaufer.it//index.php?aktion=cookies
+RewriteRule ^/?Startseite$ https://openday.tschaufer.it/?aktion=fe_startseite
+RewriteRule ^/?AlleOpenDay$ https://openday.tschaufer.it/index.php?aktion=be_alle_od
+RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it/index.php?aktion=be_neues_fach
+RewriteRule ^/?NeuerOpenDay$ https://openday.tschaufer.it/index.php?aktion=be_neuer_od
+RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ https://openday.tschaufer.it/index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L]
+RewriteRule ^/?Einstellungen/([0-9-]+)$ https://openday.tschaufer.it/index.php?aktion=be_alle_einstellungen&id=$1 [L]
+RewriteRule ^/?FuehrungErfolgreich$ https://openday.tschaufer.it/index.php?aktion=be_fuehrung_erfolgreich
+RewriteRule ^/?NeuesFach$ https://openday.tschaufer.it/index.php?aktion=be_neues_fach
+RewriteRule ^/?OpenDayErfolgreich$ https://openday.tschaufer.it/index.php?aktion=be_od_erfolgreich
+RewriteRule ^/?Impressum$ https://openday.tschaufer.it/index.php?aktion=impressum
+RewriteRule ^/?Privacy$ https://openday.tschaufer.it/index.php?aktion=privacy
+RewriteRule ^/?Cookies$ https://openday.tschaufer.it/index.php?aktion=cookies
