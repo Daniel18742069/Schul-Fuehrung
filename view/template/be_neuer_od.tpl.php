@@ -23,9 +23,8 @@
     <section id="wrapper">
         <div class="wrapper-fuehrung_hinzufuegen">
 
-            <form action="index.php?aktion=be_od_erfolgreich" method="post">
                 <h2>Neuer Open Day</h2>
-                <form action="index.php?aktion=bg_od_erfolgreich" method="post">
+                <form action="index.php?aktion=be_alle_od" method="post">
 
 
                     <div class="neuer-od-formular">

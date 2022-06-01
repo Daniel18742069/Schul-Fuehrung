@@ -68,7 +68,7 @@
                     $array = arrayManipulieren($_POST);
                 ?>
 
-                    <form action="index.php?aktion=be_fuehrung_erfolgreich" method="post">
+                    <form action="index.php?aktion=be_alle_od" method="post">
 
                         <?php for ($i = 0; $i < count($array); $i++) {
                             $stringArray = explode('_', $array[$i]);
@@ -92,7 +92,7 @@
 
 
                         <input type="text" name="offenerTag" value="<?= $_GET['id'] ?>" hidden />
-                        <input type="submit" name="anmelden" value="Anmelden" />
+                        <input type="submit" name="anmeldenFuehrungen" value="Anmelden" />
 
 
                     </form>

@@ -26,7 +26,7 @@
 
             <h2>Neue Fachrichtung</h2>
 
-            <form action="index.php?aktion=be_od_erfolgreich" method="post">
+            <form action="index.php?aktion=be_alle_od" method="post">
 
                 <span>
                     <p class="name-fachrichtung">Name der Fachrichtung: <input type="text" name="beschreibung" id="beschreibung" required class="felder-neuer-od feld-fachrichtung" /></p>
