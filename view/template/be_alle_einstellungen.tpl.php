@@ -96,7 +96,7 @@
 
 
                         <input type="text" name="offenerTag" value="<?= $_GET['id'] ?>" hidden />
-                        <input type="submit" name="anmeldenFuehrungen" value="Anmelden" />
+                        <input type="submit" name="anmeldenFuehrungen" value="Erstellen" />
                         <a href="index.php?aktion=be_alle_od">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
