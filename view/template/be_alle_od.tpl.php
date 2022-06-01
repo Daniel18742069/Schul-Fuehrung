@@ -42,7 +42,7 @@
                 foreach ($be_alle_od as $offenerTag) {
                 $disabled = '';
                 $value = 'editieren';
-                var_dump($offenerTag->get);
+                //var_dump($offenerTag->get);
                 //if($offenerTag){
 
                 //}
@@ -67,8 +67,7 @@
                             </span>
                             <span class="buttons">
 
-                                <a
-                                    href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
+                                <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
 
                                     <button class="editieren">Editieren</button>
 
@@ -96,31 +95,6 @@
                                 </form>
 
                             </span>
-                        </div>
-                        <div class="content accordion-body js-accordion-body accordion-body__contents">
-                            <div class="ccordion-body__contents">
-                                <span class="inhalt_od be_acc-content">
-                                    <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
-                                    <p class="intervall-ende">Intervall: <?= $offenerTag->getIntervall() ?> min</p>
-                                    <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
-                                    <p class="intervall-ende">Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
-                                </span>
-                                <span class="buttons">
-                                    <a
-                                        href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
-                                        <button class="editieren">Editieren</button>
-                                    </a>
-                                    <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
-                                        <button class="editieren">Führung hinzufügen</button>
-                                    </a>
-                                    <form id="MyForm" name="MyForm">
-                                        <button type="button" class="neuer_od andereStatus"
-                                            onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">Status
-                                            ändern</button>
-                                        <input name="MyName" id="MyID" value="YourValue" hidden />
-                                    </form>
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
