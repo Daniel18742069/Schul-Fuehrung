@@ -25,7 +25,6 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 
         <thead>
             <tr>
-                <th class="order">Datum</th>
                 <th class="order">Uhrzeit</th>
                 <th class="order">Vorname</th>
                 <th class="order">Nachname</th>
@@ -47,10 +46,6 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             ?>
 
                 <tr>
-                    <td>
-                        <?= datum_formatieren($Anmeldung->getDatum(), 'd.m.Y');
-                        $letztes_datum = datum_formatieren($Anmeldung->getDatum(), 'd.m.Y'); ?>
-                    </td>
                     <td>
                         <?= datum_formatieren($Fuehrung->getUhrzeit(), 'H:i'); ?> Uhr
                     </td>

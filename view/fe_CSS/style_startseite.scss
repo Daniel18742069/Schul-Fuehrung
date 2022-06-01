@@ -190,6 +190,17 @@ body {
   margin-bottom: 0.5rem;
 }
 
+#btn_drucken {
+  position: sticky;
+  top: 3rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
+  width: 10rem;
+  margin-bottom: 0.5rem;
+}
+
 
 
 input[type="button"]:hover {
@@ -370,7 +381,7 @@ p {
 	width: auto;
 }
 
-input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel{
+input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
   order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
