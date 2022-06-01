@@ -30,7 +30,7 @@
 
         <div class="wrapper-fe_startseite">
 
-            <form action="FuehrungEditieren/<?= $offenerTag->getID() ?>" method="post">
+            <form action="/Schul-Fuehrung/FuehrungEditieren/<?= $offenerTag->getID() ?>" method="post">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
                 <input type="button" class="zurueck-admin-panel" onclick="location.href='../AlleOpenDay'" value="zurück"/>
 
