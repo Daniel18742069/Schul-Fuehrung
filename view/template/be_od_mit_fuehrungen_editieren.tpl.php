@@ -5,18 +5,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/be_CSS/style_alle_od.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/be_CSS/style_fuehrungen_editieren.css" />
-    <script type="text/javascript" src="https://openday.tschaufer.it/model/JS/script.js"></script>
+    <link rel="stylesheet" href="openday.tschaufer.itview/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/be_CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/be_CSS/style_fuehrungen_editieren.css" />
+    <script type="text/javascript" src="openday.tschaufer.itmodel/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="https://openday.tschaufer.it/view/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="openday.tschaufer.itview/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="https://openday.tschaufer.it/view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="openday.tschaufer.itview/img/favicon.png" color="#111" />
 </head>
 
 <body>
@@ -30,10 +30,10 @@
 
         <div class="wrapper-fe_startseite">
 
-            <form action="https://openday.tschaufer.it/FuehrungEditieren/<?= $offenerTag->getID() ?>" method="post">
+            <form action="openday.tschaufer.itFuehrungEditieren/<?= $offenerTag->getID() ?>" method="post">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
                 <input type="button" class="drucken" value="Drucken" name="druckenButton" id="btn_drucken">
-                <input type="button" class="zurueck-admin-panel" onclick="location.href='https://openday.tschaufer.it/AlleOpenDay'" value="zurück"/>
+                <input type="button" class="zurueck-admin-panel" onclick="location.href='openday.tschaufer.itAlleOpenDay'" value="zurück"/>
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {

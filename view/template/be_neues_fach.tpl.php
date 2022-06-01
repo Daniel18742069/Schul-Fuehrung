@@ -5,13 +5,13 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="https://openday.tschaufer.it/view/be_CSS/style_alle_od.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="https://openday.tschaufer.it/view/img/favicon.png" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="openday.tschaufer.itview/be_CSS/style_alle_od.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="openday.tschaufer.itview/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="https://openday.tschaufer.it/view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="openday.tschaufer.itview/img/favicon.png" color="#111" />
     <title>Neuer Open Day</title>
 
 </head>
@@ -25,7 +25,7 @@
 
             <h2>Neue Fachrichtung</h2>
 
-            <form action="https://openday.tschaufer.it/AlleOpenDay" method="post">
+            <form action="openday.tschaufer.itAlleOpenDay" method="post">
 
                 <span>
                     <p class="name-fachrichtung">Name der Fachrichtung: <input type="text" name="beschreibung" id="beschreibung" required class="felder-neuer-od feld-fachrichtung" /></p>

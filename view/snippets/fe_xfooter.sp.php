@@ -47,9 +47,9 @@
                     </span>
     </div>
     <div class="shadow-box">
-        <p><a href="https://openday.tschaufer.it/Impressum">Impressum</a></p>
-        <p><a href="https://openday.tschaufer.it/Privacy">Privacy</a></p>
-        <p><a href="https://openday.tschaufer.it/Cookies">Cookies</a></p>
+        <p><a href="openday.tschaufer.itImpressum">Impressum</a></p>
+        <p><a href="openday.tschaufer.itPrivacy">Privacy</a></p>
+        <p><a href="openday.tschaufer.itCookies">Cookies</a></p>
     </div>
 </div>
 </footer>
