@@ -62,7 +62,6 @@ class Fuehrung
         $sql = 'SELECT fuehrungspersonen, kapazitaet, uhrzeit FROM od_fuehrung';
         
         DONLER
-
         */
 
 

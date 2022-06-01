@@ -23,9 +23,8 @@
     <section id="wrapper">
         <div class="wrapper-fuehrung_hinzufuegen">
 
-            <form action="/Schul-Fuehrung/OpenDayErfolgreich" method="post">
                 <h2>Neuer Open Day</h2>
-                <form action="index.php?aktion=bg_od_erfolgreich" method="post">
+                <form action="/Schul-Fuehrung/AlleOpenDay" method="post">
 
 
                     <div class="neuer-od-formular">
@@ -57,6 +56,9 @@
                     </div>
 
                     <input type="submit" value="Erstellen" class="neuer-od-erstellen">
+                    <a href="index.php?aktion=be_alle_od">
+                            <input type="button" id="btn-zurueck" value="Zurück" />
+                        </a>
 
                 </form>
 

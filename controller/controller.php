@@ -48,26 +48,6 @@ class Controller
     {
         $this->addContext("be_neuer_od", "nix");
     }
-    public function be_od_erfolgreich()
-    {
-        if (!empty($_REQUEST['beschreibung'])) {
-            $this->addContext("text", "Neues Fach wurde erfolgreich hinzugefügt");
-            $this->addContext("title", "Fach wurde erfolgreich hinzugefügt");
-            $fachrichtung = new Fachrichtung($_REQUEST);
-            $fachrichtung->speichere();
-        } else {
-            if (strtotime($_REQUEST['start']) < strtotime($_REQUEST['ende'])) {
-                $offener_tag = new Offener_tag($_REQUEST);
-                $offener_tag->speichere();
-
-                $this->addContext("text", "Open Day wurde erfolgreich erstellt");
-                $this->addContext("title", "Neuer Open Day");
-            } else {
-                $this->addContext("text", "Open Day wurde nicht erstellt. Überprüfen Sie die Start- und Endzeit!");
-                $this->addContext("title", "Fehler");
-            }
-        }
-    }
 
 
     public function be_neues_fach()
@@ -75,13 +55,6 @@ class Controller
         $this->addContext("be_neues_fach", "nix");
     }
 
-    public function be_fuehrung_erfolgreich()
-    {
-        if (!empty($_REQUEST) && !empty($_REQUEST['anmelden'])) {
-            erstelle_Fuehrungen($_REQUEST);
-        }
-        $this->addContext("text", "Führung erfolgreich hinzugefügt");
-    }
     public function be_alle_einstellungen()
     {
 
@@ -93,8 +66,29 @@ class Controller
     }
     public function be_alle_od()
     {
-        $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
+        if (!empty($_REQUEST) && !empty($_REQUEST['anmeldenFuehrungen'])) {
+            erstelle_Fuehrungen($_REQUEST);
+            $_REQUEST['info']="9b0";
+        }else if(!empty($_REQUEST['beschreibung'])) {
+            $fachrichtung = new Fachrichtung($_REQUEST);
+            $fachrichtung->speichere();
+            $_REQUEST['info']="7x1";
+        }elseif(!empty($_REQUEST['start'])){
+            if (strtotime($_REQUEST['start']) < strtotime($_REQUEST['ende'])) {
+                $offener_tag = new Offener_tag($_REQUEST);
+                $offener_tag->speichere();
+                $_REQUEST['info']="6g9";
+            } else {
+                $_REQUEST['info']="8b7";
+            }
+
+        
     }
+    if (isset($_REQUEST['info']) && get_info($_REQUEST['info'])) {
+        $this->addContext('info', get_info($_REQUEST['info']));
+    }
+    $this->addContext("be_alle_od", Offener_tag::findeAlleOffener_tagDesc());
+}
 
     public function be_od_mit_fuehrungen_editieren()
     {

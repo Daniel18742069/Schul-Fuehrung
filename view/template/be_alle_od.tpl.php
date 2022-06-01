@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="view/fe_CSS/info_box.css" /> 
     <script type="text/javascript" src="model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
@@ -16,6 +17,8 @@
 </head>
 
 <body>
+    
+<?php require 'view/snippets/info_box.sp.php'; ?>
 
     <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
@@ -40,65 +43,60 @@
             <div class="accordion-wrapper accordion-be js-accordion">
                 <?php
                 foreach ($be_alle_od as $offenerTag) {
-                $disabled = '';
-                $value = 'editieren';
-                //var_dump($offenerTag->get);
-                //if($offenerTag){
-
-                //}
                 ?>
 
-                <div class="accordion__item js-accordion-item">
-                    <div class="kalenderbox alle_od accordion-header js-accordion-header">
-                        <span class="datum"><?= $offenerTag->getDatumWelformed() ?></span>
-                        <span class="bezeichnung" id="bezeichnung"><?= $offenerTag->getBezeichnung() ?></span>
-                        <span class="status">
-                            <div id="namenAendern<?= $offenerTag->getId() ?>"><?= $offenerTag->getStatusString() ?>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="content accordion-body js-accordion-body accordion-body__contents">
-                        <div class="ccordion-body__contents">
-                            <span class="inhalt_od">
-                                <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
-                                <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
-                                <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
-                                <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
-                            </span>
-                            <span class="buttons">
-
-                                <a href="FuehrungEditieren/<?= $offenerTag->getId() ?>">
-
-                                    <button class="editieren">Editieren</button>
-
-                                </a>
-
-                                <a href="Einstellungen/<?= $offenerTag->getId() ?>">
-
-                                    <button class="editieren">Führung hinzufügen</button>
-
-                                </a>
-
-                                <form id="MyForm" name="MyForm">
-
-                                    <button type="button" class="neuer_od andereStatus"
-                                        onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">
-                                        <div id="namenButtonAendern<?= $offenerTag->getId() ?>">
-                                            <?= $offenerTag->getStatusStringUmgekehrt(); ?>
-                                        </div>
-
-
-                                    </button>
-
-                                    <input name="MyName" id="MyID" value="YourValue" hidden />
-
-                                </form>
-
+                    <div class="accordion__item js-accordion-item">
+                        <div class="kalenderbox alle_od accordion-header js-accordion-header">
+                            <span class="datum"><?= $offenerTag->getDatumWelformed() ?></span>
+                            <span class="bezeichnung" id="bezeichnung"><?= $offenerTag->getBezeichnung() ?></span>
+                            <span class="status">
+                                <div id="namenAendern<?= $offenerTag->getId() ?>"><?= $offenerTag->getStatusString() ?>
+                                </div>
                             </span>
                         </div>
+                        <div class="content accordion-body js-accordion-body accordion-body__contents">
+                            <div class="ccordion-body__contents">
+                                <span class="inhalt_od">
+                                    <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
+                                    <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
+                                    <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
+                                    <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
+                                </span>
+                                <span class="buttons">
+
+                                <?php if($offenerTag->getFuehrungen() == NULL){ ?>
+                                        <a><button class="editieren editieren-disabled" disabled>Editieren</button></a>
+                                <?php }else{ ?>
+                                    <a href="FuehrungEditieren/<?= $offenerTag->getId() ?>">
+                                        <button class="editieren">Editieren</button>
+                                    </a>
+                                <?php } ?>
+
+                                    <a href="Einstellungen/<?= $offenerTag->getId() ?>">
+
+                                        <button class="editieren">Führung hinzufügen</button>
+
+                                    </a>
+
+                                    <form id="MyForm" name="MyForm">
+
+                                        <button type="button" class="neuer_od andereStatus" onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">
+                                            <div id="namenButtonAendern<?= $offenerTag->getId() ?>">
+                                                <?= $offenerTag->getStatusStringUmgekehrt(); ?>
+                                            </div>
+
+                                        </button>
+
+                                        <input name="MyName" id="MyID" value="YourValue" hidden />
+
+                                    </form>
+
+                                </span>
+                            </div>
+                        </div>
                     </div>
+                <?php } ?>
             </div>
-        <?php } ?>
         </div>
 
         <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js">

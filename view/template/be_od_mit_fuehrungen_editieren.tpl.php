@@ -36,7 +36,6 @@
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
-                        $fuehrung->
                         $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
                         if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
                             $anzahlTeilnehmer = 0;
@@ -49,7 +48,6 @@
 
                                 <div>
                                     <?php
-                                    echo $fuehrung->getGemeinsame_id();
                                     if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
                                         <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" disabled="disabled" />
                                     <?php
@@ -77,13 +75,16 @@
                                     <?php // hier werden die Angemeldeten personen angezeigt
                                     $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                                     foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
-                                    ?>
+                                    ?>  
                                         <div>
+                                            <?php
+                                                $d = $anmeldung->getDatum();
+                                            ?>
 
                                             <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
                                             <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
                                             <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
-                                            <p><b>Datum: </b> <?= $anmeldung->getDatum() ?> </p>
+                                            <p><b>Datum: </b> <?= $d ?> </p>
                                             <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
                                             <a href="FuehrungEditieren/<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
                                             <button type="button" value="Button" id="btn_loesche">Löschen</button>
