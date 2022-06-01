@@ -49,7 +49,6 @@
 
                                 <div>
                                     <?php
-                                    echo $fuehrung->getGemeinsame_id();
                                     if (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer >= 1)) { ?>
                                         <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" disabled="disabled" />
                                     <?php
