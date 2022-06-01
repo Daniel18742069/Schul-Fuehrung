@@ -30,10 +30,10 @@
             <div class="alle_od">
                 <h2>Alle Open Days</h2>
                 <span>
-                    <a href="openday.tschaufer.itNeuerOpenDay">
+                    <a href="openday.tschaufer.it/NeuerOpenDay">
                         <button class="neuer_od">neuer Open Day</button>
                     </a>
-                    <a href="openday.tschaufer.itNeuesFach">
+                    <a href="openday.tschaufer.it/NeuesFach">
                         <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
                     </a>
                 </span>
