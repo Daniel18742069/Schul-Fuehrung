@@ -316,7 +316,11 @@ p {
   width: auto;
 }
 
-input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel {
+#btn-zurueck{
+  margin-right: 1rem;
+}
+
+input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, input[type=button] {
   order: 1;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
@@ -328,7 +332,7 @@ input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel {
   max-height: 3rem;
   float: right;
 }
-input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover {
+input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, input[type=button]:hover {
   filter: brightness(0.85);
   cursor: pointer;
 }
@@ -336,6 +340,10 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+a{
+  text-decoration: none;
 }
 
 .zurueck-admin-panel {

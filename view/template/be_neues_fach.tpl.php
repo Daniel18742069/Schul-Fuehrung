@@ -33,6 +33,9 @@
                 </span>
 
                 <input type="submit" value="Erstellen">
+                <a href="index.php?aktion=be_alle_od">
+                            <input type="button" id="btn-zurueck" value="Zurück" />
+                        </a>
 
             </form>
 
