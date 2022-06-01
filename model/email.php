@@ -22,16 +22,16 @@ class email
 
 		$mail = new PHPMailer;
 
-		//$mail->SMTPDebug = 3;							// Enable verbose debug output
+		$mail->SMTPDebug = 2;							// Enable verbose debug output
 
 		$mail->isSMTP();								// Set mailer to use SMTP
 		$mail->CharSet = "UTF-8";						// Set mail charset to UTF8
-		$mail->Host = 'smtp.gmail.com';					// Specify main and backup SMTP servers
+		$mail->Host = 'coffee.deinserverhost.de';		// Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;							// Enable SMTP authentication
 		$mail->Username = CONF['MAIL_ADDRESS'];			// SMTP username
 		$mail->Password = CONF['MAIL_PASSWORD'];		// SMTP password
 		$mail->SMTPSecure = 'tls';						// Enatble TLS encryption, `ssl` also accepted
-		$mail->Port = 587;								// TCP port to connect to
+		$mail->Port = 465;								// TCP port to connect to
 
 		$mail->setFrom(CONF['MAIL_ADDRESS'], CONF['MAIL_NAME']);
 

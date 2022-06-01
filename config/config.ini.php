@@ -16,8 +16,8 @@ $ini = '
 
 	[Mail Einstellungen]
 	MAIL_NAME=LBSHI Bozen NoReply
-	MAIL_ADDRESS=berufsschulebozen.anmeldung@gmail.com
-	MAIL_PASSWORD=Lbshi-12345
+	MAIL_ADDRESS=openday@tschaufer.it
+	MAIL_PASSWORD=erverhost.de:8443/phpM
 
 	[Admin Einstellungen]
 	ADMIN_BN=PLATZHALTER
