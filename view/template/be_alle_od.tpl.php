@@ -40,38 +40,61 @@
             <div class="accordion-wrapper accordion-be js-accordion">
                 <?php
                 foreach ($be_alle_od as $offenerTag) {
+                $disabled = '';
+                $value = 'editieren';
+                //var_dump($offenerTag->get);
+                //if($offenerTag){
+
+                //}
                 ?>
-                    <div class="accordion__item js-accordion-item">
-                        <div class="kalenderbox alle_od accordion-header js-accordion-header">
-                            <span class="datum"><?= $offenerTag->getDatumWelformed() ?></span>
-                            <span class="bezeichnung" id="bezeichnung"><?= $offenerTag->getBezeichnung() ?></span>
-                            <span class="status">
-                                <div id="namenAendern<?= $offenerTag->getId() ?>"><?= $offenerTag->getStatusString() ?>
-                                </div>
-                            </span>
-                        </div>
-                        <div class="content accordion-body js-accordion-body accordion-body__contents">
-                            <div class="ccordion-body__contents">
-                                <span class="inhalt_od be_acc-content">
-                                    <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
-                                    <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
-                                    <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
-                                    <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
-                                </span>
-                                <span class="buttons">
-                                    <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
-                                        <button class="editieren">Editieren</button>
-                                    </a>
-                                    <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
-                                        <button class="editieren">Führung hinzufügen</button>
-                                    </a>
-                                    <form id="MyForm" name="MyForm">
-                                        <button type="button" class="neuer_od andereStatus" onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">Status
-                                            ändern</button>
-                                        <input name="MyName" id="MyID" value="YourValue" hidden />
-                                    </form>
-                                </span>
+
+                <div class="accordion__item js-accordion-item">
+                    <div class="kalenderbox alle_od accordion-header js-accordion-header">
+                        <span class="datum"><?= $offenerTag->getDatumWelformed() ?></span>
+                        <span class="bezeichnung" id="bezeichnung"><?= $offenerTag->getBezeichnung() ?></span>
+                        <span class="status">
+                            <div id="namenAendern<?= $offenerTag->getId() ?>"><?= $offenerTag->getStatusString() ?>
                             </div>
+                        </span>
+                    </div>
+                    <div class="content accordion-body js-accordion-body accordion-body__contents">
+                        <div class="ccordion-body__contents">
+                            <span class="inhalt_od">
+                                <p>Datum: <?= $offenerTag->getDatumWelformed() ?></p>
+                                <p>Intervall: <?= $offenerTag->getIntervall() ?> min</p>
+                                <p>Start: <?= $offenerTag->getStartWelformed() ?> Uhr</p>
+                                <p>Ende: <?= $offenerTag->getEndeWelformed() ?> Uhr</p>
+                            </span>
+                            <span class="buttons">
+
+                                <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
+
+                                    <button class="editieren">Editieren</button>
+
+                                </a>
+
+                                <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
+
+                                    <button class="editieren">Führung hinzufügen</button>
+
+                                </a>
+
+                                <form id="MyForm" name="MyForm">
+
+                                    <button type="button" class="neuer_od andereStatus"
+                                        onclick="aendereStatusFuehrung('<?= $offenerTag->getId() ?>')">
+                                        <div id="namenButtonAendern<?= $offenerTag->getId() ?>">
+                                            <?= $offenerTag->getStatusStringUmgekehrt(); ?>
+                                        </div>
+
+
+                                    </button>
+
+                                    <input name="MyName" id="MyID" value="YourValue" hidden />
+
+                                </form>
+
+                            </span>
                         </div>
                     </div>
             </div>
