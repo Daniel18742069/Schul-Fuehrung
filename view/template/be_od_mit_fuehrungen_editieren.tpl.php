@@ -36,7 +36,6 @@
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
-                        $fuehrung->
                         $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
                         if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
                             $anzahlTeilnehmer = 0;
@@ -77,13 +76,16 @@
                                     <?php // hier werden die Angemeldeten personen angezeigt
                                     $anmeldungenDerFuehrung = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                                     foreach ($anmeldungenDerFuehrung as $key1 => $anmeldung) {
-                                    ?>
+                                    ?>  
                                         <div>
+                                            <?php
+                                                $d = $anmeldung->getDatum();
+                                            ?>
 
                                             <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
                                             <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
                                             <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
-                                            <p><b>Datum: </b> <?= $anmeldung->getDatum() ?> </p>
+                                            <p><b>Datum: </b> <?= $d ?> </p>
                                             <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
                                             <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
                                             <button type="button" value="Button" id="btn_loesche">Löschen</button>
