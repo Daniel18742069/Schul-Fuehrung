@@ -156,6 +156,10 @@ class Offener_tag
         return $this;
     }
 
+    public function getFuehrungen(){
+        return Fuehrung::alleFuehrungEinesOD($this->id);
+    }
+
     public static function findeAlleOffener_tag()
     {
         $sql = 'SELECT * FROM od_offener_tag';

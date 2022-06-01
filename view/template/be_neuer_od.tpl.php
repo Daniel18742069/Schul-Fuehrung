@@ -56,6 +56,9 @@
                     </div>
 
                     <input type="submit" value="Erstellen" class="neuer-od-erstellen">
+                    <a href="index.php?aktion=be_alle_od">
+                            <input type="button" id="btn-zurueck" value="Zurück" />
+                        </a>
 
                 </form>
 
