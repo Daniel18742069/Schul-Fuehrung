@@ -5,16 +5,16 @@
 
     <meta charset="utf-8" />
     <title>Verwaltung</title>
-    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
-    <script type="text/javascript" src="model/JS/script.js"></script>
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/be_CSS/style_alle_od.css" />
+    <script type="text/javascript" src="/Schul-Fuehrung/model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" color="#111" />
 
 </head>
 
@@ -31,7 +31,7 @@
             <div class="wrapper-fuehrung_hinzufuegen">
                 <?php if (empty($_POST)) { ?>
                     <h2>Fächer auswählen</h2>
-                    <form action="index.php?aktion=be_alle_einstellungen&id=<?= $_GET['id'] ?>" method="post">
+                    <form action="<?= $_GET['id'] ?>" method="post">
 
 
                         <?php foreach ($be_alle_einstellungen as $key => $einstellung) { ?>
@@ -68,7 +68,7 @@
                     $array = arrayManipulieren($_POST);
                 ?>
 
-                    <form action="index.php?aktion=be_fuehrung_erfolgreich" method="post">
+                    <form action="/Schul-Fuehrung/FuehrungErfolgreich" method="post">
 
                         <?php for ($i = 0; $i < count($array); $i++) {
                             $stringArray = explode('_', $array[$i]);

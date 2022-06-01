@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" color="#111" />
     <title><?= $title ?></title>
 
 </head>
@@ -27,7 +27,7 @@
 
             <h2><?= $text ?></h2>
 
-            <a href="index.php?aktion=be_alle_od" class="zurueck">Zurück zum Admin Pannel</a>
+            <a href="/Schul-Fuehrung/AlleOpenDay" class="zurueck">Zurück zum Admin Panel</a>
 
         </div>
     </section>

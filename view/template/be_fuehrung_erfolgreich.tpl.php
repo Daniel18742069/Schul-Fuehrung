@@ -27,7 +27,7 @@
 
             <h2><?= $text ?></h2>
 
-            <a href="index.php?aktion=be_alle_od" class="zurueck">Zurück zum Admin Pannel</a>
+            <a href="/Schul-Fuehrung/AlleOpenDay" class="zurueck">Zurück zum Admin Panel</a>
 
         </div>
     </section>

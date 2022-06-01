@@ -23,7 +23,7 @@
     <section id="wrapper">
         <div class="wrapper-fuehrung_hinzufuegen">
 
-            <form action="index.php?aktion=be_od_erfolgreich" method="post">
+            <form action="/Schul-Fuehrung/OpenDayErfolgreich" method="post">
                 <h2>Neuer Open Day</h2>
                 <form action="index.php?aktion=bg_od_erfolgreich" method="post">
 

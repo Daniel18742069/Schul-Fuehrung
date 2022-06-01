@@ -47,9 +47,9 @@
                     </span>
     </div>
     <div class="shadow-box">
-        <p><a href="index.php?aktion=impressum">Impressum</a></p>
-        <p><a href="index.php?aktion=privacy">Privacy</a></p>
-        <p><a href="index.php?aktion=cookies">Cookies</a></p>
+        <p><a href="/Schul-Fuehrung/Impressum">Impressum</a></p>
+        <p><a href="/Schul-Fuehrung/Privacy">Privacy</a></p>
+        <p><a href="/Schul-Fuehrung/Cookies">Cookies</a></p>
     </div>
 </div>
 </footer>

@@ -27,10 +27,10 @@
             <div class="alle_od">
                 <h2>Alle Open Days</h2>
                 <span>
-                    <a href="index.php?aktion=be_neuer_od">
+                    <a href="/Schul-Fuehrung/NeuerOpenDay">
                         <button class="neuer_od">neuer Open Day</button>
                     </a>
-                    <a href="index.php?aktion=be_neues_fach">
+                    <a href="/Schul-Fuehrung/NeuesFach">
                         <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
                     </a>
                 </span>
@@ -67,13 +67,13 @@
                             </span>
                             <span class="buttons">
 
-                                <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
+                                <a href="FuehrungEditieren/<?= $offenerTag->getId() ?>">
 
                                     <button class="editieren">Editieren</button>
 
                                 </a>
 
-                                <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
+                                <a href="Einstellungen/<?= $offenerTag->getId() ?>">
 
                                     <button class="editieren">Führung hinzufügen</button>
 
