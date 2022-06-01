@@ -28,11 +28,12 @@
 
     <section id="wrapper-be">
 
-        <div class="wrapper-fe_startseite">
+        <div style="margin: 2rem 0 5rem 0">
 
             <form action="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>" method="post">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
-                <input type="button" class="zurueck-admin-panel" onclick="location.href='index.php?aktion=be_alle_od'" value="zurück"/>
+                <input type="button" class="drucken" value="Drucken" name="druckenButton" id="btn_drucken">
+                <input type="button" class="zurueck-admin-panel" onclick="location.href='index.php?aktion=be_alle_od'" value="Zurück"/>
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
@@ -79,12 +80,14 @@
                                         <div>
                                             <?php
                                                 $d = $anmeldung->getDatum();
+                                                $da = new DateTime($d);
+                                                $datum = $da->format('d.m.Y H:i');
                                             ?>
 
                                             <p><b>Name: </b> <?= $anmeldung->getFullName() ?> </p>
                                             <p><b>Email: </b> <?= $anmeldung->getEmail() ?> </p>
                                             <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
-                                            <p><b>Datum: </b> <?= $d ?> </p>
+                                            <p><b>Datum: </b> <?= $datum ?> </p>
                                             <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
                                             <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
                                             <button type="button" value="Button" id="btn_loesche">Löschen</button>

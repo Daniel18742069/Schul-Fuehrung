@@ -4,6 +4,10 @@ function first_tab() { // wählt die erste Fachrichtung aus
     if (buttons) buttons[0].click();
 }
 
+function volleKapaz() {
+    
+}
+
 function tabs(actuated_button, fachrichung_id) {
     buttons = document.getElementsByClassName('tab');
     for (index = 0; buttons.length > index; index++) {

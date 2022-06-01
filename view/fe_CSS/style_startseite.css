@@ -316,11 +316,7 @@ p {
   width: auto;
 }
 
-#btn-zurueck{
-  margin-right: 1rem;
-}
-
-input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, input[type=button] {
+input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken {
   order: 1;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
@@ -332,29 +328,31 @@ input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, input[type=bu
   max-height: 3rem;
   float: right;
 }
-input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, input[type=button]:hover {
+input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, #btn_drucken:hover {
   filter: brightness(0.85);
   cursor: pointer;
 }
-input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck-admin-panel:disabled {
+input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck-admin-panel:disabled, #btn_drucken:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-a{
-  text-decoration: none;
-}
-
-.zurueck-admin-panel {
+.zurueck-admin-panel, #btn_drucken {
   position: -webkit-sticky;
   position: sticky;
-  top: 6rem;
+  top: 9rem;
   right: 5rem;
   float: none;
   display: block;
   margin-left: auto;
   width: 10rem;
+}
+
+#btn_drucken {
+  margin-bottom: 0.5rem;
+  top: 6rem;
+  right: 5rem;
 }
 
 .link-admin-panel {
@@ -399,7 +397,7 @@ a{
 .anmeldeinputs {
   color: #002a50 !important;
   font-size: 1.2rem !important;
-  margin-left: 1rem !important;
+  margin-left: 1rem;
   transition: all 0.3s !important;
   height: 2rem !important;
 }
@@ -408,7 +406,7 @@ a{
   width: 22rem;
 }
 
-.anmeldeinputs-number {
+.anz-personen {
   width: 5rem;
 }
 
@@ -473,6 +471,18 @@ a{
   }
 }
 @media screen and (max-width: 805px) {
+  .wrapper-fe_startseite {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  span p {
+    font-size: 1.2rem;
+  }
+
   .tabs {
     flex-direction: column;
   }
@@ -480,8 +490,50 @@ a{
     text-align: center;
     width: 100%;
   }
-}
-@media screen and (max-width: 700px) {
+
+  .logo {
+    width: 120px;
+    margin: 0.5rem 0;
+  }
+
+  .white-label {
+    padding: 0 0.5rem !important;
+  }
+
+  .black-label p {
+    font-size: 2rem;
+  }
+
+  .accordion-body__contents {
+    margin-bottom: 3rem;
+  }
+
+  .form_buchung {
+    display: block;
+  }
+  .form_buchung input[type=submit] {
+    display: block;
+    float: none;
+    margin-top: 1rem;
+  }
+  .form_buchung label {
+    padding-left: 0;
+  }
+  .form_buchung .anmeldeinputs {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .footer h3 {
+    font-size: 1.2rem !important;
+  }
+  .footer p, .footer a {
+    font-size: 1rem !important;
+  }
+  .footer h5 {
+    font-size: 1.1rem !important;
+  }
+
   .socials {
     display: none;
   }
