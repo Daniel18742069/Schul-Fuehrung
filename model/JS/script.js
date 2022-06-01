@@ -89,6 +89,19 @@ function toggleContentBlur(blurren = false) {
     content.style.filter = (blurren) ? 'blur(5px)' : '';
 }
 
+function toggleCredits(anzeigen = false) {
+    credits = document.querySelector('#cr_credits');
+
+    if (credits.style.height == '13rem' && anzeigen ||
+        credits.style.height == '0px' && !anzeigen) return;
+
+    credits.style.height = (anzeigen) ? '13rem' : '0px';
+
+    setTimeout(() => {
+        toggleCredits();
+    }, 15E3);
+}
+
 function aendereStatusFuehrung(offenerTag) {
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
     if (status == "DEAKTIVIERT") {
