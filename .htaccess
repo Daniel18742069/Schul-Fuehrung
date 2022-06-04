@@ -1,13 +1,13 @@
 RewriteEngine on
-RewriteRule ^/?Startseite$ /Schul-Fuehrung/?aktion=fe_startseite
-RewriteRule ^/?AlleOpenDay$ /Schul-Fuehrung/index.php?aktion=be_alle_od
-RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach
-RewriteRule ^/?NeuerOpenDay$ /Schul-Fuehrung/index.php?aktion=be_neuer_od
-RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ /Schul-Fuehrung/index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L]
-RewriteRule ^/?Einstellungen/([0-9-]+)$ /Schul-Fuehrung/index.php?aktion=be_alle_einstellungen&id=$1 [L]
-RewriteRule ^/?FuehrungErfolgreich$ /Schul-Fuehrung/index.php?aktion=be_fuehrung_erfolgreich
-RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach
-RewriteRule ^/?OpenDayErfolgreich$ /Schul-Fuehrung/index.php?aktion=be_od_erfolgreich
-RewriteRule ^/?Impressum$ /Schul-Fuehrung/index.php?aktion=impressum
-RewriteRule ^/?Privacy$ /Schul-Fuehrung/index.php?aktion=privacy
-RewriteRule ^/?Cookies$ /Schul-Fuehrung/index.php?aktion=cookies
+#RewriteRule ^$ /Schul-Fuehrung/ [L]
+RewriteRule ^/?Startseite$ /Schul-Fuehrung/?aktion=fe_startseite [NC]
+RewriteRule ^/?AlleOpenDay$ /Schul-Fuehrung/index.php?aktion=be_alle_od [NC]
+RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach [NC]
+RewriteRule ^/?NeuerOpenDay$ /Schul-Fuehrung/index.php?aktion=be_neuer_od [NC]
+RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ /Schul-Fuehrung/index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L,NC]
+RewriteRule ^/?Einstellungen/([0-9-]+)$ /Schul-Fuehrung/index.php?aktion=be_alle_einstellungen&id=$1 [L,NC]
+RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach [NC]
+RewriteRule ^/?Impressum$ /Schul-Fuehrung/index.php?aktion=impressum [NC]
+RewriteRule ^/?Privacy$ /Schul-Fuehrung/index.php?aktion=privacy [NC]
+RewriteRule ^/?Cookies$ /Schul-Fuehrung/index.php?aktion=cookies [NC]
+#RewriteRule ^/?([a-zA-Z-0-9-]*)/([a-zA-Z-0-9-]*)$ /Schul-Fuehrung/?aktion=$1&info=$2

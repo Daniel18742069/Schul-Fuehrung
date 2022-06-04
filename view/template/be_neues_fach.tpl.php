@@ -32,7 +32,7 @@
                 </span>
 
                 <input type="submit" value="Erstellen">
-                <a href="index.php?aktion=be_alle_od">
+                <a href="/Schul-Fuehrung/AlleOpenDay">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
 
