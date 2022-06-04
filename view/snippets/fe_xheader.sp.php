@@ -5,8 +5,8 @@
 
 
     <div class="white-label">
-        <a href="openday.tschaufer.it/Startseite">
-            <img src="openday.tschaufer.it/view/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
+        <a href="/Schul-Fuehrung/Startseite">
+            <img src="/Schul-Fuehrung/view/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
         </a>
 
         <div class="socials">

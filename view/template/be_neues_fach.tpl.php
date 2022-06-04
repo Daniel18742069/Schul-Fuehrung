@@ -5,13 +5,13 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="openday.tschaufer.it/view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="openday.tschaufer.it/view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="openday.tschaufer.it/view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="openday.tschaufer.it/view/be_CSS/style_alle_od.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="openday.tschaufer.it/view/img/favicon.png" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/view/be_CSS/style_alle_od.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="openday.tschaufer.it/view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" color="#111" />
     <title>Neuer Open Day</title>
 
 </head>
@@ -25,14 +25,14 @@
 
             <h2>Neue Fachrichtung</h2>
 
-            <form action="openday.tschaufer.it/AlleOpenDay" method="post">
+            <form action="/Schul-Fuehrung/AlleOpenDay" method="post">
 
                 <span>
                     <p class="name-fachrichtung">Name der Fachrichtung: <input type="text" name="beschreibung" id="beschreibung" required class="felder-neuer-od feld-fachrichtung" /></p>
                 </span>
 
                 <input type="submit" value="Erstellen">
-                <a href="index.php?aktion=be_alle_od">
+                <a href="/Schul-Fuehrung/AlleOpenDay">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
 

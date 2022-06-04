@@ -4,7 +4,7 @@ $ini = '
 	[Anmelden]
 	ce6=Ihre Anmeldung war Erfolgreich
 	b8d=Manche der eingegebenen Daten sind nicht Valide
-	c8f=Manche der eingaben sind Leer
+	c8f=Manche der Eingaben sind leer
 	
 	[Abmelden]
 	2c4=Ihre Abmeldung war Erfolgreich
@@ -14,8 +14,8 @@ $ini = '
 	
 	[Aendern]
 	57d=Ihre Änderung war Erfolgreich
-	9b8=Ihre eingabe überschreitet die maximale Teilnehmeranzahl
-	734=Ihre eingabe der anzahl der Teilnehmer ist Leer
+	9b8=Ihre Eingabe überschreitet die maximale Teilnehmeranzahl
+	734=Ihre Eingabe der Anzahl der Teilnehmer ist Leer
 	a95=Anmeldung kann nicht geändert werden, wenn der Offene Tag weniger als einen Tag entfernt ist
 	3b9=Die zugehörige Führung wurde nicht gefunden
 	54e=Ihre Anmeldung wurde nicht gefunden

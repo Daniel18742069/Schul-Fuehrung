@@ -5,7 +5,7 @@ $ini = '
 	DEFAULT_SITE=fe_termin
 
 	[URL zur Webseite]
-	URL=127.0.0.1openday.tschaufer.it/
+	URL=127.0.0.1/openday.tschaufer.it/
 
 	[Database Einstellungen]
 	DB_HOST=localhost
