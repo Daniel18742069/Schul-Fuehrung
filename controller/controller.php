@@ -181,9 +181,9 @@ class Controller
         $info = $array[1];
         if (isset($array[2])) {
             $token = $array[2];
-            header("Location: ?aktion=$aktion&info=$info&token=$token");
+            header("Location: /Schul-Fuehrung/$aktion/$token&$info");
         } else {
-            header("Location: ?aktion=$aktion&info=$info");
+            header("Location: /Schul-Fuehrung/$aktion/$info");
         }
         exit;
     }
@@ -243,13 +243,13 @@ class Controller
                     $to_name
                 );
 
-                return ['fe_startseite', 'ce6'];
+                return ['Startseite', 'ce6'];
             }
 
-            return ['fe_startseite', 'b8d'];
+            return ['Startseite', 'b8d'];
         }
 
-        return ['fe_startseite', 'c8f'];
+        return ['Startseite', 'c8f'];
     }
 
     /**
@@ -258,7 +258,6 @@ class Controller
     private function fe_termin()
     {
         if (isset($_REQUEST['token']) && $_REQUEST['token']) {
-
             $Anmeldung = Anmeldung::findeAnmeldung($_REQUEST['token']);
             if ($Anmeldung) {
                 // führe aktion aus
@@ -293,7 +292,7 @@ class Controller
             }
         }
 
-        header('Location: ?aktion=fe_startseite');
+        header('Location: /Schul-Fuehrung/Startseite');
     }
 
     /**
@@ -332,19 +331,19 @@ class Controller
                             $to_name
                         );
 
-                        return ['fe_startseite', '2c4'];
+                        return ['Startseite', '2c4'];
                     }
 
-                    return ['fe_startseite', '8c5'];
+                    return ['Startseite', '8c5'];
                 }
 
-                return ['fe_startseite', '2b0'];
+                return ['Startseite', '2b0'];
             }
 
-            return ['fe_startseite', 'fa3'];
+            return ['Startseite', 'fa3'];
         }
 
-        return ['Location: ?aktion=fe_startseite'];
+        return ['Location: /Schul-Fuehrung/Startseite'];
     }
 
     /**
@@ -390,25 +389,25 @@ class Controller
                                     $to_name
                                 );
 
-                                return ['fe_termin', '57d', $_REQUEST['token']];
+                                return ['Termin', '57d', $_REQUEST['token']];
                             }
 
-                            return ['fe_termin', '9b8', $_REQUEST['token']];
+                            return ['Termin', '9b8', $_REQUEST['token']];
                         }
 
-                        return ['fe_termin', '734', $_REQUEST['token']];
+                        return ['Termin', '734', $_REQUEST['token']];
                     }
 
-                    return ['fe_termin', 'a95', $_REQUEST['token']];
+                    return ['Termin', 'a95', $_REQUEST['token']];
                 }
 
-                return ['fe_startseite', '3b9'];
+                return ['Startseite', '3b9'];
             }
 
-            return ['fe_startseite', '54e'];
+            return ['Startseite', '54e'];
         }
 
-        header('Location: ?aktion=fe_startseite');
+        header('Location: /Schul-Fuehrung/Startseite');
     }
 
     private function generatePage($template)

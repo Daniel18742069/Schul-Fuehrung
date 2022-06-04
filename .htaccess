@@ -10,4 +10,7 @@ RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach [NC]
 RewriteRule ^/?Impressum$ /Schul-Fuehrung/index.php?aktion=impressum [NC]
 RewriteRule ^/?Privacy$ /Schul-Fuehrung/index.php?aktion=privacy [NC]
 RewriteRule ^/?Cookies$ /Schul-Fuehrung/index.php?aktion=cookies [NC]
-#RewriteRule ^/?([a-zA-Z-0-9-]*)/([a-zA-Z-0-9-]*)$ /Schul-Fuehrung/?aktion=$1&info=$2
+RewriteRule ^/?Termin/([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=fe_termin&token=$1
+RewriteRule ^/?Startseite/([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=fe_startseite&info=$1
+RewriteRule ^/?AlleOpenDay/([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=be_alle_od&info=$1
+RewriteRule ^/?Termin/([a-z-0-9-]*)&([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=fe_termin&token=$1&info=$2
