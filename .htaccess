@@ -1,5 +1,5 @@
 RewriteEngine on
-#RewriteRule ^$ /Schul-Fuehrung/ [L]
+RewriteRule ^$ /Schul-Fuehrung/ [L]
 RewriteRule ^/?Startseite$ /Schul-Fuehrung/?aktion=fe_startseite [NC]
 RewriteRule ^/?AlleOpenDay$ /Schul-Fuehrung/index.php?aktion=be_alle_od [NC]
 RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach [NC]
