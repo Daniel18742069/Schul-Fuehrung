@@ -5,16 +5,16 @@
 
     <meta charset="utf-8" />
     <title>Verwaltung</title>
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/be_CSS/style_alle_od.css" />
-    <script type="text/javascript" src="/Schul-Fuehrung/model/JS/script.js"></script>
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <script type="text/javascript" src="model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
 
 </head>
 
@@ -61,7 +61,7 @@
                         <?php } ?>
 
                         <input type="submit" name="anmelden" value="Führung hinzufügen" />
-                        <a href="/Schul-Fuehrung/AlleOpenDay">
+                        <a href="AlleOpenDay">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
 
@@ -71,7 +71,7 @@
                     $array = arrayManipulieren($_POST);
                 ?>
 
-                    <form action="/Schul-Fuehrung/Startseite" method="post">
+                    <form action="Startseite" method="post">
 
                         <?php for ($i = 0; $i < count($array); $i++) {
                             $stringArray = explode('_', $array[$i]);
@@ -97,7 +97,7 @@
 
                         <input type="text" name="offenerTag" value="<?= $_GET['id'] ?>" hidden />
                         <input type="submit" name="anmeldenFuehrungen" value="Erstellen" />
-                        <a href="/Schul-Fuehrung/AlleOpenDay">
+                        <a href="AlleOpenDay">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
 

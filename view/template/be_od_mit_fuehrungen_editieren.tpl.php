@@ -5,18 +5,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/be_CSS/style_alle_od.css" />
-    <link rel="stylesheet" href="/Schul-Fuehrung/view/be_CSS/style_fuehrungen_editieren.css" />
-    <script type="text/javascript" src="/Schul-Fuehrung/model/JS/script.js"></script>
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="view/be_CSS/style_fuehrungen_editieren.css" />
+    <script type="text/javascript" src="model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
 </head>
 
 <body>
@@ -30,10 +30,10 @@
 
         <div class="wrapper-fe_startseite">
 
-            <form action="/Schul-Fuehrung/FuehrungEditieren/<?= $offenerTag->getID() ?>" method="post">
+            <form action="FuehrungEditieren/<?= $offenerTag->getID() ?>" method="post">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
                 <input type="button" class="drucken" value="Drucken" name="druckenButton" id="btn_drucken">
-                <input type="button" class="zurueck-admin-panel" onclick="location.href='/Schul-Fuehrung/AlleOpenDay'" value="zurück"/>
+                <input type="button" class="zurueck-admin-panel" onclick="location.href='AlleOpenDay'" value="zurück"/>
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
