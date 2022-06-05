@@ -91,7 +91,7 @@
                                         <label for="nachname">Nachname:</label>
                                         <input type="text" name="nachname" class="anmeldeinputs" title="zB. Mustermann" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="telefon">Telefon:</label>
-                                        <input type="telefon" name="telefon" class="anmeldeinputs" title="zB. 339 123 4567" value="" onchange="formAusgefuellt(this)" /><br />
+                                        <input type="telefon" name="telefon" class="anmeldeinputs" title="zB. 339 123 4567" value="" onchange="formAusgefuellt(this)" minlength="10" maxlength="15" /><br />
                                         <label for="email">E-Mail:</label>
                                         <input type="email" name="email" class="anmeldeinputs" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="anzahl">Personen:</label>
