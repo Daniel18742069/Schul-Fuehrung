@@ -413,7 +413,7 @@ class Controller
     private function generatePage($template)
     {
         extract($this->context);
-        require_once 'view/template/' . $template . ".tpl.php";
+        require_once '/Schul-Fuehrung/template/' . $template . ".tpl.php";
     }
 
     private function addContext($key, $value)

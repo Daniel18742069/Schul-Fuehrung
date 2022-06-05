@@ -1,16 +1,5 @@
-RewriteEngine on
-#RewriteRule ^$ /Schul-Fuehrung/ [L]
-RewriteRule ^/?Startseite$ /Schul-Fuehrung/?aktion=fe_startseite [NC]
-RewriteRule ^/?AlleOpenDay$ /Schul-Fuehrung/index.php?aktion=be_alle_od [NC]
-RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach [NC]
-RewriteRule ^/?NeuerOpenDay$ /Schul-Fuehrung/index.php?aktion=be_neuer_od [NC]
-RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ /Schul-Fuehrung/index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L,NC]
-RewriteRule ^/?Einstellungen/([0-9-]+)$ /Schul-Fuehrung/index.php?aktion=be_alle_einstellungen&id=$1 [L,NC]
-RewriteRule ^/?NeuesFach$ /Schul-Fuehrung/index.php?aktion=be_neues_fach [NC]
-RewriteRule ^/?Impressum$ /Schul-Fuehrung/index.php?aktion=impressum [NC]
-RewriteRule ^/?Privacy$ /Schul-Fuehrung/index.php?aktion=privacy [NC]
-RewriteRule ^/?Cookies$ /Schul-Fuehrung/index.php?aktion=cookies [NC]
-RewriteRule ^/?Termin/([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=fe_termin&token=$1
-RewriteRule ^/?Startseite/([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=fe_startseite&info=$1
-RewriteRule ^/?AlleOpenDay/([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=be_alle_od&info=$1
-RewriteRule ^/?Termin/([a-z-0-9-]*)&([a-z-0-9-]*)$ /Schul-Fuehrung/?aktion=fe_termin&token=$1&info=$2
+DirectoryIndex ?aktion=fe_startseite
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-zA-Z]+)$ index.php?a=$1&%{QUERY_STRING} [NC,L]

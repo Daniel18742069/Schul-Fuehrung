@@ -5,20 +5,20 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="/Schul-Fuehrung/be_CSS/style_alle_od.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/img/favicon.png" color="#111" />
     <title>Neuer Open Day</title>
 
 </head>
 
 <body>
 
-    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+    <?php require '/Schul-Fuehrung/snippets/fe_xheader.sp.php'; ?>
 
     <section id="wrapper">
         <div class="wrapper-fuehrung_hinzufuegen">
@@ -41,7 +41,7 @@
         </div>
     </section>
 
-    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+    <?php require '/Schul-Fuehrung/snippets/fe_xfooter.sp.php'; ?>
 
 
 </body>
