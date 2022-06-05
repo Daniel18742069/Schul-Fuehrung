@@ -5,7 +5,7 @@
 
 
     <div class="white-label">
-        <a href="Startseite">
+        <a href="/Schul-Fuehrung/Startseite">
             <img src="view/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
         </a>
 

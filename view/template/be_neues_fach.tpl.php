@@ -25,14 +25,14 @@
 
             <h2>Neue Fachrichtung</h2>
 
-            <form action="AlleOpenDay" method="post">
+            <form action="/Schul-Fuehrung/AlleOpenDay" method="post">
 
                 <span>
                     <p class="name-fachrichtung">Name der Fachrichtung: <input type="text" name="beschreibung" id="beschreibung" required class="felder-neuer-od feld-fachrichtung" /></p>
                 </span>
 
                 <input type="submit" value="Erstellen">
-                <a href="AlleOpenDay">
+                <a href="/Schul-Fuehrung/AlleOpenDay">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
 
