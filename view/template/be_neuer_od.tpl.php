@@ -24,7 +24,7 @@
         <div class="wrapper-fuehrung_hinzufuegen">
 
             <h2>Neuer Open Day</h2>
-            <form action="AlleOpenDay" method="post">
+            <form action="/Schul-Fuehrung/AlleOpenDay" method="post">
 
 
                 <div class="neuer-od-formular">
@@ -56,7 +56,7 @@
                 </div>
 
                 <input type="submit" value="Erstellen" class="neuer-od-erstellen">
-                <a href="AlleOpenDay">
+                <a href="/Schul-Fuehrung/AlleOpenDay">
                     <input type="button" id="btn-zurueck" value="Zurück" />
                 </a>
 
