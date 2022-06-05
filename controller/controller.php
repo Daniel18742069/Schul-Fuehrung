@@ -181,9 +181,9 @@ class Controller
         $info = $array[1];
         if (isset($array[2])) {
             $token = $array[2];
-            header("Location: /Schul-Fuehrung/$aktion/$token&$info");
+            header("Location: $aktion/$token&$info");
         } else {
-            header("Location: /Schul-Fuehrung/$aktion/$info");
+            header("Location: $aktion/$info");
         }
         exit;
     }
@@ -292,7 +292,7 @@ class Controller
             }
         }
 
-        header('Location: /Schul-Fuehrung/Startseite');
+        header('Location: Startseite');
     }
 
     /**
@@ -343,7 +343,7 @@ class Controller
             return ['Startseite', 'fa3'];
         }
 
-        return ['Location: /Schul-Fuehrung/Startseite'];
+        return ['Location: Startseite'];
     }
 
     /**
@@ -407,7 +407,7 @@ class Controller
             return ['Startseite', '54e'];
         }
 
-        header('Location: /Schul-Fuehrung/Startseite');
+        header('Location: Startseite');
     }
 
     private function generatePage($template)
