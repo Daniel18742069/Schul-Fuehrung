@@ -1,5 +1,5 @@
 RewriteEngine on
-#RewriteRule ^$ 
+#RewriteRule ^$  [L]
 RewriteRule ^/?Startseite$ ?aktion=fe_startseite [NC]
 RewriteRule ^/?AlleOpenDay$ index.php?aktion=be_alle_od [NC]
 RewriteRule ^/?NeuesFach$ index.php?aktion=be_neues_fach [NC]
