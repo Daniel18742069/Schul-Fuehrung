@@ -6,7 +6,7 @@ $ini = '
 	DEFAULT_SITE=fe_termin
 
 	[URL zur Webseite]
-	URL=openday.tschaufer.it
+	URL=127.0.0.1/
 
 	[Database Einstellungen]
 	DB_HOST=91.200.103.154:3306
