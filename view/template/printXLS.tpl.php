@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="/Schul-Fuehrung/" />
+    <base href="openday.tschaufer.it/" />
     <title>OPEN DAY</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

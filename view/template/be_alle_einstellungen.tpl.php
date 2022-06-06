@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<base href="/Schul-Fuehrung/" />
+<base href="openday.tschaufer.it/" />
     <meta charset="utf-8" />
     <title>Verwaltung</title>
     <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
