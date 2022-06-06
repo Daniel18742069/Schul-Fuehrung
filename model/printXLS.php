@@ -10,7 +10,7 @@
 if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
 ?>
 
-<script>
+    <script>
         $(document).ready(function() {
             $('#tbl_exporttable_to_xls').DataTable({
                 dom: 'Bfrtip',
@@ -38,7 +38,7 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
         </thead>
         <tbody>
             <?php
-
+            $datum_pause = 0;
             foreach ($alleAnmeldungen as $Anmeldung) :
                 $fuehrung_id = $Anmeldung->getFuehrung_id();
                 $Fuehrung = $alleFuehrungen[$fuehrung_id];
@@ -46,9 +46,14 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             ?>
 
                 <tr>
-                    <td>
-                        <?= datum_formatieren($Fuehrung->getUhrzeit(), 'H:i'); ?> Uhr
-                    </td>
+                    <?php if ($datum_pause == 0) :
+                        $datum_pause = zähle_fuehrung_angehoerig($fuehrung_id, $alleAnmeldungen); ?>
+                        <td rowspan="<?= $datum_pause ?>">
+                            <?= datum_formatieren($Fuehrung->getUhrzeit(), 'H:i'); ?> Uhr
+                        </td>
+                    <?php
+                    endif;
+                    $datum_pause--; ?>
                     <td>
                         <?= cleanUmlaute($Anmeldung->getVorname()); ?>
                     </td>

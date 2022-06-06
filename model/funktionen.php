@@ -77,7 +77,6 @@ function erstelle_Fuehrungen($fuehrungsDaten)
             echo $fach . "_" . $anzahl . " fuehrungsperson: " . $daten . "<br>";
         }
     }
-
 }
 function arrayManipulieren($assotiativesArrayPost)
 {
@@ -160,4 +159,19 @@ function addiere_minuten(int $timestamp, int $minutes = 30)
 function mindestens_1_tag_entfernt($date1, $date2): bool
 {
     return strtotime('+1 day', strtotime($date1)) < strtotime($date2);
+}
+
+/**
+ * @author Andreas Codalonga
+ */
+function zähle_fuehrung_angehoerig(int $fuehrung_id, array $Anmeldungen): int
+{
+    $zaehler = 0;
+    if ($Anmeldungen) {
+        foreach ($Anmeldungen as $Anmeldung) {
+            if ($Anmeldung->getFuehrung_id() == $fuehrung_id) $zaehler++;
+        }
+    }
+
+    return $zaehler;
 }
