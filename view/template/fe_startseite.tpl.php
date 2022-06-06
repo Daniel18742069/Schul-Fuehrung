@@ -24,7 +24,7 @@
     <link href="model/captcha/src/disk/slidercaptcha.min.css" rel="stylesheet" />
 
 
-    <script type="text/javascript" src="/model/JS/script.js"></script>
+    <script type="text/javascript" src="model/js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
