@@ -44,7 +44,8 @@
                     <h2>Zeit für einen Rundgang?</h2>
                     <span>
                         <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler und Eltern an.</p>
-                        <p class="textZwei">Reservieren Sie eine Führung noch heute!</p>
+                        <p class="textZwei">Reservieren Sie eine Führung noch heute für den <strong><?= $offener_tag->getBezeichnung()?></strong> am <strong><?= $offener_tag->getDatumWelformed()?></strong>
+                         , von <strong><?= $offener_tag->getStartWelformed() ?></strong> bis <strong><?= $offener_tag->getEndeWelformed() ?> Uhr!</strong></p>
                     </span>
                 </div>
 
@@ -95,7 +96,7 @@
                                         <label for="email">E-Mail:</label>
                                         <input type="email" name="email" class="anmeldeinputs" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
                                         <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahl_teilnehmer[$fuehrung->getId()]; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
+                                        <input type="number" name="anzahl" class="anmeldeinputs anz-personen" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahl_teilnehmer[$fuehrung->getId()]; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
                                         <input type="text" name="fuehrung_id" class="anmeldeinputs" value="<?= $fuehrung->getId(); ?>" hidden />
                                         <input type="submit" value="Anmelden" disabled="disabled" />
                                     </form>

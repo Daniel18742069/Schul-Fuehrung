@@ -381,7 +381,7 @@ p {
 	width: auto;
 }
 
-input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
+input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken{ //.drucken maybe
   order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
@@ -409,14 +409,20 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
 
 }
 
-.zurueck-admin-panel{
+.zurueck-admin-panel, #btn_drucken{
   position: sticky;
-  top: 6rem;
+  top: 9rem;
   right: 5rem;
   float: none;
   display: block;
   margin-left: auto;
   width: 10rem;
+}
+
+#btn_drucken{
+	margin-bottom: 0.5rem;
+	top: 6rem;
+  	right: 5rem;
 }
 
 .link-admin-panel{
@@ -463,7 +469,7 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
 .anmeldeinputs {
 	color: $blueColor !important;
 	font-size: 1.2rem !important;
-	margin-left: 1rem !important;
+	margin-left: 1rem;
 	transition: all 0.3s !important;
 	height: 2rem !important;
 }
@@ -472,7 +478,7 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
   width: 22rem;
 }
 
-.anmeldeinputs-number{
+.anz-personen{
   width: 5rem;
 }
 
@@ -556,6 +562,17 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
 }
 
 @media screen and (max-width: 805px) {
+	.wrapper-fe_startseite{
+		margin: 0;
+	}
+	h2{
+		font-size: 1.5rem;
+	}
+	span{
+		p{
+			font-size: 1.2rem;
+		}
+	}
 	.tabs {
 		flex-direction: column;
 
@@ -564,42 +581,51 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
 			width: 100%;
 		}
 	}
-}
-
-@media screen and (min-width: 640px) {
-	body {
-		//font-size: 1rem;
-
-		header {
-			//font-size: 1rem;
-		}
-
+	.logo{
+		width: 120px;
+		margin: 0.5rem 0;
 	}
-}
-
-@media (min-width:960px) {
-	body {
-		//font-size: 1.2rem;
-
-		header {
-			//font-size: 1rem;
+	.white-label{
+		padding: 0 0.5rem !important;
+	}
+	.black-label{
+		p{
+			font-size: 2rem;
 		}
 	}
-}
-
-@media (min-width:1100px) {
-	body {
-		//font-size: 1.5rem;
-
-		header {
-			//font-size: 1rem;
+	.accordion-body__contents{
+		margin-bottom: 3rem;
+	}
+	.form_buchung{
+		display: block;
+		input[type="submit"]{
+			display: block;
+			float: none;
+			margin-top: 1rem;
+		}
+		label{
+			padding-left: 0;
+		}
+		.anmeldeinputs{
+			width: 100%;
+			margin-left: 0;
 		}
 	}
-}
 
 
+	.footer{
+		h3{
+			font-size: 1.2rem !important;
+		}
+		p, a{
+			font-size: 1rem !important;
+		}
+		h5{
+			font-size: 1.1rem !important;
+		}
+	}
 
-@media screen and (max-width:700px) {
+
 	.socials {
 		display: none;
 	}
@@ -613,9 +639,7 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
 			text-align: center;
 		}
 	}
-
 }
-
 
 
 
