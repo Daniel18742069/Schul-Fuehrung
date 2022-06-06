@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="/model/JS/script.js"></script>
-    <link rel="stylesheet" href="view/be_CSS/style_xls.css">
+    <link rel="stylesheet" href="/view/be_CSS/style_xls.css">
     <link rel="stylesheet" href="/view/fe_CSS/style_startseite.css">
     <link rel="stylesheet" href="/view/fe_CSS/style_header.css">
     <link rel="stylesheet" href="/view/fe_CSS/style_footer.css">
