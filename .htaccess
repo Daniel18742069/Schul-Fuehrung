@@ -15,3 +15,4 @@ RewriteRule ^/?Termin/([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1
 RewriteRule ^/?Startseite/([a-z-0-9-]*)$ ?aktion=fe_startseite&info=$1
 RewriteRule ^/?AlleOpenDay/([a-z-0-9-]*)$ ?aktion=be_alle_od&info=$1
 RewriteRule ^/?Termin/([a-z-0-9-]*)&([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1&info=$2
+ErrorDocument 404 /Startseite
