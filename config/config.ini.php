@@ -21,8 +21,8 @@ $ini = '
 	MAIL_PASSWORD=erverhost.de:8443/phpM
 
 	[Admin Einstellungen]
-	ADMIN_BN=PLATZHALTER
-	ADMIN_PW=PLATZHALTER
+	ADMIN_BN=AdminBackend
+	ADMIN_PW=AdminPasswort123*
 ';
 
 if ($DEV_MODE) {
