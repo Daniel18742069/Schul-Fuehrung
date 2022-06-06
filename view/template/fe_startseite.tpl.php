@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="/view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="/view/fe_CSS/info_box.css" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/view/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" /> <!-- für Safari soweit ich weiss-->
+    <link rel="mask-icon" type="image/x-icon" href="/view/img/favicon.png" color="#111" /> <!-- für Safari soweit ich weiss-->
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 
@@ -25,7 +25,7 @@
     <link href="model/captcha/src/disk/slidercaptcha.min.css" rel="stylesheet" />
 
 
-    <script type="text/javascript" src="model/JS/script.js"></script>
+    <script type="text/javascript" src="/model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 

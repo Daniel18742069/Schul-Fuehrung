@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="/view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="/view/fe_CSS/style_subfooter.css" />
-    <script type="text/javascript" src="model/JS/script.js"></script>
+    <script type="text/javascript" src="/model/JS/script.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
 
     <link rel="mask-icon" type="image/x-icon" href="/img/favicon.png" color="#111" />

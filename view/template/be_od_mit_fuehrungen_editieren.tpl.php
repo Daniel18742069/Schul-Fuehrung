@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
     <link rel="stylesheet" href="view/be_CSS/style_fuehrungen_editieren.css" />
-    <script type="text/javascript" src="model/JS/script.js"></script>
+    <script type="text/javascript" src="/model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
