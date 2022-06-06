@@ -8,7 +8,7 @@ $ini = '
 	[URL zur Webseite]
 	URL=127.0.0.1/
 	BASE=https://openday.tschaufer.it/
-	backslash=/
+	BACKSLASH=/
 
 	[Database Einstellungen]
 	DB_HOST=91.200.103.154:3306
