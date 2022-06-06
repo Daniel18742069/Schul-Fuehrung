@@ -5,9 +5,9 @@
 <base href="<?= CONF['DB_HOST'] ?>" />
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="/view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="/view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="/view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
 
     <title>Neuer OpenDay erstellt</title>
