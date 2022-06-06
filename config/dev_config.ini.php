@@ -6,6 +6,7 @@ $ini = '
 
 	[URL zur Webseite]
 	URL=127.0.0.1/
+	base=Schul-Fuehrung
 
 	[Database Einstellungen]
 	DB_HOST=localhost

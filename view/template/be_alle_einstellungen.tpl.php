@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<base href="https://openday.tschaufer.it/" />
+<base href="<?=CONF['DB_HOST'] ?>" />
     <meta charset="utf-8" />
     <title>Verwaltung</title>
     <link rel="stylesheet" href="/view/fe_CSS/style_startseite.css" />
