@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="<?= CONF['DB_HOST'] ?>" />
+    <base href="<?= CONF['BASE'] ?>" />
     <title>OPEN DAY</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -2,11 +2,10 @@
 <html>
 
 <head>
-<base href="<?= CONF['DB_HOST'] ?>" />
+<base href="<?= CONF['BASE'] ?>" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schulführung</title>
-
 
     <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
     <link rel="stylesheet" href="view/fe_CSS/style_header.css" />

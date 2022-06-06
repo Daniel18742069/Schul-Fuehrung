@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<base href="<?= CONF['DB_HOST'] ?>" />
+<base href="<?= CONF['BASE'] ?>" />
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
