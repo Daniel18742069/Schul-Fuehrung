@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="plugin/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="plugin/css/buttons.dataTables.min.css">
 
-    <link rel="mask-icon" type="image/x-icon" href="/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="view/img/favicon.png" color="#111" />
 
 </head>
 
