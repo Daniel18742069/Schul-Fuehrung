@@ -6,11 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
-    <link rel="stylesheet" href="view/fe_CSS/info_box.css" /> 
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?><?= CONF['BACKSLASH'] ?>view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/be_CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/info_box.css" /> 
     <script type="text/javascript" src="model/js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />

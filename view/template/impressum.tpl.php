@@ -6,10 +6,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum</title>
-    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_subfooter.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_subfooter.css" />
     <script type="text/javascript" src="model/js/script.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
 
