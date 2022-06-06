@@ -8,10 +8,10 @@
     <title>Schulführung</title>
 
 
-    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/fe_CSS/info_box.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/info_box.css" />
 
     <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
 

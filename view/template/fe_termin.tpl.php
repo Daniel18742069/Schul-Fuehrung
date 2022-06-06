@@ -6,11 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ihre Führung</title>
-    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_alleTermine.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/fe_CSS/info_box.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_alleTermine.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="/view/fe_CSS/info_box.css" />
     <script type="text/javascript" src="model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="view/img/favicon.png" />
