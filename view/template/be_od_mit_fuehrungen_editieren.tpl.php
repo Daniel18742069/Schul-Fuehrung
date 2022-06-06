@@ -2,6 +2,7 @@
 <html>
 
 <head>
+<base href="/Schul-Fuehrung/" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
@@ -14,14 +15,14 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="/Schul-Fuehrung/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
 
-    <link rel="mask-icon" type="image/x-icon" href="/Schul-Fuehrung/img/favicon.png" color="#111" />
+    <link rel="mask-icon" type="image/x-icon" href="/img/favicon.png" color="#111" />
 </head>
 
 <body>
 
-    <?php require '/Schul-Fuehrung/snippets/fe_xheader.sp.php'; ?>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
 
 
@@ -111,7 +112,7 @@
         </div>
     </section>
 
-    <?php require '/Schul-Fuehrung/snippets/fe_xfooter.sp.php'; ?>
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 
 </body>

@@ -1,9 +1,10 @@
 RewriteEngine on
-#RewriteRule ^$  [L]
+# RewriteRule ^$  [L]
 RewriteRule ^/?Startseite$ ?aktion=fe_startseite [NC]
 RewriteRule ^/?AlleOpenDay$ index.php?aktion=be_alle_od [NC]
 RewriteRule ^/?NeuesFach$ index.php?aktion=be_neues_fach [NC]
 RewriteRule ^/?NeuerOpenDay$ index.php?aktion=be_neuer_od [NC]
+RewriteRule ^/?Login$ index.php?aktion=be_login_admin [NC]
 RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L,NC]
 RewriteRule ^/?Einstellungen/([0-9-]+)$ index.php?aktion=be_alle_einstellungen&id=$1 [L,NC]
 RewriteRule ^/?NeuesFach$ index.php?aktion=be_neues_fach [NC]

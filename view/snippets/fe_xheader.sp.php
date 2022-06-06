@@ -33,7 +33,7 @@
 
 
     <!--
-    <img src="/Schul-Fuehrung/img/school.jpg" id="img_schule" width="100%">
+    <img src="/img/school.jpg" id="img_schule" width="100%">
 
     <div id="header_struktur">
             <div id="white_label">
@@ -41,7 +41,7 @@
                     <h1>OPEN DAY</h1>
                     <div id="logo_bs">
                     <a href="index.php">
-                        <img src="/Schul-Fuehrung/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
+                        <img src="/img/Logos_Berufsschule.bz/LBSHI_Logo_RGB_PNG.png" alt="Landesberufsschule für Handwerk und Industrie Bozen" width="250" loading="lazy">
                     </a>
                     </div>
                 </div>

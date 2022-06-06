@@ -129,16 +129,16 @@ class Controller
     {
 
         if (empty($_POST['benutzername']) && empty($_POST['passwort'])) {
-            header('Location: index.php?aktion=be_login_admin');
+            header('Location: Login');
         }
         //PASSWORT UND BENUTZERNAME LEER
         else if (stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])) {
             logge_ein($_POST['benutzername']);
-            header('Location: index.php?aktion=be_alle_od');
+            header('Location: AlleOpenDay');
         }
         //PASSWORT UND BENUTZERNAME STIMMEN überein
         else {
-            header('Location: index.php?aktion=be_login_admin');
+            header('Location: Login');
         }
     }
 
@@ -413,7 +413,7 @@ class Controller
     private function generatePage($template)
     {
         extract($this->context);
-        require_once '/Schul-Fuehrung/template/' . $template . ".tpl.php";
+        require_once 'view/template/' . $template . ".tpl.php";
     }
 
     private function addContext($key, $value)
