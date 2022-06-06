@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<base href="/openday.tschaufer.it/" />
+<base href="https://openday.tschaufer.it/" />
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="/view/fe_CSS/style_startseite.css" />
