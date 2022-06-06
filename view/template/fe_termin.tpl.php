@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/info_box.css" />
-    <script type="text/javascript" src="model/js/script.js"></script>
+    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="<?= CONF['BACKSLASH'] ?>view/img/favicon.png" />
 
