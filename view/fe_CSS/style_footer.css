@@ -1,87 +1,112 @@
 .footer {
-  margin-top: 2rem;
-  width: 100%;
-  height: 100%;
+		margin-top: 2rem;
+		width: 100%;
+		height: 100%;
 }
 .footer .footer-box {
-  background-color: #002a50;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 2rem;
+		background-color: #002a50;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		padding: 2rem;
 }
 .footer .shadow-box {
-  background-color: #002a50;
-  opacity: 0.9;
-  height: 4rem;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  line-height: 4rem;
+		background-color: #002a50;
+		opacity: 0.9;
+		height: 4rem;
+		z-index: 2;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		line-height: 4rem;
 }
 .footer .shadow-box a {
-  margin: 1rem;
-  vertical-align: middle;
-  line-height: normal;
+		margin: 1rem;
+		vertical-align: middle;
+		line-height: normal;
 }
 .footer .gmap_canvas {
-  overflow: hidden;
-  background: none !important;
-  width: 100%;
+		overflow: hidden;
+		background: none !important;
+		width: 100%;
 }
 .footer .mapouter {
-  position: relative;
-  width: 100%;
-  margin: 1rem 0;
+		position: relative;
+		width: 100%;
+		margin: 1rem 0;
 }
 .footer h3,
 .footer p,
 .footer h5,
 .footer a {
-  margin: 0;
-  padding: 0;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
+		margin: 0;
+		padding: 0;
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 1.2rem;
 }
 .footer h3,
 .footer h5 {
-  color: #fc0;
+		color: #fc0;
 }
 .footer h3 {
-  font-size: 1.5rem;
+		font-size: 1.5rem;
 }
 .footer h5 {
-  margin-top: 0.6rem;
+		margin-top: 0.6rem;
 }
 .footer a {
-  text-decoration: underline;
+		text-decoration: underline;
 }
 .footer a:hover {
-  opacity: 0.7;
+		opacity: 0.7;
 }
 .footer .icon-cog {
-  color: rgba(255, 255, 255, 0.9);
+		color: rgba(255, 255, 255, 0.9);
 }
 .footer .icon-cog:hover {
-  color: #fc0;
+		color: #fc0;
 }
 .footer .socials {
-  display: flex;
-  flex-direction: column;
+		display: flex;
+		flex-direction: column;
 }
 .footer .socials a {
-  text-decoration: none;
+		text-decoration: none;
+}
+
+#cr_credits {
+		position: absolute;
+		right: 13vw;
+		bottom: 0;
+		height: 0;
+		overflow-y: hidden;
+		transition: all linear 150ms;
+		background-color: white;
+		box-shadow: 5px 8px 21px rgba(0, 0, 0, 0.2);
+		font-size: 1rem;
+}
+#cr_credits #cr_header {
+		padding: 1vh;
+		background-color: rgba(245, 196, 0, 0.8);
+		text-align: center;
+		font-size: 1.5em;
+		cursor: pointer;
+}
+#cr_credits #cr_main ul {
+		margin: 1vh 8vh;
+		padding-left: 0;
+		list-style: none;
+		font-size: 1.2em;
 }
 
 @media (max-width: 1070px) {
-  .footer {
-    font-size: 1rem;
-  }
-  .footer .footer-box {
-    display: block;
-  }
-  .footer .infos-schule, .footer .oeffnungszeiten, .footer .socials {
-    margin-top: 3rem;
-  }
+		.footer {
+				font-size: 1rem;
+		}
+		.footer .footer-box {
+				display: block;
+		}
+		.footer .infos-schule, .footer .oeffnungszeiten, .footer .socials {
+				margin-top: 3rem;
+		}
 }
