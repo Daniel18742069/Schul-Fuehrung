@@ -4,10 +4,6 @@ function first_tab() { // wählt die erste Fachrichtung aus
     if (buttons) buttons[0].click();
 }
 
-function volleKapaz() {
-    
-}
-
 function tabs(actuated_button, fachrichung_id) {
     buttons = document.getElementsByClassName('tab');
     for (index = 0; buttons.length > index; index++) {
@@ -91,6 +87,19 @@ function toggleLoadingScreen(anzeigen = false) {
 function toggleContentBlur(blurren = false) {
     content = document.querySelector('#content');
     content.style.filter = (blurren) ? 'blur(5px)' : '';
+}
+
+function toggleCredits(anzeigen = false) {
+    credits = document.querySelector('#cr_credits');
+
+    if (credits.style.height == '12.5rem' && anzeigen ||
+        credits.style.height == '0px' && !anzeigen) return;
+
+    credits.style.height = (anzeigen) ? '12.5rem' : '0px';
+
+    setTimeout(() => {
+        toggleCredits();
+    }, 15E3);
 }
 
 function aendereStatusFuehrung(offenerTag) {

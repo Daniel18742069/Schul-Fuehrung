@@ -89,7 +89,42 @@ $font-color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
         }
     }
+}
 
+#cr_credits {
+    position: absolute;
+    right: 13vw;
+    bottom: 0;
+
+    height: 0;  // wird in JS funktion toggleCredits() geändert.
+    overflow-y: hidden;
+    transition: all linear 150ms;
+
+    background-color: white;
+    box-shadow: 5px 8px 21px rgba(0, 0, 0, 0.2);
+
+    font-size: 1rem;
+
+    #cr_header {
+        padding: 1vh;
+
+        background-color: rgba(245, 196, 0, 0.8);
+
+        text-align: center;
+        font-size: 1.5em;
+
+        cursor: pointer;
+    }
+
+    #cr_main {
+        ul {
+            margin: 1vh 8vh;
+            padding-left: 0;
+
+            list-style: none;
+            font-size: 1.2em;
+        }
+    }
 }
 
 @media (max-width:1070px) {
