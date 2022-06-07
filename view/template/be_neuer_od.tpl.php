@@ -5,17 +5,17 @@
 <base href="<?= CONF['BASE'] ?>" />
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/be_CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_startseite.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_header.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_footer.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_alle_od.css" />
     <title>Neuer Open Day</title>
 
 </head>
 
 <body>
 
-    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+    <?php require 'view/snippets/header.sp.php'; ?>
 
     <section id="wrapper">
         <div class="wrapper-fuehrung_hinzufuegen">
@@ -62,7 +62,7 @@
         </div>
     </section>
 
-    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+    <?php require 'view/snippets/footer.sp.php'; ?>
 
 </body>
 

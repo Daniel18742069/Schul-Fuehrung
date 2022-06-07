@@ -50,7 +50,7 @@
             <p><a href="index.php?aktion=impressum">Impressum</a></p>
             <p><a href="index.php?aktion=privacy">Privacy</a></p>
             <p><a href="index.php?aktion=cookies">Cookies</a></p>
-            <p><a style="cursor:pointer" onclick="toggleCredits(true)">Die Entwickler</a></p>
+            <p><a style="cursor:pointer" onclick="toggleCredits(true)">Entwickler (Bugglor)</a></p>
         </div>
     </div>
     <?php require 'view/snippets/credits.sp.html' ?>

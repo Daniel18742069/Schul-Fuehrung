@@ -6,11 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/be_CSS/style_alle_od.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/info_box.css" /> 
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_startseite.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_header.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_footer.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/info_box.css" /> 
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
@@ -19,7 +19,7 @@
     
 <?php require 'view/snippets/info_box.sp.php'; ?>
 
-    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+    <?php require 'view/snippets/header.sp.php'; ?>
 
     <section id="wrapper">
 
@@ -110,7 +110,7 @@
     </section>
 
 
-    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+    <?php require 'view/snippets/footer.sp.php'; ?>
 
 </body>
 

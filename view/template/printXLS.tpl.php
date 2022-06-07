@@ -23,11 +23,11 @@
 <body>
 
 
-    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+    <?php require 'view/snippets/header.sp.php'; ?>
 
     <?php require_once('model/printXLS.php'); ?>
 
-    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+    <?php require 'view/snippets/footer.sp.php'; ?>
 
 </body>
 
