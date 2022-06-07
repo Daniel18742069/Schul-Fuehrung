@@ -239,9 +239,6 @@ p {
 	outline: none;
 	font-size: 15px;
 	transition: 10.1s;
-
-
-
 }
 
 
@@ -381,7 +378,7 @@ p {
 	width: auto;
 }
 
-input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
+input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken, #btn-zurueck{
   order: 1;
   color: $blueColor;
   background-color: rgba(245, 196, 0, 0.8);
@@ -426,6 +423,10 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, .drucken{
 #btn_loesche {
 	float: none;
 	margin-top: 1rem;
+}
+
+#btn-zurueck{
+	margin-right: 0.5rem;
 }
 
 

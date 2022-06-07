@@ -60,7 +60,7 @@
 
                         <?php } ?>
 
-                        <input type="submit" name="anmelden" value="Führung hinzufügen" />
+                        <input type="submit" name="anmelden" value="Führung hinzufügen" id="btn-weiter" disabled />
                         <a href="AlleOpenDay">
                             <input type="button" id="btn-zurueck" value="Zurück" />
                         </a>
