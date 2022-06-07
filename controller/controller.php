@@ -28,13 +28,16 @@ class Controller
         }
 
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
+        var_dump($offener_tag);
         $this->addContext("offener_tag", $offener_tag);
-
+        
+        
         $fachrichtungen = Fachrichtung::findeFachrichtungen_OffenerTag($offener_tag->getId());
         $this->addContext("fachrichtungen", $fachrichtungen);
 
         $fuehrungen = Fuehrung::findeSichtbareFuehrungen($offener_tag->getId());
         $this->addContext("fuehrungen", $fuehrungen);
+
 
         $anzahl_teilnehmer = [];
         foreach ($fuehrungen as $fuehrung) {
