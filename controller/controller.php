@@ -134,7 +134,7 @@ class Controller
         if (empty($_POST['benutzername']) && empty($_POST['passwort'])) {
             header('Location: Login');
         }
-        //PASSWORT UND BENUTZERNAME LEER
+        //PASSWORT UND BENUTZERNAME STIMMEN
         else if (stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])) {
             logge_ein($_POST['benutzername']);
             header('Location: AlleOpenday');
