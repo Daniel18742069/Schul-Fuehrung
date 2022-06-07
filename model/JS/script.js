@@ -194,9 +194,13 @@ function accordion() {
  */
 function hideShowElement(source, target) {
     element = document.getElementById(target);
+    btn = document.getElementById('btn-weiter');
     element.style.display = (source.checked) ?
         'block' :
         'none';
+        btn.disabled = (source.checked) ?
+        false:
+        true;
 }
 
 /**

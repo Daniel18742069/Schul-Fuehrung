@@ -316,7 +316,7 @@ p {
   width: auto;
 }
 
-input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken {
+input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken, #btn-zurueck {
   order: 1;
   color: #002a50;
   background-color: rgba(245, 196, 0, 0.8);
@@ -328,11 +328,11 @@ input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken 
   max-height: 3rem;
   float: right;
 }
-input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, #btn_drucken:hover {
+input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, #btn_drucken:hover, #btn-zurueck:hover {
   filter: brightness(0.85);
   cursor: pointer;
 }
-input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck-admin-panel:disabled, #btn_drucken:disabled {
+input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck-admin-panel:disabled, #btn_drucken:disabled, #btn-zurueck:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
@@ -362,6 +362,10 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
 #btn_loesche {
   float: none;
   margin-top: 1rem;
+}
+
+#btn-zurueck {
+  margin-right: 0.5rem;
 }
 
 .neuer_od {
