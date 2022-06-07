@@ -6,19 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
-    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/be_CSS/style_alle_od.css" />
-    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/be_CSS/style_fuehrungen_editieren.css" />
-    <script type="text/javascript" src="<?= CONF['SCHUL-FUEHRUNG'] ?>model/JS/script.js"></script>
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css" />
+    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
 
-    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
+    <?php require 'view/snippets/header.sp.php'; ?>
 
 
 
@@ -107,7 +103,7 @@
         </div>
     </section>
 
-    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
+    <?php require 'view/snippets/footer.sp.php'; ?>
 
 
 </body>
