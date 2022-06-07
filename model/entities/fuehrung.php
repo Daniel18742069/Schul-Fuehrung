@@ -107,6 +107,14 @@ class Fuehrung
         $Klassen = $abfrage->fetchAll();
         return self::indexiereArray($Klassen);
     }
+
+    public static function countFuehrungFuerOD(){
+        $sql = 'SELECT * FROM od_fuehrung ORDER BY id DESC LIMIT 1';
+        
+        $abfrage = DB::getDB()->query($sql);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Fuehrung');
+        return $abfrage->fetch();
+    }
     public function getId()
     {
         return $this->id;

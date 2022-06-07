@@ -22,7 +22,6 @@
 
 
 
-
     <section id="wrapper-be">
 
         <div class="wrapper-fe_startseite">

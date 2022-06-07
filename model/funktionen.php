@@ -98,20 +98,19 @@ function arrayManipulieren($assotiativesArrayPost)
 }
 function isUpdate($request)
 {
-
-    for ($i = 0; $i < count($request); $i++) {
-
+    for ($i = 0; $i < Fuehrung::countFuehrungFuerOD()->getId() + 1; $i++) {
+        
         if (
-            array_key_exists($i, $request)  &&
-
-            array_key_exists('fuehrungspersonen' . $i, $request)
+            array_key_exists($i, $request)  && array_key_exists('fuehrungspersonen' . $i, $request)
         ) {
             $fuehrung = Fuehrung::findeFuehrung($request[$i]);
 
             if (array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 0) {
+                var_dump("Wurde geändert");
                 $fuehrung->setSichtbar(1);
             } elseif (!array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 1) {
                 $fuehrung->setSichtbar(0);
+                var_dump("Wurde geändert");
             }
 
             if ($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i]) {
