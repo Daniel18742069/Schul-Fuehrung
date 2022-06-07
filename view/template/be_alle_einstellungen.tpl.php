@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/be_CSS/style_alle_od.css" />
-    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/js/script.js"></script>
+    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />

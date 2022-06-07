@@ -6,7 +6,7 @@
     <title>OPEN DAY</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/js/script.js"></script>
+    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/be_CSS/style_xls.css">
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_startseite.css">
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css">

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_header.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_subfooter.css" />
-    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/js/script.js"></script>
+    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="model/captcha/src/disk/slidercaptcha.min.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="<?= CONF['BACKSLASH'] ?>view/img/favicon.png" />
