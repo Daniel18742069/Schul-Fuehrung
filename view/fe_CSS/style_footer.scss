@@ -96,7 +96,7 @@ $font-color: rgba(255, 255, 255, 0.9);
     right: 13vw;
     bottom: 0;
 
-    height: 0;
+    height: 0;  // wird in JS funktion toggleCredits() geändert.
     overflow-y: hidden;
     transition: all linear 150ms;
 

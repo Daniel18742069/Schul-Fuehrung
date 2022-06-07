@@ -92,10 +92,10 @@ function toggleContentBlur(blurren = false) {
 function toggleCredits(anzeigen = false) {
     credits = document.querySelector('#cr_credits');
 
-    if (credits.style.height == '13rem' && anzeigen ||
+    if (credits.style.height == '12.5rem' && anzeigen ||
         credits.style.height == '0px' && !anzeigen) return;
 
-    credits.style.height = (anzeigen) ? '13rem' : '0px';
+    credits.style.height = (anzeigen) ? '12.5rem' : '0px';
 
     setTimeout(() => {
         toggleCredits();
