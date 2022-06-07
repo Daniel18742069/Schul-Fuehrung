@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_subfooter.css" />
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
-
-    <link rel="mask-icon" type="image/x-icon" href="/img/favicon.png" color="#111" />
 </head>
 
 <body>

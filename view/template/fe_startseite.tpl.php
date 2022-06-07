@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style_footer.css" />
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/info_box.css" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="<?= CONF['BACKSLASH'] ?>view/img/favicon.png" />
-
-    <link rel="mask-icon" type="image/x-icon" href="<?= CONF['BACKSLASH'] ?>view/img/favicon.png" color="#111" /> <!-- für Safari soweit ich weiss-->
-
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 
 

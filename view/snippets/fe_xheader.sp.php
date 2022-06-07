@@ -1,5 +1,7 @@
 <script src="https://kit.fontawesome.com/6016e9420e.js" crossorigin="anonymous"></script>
+<link rel="shortcut icon" type="image/x-icon" href="<?= CONF['BACKSLASH'] ?>view/img/favicon.png" />
 
+<link rel="mask-icon" type="image/x-icon" href="<?= CONF['BACKSLASH'] ?>view/img/favicon.png" color="#111" />
 <header class="header">
 
 
@@ -10,13 +12,13 @@
         </a>
 
         <div class="socials">
-            <a class="btn btn-social-icon" href="https://www.facebook.com/lbs.bozen" title="Facebook">
+            <a class="btn btn-social-icon" href="https://www.facebook.com/lbs.bozen" title="Facebook" target="_blank">
                 <i class="fa fa-facebook-square fa-2x icon-cog" aria-hidden="true"></i>
                 <span class="sr-only">Facebook</span></a>
-            <a class="btn btn-social-icon" href="https://www.instagram.com/lbshandwerkindustrie/" title="Instagram">
+            <a class="btn btn-social-icon" href="https://www.instagram.com/lbshandwerkindustrie/" title="Instagram" target="_blank">
                 <i class="fa fa-instagram fa-2x icon-cog" aria-hidden="true"> </i>
                 <span class="sr-only">Instagram</span></a>
-            <a class="btn btn-social-icon" href="https://www.youtube.com/channel/UCsAU2KSrwCFmkUFeCMhQD4Q/feed" title="YouTube">
+            <a class="btn btn-social-icon" href="https://www.youtube.com/channel/UCsAU2KSrwCFmkUFeCMhQD4Q/feed" title="YouTube" target="_blank">
                 <i class="fa fa-youtube fa-2x icon-cog" aria-hidden="true"> </i>
                 <span class="sr-only">YouTube</span></a>
         </div>
