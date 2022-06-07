@@ -66,12 +66,12 @@
                                 <?php if($offenerTag->getFuehrungen() == NULL){ ?>
                                         <a><button class="editieren editieren-disabled" disabled>Editieren</button></a>
                                 <?php }else{ ?>
-                                    <a href="FuehrungEditieren/<?= $offenerTag->getId() ?>">
+                                    <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getId() ?>">
                                         <button class="editieren">Editieren</button>
                                     </a>
                                 <?php } ?>
 
-                                    <a href="Einstellungen/<?= $offenerTag->getId() ?>">
+                                    <a href="index.php?aktion=be_alle_einstellungen&id=<?= $offenerTag->getId() ?>">
 
                                         <button class="editieren">Führung hinzufügen</button>
 

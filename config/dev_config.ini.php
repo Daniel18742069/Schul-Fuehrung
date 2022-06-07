@@ -8,6 +8,7 @@ $ini = '
 	URL=127.0.0.1/
 	BASE=Schul-Fuehrung
 	BACKSLASH=
+	SCHUL-FUEHRUNG=/Schul-Fuehrung/
 
 	[Database Einstellungen]
 	DB_HOST=localhost

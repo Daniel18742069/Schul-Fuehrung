@@ -9,6 +9,7 @@ $ini = '
 	URL=127.0.0.1/
 	BASE=https://openday.tschaufer.it/
 	BACKSLASH=/
+	SCHUL-FUEHRUNG=/Schul-Fuehrung/
 
 	[Database Einstellungen]
 	DB_HOST=91.200.103.154:3306

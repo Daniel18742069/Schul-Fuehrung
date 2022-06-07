@@ -6,12 +6,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alle OpenDays</title>
-    <link rel="stylesheet" href="view/fe_CSS/style_startseite.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_header.css" />
-    <link rel="stylesheet" href="view/fe_CSS/style_footer.css" />
-    <link rel="stylesheet" href="view/be_CSS/style_alle_od.css" />
-    <link rel="stylesheet" href="view/be_CSS/style_fuehrungen_editieren.css" />
-    <script type="text/javascript" src="/Schul-Fuehrung/<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
+    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/fe_CSS/style_startseite.css" />
+    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/fe_CSS/style_header.css" />
+    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/fe_CSS/style_footer.css" />
+    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/be_CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="<?= CONF['SCHUL-FUEHRUNG'] ?>view/be_CSS/style_fuehrungen_editieren.css" />
+    <script type="text/javascript" src="<?= CONF['SCHUL-FUEHRUNG'] ?>model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -84,7 +84,7 @@
                                             <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
                                             <p><b>Datum: </b> <?= $d ?> </p>
                                             <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
-                                            <a href="FuehrungEditieren/<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
+                                            <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
                                             <button type="button" value="Button" id="btn_loesche">Löschen</button>
                                             </a>    
                                         </br>
