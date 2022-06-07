@@ -95,9 +95,7 @@ class Controller
 
     public function be_od_mit_fuehrungen_editieren()
     {
-        
         if (isset($_REQUEST['anmeldenButton']) && !isset($_REQUEST['delete'])) {
-            var_dump($_REQUEST);
             isUpdate($_REQUEST);
         } elseif (isset($_REQUEST['delete'])) {
             $anmeldung = Anmeldung::findeAnmeldung($_REQUEST['delete']);
@@ -136,7 +134,7 @@ class Controller
         if (empty($_POST['benutzername']) && empty($_POST['passwort'])) {
             header('Location: Login');
         }
-        //PASSWORT UND BENUTZERNAME STIMMEN
+        //PASSWORT UND BENUTZERNAME LEER
         else if (stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])) {
             logge_ein($_POST['benutzername']);
             header('Location: AlleOpenday');
