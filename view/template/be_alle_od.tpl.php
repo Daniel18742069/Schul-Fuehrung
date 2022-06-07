@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/info_box.css" /> 
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
-    <link rel="mask-icon" type="image/x-icon" href="/img/favicon.png" color="#111" />
 </head>
 
 <body>

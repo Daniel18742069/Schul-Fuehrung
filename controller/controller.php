@@ -134,6 +134,7 @@ class Controller
         //PASSWORT UND BENUTZERNAME LEER
         else if (stringsVergleichen($_POST['passwort'], CONF['ADMIN_PW']) && stringsVergleichen($_POST['benutzername'], CONF['ADMIN_BN'])) {
             logge_ein($_POST['benutzername']);
+            header('Location: AlleOpenday');
             
         }
         //PASSWORT UND BENUTZERNAME STIMMEN überein
