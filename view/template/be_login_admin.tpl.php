@@ -5,10 +5,7 @@
 <base href="<?= CONF['BASE'] ?>" />
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_startseite.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_header.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_footer.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css" />
 
     <title>Neuer OpenDay erstellt</title>
 

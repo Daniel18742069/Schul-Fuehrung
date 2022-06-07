@@ -5,10 +5,7 @@
 <base href="<?= CONF['DB_HOST'] ?>" />
     <meta charset="utf-8" />
     <title>Verwaltung</title>
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_startseite.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_header.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_footer.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_alle_od.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css" />
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 

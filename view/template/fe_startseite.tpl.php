@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schulführung</title>
 
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_startseite.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_header.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style_footer.css" />
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/info_box.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css" />
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 
