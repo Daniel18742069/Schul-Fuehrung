@@ -28,7 +28,6 @@ class Controller
         }
 
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
-        var_dump($offener_tag);
         $this->addContext("offener_tag", $offener_tag);
         
         
@@ -185,9 +184,9 @@ class Controller
         $info = $array[1];
         if (isset($array[2])) {
             $token = $array[2];
-            header("Location: $aktion/$token&$info");
+            header("Location: $aktion$token$info");
         } else {
-            header("Location: $aktion/$info");
+            header("Location: $aktion$info");
         }
         exit;
     }
@@ -247,13 +246,13 @@ class Controller
                     $to_name
                 );
 
-                return ['Startseite', 'ce6'];
+                return ['Startseite&', 'ce6'];
             }
 
-            return ['Startseite', 'b8d'];
+            return ['Startseite&', 'b8d'];
         }
 
-        return ['Startseite', 'c8f'];
+        return ['Startseite&', 'c8f'];
     }
 
     /**
@@ -335,16 +334,16 @@ class Controller
                             $to_name
                         );
 
-                        return ['Startseite', '2c4'];
+                        return ['Startseite&', '2c4'];
                     }
 
-                    return ['Startseite', '8c5'];
+                    return ['Startseite&', '8c5'];
                 }
 
-                return ['Startseite', '2b0'];
+                return ['Startseite&', '2b0'];
             }
 
-            return ['Startseite', 'fa3'];
+            return ['Startseite&', 'fa3'];
         }
 
         return ['Location: Startseite'];
@@ -393,22 +392,22 @@ class Controller
                                     $to_name
                                 );
 
-                                return ['Termin', '57d', $_REQUEST['token']];
+                                return ['Termin&', '57d', $_REQUEST['token']];
                             }
 
-                            return ['Termin', '9b8', $_REQUEST['token']];
+                            return ['Termin&', '9b8', $_REQUEST['token']];
                         }
 
-                        return ['Termin', '734', $_REQUEST['token']];
+                        return ['Termin&', '734', $_REQUEST['token']];
                     }
 
-                    return ['Termin', 'a95', $_REQUEST['token']];
+                    return ['Termin&', 'a95', $_REQUEST['token']];
                 }
 
-                return ['Startseite', '3b9'];
+                return ['Startseite&', '3b9'];
             }
 
-            return ['Startseite', '54e'];
+            return ['Startseite&', '54e'];
         }
 
         header('Location: Startseite');

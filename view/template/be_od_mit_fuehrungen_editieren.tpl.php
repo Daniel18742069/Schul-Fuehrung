@@ -79,7 +79,7 @@
                                             <p><b>Telefonnummer: </b> <?= $anmeldung->getTelefon() ?> </p>
                                             <p><b>Datum: </b> <?= $d ?> </p>
                                             <p><b>Anzahl: </b> <?= $anmeldung->getAnzahl() ?> </p>
-                                            <a href="index.php?aktion=be_od_mit_fuehrungen_editieren&id=<?= $offenerTag->getID() ?>&delete=<?= $anmeldung->getToken() ?>">
+                                            <a href="FuehrungEditieren&<?= $offenerTag->getID() ?>&<?= $anmeldung->getToken() ?>">
                                             <button type="button" value="Button" id="btn_loesche">Löschen</button>
                                             </a>    
                                         </br>

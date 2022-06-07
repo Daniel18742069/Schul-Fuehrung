@@ -5,14 +5,15 @@ RewriteRule ^/?AlleOpenDay$ index.php?aktion=be_alle_od [NC]
 RewriteRule ^/?NeuesFach$ index.php?aktion=be_neues_fach [NC]
 RewriteRule ^/?NeuerOpenDay$ index.php?aktion=be_neuer_od [NC]
 RewriteRule ^/?Login$ index.php?aktion=be_login_admin [NC]
-RewriteRule ^/?FuehrungEditieren/([0-9-]+)$ index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [L,NC]
-RewriteRule ^/?Einstellungen/([0-9-]+)$ index.php?aktion=be_alle_einstellungen&id=$1 [L,NC]
+RewriteRule ^/?FuehrungEditieren&([0-9-]+)$ index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1 [NC]
+RewriteRule ^/?FuehrungEditieren&([0-9-]+)&([a-z-0-9-]*)$ index.php?aktion=be_od_mit_fuehrungen_editieren&id=$1&delete=$2 [NC]
+RewriteRule ^/?Einstellungen&([0-9-]+)$ index.php?aktion=be_alle_einstellungen&id=$1 [NC]
 RewriteRule ^/?NeuesFach$ index.php?aktion=be_neues_fach [NC]
 RewriteRule ^/?Impressum$ index.php?aktion=impressum [NC]
 RewriteRule ^/?Privacy$ index.php?aktion=privacy [NC]
 RewriteRule ^/?Cookies$ index.php?aktion=cookies [NC]
-RewriteRule ^/?Termin/([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1
-RewriteRule ^/?Startseite/([a-z-0-9-]*)$ ?aktion=fe_startseite&info=$1
-RewriteRule ^/?AlleOpenDay/([a-z-0-9-]*)$ ?aktion=be_alle_od&info=$1
-RewriteRule ^/?Termin/([a-z-0-9-]*)&([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1&info=$2
+RewriteRule ^/?Termin&([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1
+RewriteRule ^/?Startseite&([a-z-0-9-]*)$ ?aktion=fe_startseite&info=$1
+RewriteRule ^/?AlleOpenDay&([a-z-0-9-]*)$ ?aktion=be_alle_od&info=$1
+RewriteRule ^/?Termin&([a-z-0-9-]*)&([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1&info=$2
 ErrorDocument 404 /Startseite

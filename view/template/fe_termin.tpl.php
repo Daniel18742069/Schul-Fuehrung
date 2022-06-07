@@ -20,7 +20,7 @@
     <section id="wrapper">
 
 
-        <form action="?aktion=fe_termin&token=<?= $token ?>" method="post" class="formular-termin">
+        <form action="Termin&<?= $token ?>" method="post" class="formular-termin">
 
             <h1>Ihre Führung am <?= $datum; ?></h1>
 
