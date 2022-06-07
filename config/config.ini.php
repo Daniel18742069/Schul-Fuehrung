@@ -1,5 +1,5 @@
 <?php
-$DEV_MODE = false;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
+$DEV_MODE = true;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
 
 $ini = '
 	[Standard Seite]
@@ -8,7 +8,7 @@ $ini = '
 	[URL zur Webseite]
 	URL=127.0.0.1/
 	BASE=https://openday.tschaufer.it/
-	BACKSLASH=/
+	BACKSLASH=
 
 	[Database Einstellungen]
 	DB_HOST=91.200.103.154:3306
