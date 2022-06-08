@@ -106,18 +106,15 @@ function isUpdate($request)
             $fuehrung = Fuehrung::findeFuehrung($request[$i]);
 
             if (array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 0) {
-                var_dump("Wurde geändert");
                 $fuehrung->setSichtbar(1);
             } elseif (!array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 1) {
                 $fuehrung->setSichtbar(0);
-                var_dump("Wurde geändert");
             }
 
             if ($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i]) {
                 $fuehrung->setFuehrungspersonen($request['fuehrungspersonen' . $i]);
             }
             $fuehrung->speichere();
-            //array_key_exists('checkbox' . $i, $request)
         }
     }
 }
