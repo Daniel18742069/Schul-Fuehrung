@@ -48,11 +48,11 @@
                                     <?php
                                     } elseif (($fuehrung->getSichtbar() == 1) && ($anzahlTeilnehmer == 0)) { ?>
                                         <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" checked="checked" />
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" disabled="disabled" />
 
+                                   <?php
+                                    } elseif(($fuehrung->getSichtbar() == 0)) {
+                                    ?>
+                                        <input type="checkbox" class="checkbox" id="checkbox" name="checkbox<?= $key ?>" value="<?= $key ?>" />
                                     <?php } ?>
 
                                     <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
