@@ -160,7 +160,7 @@ class Controller
         $alleFachrichtungen = Fachrichtung::findeAlleFachrichtungen();
         $this->addContext("alleFachrichtungen", $alleFachrichtungen);
 
-        $alleFuehrungen = Fuehrung::findeAlleFuehrungen();
+        $alleFuehrungen = Fuehrung::alleFuehrungEinesOD($_GET['id']);
         $this->addContext("alleFuehrungen", $alleFuehrungen);
 
         $this->addContext("printXLS", "nix");
