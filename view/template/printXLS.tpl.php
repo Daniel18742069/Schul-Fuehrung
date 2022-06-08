@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/be_CSS/style.css">
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css">
     <script src="plugin/js/jquery-3.5.1.js" type="text/javascript"></script>
     <script src="plugin/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="plugin/js/dataTables.buttons.min.js" type="text/javascript"></script>
