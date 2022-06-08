@@ -184,22 +184,10 @@ body #wrapper {
   background-color: #002a50;
 }
 
-#btn_anmelden {
+#btn_anmelden, #btn_drucken, .zurueck-admin-panel {
   /*position: fixed;
    bottom: 3rem;
    right: 5rem;*/
-  position: -webkit-sticky;
-  position: sticky;
-  top: 3rem;
-  right: 5rem;
-  float: none;
-  display: block;
-  margin-left: auto;
-  width: 10rem;
-  margin-bottom: 0.5rem;
-}
-
-#btn_drucken {
   position: -webkit-sticky;
   position: sticky;
   top: 3rem;
@@ -371,6 +359,15 @@ p {
   width: auto;
 }
 
+.btns-admin-panel {
+  max-width: 20rem;
+  float: right;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3rem;
+  right: 0;
+}
+
 input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken, #btn-zurueck {
   order: 1;
   color: #002a50;
@@ -381,7 +378,6 @@ input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken,
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
   max-height: 3rem;
-  float: right;
 }
 input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, #btn_drucken:hover, #btn-zurueck:hover {
   filter: brightness(0.85);

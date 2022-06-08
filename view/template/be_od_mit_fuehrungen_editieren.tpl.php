@@ -23,6 +23,7 @@
         <div class="wrapper-fe_startseite">
 
             <form action="FuehrungEditieren&<?= $offenerTag->getID() ?>" method="post">
+            <div class="btns-admin-panel">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
                 <input type="button" class="btn_drucken disabled" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken" disabled>
                 <input type="button" class="zurueck-admin-panel" onclick="location.href='AlleOpenDay'" value="zurück" />
@@ -86,7 +87,6 @@
                                         </div>
                                     <?php
                                     }
-
                                     ?>
 
                                 </div>
