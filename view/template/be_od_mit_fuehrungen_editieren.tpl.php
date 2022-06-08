@@ -25,7 +25,7 @@
             <form action="FuehrungEditieren&<?= $offenerTag->getID() ?>" method="post">
             <div class="btns-admin-panel">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
-                <input type="button" class="drucken" value="Drucken" name="druckenButton" id="btn_drucken">
+                <input type="button" class="drucken" onclick="location.href='TabelleDrucken'" value="Drucken" name="druckenButton" id="btn_drucken">
                 <input type="button" class="zurueck-admin-panel" onclick="location.href='AlleOpenDay'" value="zurück"/>
             </div>
 
