@@ -24,7 +24,7 @@
             <div class="wrapper-fuehrung_hinzufuegen">
                 <?php if (empty($_POST)) { ?>
                     <h2>Fächer auswählen</h2>
-                    <form action="<?= $_GET['id'] ?>" method="post">
+                    <form action="Einstellungen&<?= $_GET['id'] ?>" method="post">
 
 
                         <?php foreach ($be_alle_einstellungen as $key => $einstellung) { ?>
