@@ -12,7 +12,7 @@ RewriteRule ^/?NeuesFach$ index.php?aktion=be_neues_fach [NC]
 RewriteRule ^/?Impressum$ index.php?aktion=impressum [NC]
 RewriteRule ^/?Privacy$ index.php?aktion=privacy [NC]
 RewriteRule ^/?Cookies$ index.php?aktion=cookies [NC]
-RewriteRule ^/?TabelleDrucken$ index.php?aktion=printXLS [NC]
+RewriteRule ^/?TabelleDrucken&([a-z-0-9-]*)$ index.php?aktion=printXLS&id=$1 [NC]
 RewriteRule ^/?Termin&([a-z-0-9-]*)$ ?aktion=fe_termin&token=$1
 RewriteRule ^/?Startseite&([a-z-0-9-]*)$ ?aktion=fe_startseite&info=$1
 RewriteRule ^/?AlleOpenDay&([a-z-0-9-]*)$ ?aktion=be_alle_od&info=$1

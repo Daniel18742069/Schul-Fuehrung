@@ -35,6 +35,7 @@
                                     <label for="c<?= $einstellung->getId() ?>"><?= $einstellung->getBeschreibung() ?></label>
                                 </div>
 
+                                
                                 <span class="anzahl-fuehrungen" id="<?= $einstellung->getBeschreibung() ?>" style="display: none;">
                                     <span>Anzahl Führungen</span>
 
