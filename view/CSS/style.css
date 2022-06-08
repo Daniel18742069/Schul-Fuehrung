@@ -184,21 +184,6 @@ body #wrapper {
   background-color: #002a50;
 }
 
-#btn_anmelden, #btn_drucken, .zurueck-admin-panel {
-  /*position: fixed;
-   bottom: 3rem;
-   right: 5rem;*/
-  position: -webkit-sticky;
-  position: sticky;
-  top: 3rem;
-  right: 5rem;
-  float: none;
-  display: block;
-  margin-left: auto;
-  width: 10rem;
-  margin-bottom: 0.5rem;
-}
-
 input[type=button]:hover {
   cursor: pointer;
 }
@@ -378,6 +363,7 @@ input[type=submit], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken,
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
   border: none;
   max-height: 3rem;
+  float: right;
 }
 input[type=submit]:hover, .neuer_od:hover, #btn_loesche:hover, .zurueck-admin-panel:hover, #btn_drucken:hover, #btn-zurueck:hover {
   filter: brightness(0.85);
@@ -387,6 +373,21 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+#btn_anmelden, #btn_drucken, .zurueck-admin-panel {
+  /*position: fixed;
+   bottom: 3rem;
+   right: 5rem;*/
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
+  width: 10rem;
+  margin-bottom: 0.5rem;
 }
 
 .zurueck-admin-panel {
@@ -436,6 +437,9 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.alle_od a {
+  text-decoration: none;
 }
 
 .fuehrungspersonen,
@@ -997,7 +1001,4 @@ button.dt-button:hover {
 .wrapper-subfooter .cookie-save:hover {
   filter: brightness(0.85);
   cursor: pointer;
-}
-.wrapper-subfooter h1 {
-  color: red;
 }
