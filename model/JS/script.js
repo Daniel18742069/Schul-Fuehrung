@@ -105,7 +105,6 @@ function toggleCredits(anzeigen = false) {
 function aendereStatusFuehrung(offenerTag) {
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
     console.log(status);
-
     if (status == "AKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "AKTIVIEREN";
@@ -113,6 +112,7 @@ function aendereStatusFuehrung(offenerTag) {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     }
+
 
 
     var xhttp;
@@ -211,8 +211,8 @@ function hideShowElement(source, target) {
     element.style.display = (source.checked) ?
         'block' :
         'none';
-    btn.disabled = (source.checked) ?
-        false :
+        btn.disabled = (source.checked) ?
+        false:
         true;
 }
 

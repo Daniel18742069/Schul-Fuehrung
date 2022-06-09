@@ -98,14 +98,6 @@ class Offener_tag
             return "aktiviert";
         }
     }
-    public function getStatusStringGross()
-    {
-        if ($this->status == 0) {
-            return "DEAKTIVIERT";
-        } else {
-            return "AKTIVIERT";
-        }
-    }
     public function getStatusStringUmgekehrt()
     {
         if ($this->status == 0) {

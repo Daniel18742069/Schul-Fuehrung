@@ -37,6 +37,7 @@ function erstelle_Fuehrungen($fuehrungsDaten)
     //fach_anzahl
     $startzeit = strtotime($offener_tag->getStartWelformed());
     $endzeit = strtotime($offener_tag->getEndeWelformed());
+
     //Subtrahiere die Endzeit von der Startzeit und Teile durch 60 um den Wert in Minuten zu bekommen
     $wieVielePerioden = intdiv((($endzeit - $startzeit) / 60), $offener_tag->getIntervall()); //intdiv keine Kommastellen
     $kapazitaetArray = [];
