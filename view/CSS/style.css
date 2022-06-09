@@ -389,11 +389,6 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
   pointer-events: none;
 }
 
-.tab:hover {
-  filter: brightness(0.85);
-  cursor: pointer;
-}
-
 #btn_anmelden, #btn_drucken, .zurueck-admin-panel {
   /*position: fixed;
    bottom: 3rem;

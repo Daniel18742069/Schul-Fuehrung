@@ -23,14 +23,13 @@
         <div class="wrapper-fe_startseite">
 
             <form action="FuehrungEditieren&<?= $offenerTag->getID() ?>" method="post">
-                <div class="btns-admin-panel">
+            <div class="btns-admin-panel">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
                 <input type="button" class="btn_drucken" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken" disabled>
                 <input type="button" class="btn_drucken" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken">
                 <input type="button" class="zurueck-admin-panel" onclick="location.href='AlleOpenDay'" value="Zurück" />
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
-                        //var_dump($fuehrungen);
                         $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
                         if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
                             $anzahlTeilnehmer = 0;
