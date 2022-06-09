@@ -13,14 +13,14 @@ function tabs(actuated_button, fachrichung_id) {
             // Actuated Button
             button.disabled = true;
             //button.style.border = '1px solid black';
-            button.style.fontWeight = '700';
-            button.style.filter = 'brightness(0.8)';
+            //button.style.fontWeight = '700';
+            //button.style.filter = 'brightness(0.8)';
         } else {
             // Reset other Buttons
             button.disabled = false;
-            button.style.border = 'none';
-            button.style.fontWeight = 'normal';
-            button.style.filter = 'none';
+            //button.style.border = 'none';
+            //button.style.fontWeight = 'normal';
+            //button.style.filter = 'none';
         }
 
         // document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
