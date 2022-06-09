@@ -13,14 +13,14 @@ function tabs(actuated_button, fachrichung_id) {
             // Actuated Button
             button.disabled = true;
             //button.style.border = '1px solid black';
-            button.style.fontWeight = '700';
-            button.style.filter = 'brightness(0.8)';
+            //button.style.fontWeight = '700';
+            //button.style.filter = 'brightness(0.8)';
         } else {
             // Reset other Buttons
             button.disabled = false;
-            button.style.border = 'none';
-            button.style.fontWeight = 'normal';
-            button.style.filter = 'none';
+            //button.style.border = 'none';
+            //button.style.fontWeight = 'normal';
+            //button.style.filter = 'none';
         }
 
         // document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
@@ -105,7 +105,6 @@ function toggleCredits(anzeigen = false) {
 function aendereStatusFuehrung(offenerTag) {
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
     console.log(status);
-
     if (status == "AKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "AKTIVIEREN";
@@ -113,6 +112,7 @@ function aendereStatusFuehrung(offenerTag) {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     }
+
 
 
     var xhttp;
@@ -211,8 +211,8 @@ function hideShowElement(source, target) {
     element.style.display = (source.checked) ?
         'block' :
         'none';
-    btn.disabled = (source.checked) ?
-        false :
+        btn.disabled = (source.checked) ?
+        false:
         true;
 }
 

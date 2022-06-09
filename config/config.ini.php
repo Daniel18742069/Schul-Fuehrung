@@ -1,5 +1,5 @@
 <?php
-$DEV_MODE = true;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
+$DEV_MODE = false;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
 
 $ini = '
 	[Standard Seite]

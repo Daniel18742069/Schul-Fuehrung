@@ -45,7 +45,7 @@
                             <span class="datum"><?= $offenerTag->getDatumWelformed() ?></span>
                             <span class="bezeichnung" id="bezeichnung"><?= $offenerTag->getBezeichnung() ?></span>
                             <span class="status">
-                                <div id="namenAendern<?= $offenerTag->getId() ?>"><?= $offenerTag->getStatusStringGross() ?>
+                                <div id="namenAendern<?= $offenerTag->getId() ?>"><?= $offenerTag->getStatusString() ?>
                                 </div>
                             </span>
                         </div>
