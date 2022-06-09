@@ -170,6 +170,22 @@ body {
 }
 
 
+#btn_anmelden, #btn_drucken, .zurueck-admin-panel {
+	/*position: fixed;
+  bottom: 3rem;
+  right: 5rem;*/
+
+  position: sticky;
+  top: 3rem;
+  right: 5rem;
+  float: none;
+  display: block;
+  margin-left: auto;
+  width: 10rem;
+  margin-bottom: 0.5rem;
+}
+
+
 
 input[type="button"]:hover {
 	cursor: pointer;
@@ -365,7 +381,6 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
   border: none;
   //width: 100%;
   max-height: 3rem;
-  float: right;
 
 	&:hover {
 		filter: brightness(0.85);
@@ -451,9 +466,6 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	a{
-		text-decoration: none;
-	}
 }
 
 
