@@ -1,3 +1,4 @@
+<section class="wrapper-fuehrung_hinzufuegen">
 <?php
 
 /**
@@ -92,3 +93,4 @@ function cleanUmlaute(string $string)
 }
 
 ?>
+</section>
