@@ -6,14 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum</title>
-    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css" />
+    <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/fe_CSS/style.css" />
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
 </head>
 
 <body>
 
 
-    <?php require 'view/snippets/header.sp.php'; ?>
+    <?php require 'view/snippets/fe_xheader.sp.php'; ?>
 
 
 
@@ -189,7 +189,7 @@
 
 
 
-    <?php require 'view/snippets/footer.sp.php'; ?>
+    <?php require 'view/snippets/fe_xfooter.sp.php'; ?>
 
 
 </body>
