@@ -26,9 +26,9 @@
                 <div class="btns-admin-panel">
                 <input type="submit" value="Speichern" name="anmeldenButton" id="btn_anmelden">
                <?php if($offenerTag->getFuehrungen() == NULL) { ?>
-                <input type="button" class="btn_drucken disabled" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken" disabled>
+                <input type="button" class="btn_drucken disabled" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken" disabled />
               <?php }else { ?>
-                <input type="button" class="btn_drucken disabled" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken">
+                <input type="button" class="btn_drucken disabled" onclick="location.href='TabelleDrucken&<?= $offenerTag->getID() ?>'" value="Drucken" name="druckenButton" id="btn_drucken" />
                 <?php } ?>
                 <input type="button" class="zurueck-admin-panel" onclick="location.href='AlleOpenDay'" value="Zurück" />
                 <div class="accordion js-accordion" id="accordion">
