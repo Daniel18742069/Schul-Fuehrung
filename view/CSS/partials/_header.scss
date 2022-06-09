@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .header{
     background-image: url('../img/school.jpg');
     background-position: center;
@@ -36,13 +38,12 @@
         width: 100%;
         position: absolute;
         bottom: 0;
+        font-family: 'Oswald', sans-serif;
         p{
             text-align: center;
             margin: 0.2rem;
         }
     }
-
-
 }
 
 

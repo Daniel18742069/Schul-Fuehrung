@@ -96,6 +96,7 @@ function toggleCredits(anzeigen = false) {
         credits.style.height == '0px' && !anzeigen) return;
 
     credits.style.height = (anzeigen) ? '12.5rem' : '0px';
+    
 
     setTimeout(() => {
         toggleCredits();

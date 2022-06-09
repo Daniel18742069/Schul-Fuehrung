@@ -1,4 +1,4 @@
-<section class="wrapper-fuehrung_hinzufuegen">
+<section class="wrapper-fe_startseite">
 <?php
 
 /**
@@ -79,6 +79,10 @@ if ($alleAnmeldungen && $alleFachrichtungen && $alleFuehrungen) {
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <a href="AlleOpenDay">
+        <input type="button" id="btn-zurueck" value="Zurück zur Startseite" style="margin-right: 24px;"/>
+    </a>
 
 <?php
 
