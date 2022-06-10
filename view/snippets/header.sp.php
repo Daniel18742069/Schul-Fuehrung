@@ -23,6 +23,6 @@
 
 
     <div class="black-label">
-        <p>Open Day</p>
+        <p style="user-select: none;">Open Day</p>
     </div>
 </header>
