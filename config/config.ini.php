@@ -1,5 +1,5 @@
 <?php
-$DEV_MODE = true;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
+$DEV_MODE = false;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
 
 $ini = '
 	[Standard Seite]
@@ -21,6 +21,7 @@ $ini = '
 	MAIL_NAME=LBSHI Bozen NoReply
 	MAIL_ADDRESS=openday@tschaufer.it
 	MAIL_PASSWORD=erverhost.de:8443/phpM
+	MAIL=1
 
 	[Admin Einstellungen]
 	ADMIN_BN=AdminBackend

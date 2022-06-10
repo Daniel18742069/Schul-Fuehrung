@@ -20,6 +20,7 @@ $ini = '
 	MAIL_NAME=LBSHI Bozen NoReply
     MAIL_ADDRESS=openday@gmx.net
     MAIL_PASSWORD=ap4RPY5d7o2NzX
+	MAIL=0
 
 	[Admin Einstellungen]
 	ADMIN_BN=PLATZHALTER
