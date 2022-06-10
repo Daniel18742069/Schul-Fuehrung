@@ -18,8 +18,8 @@ $ini = '
 
 	[Mail Einstellungen]
 	MAIL_NAME=LBSHI Bozen NoReply
-	MAIL_ADDRESS=berufsschulebozen.anmeldung@gmail.com
-	MAIL_PASSWORD=Lbshi-12345
+    MAIL_ADDRESS=openday@gmx.net
+    MAIL_PASSWORD=ap4RPY5d7o2NzX
 
 	[Admin Einstellungen]
 	ADMIN_BN=PLATZHALTER

@@ -1,7 +1,10 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 /**
- * @author Andreas Codalonga (@TheArled)
+ * @author Benno der große
  */
 class email
 {
@@ -17,21 +20,19 @@ class email
 		string $to_address,
 		string $to_name = ''
 	): bool {
-		require 'model/phpmailer/class.phpmailer.php';
-		require 'model/phpmailer/class.smtp.php';
 
 		$mail = new PHPMailer;
 
-		$mail->SMTPDebug = 2;							// Enable verbose debug output
+		$mail->SMTPDebug = 0;							// Enable verbose debug output
 
 		$mail->isSMTP();								// Set mailer to use SMTP
 		$mail->CharSet = "UTF-8";						// Set mail charset to UTF8
-		$mail->Host = 'coffee.deinserverhost.de';		// Specify main and backup SMTP servers
+		$mail->Host = 'mail.gmx.com';		// Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;							// Enable SMTP authentication
 		$mail->Username = CONF['MAIL_ADDRESS'];			// SMTP username
 		$mail->Password = CONF['MAIL_PASSWORD'];		// SMTP password
 		$mail->SMTPSecure = 'tls';						// Enatble TLS encryption, `ssl` also accepted
-		$mail->Port = 465;								// TCP port to connect to
+		$mail->Port = 25;								// TCP port to connect to
 
 		$mail->setFrom(CONF['MAIL_ADDRESS'], CONF['MAIL_NAME']);
 

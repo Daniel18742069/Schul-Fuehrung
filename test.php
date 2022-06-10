@@ -12,33 +12,23 @@ require_once 'model/entities/offener_tag.php';
 
 require_once 'controller/controller.php';
 
+require_once 'model/email.php';
 require_once 'model/phpmailer/src/Exception.php';
 require_once 'model/phpmailer/src/PHPMailer.php';
 require_once 'model/phpmailer/src/SMTP.php';
 
 
+$subject ="test";
+$message ="asdasgzdasu";
+$to_address ="benno.pichle@gmail.com";
+$to_name ="Benno";
 
-session_start();
+email::send(
+    $subject,
+    $message,
+    $to_address,
+    $to_name
+);
 
-$aktion = isset($_GET['aktion'])
-    ? $_GET['aktion']
-    : CONF['DEFAULT_SITE'];
 
-$controller = new Controller();
-
-if (substr($aktion, 0, 2) == "be") {
-    if ($aktion == "be_login_admin") {
-        // Platzhalter
-    } else if (!ist_eingeloggt()) {
-        $aktion = "be_login_admin";
-    }
-}
-
-if (
-    !method_exists($controller, $aktion)
-    || $aktion == "run"
-) {
-    $aktion = CONF['DEFAULT_SITE'];
-}
-
-$controller->run($aktion);
+?>
