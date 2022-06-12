@@ -19,8 +19,8 @@ $ini = '
 
 	[Mail Einstellungen]
 	MAIL_NAME=LBSHI Bozen NoReply
-	MAIL_ADDRESS=openday@tschaufer.it
-	MAIL_PASSWORD=erverhost.de:8443/phpM
+    MAIL_ADDRESS=openday@gmx.net
+    MAIL_PASSWORD=ap4RPY5d7o2NzX
 	MAIL=1
 
 	[Admin Einstellungen]
@@ -37,3 +37,11 @@ define('CONF', $data);
 
 unset($ini);
 unset($data);
+
+
+/*
+MAIL_NAME=LBSHI Bozen NoReply
+	MAIL_ADDRESS=openday@tschaufer.it
+	MAIL_PASSWORD=erverhost.de:8443/phpM
+	*/
+	?>

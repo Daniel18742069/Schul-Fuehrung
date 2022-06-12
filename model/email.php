@@ -24,16 +24,15 @@ class email
 		$mail = new PHPMailer;
 
 		$mail->SMTPDebug = 0;		
-		if(CONF['MAIL'] == 0){
+		//if(CONF['MAIL'] == 0){
 
 		$mail->SMTPSecure = 'tls';						// Enatble TLS encryption, `ssl` also accepted
 		$mail->Port = 25;								// TCP port to connect to
 		$mail->Host = 'mail.gmx.com';		// Specify main and backup SMTP servers
-		}					// Enable verbose debug output
+		//}					// Enable verbose debug output
 
 		$mail->isSMTP();								// Set mailer to use SMTP
 		$mail->CharSet = "UTF-8";						// Set mail charset to UTF8
-		$mail->Host = 'mail.gmx.com';		// Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;							// Enable SMTP authentication
 		$mail->Username = CONF['MAIL_ADDRESS'];			// SMTP username
 		$mail->Password = CONF['MAIL_PASSWORD'];		// SMTP password
