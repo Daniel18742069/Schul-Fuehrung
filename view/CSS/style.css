@@ -525,6 +525,18 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
   }
 }
 @media screen and (max-width: 805px) {
+  .wrapper-fe_startseite {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  span p {
+    font-size: 1.2rem;
+  }
+
   .tabs {
     flex-direction: column;
   }
@@ -532,8 +544,50 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
     text-align: center;
     width: 100%;
   }
-}
-@media screen and (max-width: 700px) {
+
+  .logo {
+    width: 120px;
+    margin: 0.5rem 0;
+  }
+
+  .white-label {
+    padding: 0 0.5rem !important;
+  }
+
+  .black-label p {
+    font-size: 2rem;
+  }
+
+  .accordion-body__contents {
+    margin-bottom: 3rem;
+  }
+
+  .form_buchung {
+    display: block;
+  }
+  .form_buchung input[type=submit] {
+    display: block;
+    float: none;
+    margin-top: 1rem;
+  }
+  .form_buchung label {
+    padding-left: 0;
+  }
+  .form_buchung .anmeldeinputs {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .footer h3 {
+    font-size: 1.2rem !important;
+  }
+  .footer p, .footer a {
+    font-size: 1rem !important;
+  }
+  .footer h5 {
+    font-size: 1.1rem !important;
+  }
+
   .socials {
     display: none;
   }
@@ -653,8 +707,8 @@ input[type=submit]:disabled, .neuer_od:disabled, #btn_loesche:disabled, .zurueck
 
 #ib_info_box {
   z-index: 1000;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  top: 1vh;
   left: 50vw;
   transform: translateX(-50%);
   max-width: 90vw;
