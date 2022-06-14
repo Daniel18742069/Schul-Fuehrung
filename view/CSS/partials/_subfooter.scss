@@ -62,13 +62,13 @@
         h4{
             font-size: 1.1rem;
         }
-        p{
+        p, li{
             font-size: 1rem;
         }
     }
 
     .black-label{
-		p{
+		p, li{
 			font-size: 2rem;
 		}
 	}
@@ -77,11 +77,15 @@
 		h3{
 			font-size: 1.2rem !important;
 		}
-		p, a{
+		p, li, a{
 			font-size: 1rem !important;
 		}
 		h5{
 			font-size: 1.1rem !important;
 		}
 	}
+    .wrapper-subfooter {
+        margin-top: 3rem !important;
+        margin-bottom: 0 !important;
+    }
 }
