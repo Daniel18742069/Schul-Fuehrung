@@ -4,6 +4,7 @@
     margin-top: 7rem;
     margin-bottom: 7rem;
     color: $blueColor;
+    padding: 1rem;
     h3{
         margin-top: 3rem;
         margin-bottom: 0.6rem;
@@ -50,4 +51,37 @@
             cursor: pointer;
         }
     }
+
+    @media screen and (max-width: 805px) {
+        h1{
+            font-size: 1.4rem;
+        }
+        h3{
+            font-size: 1.2rem;
+        }
+        h4{
+            font-size: 1.1rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+    }
+
+    .black-label{
+		p{
+			font-size: 2rem;
+		}
+	}
+
+    .footer{
+		h3{
+			font-size: 1.2rem !important;
+		}
+		p, a{
+			font-size: 1rem !important;
+		}
+		h5{
+			font-size: 1.1rem !important;
+		}
+	}
 }

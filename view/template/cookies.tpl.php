@@ -171,8 +171,7 @@
                                     <li><strong>reCAPTCHA</strong><br>
                                         reCAPTCHA ist ein von Luis von Ahn entwickelter und von Google LLC gekaufter und verwalteter Captcha-Dienst, der es dieser Website ermöglicht, solche Inhalte in den Seiten zu integrieren </li>
                                 </ul>
-                            </label></div><br>
-                        <button class="cookie-save" type="button" value="Änderungen speichern">Änderungen speichern</button>
+                            </label></div>
                     </div>
                 </div>
             </div>
