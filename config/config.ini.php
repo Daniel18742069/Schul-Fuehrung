@@ -1,12 +1,12 @@
 <?php
-$DEV_MODE = true;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
+$DEV_MODE = false;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
 
 $ini = '
 	[Standard Seite]
 	DEFAULT_SITE=fe_termin
 
 	[URL zur Webseite]
-	URL=127.0.0.1/
+	URL=openday.tschaufer.it/
 	BASE=https://openday.tschaufer.it/
 	BACKSLASH=/
 	SCHUL-FUEHRUNG=/Schul-Fuehrung/
