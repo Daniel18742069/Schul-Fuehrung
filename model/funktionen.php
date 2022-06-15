@@ -73,7 +73,7 @@ function erstelle_Fuehrungen($fuehrungsDaten)
             }
 
             $counter++;
-            echo $fach . "_" . $anzahl . " fuehrungsperson: " . $daten . "<br>";
+//            echo $fach . "_" . $anzahl . " fuehrungsperson: " . $daten . "<br>";
         }
     }
 
