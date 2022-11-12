@@ -74,7 +74,7 @@
                         <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>">
                             <div class="accordion-header js-accordion-header">
                                 <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
-                                <div class="lehrer"><?= $fuehrung->getFuehrungspersonen(); ?></div>
+                                <div class="lehrer"><?=  Fachrichtung::getFachrichtungBeiID($fuehrung->getFachrichtung_id());?></div>
                                 <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
                             </div>
                             <div class="accordion-body js-accordion-body">
