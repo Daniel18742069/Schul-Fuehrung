@@ -28,15 +28,18 @@ function tabs(actuated_button, fachrichung_id) {
     }
 
     fuehrungen = document.getElementsByClassName('fuehrung');
+    nichtsAusgewaehlt = document.getElementsByClassName('keine-fachrichtung-ausgewaehlt');
     for (index = 0; fuehrungen.length > index; index++) {
         fuehrung = fuehrungen[index];
 
         if (fuehrung.classList.contains(fachrichung_id)) {
             // show element
             fuehrung.style.display = 'block';
+            nichtsAusgewaehlt.style.display = 'none';
         } else {
             // hide element
             fuehrung.style.display = 'none';
+            nichtsAusgewaehlt.style.display = 'block';
         }
     }
 }
