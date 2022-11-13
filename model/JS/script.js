@@ -1,8 +1,8 @@
-//Tabs
+/*Tabs
 function first_tab() { // wählt die erste Fachrichtung aus
     buttons = document.getElementsByClassName('tab');
     if (buttons) buttons[0].click();
-}
+}*/
 
 function tabs(actuated_button, fachrichung_id) {
     buttons = document.getElementsByClassName('tab');

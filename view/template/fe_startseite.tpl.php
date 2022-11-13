@@ -67,11 +67,16 @@
                 </script>
 
 
+                
+                <div class="keine-fachrichtung-ausgewaehlt"> Sie haben noch keine Fachrichtung ausgewählt!</div>
+
+
+
 
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $fuehrung) { ?>
                         <?php if (($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet())) continue; ?>
-                        <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>">
+                        <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>" style="display:none">
                             <div class="accordion-header js-accordion-header">
                                 <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
                                 <div class="lehrer"><?=  Fachrichtung::getFachrichtungBeiID($fuehrung->getFachrichtung_id());?></div>
@@ -122,7 +127,7 @@
 
 <?php if ($fachrichtungen) { ?>
     <script>
-        first_tab();
+        //first_tab();
         set_events();
     </script>
 <?php } ?>
