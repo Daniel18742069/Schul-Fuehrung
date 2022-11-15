@@ -4,19 +4,18 @@ function first_tab() { // wählt die erste Fachrichtung aus
     if (buttons) buttons[0].click();
 }*/
 
+
 function tabs(actuated_button, fachrichung_id) {
-    nichtsAusgewaehlt = document.getElementsByClassName('nichts_ausgewaehlt');
     buttons = document.getElementsByClassName('tab');
     for (index = 0; buttons.length > index; index++) {
         button = buttons[index];
-
         if (button === actuated_button) {
             // Actuated Button
             button.disabled = true;
             //button.style.border = '1px solid black';
             button.style.fontWeight = '700';
             button.style.filter = 'brightness(0.8)';
-            //nichtsAusgewaehlt.style.display = 'none';
+            //
         } else {
             // Reset other Buttons
             button.disabled = false;
@@ -101,7 +100,7 @@ function toggleCredits(anzeigen = false) {
         credits.style.height == '0px' && !anzeigen) return;
 
     credits.style.height = (anzeigen) ? '12.5rem' : '0px';
-    
+
 
     setTimeout(() => {
         toggleCredits();

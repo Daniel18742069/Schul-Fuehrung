@@ -52,7 +52,7 @@
                         ?>
                             <div class="tabs active">
                                 <?php foreach ($fachrichtungen as $fachrichtung) { ?>
-                                    <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                                    <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>'); invisible();"><?= $fachrichtung->getBeschreibung() ?></button>
                                 <?php } ?>
                             </div>
 
@@ -69,7 +69,7 @@
 
 
                     
-                    <p class="nichts_ausgewaehlt" style="color:gray; text-align:center; margin-top:4rem;">Sie haben noch keine Fachrichtung ausgewählt!</p>
+                    <p id="nichts_ausgewaehlt">Sie haben noch keine Fachrichtung ausgewählt!</p>
 
 
 
@@ -131,6 +131,13 @@
     <?php require_once 'view/snippets/captcha.sp.php'; ?>
     <?php require_once 'view/snippets/loading_screen.sp.php'; ?>
 </body>
+<script>
+function invisible() {
+    nichtsAusgewaehlt = document.getElementById('nichts_ausgewaehlt');
+    nichtsAusgewaehlt.style.display = 'none';
+}
+
+</script>
 
 <?php
 if ($offener_tag != false) {
