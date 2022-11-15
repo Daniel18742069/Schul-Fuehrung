@@ -69,7 +69,7 @@
 
 
                     
-                    <p id="nichts_ausgewaehlt">Sie haben noch keine Fachrichtung ausgewählt!</p>
+                    <p id="nichts_ausgewaehlt" style="color:grey; text-align:center; margin-top:7rem">Sie haben noch keine Fachrichtung ausgewählt!</p>
 
 
 
