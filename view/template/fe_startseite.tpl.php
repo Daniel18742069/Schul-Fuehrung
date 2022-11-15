@@ -52,7 +52,7 @@
                         ?>
                             <div class="tabs active">
                                 <?php foreach ($fachrichtungen as $fachrichtung) { ?>
-                                    <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>'); invisible();"><?= $fachrichtung->getBeschreibung() ?></button>
+                                    <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick=" invisible(); tabs(this,'<?= $fachrichtung->getId() ?>');"><?= $fachrichtung->getBeschreibung() ?></button>
                                 <?php } ?>
                             </div>
 

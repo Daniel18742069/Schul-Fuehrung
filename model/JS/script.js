@@ -22,7 +22,6 @@ function tabs(actuated_button, fachrichung_id) {
             button.style.border = 'none';
             button.style.fontWeight = 'normal';
             button.style.filter = 'none';
-            //nichtsAusgewaehlt.style.display = 'block';
         }
 
         // document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
@@ -30,7 +29,6 @@ function tabs(actuated_button, fachrichung_id) {
     }
 
     fuehrungen = document.getElementsByClassName('fuehrung');
-    nichtsAusgewaehlt = document.getElementsByClassName('nichts_ausgewaehlt');
     for (index = 0; fuehrungen.length > index; index++) {
         fuehrung = fuehrungen[index];
 
