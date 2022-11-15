@@ -24,10 +24,11 @@
 <body>
     <?php require 'view/snippets/info_box.sp.php'; ?>
 
+    
     <div id="content">
         <?php require 'view/snippets/header.sp.php'; ?>
-
-
+       
+<?php if($offener_tag != false){?>
         <section id="wrapper">
 
             <div class="wrapper-fe_startseite">
@@ -116,6 +117,9 @@
 
             </div>
         </section>
+        <?php }else{
+            echo "Designer oaner fa enk muas des mochen!";
+        } ?>
 
         <?php require 'view/snippets/footer.sp.php'; ?>
 
@@ -125,11 +129,15 @@
     <?php require_once 'view/snippets/loading_screen.sp.php'; ?>
 </body>
 
-<?php if ($fachrichtungen) { ?>
+<?php 
+if($offener_tag != false){
+
+
+if ($fachrichtungen) { ?>
     <script>
         //first_tab();
         set_events();
     </script>
-<?php } ?>
+<?php }} ?>
 
 </html>

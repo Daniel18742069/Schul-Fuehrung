@@ -30,7 +30,8 @@ class Controller
         $offener_tag = Offener_tag::findeAktiverOffenen_tag();
         $this->addContext("offener_tag", $offener_tag);
         
-        
+        if($offener_tag != false){
+
         $fachrichtungen = Fachrichtung::findeFachrichtungen_OffenerTag($offener_tag->getId());
         $this->addContext("fachrichtungen", $fachrichtungen);
 
@@ -43,6 +44,7 @@ class Controller
             $anzahl_teilnehmer[$fuehrung->getId()] = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
         }
         $this->addContext("anzahl_teilnehmer", $anzahl_teilnehmer);
+    }
     }
 
     //admin
