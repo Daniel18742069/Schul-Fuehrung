@@ -6,6 +6,7 @@ function first_tab() { // wählt die erste Fachrichtung aus
 
 function tabs(actuated_button, fachrichung_id) {
     buttons = document.getElementsByClassName('tab');
+    nichtsAusgewaehlt = document.getElementsByClassName('nichts_ausgewaehlt');
     for (index = 0; buttons.length > index; index++) {
         button = buttons[index];
 
@@ -15,12 +16,14 @@ function tabs(actuated_button, fachrichung_id) {
             //button.style.border = '1px solid black';
             button.style.fontWeight = '700';
             button.style.filter = 'brightness(0.8)';
+            nichtsAusgewaehlt.style.display = 'none';
         } else {
             // Reset other Buttons
             button.disabled = false;
             button.style.border = 'none';
             button.style.fontWeight = 'normal';
             button.style.filter = 'none';
+            nichtsAusgewaehlt.style.display = 'block';
         }
 
         // document.getElementsByClassName('tab').addEventListener("mouseover", document.getElementsByClassName('tab').style.backgroundColor = "red")
@@ -28,18 +31,15 @@ function tabs(actuated_button, fachrichung_id) {
     }
 
     fuehrungen = document.getElementsByClassName('fuehrung');
-    //nichtsAusgewaehlt = document.getElementsByClassName('keine-fachrichtung-ausgewaehlt');
     for (index = 0; fuehrungen.length > index; index++) {
         fuehrung = fuehrungen[index];
 
         if (fuehrung.classList.contains(fachrichung_id)) {
             // show element
             fuehrung.style.display = 'block';
-           // nichtsAusgewaehlt.style.display = 'none';
         } else {
             // hide element
             fuehrung.style.display = 'none';
-            //nichtsAusgewaehlt.style.display = 'block';
         }
     }
 }

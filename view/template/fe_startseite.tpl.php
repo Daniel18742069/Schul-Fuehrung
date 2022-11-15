@@ -69,7 +69,7 @@
 
 
 
-                    <div class="keine-fachrichtung-ausgewaehlt"> Sie haben noch keine Fachrichtung ausgewählt!</div>
+                    <div class="nichts_ausgewaehlt"> Sie haben noch keine Fachrichtung ausgewählt!</div>
 
 
 
