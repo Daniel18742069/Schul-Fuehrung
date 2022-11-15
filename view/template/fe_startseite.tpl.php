@@ -68,8 +68,8 @@
                     </script>
 
 
-
-                    <div class="nichts_ausgewaehlt"> Sie haben noch keine Fachrichtung ausgewählt!</div>
+                    
+                    <p class="nichts_ausgewaehlt" style="color:gray; text-align:center; margin-top:4rem;">Sie haben noch keine Fachrichtung ausgewählt!</p>
 
 
 
