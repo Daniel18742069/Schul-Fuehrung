@@ -13,10 +13,10 @@ body {
 	}
 
 	.keine-fachrichtung-ausgewaehlt {
-        color: darkgrey;
-        text-align: center;
-        margin-top: 7rem;
-    }
+		color: darkgrey;
+		text-align: center;
+		margin-top: 7rem;
+	}
 
 	.tabs {
 		margin-top: 2.5rem;
@@ -60,6 +60,13 @@ body {
 
 	#content {
 		filter: blur(0px); // wird durch JS geändert
+
+		.no_OD {
+			display: table;
+			margin: 0 auto;
+			margin-top: 5rem;
+			margin-bottom: 5rem;
+		}
 	}
 
 	#captcha_background {
@@ -352,7 +359,7 @@ p {
 	width: auto;
 }
 
-.btns-admin-panel{
+.btns-admin-panel {
 	max-width: 20rem;
 	float: right;
 	position: sticky;
@@ -360,18 +367,23 @@ p {
 	right: 0;
 }
 
-input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucken, #btn-zurueck{
-  order: 1;
-  color: $blueColor;
-  background-color: rgba(245, 196, 0, 0.8);
-  padding: 0.45rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
-  border: none;
-  //width: 100%;
-  max-height: 3rem;
-  float: right;
+input[type="submit"],
+.neuer_od,
+#btn_loesche,
+.zurueck-admin-panel,
+#btn_drucken,
+#btn-zurueck {
+	order: 1;
+	color: $blueColor;
+	background-color: rgba(245, 196, 0, 0.8);
+	padding: 0.45rem 1rem;
+	font-size: 1.1rem;
+	line-height: 1.5;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+	border: none;
+	//width: 100%;
+	max-height: 3rem;
+	float: right;
 
 	&:hover {
 		filter: brightness(0.85);
@@ -391,33 +403,35 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 
 
 
-#btn_anmelden, #btn_drucken, .zurueck-admin-panel {
+#btn_anmelden,
+#btn_drucken,
+.zurueck-admin-panel {
 	/*position: fixed;
   bottom: 3rem;
   right: 5rem;*/
 
-  position: sticky;
-  top: 3rem;
-  right: 5rem;
-  float: none;
-  display: block;
-  margin-left: auto;
-  width: 10rem;
-  margin-bottom: 0.5rem;
+	position: sticky;
+	top: 3rem;
+	right: 5rem;
+	float: none;
+	display: block;
+	margin-left: auto;
+	width: 10rem;
+	margin-bottom: 0.5rem;
 }
 
-.zurueck-admin-panel{
-  position: sticky;
-  top: 6rem;
-  right: 5rem;
-  float: none;
-  display: block;
-  margin-left: auto;
-  width: 10rem;
+.zurueck-admin-panel {
+	position: sticky;
+	top: 6rem;
+	right: 5rem;
+	float: none;
+	display: block;
+	margin-left: auto;
+	width: 10rem;
 }
 
-.link-admin-panel{
-  text-decoration: none;
+.link-admin-panel {
+	text-decoration: none;
 }
 
 #btn_loesche {
@@ -425,7 +439,7 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 	margin-top: 1rem;
 }
 
-#btn-zurueck{
+#btn-zurueck {
 	margin-right: 0.5rem;
 }
 
@@ -453,7 +467,8 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	a{
+
+	a {
 		text-decoration: none;
 	}
 }
@@ -472,16 +487,18 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 	height: 2rem !important;
 }
 
-.anmeldeinputs{
-  width: 22rem;
+.anmeldeinputs {
+	width: 22rem;
 }
 
-.anmeldeinputs-number{
-  width: 5rem;
+.anmeldeinputs-number {
+	width: 5rem;
 }
 
-.kapazitaet-none, .lehrer-none, .uhrzeit-none{
-  border: none;
+.kapazitaet-none,
+.lehrer-none,
+.uhrzeit-none {
+	border: none;
 }
 
 .zurueck {
@@ -561,17 +578,20 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 }
 
 @media screen and (max-width: 805px) {
-	.wrapper-fe_startseite{
+	.wrapper-fe_startseite {
 		margin: 0;
 	}
-	h2{
+
+	h2 {
 		font-size: 1.5rem;
 	}
-	span{
-		p{
+
+	span {
+		p {
 			font-size: 1.2rem;
 		}
 	}
+
 	.tabs {
 		flex-direction: column;
 
@@ -580,46 +600,57 @@ input[type="submit"], .neuer_od, #btn_loesche, .zurueck-admin-panel, #btn_drucke
 			width: 100%;
 		}
 	}
-	.logo{
+
+	.logo {
 		width: 120px;
 		margin: 0.5rem 0;
 	}
-	.white-label{
+
+	.white-label {
 		padding: 0 0.5rem !important;
 	}
-	.black-label{
-		p{
+
+	.black-label {
+		p {
 			font-size: 2rem;
 		}
 	}
-	.accordion-body__contents{
+
+	.accordion-body__contents {
 		margin-bottom: 3rem;
 	}
-	.form_buchung{
+
+	.form_buchung {
 		display: block;
-		input[type="submit"]{
+
+		input[type="submit"] {
 			display: block;
 			float: none;
 			margin-top: 1rem;
 		}
-		label{
+
+		label {
 			padding-left: 0;
 		}
-		.anmeldeinputs{
+
+		.anmeldeinputs {
 			width: 100%;
 			margin-left: 0;
 		}
 	}
 
 
-	.footer{
-		h3{
+	.footer {
+		h3 {
 			font-size: 1.2rem !important;
 		}
-		p, a{
+
+		p,
+		a {
 			font-size: 1rem !important;
 		}
-		h5{
+
+		h5 {
 			font-size: 1.1rem !important;
 		}
 	}

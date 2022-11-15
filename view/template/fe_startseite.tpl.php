@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<base href="<?= CONF['BASE'] ?>" />
+    <base href="<?= CONF['BASE'] ?>" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schulführung</title>
@@ -24,102 +24,105 @@
 <body>
     <?php require 'view/snippets/info_box.sp.php'; ?>
 
-    
+
     <div id="content">
         <?php require 'view/snippets/header.sp.php'; ?>
-       
-<?php if($offener_tag != false){?>
-        <section id="wrapper">
 
-            <div class="wrapper-fe_startseite">
+        <?php if ($offener_tag != false) { ?>
+            <section id="wrapper">
 
-                <!-- Untertitel & kurzer Text -->
-                <div>
-                    <h2>Zeit für einen Rundgang?</h2>
-                    <span>
-                        <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler und Eltern an.</p>
-                        <p class="textZwei">Reservieren Sie eine Führung noch heute für den <strong><?= $offener_tag->getBezeichnung()?></strong> am <strong><?= $offener_tag->getDatumWelformed()?></strong>
-                         , von <strong><?= $offener_tag->getStartWelformed() ?></strong> bis <strong><?= $offener_tag->getEndeWelformed() ?> Uhr!</strong></p>
-                    </span>
-                </div>
+                <div class="wrapper-fe_startseite">
 
-                <div class="box">
+                    <!-- Untertitel & kurzer Text -->
+                    <div>
+                        <h2>Zeit für einen Rundgang?</h2>
+                        <span>
+                            <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler und Eltern an.</p>
+                            <p class="textZwei">Reservieren Sie eine Führung noch heute für den <strong><?= $offener_tag->getBezeichnung() ?></strong> am <strong><?= $offener_tag->getDatumWelformed() ?></strong>
+                                , von <strong><?= $offener_tag->getStartWelformed() ?></strong> bis <strong><?= $offener_tag->getEndeWelformed() ?> Uhr!</strong></p>
+                        </span>
+                    </div>
 
-                    <!-- Tabs Fachrichtung -->
+                    <div class="box">
 
-                    <?php
-                    if ($fachrichtungen) {
-                    ?>
-                        <div class="tabs active">
-                            <?php foreach ($fachrichtungen as $fachrichtung) { ?>
-                                <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
-                            <?php } ?>
-                        </div>
+                        <!-- Tabs Fachrichtung -->
 
-                    <?php } ?>
-
-                </div>
-
-
-
-
-                <script>
-                    window.console = window.console || function(t) {};
-                </script>
-
-
-                
-                <div class="keine-fachrichtung-ausgewaehlt"> Sie haben noch keine Fachrichtung ausgewählt!</div>
-
-
-
-
-                <div class="accordion js-accordion" id="accordion">
-                    <?php foreach ($fuehrungen as $fuehrung) { ?>
-                        <?php if (($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet())) continue; ?>
-                        <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>" style="display:none">
-                            <div class="accordion-header js-accordion-header">
-                                <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
-                                <div class="lehrer"><?=  Fachrichtung::getFachrichtungBeiID($fuehrung->getFachrichtung_id());?></div>
-                                <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                        <?php
+                        if ($fachrichtungen) {
+                        ?>
+                            <div class="tabs active">
+                                <?php foreach ($fachrichtungen as $fachrichtung) { ?>
+                                    <button type="button" value="Button" name="<?= $fachrichtung->getBeschreibung() ?>" id="<?= $fachrichtung->getBeschreibung() ?>" class="active tab" onclick="tabs(this,'<?= $fachrichtung->getId() ?>')"><?= $fachrichtung->getBeschreibung() ?></button>
+                                <?php } ?>
                             </div>
-                            <div class="accordion-body js-accordion-body">
-                                <div class="accordion-body__contents">
-                                    <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite&anmelden=1">
-                                        <label for="vorname">Vorname:</label>
-                                        <input type="text" name="vorname" class="anmeldeinputs" title="zB. Max" value="" onchange="formAusgefuellt(this)" /><br />
-                                        <label for="nachname">Nachname:</label>
-                                        <input type="text" name="nachname" class="anmeldeinputs" title="zB. Mustermann" value="" onchange="formAusgefuellt(this)" /><br />
-                                        <label for="telefon">Telefon:</label>
-                                        <input type="telefon" name="telefon" class="anmeldeinputs" title="zB. 339 123 4567" value="" onchange="formAusgefuellt(this)" minlength="10" maxlength="15" /><br />
-                                        <label for="email">E-Mail:</label>
-                                        <input type="email" name="email" class="anmeldeinputs" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
-                                        <label for="anzahl">Personen:</label>
-                                        <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahl_teilnehmer[$fuehrung->getId()]; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
-                                        <input type="text" name="fuehrung_id" class="anmeldeinputs" value="<?= $fuehrung->getId(); ?>" hidden />
-                                        <input type="submit" value="Anmelden" disabled="disabled" />
-                                    </form>
+
+                        <?php } ?>
+
+                    </div>
+
+
+
+
+                    <script>
+                        window.console = window.console || function(t) {};
+                    </script>
+
+
+
+                    <div class="keine-fachrichtung-ausgewaehlt"> Sie haben noch keine Fachrichtung ausgewählt!</div>
+
+
+
+
+                    <div class="accordion js-accordion" id="accordion">
+                        <?php foreach ($fuehrungen as $fuehrung) { ?>
+                            <?php if (($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet())) continue; ?>
+                            <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>" style="display:none">
+                                <div class="accordion-header js-accordion-header">
+                                    <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
+                                    <div class="lehrer"><?= Fachrichtung::getFachrichtungBeiID($fuehrung->getFachrichtung_id()); ?></div>
+                                    <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                                </div>
+                                <div class="accordion-body js-accordion-body">
+                                    <div class="accordion-body__contents">
+                                        <form class="form_buchung" method="POST" action="index.php?aktion=fe_startseite&anmelden=1">
+                                            <label for="vorname">Vorname:</label>
+                                            <input type="text" name="vorname" class="anmeldeinputs" title="zB. Max" value="" onchange="formAusgefuellt(this)" /><br />
+                                            <label for="nachname">Nachname:</label>
+                                            <input type="text" name="nachname" class="anmeldeinputs" title="zB. Mustermann" value="" onchange="formAusgefuellt(this)" /><br />
+                                            <label for="telefon">Telefon:</label>
+                                            <input type="telefon" name="telefon" class="anmeldeinputs" title="zB. 339 123 4567" value="" onchange="formAusgefuellt(this)" minlength="10" maxlength="15" /><br />
+                                            <label for="email">E-Mail:</label>
+                                            <input type="email" name="email" class="anmeldeinputs" title="zB. max.mustermann@gmail.com" value="" onchange="formAusgefuellt(this)" /><br />
+                                            <label for="anzahl">Personen:</label>
+                                            <input type="number" name="anzahl" class="anmeldeinputs" title="zB. 6" value="1" max="<?= $fuehrung->getKapazitaet() - $anzahl_teilnehmer[$fuehrung->getId()]; ?>" min="1" placeholder="1" onchange="formAusgefuellt(this)" />
+                                            <input type="text" name="fuehrung_id" class="anmeldeinputs" value="<?= $fuehrung->getId(); ?>" hidden />
+                                            <input type="submit" value="Anmelden" disabled="disabled" />
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+
+                    </div>
+
+                    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+                    <script>
+                        accordion()
+                    </script>
+
 
                 </div>
-
-                <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-                <script>
-                    accordion()
-                </script>
-
-
+            </section>
+        <?php } else { ?>
+            <div class="no_OD">
+                <p>Zum aktuellen Zeitpunkt ist es nicht möglich eine Führung für den Tag der Offenen Tür zu buchen!</p>
+                <p>Weitere Infos, sowie eine Bildergalerie des OPEN DAY 2022 finden Sie unter: <a href="https://www.bozen.berufsschule.it/de/news/open-day-tag-der-offenen-tur">www.bozen.berufsschule.it</a></p>
             </div>
-        </section>
-        <?php }else{
-            echo "Designer oaner fa enk muas des mochen!";
-        } ?>
+        <?php } ?>
 
         <?php require 'view/snippets/footer.sp.php'; ?>
 
@@ -129,15 +132,16 @@
     <?php require_once 'view/snippets/loading_screen.sp.php'; ?>
 </body>
 
-<?php 
-if($offener_tag != false){
+<?php
+if ($offener_tag != false) {
 
 
-if ($fachrichtungen) { ?>
-    <script>
-        //first_tab();
-        set_events();
-    </script>
-<?php }} ?>
+    if ($fachrichtungen) { ?>
+        <script>
+            //first_tab();
+            set_events();
+        </script>
+<?php }
+} ?>
 
 </html>
