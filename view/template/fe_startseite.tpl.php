@@ -120,7 +120,6 @@
         <?php } else { ?>
             <div class="no_OD">
                 <p>Zum aktuellen Zeitpunkt ist es nicht möglich eine Führung für den Tag der Offenen Tür zu buchen!</p>
-                <p>Weitere Infos, sowie eine Bildergalerie des OPEN DAY 2022 finden Sie unter: <a href="https://www.bozen.berufsschule.it/de/news/open-day-tag-der-offenen-tur">www.bozen.berufsschule.it</a></p>
             </div>
         <?php } ?>
 

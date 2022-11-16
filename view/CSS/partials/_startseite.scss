@@ -66,6 +66,14 @@ body {
 			margin: 0 auto;
 			margin-top: 5rem;
 			margin-bottom: 5rem;
+
+			p {
+				color: $blueColor;
+			}
+			a {
+				text-decoration: none;
+				color: $color-orange;
+			}
 		}
 	}
 
