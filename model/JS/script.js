@@ -108,6 +108,7 @@ function toggleCredits(anzeigen = false) {
 function aendereStatusFuehrung(offenerTag) {
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
     console.log(status);
+    location.reload();
 
     if (status == "AKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
@@ -116,6 +117,7 @@ function aendereStatusFuehrung(offenerTag) {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     }
+    
 
 
     var xhttp;

@@ -66,7 +66,7 @@ class Offener_tag
     {
         $datum = strtotime($this->datum);
 
-        return date('d.m.yy', $datum);
+        return date('d.m.Y', $datum);
     }
     public function setDatum($datum)
     {
