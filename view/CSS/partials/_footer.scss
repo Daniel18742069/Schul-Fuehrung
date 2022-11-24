@@ -10,6 +10,10 @@
         padding: 2rem;
     }
 
+    .infos-schule {
+        width: 33%;
+    }
+
     .shadow-box {
         background-color: $blueColor;
         opacity: 0.9;
@@ -126,6 +130,9 @@
         }
         .infos-schule, .oeffnungszeiten, .socials{
             margin-top: 3rem;
+        }
+        .infos-schule{
+            width: 100%;
         }
         .shadow-box{
             height: 8rem;

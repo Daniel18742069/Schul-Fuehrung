@@ -1,14 +1,12 @@
 <footer>
     <div class="footer">
         <div class="footer-box">
-            <div class="înfos-schule">
+            <div class="infos-schule">
                 <h3>Landesberufsschule für Handwerk und Industrie Bozen</h3>
                 <p>Romstraße 20</p>
                 <p>39100 Bozen</p>
                 <p>Tel.: <a href="tel:+39 0471 540700">+39 0471 540700</a></p>
-                <h5>E-Mails:</h5>
-                <p><a href="mailto:lbs.bz-handwerk-industrie@schule.suedtirol.it">lbs.bz-handwerk-industrie@schule.suedtirol.it</a></p>
-                <p><a href="mailto:lbs.bz-handwerk-industrie@pec.prov.bz.it">lbs.bz-handwerk-industrie@pec.prov.bz.it</a></p>
+                <p style="margin-top: 0.6rem"><a href="https://www.bozen.berufsschule.it/de/home">Offizielle Schulwebsite</a></p>
             </div>
             <div class="oeffnungszeiten">
                 <h3>Öffnungszeiten</h3>

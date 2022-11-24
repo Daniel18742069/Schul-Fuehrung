@@ -803,6 +803,9 @@ button.dt-button:hover {
   flex-wrap: wrap;
   padding: 2rem;
 }
+.footer .infos-schule {
+  width: 33%;
+}
 .footer .shadow-box {
   background-color: #002a50;
   opacity: 0.9;
@@ -898,6 +901,9 @@ button.dt-button:hover {
   }
   .footer .infos-schule, .footer .oeffnungszeiten, .footer .socials {
     margin-top: 3rem;
+  }
+  .footer .infos-schule {
+    width: 100%;
   }
   .footer .shadow-box {
     height: 8rem;
@@ -1043,7 +1049,6 @@ button.dt-button:hover {
 }
 .wrapper-subfooter a {
   color: #002a50;
-  /*text-decoration: underline;*/
 }
 .wrapper-subfooter a:hover {
   opacity: 0.7;

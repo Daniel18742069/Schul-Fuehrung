@@ -36,15 +36,15 @@
                     </span>
 
                     <span>
-                        <p>Intervall:</p><input type="number" name="intervall" id="intervall" min="10" placeholder="Minuten" required class="felder-neuer-od" />
+                        <p>Intervall:</p><input type="number" name="intervall" id="intervall" min="10" value="30" placeholder="Minuten" required class="felder-neuer-od" />
                     </span>
 
                     <span>
-                        <p>Startuhrzeit:</p><input type="time" name="start" id="start" required class="felder-neuer-od" />
+                        <p>Startuhrzeit:</p><input type="time" name="start" id="start" value="09:00" required class="felder-neuer-od" />
                     </span>
 
                     <span>
-                        <p>Enduhrzeit:</p><input type="time" name="ende" id="ende" required class="felder-neuer-od" />
+                        <p>Enduhrzeit:</p><input type="time" name="ende" id="ende" value="15:00" required class="felder-neuer-od" />
                     </span>
 
                 </div>
