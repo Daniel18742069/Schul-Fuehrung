@@ -25,21 +25,17 @@
 
         <p>Diese Mitteilung erfolgt im Sinne des&nbsp;Art. 13 der Datenschutz-Grundverordnung 2016/679 (DSGVO) in Durchführung der EU-Richtlinie 2002/58/CE. &nbsp;</p>
         <p>
-            Sie beschreibt, wie diese Website&nbsp;<a href="https://www.bozen.berufsschule.it">https://www.fachschule-salern.it&nbsp;</a>&nbsp;mit den personenbezogenen
+            Sie beschreibt, wie diese Website&nbsp;<a href="https://openday.berufsschule.bz/ ">https://openday.berufsschule.bz/&nbsp;</a>&nbsp;mit den personenbezogenen
             Daten der – identifizierten oder identifizierbaren – Benutzer umgeht, die auf die Website zugreifen oder mit der Website und mit den über das Netz zugänglichen
             Landesdiensten interagieren.&nbsp;Im Besonderen wird hiermit festgelegt, welche Informationen die Rechtsinhaber der Datenverarbeitung den Personen, die – zu
             welchem Zweck auch immer – auf eine Webseite zugreifen, bieten müssen sowie wie und wann diese Mitteilung erfolgen muss. Diese Information gilt ausschließlich
-            für die Website &nbsp;<a href="https://www.bozen.berufsschule.it">https://www.bozen.berufsschule.it</a>. Sie gilt nicht für sonstige externe Webseiten, die
+            für die Website&nbsp;<a href="https://openday.berufsschule.bz/">https://openday.berufsschule.bz/</a>. Sie gilt nicht für sonstige externe Webseiten, die
             eventuell über eine Verlinkung auf dieser Website zu erreichen sind.
         </p>
 
 
         <h3>Rechtsinhaber der Datenverarbeitung</h3>
         <p>Rechtsinhaber der Datenverarbeitung ist die Landesberufsschule für Handwerk und Industrie, Romstraße 20, 39100 Bozen.</p>
-
-
-        <h3>Externer Auftragsverarbeiter</h3>
-        <p>Externer Auftragsverarbeiter ist die Südtiroler Informatik AG, Siemensstr. 29, 39100 Bozen.</p>
 
         <h3>Datenschutzbeauftragte</h3>
         <p>
