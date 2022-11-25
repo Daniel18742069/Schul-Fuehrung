@@ -15,7 +15,6 @@ function tabs(actuated_button, fachrichung_id) {
             //button.style.border = '1px solid black';
             button.style.fontWeight = '700';
             button.style.filter = 'brightness(0.8)';
-            //
         } else {
             // Reset other Buttons
             button.disabled = false;
@@ -35,6 +34,7 @@ function tabs(actuated_button, fachrichung_id) {
         if (fuehrung.classList.contains(fachrichung_id)) {
             // show element
             fuehrung.style.display = 'block';
+            document.getElementById('accordion').scrollIntoView(true);
         } else {
             // hide element
             fuehrung.style.display = 'none';
@@ -107,8 +107,6 @@ function toggleCredits(anzeigen = false) {
 
 function aendereStatusFuehrung(offenerTag) {
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
-    console.log(status);
-    
 
     if (status == "AKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
@@ -117,8 +115,8 @@ function aendereStatusFuehrung(offenerTag) {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     }
-    
-    //location.reload();
+
+
     
     var xhttp;
     try {

@@ -37,10 +37,9 @@
 
         <h3>Verantwortliche und Ansprechpartner zur Webseite</h3>
         <span>
-            <p><b>Allgemein: </b>&nbsp;Peter Prieth (Direktor)&nbsp;, Miriam Bolognani (Vizedirektorin)</p>
+            <p><b>Allgemein:</b>&nbsp;Rudi Gruber (Direktor)</p>
             <p><b>Inhalte der Seiten und der Artikel: </b>&nbsp;Landesberufsschule für Handwerk und Industrie Bozen</p>
-            <p><b>Bearbeitung und Wartung: </b>Hannes Pichler</p>
-            <p><b>Fotos: </b>Silvia Tiziani</p>
+            <p><b>Foto: </b>Silvia Tiziani</p>
             <p></p>
         </span>
 

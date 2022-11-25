@@ -29,9 +29,9 @@
     }
 
     .black-label{
-        background-color: black;
-        opacity: 0.8;
-        font-size: 3rem;
+        background-color: rgb(25, 25, 25);
+        opacity: 0.75;
+        font-size: 5rem;
         color: $font-color;
         font-weight: 750;
         text-transform: uppercase;
@@ -41,7 +41,8 @@
         font-family: 'Oswald', sans-serif;
         p{
             text-align: center;
-            margin: 0.2rem;
+            margin: 1rem;
+            letter-spacing: 2rem;
         }
     }
 }
