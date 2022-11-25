@@ -108,7 +108,7 @@ function toggleCredits(anzeigen = false) {
 function aendereStatusFuehrung(offenerTag) {
     var status = document.getElementById("namenAendern" + offenerTag).innerHTML;
     console.log(status);
-    location.reload();
+    
 
     if (status == "AKTIVIERT") {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "DEAKTIVIERT";
@@ -118,8 +118,8 @@ function aendereStatusFuehrung(offenerTag) {
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     }
     
-
-
+    //location.reload();
+    
     var xhttp;
     try {
         xhttp = new XMLHttpRequest();
@@ -138,6 +138,7 @@ function aendereStatusFuehrung(offenerTag) {
     formData = new FormData();
     formData.append("offenerTag", offenerTag); //extra variable
     xhttp.send(formData);
+    
 
 }
 
