@@ -76,7 +76,7 @@
 
                     <div class="accordion js-accordion" id="accordion">
                         <?php foreach ($fuehrungen as $fuehrung) { ?>
-                            <?php if (($anzahl_teilnehmer[$fuehrung->getId()] === $fuehrung->getKapazitaet())) continue; ?>
+                        <?php if ($anzahl_teilnehmer[$fuehrung->getId()] != $fuehrung->getKapazitaet()) { ?>
                             <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>" style="display:none">
                                 <div class="accordion-header js-accordion-header">
                                     <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
@@ -102,7 +102,22 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php } else{ ?>
+
+                            <div class="accordion__item js-accordion-item fuehrung <?= $fuehrung->getFachrichtung_id(); ?>" style="display:none">
+                                <div class="accordion-header js-accordion-header" style="background-color: lightgray; cursor: not-allowed">
+                                    <div class="uhrzeit"><?= $fuehrung->getUhrzeitWelformed(); ?> Uhr</div>
+                                    <div class="lehrer"><?= Fachrichtung::getFachrichtungBeiID($fuehrung->getFachrichtung_id()); ?></div>
+                                    <div class="kapazitaet"><?= ($anzahl_teilnehmer[$fuehrung->getId()]) ? $anzahl_teilnehmer[$fuehrung->getId()] : 0; ?>/<?= $fuehrung->getKapazitaet(); ?></div>
+                                </div>
+                            </div>
+
+
+<?php
+                        }
+                    
+                    
+                    } ?>
 
                     </div>
 
