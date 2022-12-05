@@ -367,14 +367,6 @@ p {
 	width: auto;
 }
 
-.btns-admin-panel {
-	max-width: 20rem;
-	float: right;
-	position: sticky;
-	top: 3rem;
-	right: 0;
-}
-
 input[type="submit"],
 .neuer_od,
 #btn_loesche,
@@ -410,13 +402,13 @@ input[type="submit"],
 
 
 
-
+/*
 #btn_anmelden,
 #btn_drucken,
 .zurueck-admin-panel {
-	/*position: fixed;
+	position: fixed;
   bottom: 3rem;
-  right: 5rem;*/
+  right: 5rem;
 
 	position: sticky;
 	top: 3rem;
@@ -436,7 +428,7 @@ input[type="submit"],
 	display: block;
 	margin-left: auto;
 	width: 10rem;
-}
+}*/
 
 .link-admin-panel {
 	text-decoration: none;
