@@ -1,5 +1,6 @@
 <?php
-$DEV_MODE = false;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
+$DEV_MODE = true;	// Ein-(true) oder Ausschalten(false) der Entwickler Einstellungen.
+
 
 $ini = '
 	[Standard Seite]
@@ -18,10 +19,8 @@ $ini = '
 	DB_PASS=NilsStinkt132
 
 	[Mail Einstellungen]
-	MAIL_NAME=LBSHI Bozen NoReply
-    MAIL_ADDRESS=openday@gmx.net
-    MAIL_PASSWORD=ap4RPY5d7o2NzX
-	MAIL=1
+	
+	MAIL=0
 
 	[Admin Einstellungen]
 	ADMIN_BN=AdminBackend
