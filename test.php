@@ -19,7 +19,7 @@ require_once 'model/phpmailer/src/SMTP.php';
 
 
 $subject ="test";
-$message ="asdasgzdasu";
+$message ="asdasgzdas Hallo ich bins, benno";
 $to_address ="benno.pichle@gmail.com";
 $to_name ="Benno";
 
