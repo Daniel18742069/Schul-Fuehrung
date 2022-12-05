@@ -401,6 +401,17 @@ input[type="submit"],
 }
 
 
+.btns-admin-panel{
+	display: flex;
+    justify-content: space-between;
+	width: 1140px;
+    margin: 1.5rem auto;
+	input{
+		width: 30%;
+	}
+}
+
+
 
 /*
 #btn_anmelden,
@@ -562,6 +573,22 @@ input[type="submit"],
 		flex-wrap: wrap;
 	}
 
+	.logo {
+		width: 120px;
+		margin: 0.5rem 0;
+	}
+
+	.white-label {
+		padding: 0 0.5rem !important;
+	}
+
+	.black-label {
+		p {
+			font-size: 2rem;
+			letter-spacing: 1rem !important;
+		}
+	}
+
 }
 
 
@@ -599,21 +626,6 @@ input[type="submit"],
 		}
 	}
 
-	.logo {
-		width: 120px;
-		margin: 0.5rem 0;
-	}
-
-	.white-label {
-		padding: 0 0.5rem !important;
-	}
-
-	.black-label {
-		p {
-			font-size: 2rem;
-		}
-	}
-
 	.accordion-body__contents {
 		margin-bottom: 3rem;
 	}
@@ -628,12 +640,12 @@ input[type="submit"],
 		}
 
 		label {
-			padding-left: 0;
+			padding: 1.3rem 0 0 0;
 		}
 
 		.anmeldeinputs {
 			width: 100%;
-			margin-left: 0;
+			margin-left: 0 !important;
 		}
 	}
 

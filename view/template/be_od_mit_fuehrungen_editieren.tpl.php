@@ -31,6 +31,7 @@
                 <div class="accordion js-accordion" id="accordion">
                     <?php foreach ($fuehrungen as $key => $fuehrung) {
                         $anzahlTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+                        $fachrichtungen = Fachrichtung::getFachrichtungBeiID($fuehrung->getFachrichtung_id());
                         if ($anzahlTeilnehmer == NULL) {  //anzahl Formatieren
                             $anzahlTeilnehmer = 0;
                         }
@@ -56,10 +57,10 @@
 
                                     <?php echo $fuehrung->getUhrzeitWelformed() . " ";  ?>
                                 </div>
-
+                                <span><?= $fachrichtungen ?></span>
+                                
                                 <input type="text" name="fuehrungspersonen<?= $key ?>" class="fuehrungspersonen" value="<?= $fuehrung->getFuehrungspersonen() ?>" required />
                                 <?php
-
                                 echo $anzahlTeilnehmer . " / " . $fuehrung->getKapazitaet() . "<br>";
                                 $anmeldungen = Anmeldung::findeAlleAnmeldungen_von_fuehrung($fuehrung->getId());
                                 ?>
