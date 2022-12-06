@@ -233,7 +233,7 @@ class Controller
 
                 $to_address = $Anmeldung->getEmail();
                 $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
-                $subject = 'Anmeldung Erfolgreich';
+                $subject = 'Anmeldung erfolgreich';
                 $message = file_get_contents('mail/anmeldung.mail.html');
                 $message = ersetze_platzhalter($message, [
                     ['url', CONF['URL']],
@@ -321,7 +321,7 @@ class Controller
 
                         $to_address = $Anmeldung->getEmail();
                         $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
-                        $subject = 'Anmeldung Gelöscht';
+                        $subject = 'Anmeldung gelöscht';
                         $message = file_get_contents('mail/abmeldung.mail.html');
                         $message = ersetze_platzhalter($message, [
                             ['url', CONF['URL']],
@@ -379,7 +379,7 @@ class Controller
 
                                 $to_address = $Anmeldung->getEmail();
                                 $to_name = ucwords($Anmeldung->getVorname()) . ' ' . ucwords($Anmeldung->getNachname());
-                                $subject = 'Anmeldung Bearbeitet';
+                                $subject = 'Anmeldung bearbeitet';
                                 $message = file_get_contents('mail/bearbeitung.mail.html');
                                 $message = ersetze_platzhalter($message, [
                                     ['url', CONF['URL']],

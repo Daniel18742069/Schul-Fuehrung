@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<base href="<?= CONF['DB_HOST'] ?>" />
+<base href="<?= CONF['BASE'] ?>" />
     <meta charset="utf-8" />
     <title>Verwaltung</title>
     <link rel="stylesheet" href="<?= CONF['BACKSLASH'] ?>view/CSS/style.css" />
