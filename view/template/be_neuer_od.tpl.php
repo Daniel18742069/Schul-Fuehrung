@@ -50,9 +50,7 @@
                 </div>
 
                 <input type="submit" value="Erstellen" class="neuer-od-erstellen">
-                <a href="AlleOpenDay">
-                    <input type="button" id="btn-zurueck" value="Zurück" />
-                </a>
+                <a href="AlleOpenDay" id="btn-zurueck">Zurück</a>
 
             </form>
 

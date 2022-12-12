@@ -55,9 +55,7 @@
                         <?php } ?>
 
                         <input type="submit" name="anmelden" value="Führung hinzufügen" id="btn-weiter" disabled />
-                        <a href="AlleOpenDay">
-                            <input type="button" id="btn-zurueck" value="Zurück" />
-                        </a>
+                        <a href="AlleOpenDay" id="btn-zurueck">Zurück</a>
 
                     </form>
                 <?php
@@ -91,9 +89,7 @@
 
                         <input type="text" name="offenerTag" value="<?= $_GET['id'] ?>" hidden />
                         <input type="submit" name="anmeldenFuehrungen" value="Erstellen" />
-                        <a href="AlleOpenDay">
-                            <input type="button" id="btn-zurueck" value="Zurück" />
-                        </a>
+                        <a href="AlleOpenDay" id="btn-zurueck">Zurück</a>
 
 
 
