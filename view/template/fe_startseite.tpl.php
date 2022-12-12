@@ -18,10 +18,12 @@
 
 
     <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>model/JS/script.js"></script>
+    <script type="text/javascript" src="<?= CONF['BACKSLASH'] ?>plugin/js/cookieconsent.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
 <body>
+    <script>cookieconsent()</script>
     <?php require 'view/snippets/info_box.sp.php'; ?>
 
 

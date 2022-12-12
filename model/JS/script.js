@@ -115,6 +115,10 @@ function aendereStatusFuehrung(offenerTag) {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 
     
@@ -146,7 +150,7 @@ function aendereStatusFuehrung(offenerTag) {
  */
 function accordion() {
 
-    const accordion = function() {
+    const accordion = function () {
 
         const $accordion = $('.js-accordion');
         const $accordion_header = $accordion.find('.js-accordion-header');
@@ -163,8 +167,8 @@ function accordion() {
 
         return {
             // pass configurable object literal
-            init: function($settings) {
-                $accordion_header.on('click', function() {
+            init: function ($settings) {
+                $accordion_header.on('click', function () {
                     accordion.toggle($(this));
                 });
 
@@ -178,7 +182,7 @@ function accordion() {
                 // reveal the active accordion bodies
                 $('.js-accordion-item.active').find('> .js-accordion-body').show();
             },
-            toggle: function($this) {
+            toggle: function ($this) {
 
                 if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
                     $this.closest('.js-accordion').
@@ -196,7 +200,7 @@ function accordion() {
 
     }();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         accordion.init({
             speed: 300,
             oneOpen: true
@@ -243,4 +247,34 @@ function termin_aktion_abbrechen() {
     document.querySelector('#term_abme').style.display = 'none';
     document.querySelector('#term_aend').style.display = 'none';
     document.querySelector('#term').style.display = 'block';
+}
+
+/**
+ * Cookie Consent
+ */
+function cookieconsent() {
+    window.addEventListener("load", function cookieconsent() {
+        window.wpcc.init({
+            "corners": "small",
+            "colors": {
+                "popup": {
+                    "background": "#f6f6f6",
+                    "text": "#002A50",
+                    "border": "#555555"
+                },
+                "button": {
+                    "background": "#F5C400CC",
+                    "text": "#002A50"
+                }
+            },
+            "position": "top",
+            "transparency": "5",
+            "content": {
+                "href": "https://openday.berufsschule.bz/Cookies",
+                "message": "Diese Website nutzt Cookies um Ihnen die möglichst beste Erfahrung zu gewährleisten.",
+                "link": "Mehr dazu",
+                "button": "OK"
+            }
+        })
+    });
 }
