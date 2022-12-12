@@ -258,7 +258,7 @@ function cookieconsent() {
                 },
                 "button": {
                     "background": "#002A50",
-                    "text": "#136DBC"
+                    "text": "#FFFFFF"
                 }
             },
             "position": "top",
