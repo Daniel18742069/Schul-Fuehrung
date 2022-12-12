@@ -25,12 +25,8 @@
             <div class="alle_od">
                 <h2>Alle Open Days</h2>
                 <span>
-                    <a href="NeuerOpenDay">
-                        <button class="neuer_od">neuer Open Day</button>
-                    </a>
-                    <a href="NeuesFach">
-                        <button class="neuer_od">neues Fach</button> <!-- name class ändern -->
-                    </a>
+                    <a href="NeuerOpenDay" class="neuer_od">neuer Open Day</a>
+                    <a href="NeuesFach" class="neuer_od">neues Fach</a>
                 </span>
             </div>
 
@@ -60,18 +56,12 @@
                                 <span class="buttons">
 
                                 <?php if($offenerTag->getFuehrungen() == NULL){ ?>
-                                        <a><button class="editieren editieren-disabled" disabled>Editieren</button></a>
+                                        <button class="editieren editieren-disabled" disabled>Editieren</button>
                                 <?php }else{ ?>
-                                    <a href="FuehrungEditieren&<?= $offenerTag->getId() ?>">
-                                        <button class="editieren">Editieren</button>
-                                    </a>
+                                    <a href="FuehrungEditieren&<?= $offenerTag->getId() ?>" class="editieren">Editieren</a>
                                 <?php } ?>
 
-                                    <a href="Einstellungen&<?= $offenerTag->getId() ?>">
-
-                                        <button class="editieren">Führung hinzufügen</button>
-
-                                    </a>
+                                    <a href="Einstellungen&<?= $offenerTag->getId() ?>" class="editieren">Führung hinzufügen</a>
 
                                     <form id="MyForm" name="MyForm">
 
