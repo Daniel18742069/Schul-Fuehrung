@@ -114,14 +114,8 @@ function aendereStatusFuehrung(offenerTag) {
     } else {
         document.getElementById("namenAendern" + offenerTag).innerHTML = "AKTIVIERT";
         document.getElementById("namenButtonAendern" + offenerTag).innerHTML = "DEAKTIVIEREN";
-    }
-<<<<<<< Updated upstream
-=======
+    } 
 
->>>>>>> Stashed changes
-
-
-    
     var xhttp;
     try {
         xhttp = new XMLHttpRequest();
@@ -140,7 +134,7 @@ function aendereStatusFuehrung(offenerTag) {
     formData = new FormData();
     formData.append("offenerTag", offenerTag); //extra variable
     xhttp.send(formData);
-    
+
 
 }
 
@@ -263,8 +257,8 @@ function cookieconsent() {
                     "border": "#555555"
                 },
                 "button": {
-                    "background": "#F5C400CC",
-                    "text": "#002A50"
+                    "background": "#002A50",
+                    "text": "#136DBC"
                 }
             },
             "position": "top",
@@ -274,7 +268,8 @@ function cookieconsent() {
                 "message": "Diese Website nutzt Cookies um Ihnen die möglichst beste Erfahrung zu gewährleisten.",
                 "link": "Mehr dazu",
                 "button": "OK"
-            }
+            },
+            "pushdown": true
         })
     });
 }
