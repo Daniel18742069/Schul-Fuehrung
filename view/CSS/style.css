@@ -5,12 +5,15 @@
 }
 
 .termine, .buttons {
-  display: grid;
+  display: flex;
   justify-content: space-around;
-  grid-template-columns: 1fr 1fr;
+  text-align: center;
 }
 .termine p, .buttons p {
   margin: 0;
+}
+.termine a, .buttons a {
+  width: 30%;
 }
 
 .aendern, .abmelden {
@@ -558,11 +561,13 @@ input[type=submit]:disabled,
 
 #btn-zurueck {
   margin-right: 0.5rem;
+  text-decoration: none;
 }
 
 .neuer_od {
   margin: 0 0.25rem;
   min-width: 13rem;
+  text-align: center;
 }
 
 .andereStatus {
@@ -829,14 +834,14 @@ input[type=submit]:disabled,
 }
 
 .buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
 }
-.buttons a, .buttons form {
+.buttons form, .buttons a {
   text-decoration: none;
-  width: calc(100% - 0.5rem);
+  width: 30%;
 }
-.buttons a button, .buttons form button {
+.buttons form button, .buttons a button {
   width: 100%;
 }
 

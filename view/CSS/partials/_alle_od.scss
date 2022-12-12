@@ -79,13 +79,14 @@
 }
 
 .buttons{
-    a, form{
+    display: flex;
+    justify-content: space-between;
+    form, a{
         text-decoration: none;
-        width: calc(100% - 0.5rem);
+        width: 30%;
         button{
             width: 100%;
+
         }
     }
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 }
