@@ -40,8 +40,7 @@
                         <h2>Zeit für einen Rundgang?</h2>
                         <span>
                             <p class="textEins">Wir von der Landesberufsschule Bozen bieten jedes Jahr zum Tag der offenen Tür Rundgänge für interessierte Schüler und Eltern an.</p>
-                            <p class="textZwei">Reservieren Sie eine Führung noch heute für den <strong><?= $offener_tag->getBezeichnung() ?></strong> am <strong><?= $offener_tag->getDatumWelformed() ?></strong>
-                                , von <strong><?= $offener_tag->getStartWelformed() ?></strong> bis <strong><?= $offener_tag->getEndeWelformed() ?> Uhr!</strong></p>
+                            <p class="textZwei">Reservieren Sie eine Führung noch heute für den <strong><?= $offener_tag->getBezeichnung() ?></strong> am <strong><?= $offener_tag->getDatumWelformed() ?></strong>, von <strong><?= $offener_tag->getStartWelformed() ?></strong> bis <strong><?= $offener_tag->getEndeWelformed() ?> Uhr!</strong></p>
                         </span>
                     </div>
 
