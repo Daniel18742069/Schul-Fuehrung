@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-.header{
+.header {
     background-image: url('../img/school.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -8,7 +8,7 @@
     position: relative;
     height: 41.3vh;
 
-    .white-label{
+    .white-label {
         padding: 0.7rem;
         display: flex;
         flex-wrap: wrap;
@@ -20,15 +20,17 @@
         a {
             text-decoration: none;
         }
+
         .icon-cog {
             color: $blueColor;
         }
+
         .icon-cog:hover {
             color: $color-orange;
         }
     }
 
-    .black-label{
+    .black-label {
         background-color: rgb(25, 25, 25);
         opacity: 0.75;
         font-size: 3.5rem;
@@ -39,27 +41,15 @@
         position: absolute;
         bottom: 0;
         font-family: 'Oswald', sans-serif;
-        p{
+
+        p {
             text-align: center;
             margin: 1rem;
             letter-spacing: 2rem;
         }
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*header {
         width: 100%;
