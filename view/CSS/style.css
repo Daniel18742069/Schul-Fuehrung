@@ -16,7 +16,12 @@
   width: 30%;
 }
 
+.termine {
+  text-align: left;
+}
+
 .aendern, .abmelden {
+  width: 100%;
   order: 1;
   margin: 1.5rem 0.2rem;
   color: #002a50;
@@ -772,13 +777,16 @@ input[type=submit]:disabled,
   justify-content: space-between;
 }
 
-.inhalt_od, .neuer-od-formular {
+.inhalt_od, .neuer-od-formular, .termine {
   display: grid;
   justify-content: space-around;
   grid-template-columns: 1fr 1fr;
 }
-.inhalt_od p, .neuer-od-formular p {
+.inhalt_od p, .neuer-od-formular p, .termine p {
   margin: 0;
+}
+
+.inhalt_od p, .neuer-od-formular p {
   text-align: center;
 }
 
@@ -1000,7 +1008,6 @@ button.dt-button:hover {
 #cr_credits {
   position: absolute;
   right: 13vw;
-  bottom: 0;
   height: 0;
   overflow-y: hidden;
   transition: all linear 150ms;
@@ -1034,9 +1041,6 @@ button.dt-button:hover {
   }
   .footer .infos-schule {
     width: 100%;
-  }
-  .footer .shadow-box {
-    height: 8rem;
   }
 }
 .wrapper-subfooter {

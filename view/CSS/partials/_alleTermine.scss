@@ -14,7 +14,12 @@
     }
 }
 
+.termine{
+    text-align: left;
+}
+
 .aendern, .abmelden {
+    width: 100%;
     order: 1;
     margin: 1.5rem 0.2rem;
     color: $blueColor;

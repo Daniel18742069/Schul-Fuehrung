@@ -21,7 +21,7 @@ $ini = '
 	54e=Ihre Anmeldung wurde nicht gefunden
 
 	[Backend]
-	6g9=OPEN DAY wurde erfolgreich erstellt
+	6g9=Open Day wurde erfolgreich erstellt
 	8b7=Open Day wurde nicht erstellt. Überprüfen Sie die Start- und Endzeit
 	7x1=Fach wurde erfolgreich hinzugefügt
 	9b0=Führung erfolgreich hinzugefügt
