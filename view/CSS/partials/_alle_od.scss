@@ -9,14 +9,19 @@
     justify-content: space-between;
 }
 
-.inhalt_od, .neuer-od-formular{
+.inhalt_od, .neuer-od-formular, .termine{
     display: grid;
     justify-content: space-around;
     grid-template-columns: 1fr 1fr;
     p{
         margin: 0;
-        text-align: center;
         //text-align: center;
+    }
+}
+
+.inhalt_od, .neuer-od-formular{
+    p{
+        text-align: center;
     }
 }
 

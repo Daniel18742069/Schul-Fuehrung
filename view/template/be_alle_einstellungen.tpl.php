@@ -78,7 +78,7 @@
                                 <div class="fueh-kap">
                                     <p>Führungsperson: <input type="text" name="fuehrungspersonen<?php echo $fach . "_" . $j ?>" class="fuehrungspersonen" required />
                                     <p>Kapazität: <input type="number" name="kapazitaet<?php echo $fach . "_" . $j ?>" value="1" class="kapazitaet kap" required /></p>
-                                </div>
+                                </di v>
                         <?php
                             }
                         }
