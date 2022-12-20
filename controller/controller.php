@@ -395,19 +395,19 @@ class Controller
                                 );
 
                                 //return ['Termin&', '57d', $_REQUEST['token']];
-                                return ['Startseit&', '57d'];
+                                return ['Startseite&', '57d'];
                             }
 
                             //return ['Termin&', '9b8', $_REQUEST['token']];
-                            return ['Startseite&', '57d'];
+                            return ['Termin&', '9b8'];
                         }
 
                         //return ['Termin&', '734', $_REQUEST['token']];
-                        return ['Startseite&', '57d'];
+                        return ['Termin&', '734'];
                     }
 
                     //return ['Termin&', 'a95', $_REQUEST['token']];
-                    return ['Startseite&', '57d'];
+                    return ['Termin&', 'a95'];
                 }
 
                 return ['Startseite&', '3b9'];
