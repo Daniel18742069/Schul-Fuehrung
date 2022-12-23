@@ -285,7 +285,7 @@ class Anmeldung
     public static function validate_email(string $email): bool
     {
         return $email
-            && preg_match('/^[-._a-z1-9]+[@][a-z1-9]+[.][a-z]{2,3}$/i', $email);
+            && (filter_var($email, FILTER_VALIDATE_EMAIL));
     }
 
     public static function validate_fuehrung_id(int $fuehrung_id): bool
