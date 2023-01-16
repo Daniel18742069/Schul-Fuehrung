@@ -102,14 +102,20 @@ function isUpdate($request)
         if (
             array_key_exists($i, $request)  && array_key_exists('fuehrungspersonen' . $i, $request)
         ) {
+            
             $fuehrung = Fuehrung::findeFuehrung($request[$i]);
+            $anzahlDerTeilnehmer = Anmeldung::anzahlTeilnehmer($fuehrung->getId());
+
 
             if (array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 0) {
                 $fuehrung->setSichtbar(1);
             } elseif (!array_key_exists("checkbox" . $i, $request) && $fuehrung->getSichtbar() == 1) {
-                $fuehrung->setSichtbar(0);
+                if($anzahlDerTeilnehmer < 1){
+                    $fuehrung->setSichtbar(0);
+                }
+                
+                
             }
-
             if ($fuehrung->getFuehrungspersonen() !== $request['fuehrungspersonen' . $i]) {
                 $fuehrung->setFuehrungspersonen($request['fuehrungspersonen' . $i]);
             }
